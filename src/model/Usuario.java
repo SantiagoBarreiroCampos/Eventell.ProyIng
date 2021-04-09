@@ -1,6 +1,7 @@
 package model;
 
-public class Usuario {
+public class Usuario
+{
 	private String nombre_;
 	private String apellidos_;
 	private String nacimiento_;
@@ -10,7 +11,8 @@ public class Usuario {
 	private String user_;
 	private String password_;
 	
-	public Usuario (String nombre, String apellidos, String nacimiento, String correo, String ciudad, String sexo, String user, String password) {
+	public Usuario (String nombre, String apellidos, String nacimiento, String correo, String ciudad, String sexo, String user, String password)
+	{
 		this.nombre_ = nombre;
 		this.apellidos_ = apellidos;
 		this.nacimiento_ = nacimiento;
@@ -21,28 +23,36 @@ public class Usuario {
 		this.password_ = password;
 	}
 	
-	public String getNombre() {
+	public String getNombre()
+	{
 		return nombre_;
 	}
-	public String getApellidos() {
+	public String getApellidos()
+	{
 		return apellidos_;
 	}
-	public String getNacimiento() {
+	public String getNacimiento()
+	{
 		return nacimiento_;
 	}
-	public String getCorreo() {
+	public String getCorreo()
+	{
 		return correo_;
 	}
-	public String getCiudad() {
+	public String getCiudad()
+	{
 		return ciudad_;
 	}
-	public String getSexo() {
+	public String getSexo()
+	{
 		return sexo_;
 	}
-	public String getUser() {
+	public String getUser()
+	{
 		return user_;
 	}
-	public String getPassword() {
+	public String getPassword()
+	{
 		return password_;
 	}
 }
