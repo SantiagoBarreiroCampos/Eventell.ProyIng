@@ -4,148 +4,119 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import model.Usuario;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.PrintWriter;
 
 public class Main
-{
-	public static void Registrarse() throws IOException
-	{
-		Fichero();
-	}
-	public static void LogIn() throws IOException
-	{
-		String ruta = "usuarios.csv"; // Se supone que ya está creado, si no lo está se crea usando createNewFile()
-		File usuariosCSV = new File(ruta);
-		Scanner in = new Scanner(System.in);
-		
-		BufferedWriter bw;
-		PrintWriter pw;
-		bw = new BufferedWriter(new FileWriter(usuariosCSV, true));
-		pw = new PrintWriter(bw); 
-
-		System.out.println("Nombre de usuario:");
-		String username = in.next();
-		System.out.println("Contraseña:");
-		String contrasena = in.next();
-		
-		pw.flush(); //Esto limpia el stream para que pueda ser utilizado más adelante si se quiere
-			
-		//Leer datos en el fichero		
-		Scanner reader = new Scanner(usuariosCSV);  //Le paso como parámetro el fichero que quiero leer
-	
-	    //Leemos cada línea
-	    int lineNumber = 0;
-	    boolean encontrado = false;
-	    while(reader.hasNextLine())
-	    {
-	    	String linea = reader.nextLine();
-	    	String[] usuarioDividido = linea.split(",");
-	    	if(usuarioDividido[5].equals(username))
-	    	{
-	    		if(usuarioDividido[6].equals(contrasena))
-	    		{
-	    			encontrado = true;
-	    			Menu();	    			
-	    		}
-	    	}
-	        lineNumber++;
-	    }
-	    if (encontrado == false) { System.out.println("\nUsuario o contraseña incorrectos. Va a regresar al menu de inicio\n"); }	    
-	    
-	    pw.close(); // Cerramos todos los objetos input y output
-		bw.close();
-		//in.close();
-		//reader.close();
-	}
-	public static void LogOut()
-		{
-			System.out.println("Estas en la funcion LogOut(). Pulsa cualquier tecla para volver al menu");
-			Scanner sc = new Scanner(System.in);
-			String a = sc.nextLine();
-			Menu();
-		}
-	public static void Menu()
-	{
-		System.out.println(" - - - - - MENU - - - - -");
-	}
-	public static String concatenar(String e[], String delimitador)
-	{
-		String linea="";
-		for(int i = 0; i < e.length; i++)
-		{
-			if(i!=e.length-1)
-				linea = linea + e[i] + delimitador;
-			else
-				linea = linea + e[i];	
-		}
-		return linea;
-	}
-	public static void Fichero() throws IOException
-	{
-		String ruta = "usuarios.csv"; // Se supone que ya está creado, si no lo está se crea usando createNewFile()
-		File usuariosCSV = new File(ruta);
-		Scanner in = new Scanner(System.in);
-		
-		BufferedWriter bw;
-		PrintWriter pw;
-		bw = new BufferedWriter(new FileWriter(usuariosCSV, true));
-		pw = new PrintWriter(bw); 
-		
-		String[] usuarioDividido = new String[8];
-		// Guardamos datos en el fichero
-		String linea;
-		System.out.println("Introduzca los datos del estudiante: ");
-		System.out.println("Nombre:");
-		usuarioDividido[0] = in.next();			
-		System.out.println("Apellidos:");
-		usuarioDividido[1] = in.next();	
-		System.out.println("Correo:");
-		usuarioDividido[2] = in.next();	
-		System.out.println("Fecha de nacimiento:");
-		usuarioDividido[3] = in.next();
-		System.out.println("Ciudad:");
-		usuarioDividido[4] = in.next();
-		System.out.println("Nombre de usuario:");
-		usuarioDividido[5] = in.next();
-		System.out.println("Contraseña:");
-		usuarioDividido[6] = in.next();
-		System.out.println("Sexo:");
-		usuarioDividido[7] = in.next();
-
-		linea = concatenar(usuarioDividido,","); // Concatenamos para guardar con un ; como delimitador
-		pw.println(linea);			
-		pw.flush(); //Esto limpia el stream para que pueda ser utilizado más adelante si se quiere
-	    
-	    // Cerramos todos los objetos input y output
-	    pw.close(); 
-		bw.close();
-		//in.close();
-		//reader.close();	
-	}	
+{		
 	public static void main(String args[]) throws IOException
 	{
 		Scanner sc = new Scanner(System.in);
-		String eleccion;
+		
+		Usuario SesionIniciada = new Usuario(); // Este se usara para que, una vez logeado, el sistema sepa con que datos trabajar
+		
 		do
 		{
+			Usuario usuarioAux = new Usuario();
+			String eleccion1;		
 			System.out.println("BIENVENIDO A EVENTELL");
-			System.out.println("Pulse (1) para registrarse\nPulse (2) para iniciar sesion");
-				eleccion = sc.nextLine();
+			System.out.println("Pulse (1) para registrarse"
+							+ "\nPulse (2) para iniciar sesion");
+			eleccion1 = sc.nextLine();
 				
-			switch(eleccion)
+			switch(eleccion1)
 			{
-				case "1":
-					Registrarse();
+				case "1":					
+					SesionIniciada = usuarioAux.Registrarse();
+					Menu(SesionIniciada);
 					break;
 				case "2":
-					LogIn();
+					System.out.println("Introduzca su nombre de usuario:");
+					String username = sc.next();
+					System.out.println("Introduzca su contraseña:");
+					String contrasena = sc.next();
+					SesionIniciada = usuarioAux.Login(username, contrasena);
+					if(SesionIniciada.getUser() != null)
+					{
+						Menu(SesionIniciada);						
+					}
 					break;
 				default:
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
 			}
 		} while(1 > 0); // Esto es provisional para que no se me salga del programa
+	}
+	
+	public static void Menu(Usuario user)
+	{
+		Scanner sc = new Scanner(System.in);
+		String eleccion2;
+		
+		do
+		{
+			System.out.println(" - - - - - MENU - - - - - - [Accedido desde: " + user.getUser() + "]");
+			System.out.println("Pulse (0) para cerrar sesion"
+							+ "\nPulse (1) para cambiar ajustes de perfil"
+							+ "\nPulse (2) para ver eventos comprados"
+							+ "\nPulse (3) para ver lista de amigos"
+							+ "\nPulse (4) para ver lista de artistas favoritos"
+							+ "\nPulse (5) para ver lista de eventos favoritos"
+							+ "\nPulse (6) para iniciar una busqueda"
+							+ "\nPulse (7) para ver calendario personalizado"
+							+ "\nPulse (8) para solicitar sugerencias de eventos"
+							+ "\nPulse (9) para darse de baja en el sistema de EVENTELL");
+			eleccion2 = sc.nextLine();
+				
+			switch(eleccion2)
+			{
+				case "0":
+					eleccion2 = "0";
+					user = null;
+					System.out.println("Acaba de cerrar sesión. Regrasará al menú de inicio");
+					break;
+				case "1":
+					break;
+				case "2":
+					break;
+				case "3":
+					break;
+				case "4":
+					break;
+				case "5":
+					break;
+				case "6":
+					break;
+				case "7":
+					break;
+				case "8":
+					break;
+				case "9":
+					System.out.println("Está seguro que desea darse de baja en el sistema?\n Si: (1), No: (2)");
+					eleccion2 = sc.nextLine();
+					if(eleccion2 == "1")
+					{
+						user.setDisponible(false);
+						eleccion2 = "0";						
+					}
+					else
+					{
+						System.out.println("Usted conservará sus datos en el sistema");
+					}
+					break;
+				default:
+					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
+			}
+		} while(eleccion2 != "0"); // Esto es provisional para que no se me salga del programa
+	}
+	
+	public static void LogOut()
+	{
+		System.out.println("Estas en la funcion LogOut(). Pulsa cualquier tecla para volver al menu");
+		Scanner sc = new Scanner(System.in);
+		String a = sc.nextLine();
+		//Menu();
 	}
 }
