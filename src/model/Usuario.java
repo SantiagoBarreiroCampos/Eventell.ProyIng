@@ -105,7 +105,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		String contrasenaAux = sc.next();
 		setPassword(contrasenaAux);
 		
-		String linea = ",," + correoAux + ",,," + nombreAux + "," + contrasenaAux + ",,0";
+		String linea = "1,"+nombreAux+"," + contrasenaAux + ",,,,,,,0";
 		pw.println(linea);
 		
 		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
@@ -136,22 +136,23 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    {
 	    	String linea = reader.nextLine();
 	    	String[] usuarioDividido = linea.split(",");
-	    	if(usuarioDividido[5].equals(username))
+	    	if(usuarioDividido[1].equals(username))
 	    	{
-	    		if(usuarioDividido[6].equals(contrasena))
+	    		if(usuarioDividido[2].equals(contrasena))
 	    		{
-	    			if(String.valueOf(usuarioDividido[8]).equals("1")) // Si esta disponible
+	    			if(String.valueOf(usuarioDividido[0]).equals("1")) // Si esta disponible
 	    			{
 	    				encontrado = true;
-	    				setNombre(usuarioDividido[0]);
-	    				setApellidos(usuarioDividido[1]);
-	    				setCorreo(usuarioDividido[2]);
-	    				//setNacimiento(usuarioDividido[3]); -> No se usar tipo Date
-	    				setCiudad(usuarioDividido[4]);
-	    				setUser(usuarioDividido[5]);
-	    				setPassword(usuarioDividido[6]);
-	    				setSexo(usuarioDividido[7]);
-	    				setEsAdmin(Boolean.parseBoolean(usuarioDividido[8]));
+	    				setDisponible(true);
+	    				setUser(usuarioDividido[1]);
+	    				setPassword(usuarioDividido[2]);
+	    				setNombre(usuarioDividido[3]);
+	    				setApellidos(usuarioDividido[4]);
+	    				setCorreo(usuarioDividido[5]);
+	    				setNacimiento(usuarioDividido[6]); //-> No se usar tipo Date
+	    				setCiudad(usuarioDividido[7]);
+	    				setSexo(usuarioDividido[8]);
+	    				setEsAdmin(Boolean.parseBoolean(usuarioDividido[9]));
 	    			}
 	    		}
 	    	}
@@ -159,7 +160,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    }
 	    if (encontrado == false)
 	    { 
-	    	System.out.println("\nUsuario o contraseña incorrectos. Va a regresar al menu de inicio\n");
+	    	System.out.println("Usuario o contraseña incorrectos.\nPulse ENTER para regresar al menu de inicio");
+	    	String tiempo = sc.nextLine();
+	    	
     	}
 	    else { System.out.println("Iniciando sesion...\n"); }
 	    
@@ -240,4 +243,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	{
 		this.disponible_ = disponible;
 	}
+	public void setNacimiento(String nacimiento)
+	{
+		this.nacimiento_ = nacimiento;
+	}
+	
 }

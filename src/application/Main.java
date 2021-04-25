@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+
+import model.ListaAmigos;
 import model.Usuario;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -17,6 +19,7 @@ public class Main
 		Scanner sc = new Scanner(System.in);
 		
 		Usuario SesionIniciada = new Usuario(); // Este se usara para que, una vez logeado, el sistema sepa con que datos trabajar
+		boolean encontrado = false;
 		
 		do
 		{
@@ -25,10 +28,15 @@ public class Main
 			System.out.println("BIENVENIDO A EVENTELL");
 			System.out.println("Pulse (1) para registrarse"
 							+ "\nPulse (2) para iniciar sesion");
-			eleccion1 = sc.nextLine();
+			System.out.println("Pulse (0) para salir del programa");
+			eleccion1 = sc.next();
 				
 			switch(eleccion1)
 			{
+				case "0":					
+					encontrado = true;
+					System.out.println("Hasta la próxima");
+					break;
 				case "1":					
 					SesionIniciada = usuarioAux.Registrarse();
 					Menu(SesionIniciada);
@@ -41,13 +49,18 @@ public class Main
 					SesionIniciada = usuarioAux.Login(username, contrasena);
 					if(SesionIniciada.getUser() != null)
 					{
-						Menu(SesionIniciada);						
+						encontrado = true;
+						Menu(SesionIniciada);
+						encontrado = false;
 					}
+					
 					break;
 				default:
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
 			}
-		} while(1 > 0); // Esto es provisional para que no se me salga del programa
+		} while(encontrado == false);
+		
+		sc.close();
 	}
 	
 	public static void Menu(Usuario user)
@@ -82,6 +95,8 @@ public class Main
 				case "2":
 					break;
 				case "3":
+					ListaAmigos listaAux = new ListaAmigos();
+					ListaAmigos lista = listaAux.menuAmigos(user);
 					break;
 				case "4":
 					break;
@@ -119,4 +134,5 @@ public class Main
 		String a = sc.nextLine();
 		//Menu();
 	}
+	 
 }
