@@ -63,10 +63,11 @@ public class Main
 		sc.close();
 	}
 	
-	public static void Menu(Usuario user)
+	public static void Menu(Usuario user) throws IOException
 	{
 		Scanner sc = new Scanner(System.in);
 		String eleccion2;
+		String SesionIniciada = user.getUser();
 		
 		do
 		{
@@ -91,6 +92,8 @@ public class Main
 					System.out.println("Acaba de cerrar sesión. Regrasará al menú de inicio");
 					break;
 				case "1":
+					Usuario perfilAux = new Usuario();
+					Usuario perfil = perfilAux.ConfigurarPerfil();
 					break;
 				case "2":
 					break;
