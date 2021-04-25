@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import model.ListaAmigos;
+import model.ListaArtistasFavoritos;
+import model.ListaEventosFavoritos;
 import model.Usuario;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -68,6 +70,7 @@ public class Main
 		Scanner sc = new Scanner(System.in);
 		String eleccion2;
 		String SesionIniciada = user.getUser();
+		boolean volverAlMenu = true;
 		
 		do
 		{
@@ -87,24 +90,52 @@ public class Main
 			switch(eleccion2)
 			{
 				case "0":
+					
 					eleccion2 = "0";
 					user = null;
 					System.out.println("Acaba de cerrar sesión. Regrasará al menú de inicio");
+					volverAlMenu = false;
 					break;
+					
 				case "1":
 					Usuario perfilAux = new Usuario();
 					Usuario perfil = perfilAux.ConfigurarPerfil();
 					break;
+					
 				case "2":
+					
 					break;
+					
 				case "3":
+					
 					ListaAmigos listaAux = new ListaAmigos();
-					ListaAmigos lista = listaAux.menuAmigos(user);
+					ListaAmigos lista = listaAux.buscarAmigos(user);
+					lista.mostrarAmigos();
+					System.out.println("Pulsa ENTER para volver al menú principal\n");
+					sc.nextLine();
+					//volverAlMenu =false;
 					break;
+					
 				case "4":
+					
+					ListaArtistasFavoritos listaAux2 = new ListaArtistasFavoritos();
+					ListaArtistasFavoritos lista2 = listaAux2.buscarArtistas(user);
+					lista2.mostrarArtistas();
+					System.out.println("Pulsa ENTER para volver al menú principal\n");
+					sc.nextLine();
+					//volverAlMenu =false;
 					break;
+					
 				case "5":
+					
+					ListaEventosFavoritos listaAux3 = new ListaEventosFavoritos();
+					ListaEventosFavoritos lista3 = listaAux3.buscarEventos(user);
+					//lista3.mostrarEventos();
+					System.out.println("Pulsa ENTER para volver al menú principal\n");
+					sc.nextLine();
+					//volverAlMenu =false;
 					break;
+					
 				case "6":
 					break;
 				case "7":
@@ -113,7 +144,7 @@ public class Main
 					break;
 				case "9":
 					System.out.println("Está seguro que desea darse de baja en el sistema?\n Si: (1), No: (2)");
-					eleccion2 = sc.nextLine();
+					eleccion2 = sc.next();
 					if(eleccion2 == "1")
 					{
 						user.setDisponible(false);
@@ -127,7 +158,8 @@ public class Main
 				default:
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
 			}
-		} while(eleccion2 != "0"); // Esto es provisional para que no se me salga del programa
+		} while(volverAlMenu == true); // Esto es provisional para que no se me salga del programa
+		
 	}
 	
 	public static void LogOut()

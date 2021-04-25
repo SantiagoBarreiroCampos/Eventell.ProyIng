@@ -10,10 +10,10 @@ import java.util.Vector;
 public class ListaAmigos {
 
 	private String usuario;
-	private Vector<String> amigos;
+	private Vector<String> amigos_;
 	
 	public Vector<String> getAmigos(){
-		return this.amigos;
+		return this.amigos_;
 	}
 	public String getUsuario(){
 		return this.usuario;
@@ -22,11 +22,11 @@ public class ListaAmigos {
 		this.usuario = usuario;
 	}
 	public void setAmigos(Vector<String> amigos){
-		this.amigos = amigos;
+		this.amigos_ = amigos;
 	}
 	
 	
-	public ListaAmigos menuAmigos(Usuario user) {
+	public ListaAmigos buscarAmigos(Usuario user) {
 		try {
 			// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 			File tablaAmistad = new File("amistades.csv");				
@@ -39,7 +39,7 @@ public class ListaAmigos {
 			Scanner reader = new Scanner(tablaAmistad);  //Le paso como parámetro el fichero que quiero leer
 		
 		    //Leemos cada línea
-		    int lineNumber = 0;
+		    
 		    Vector<String> amigos = new Vector<String>();
 		    //boolean encontrado = false;
 		    while(reader.hasNextLine())
@@ -50,30 +50,35 @@ public class ListaAmigos {
 		    	{
 		    		amigos.add(amigoDividido[1]);
 		    	}
-		        lineNumber++;
+		       
 		    }
 		    this.usuario = user.getUser();
-		    this.amigos = amigos;
-		    if (amigos.get(0) == null)
-		    { 
-		    	System.out.println("No tienes amigos");
-		    	 	pw.flush();
-			 	    pw.close(); 
-			 		bw.close();
-		    	return null;
-		    	
-	    	}
-		    else { System.out.println("Iniciando sesion...\n"); 
+		    this.amigos_ = amigos;
+		     //System.out.println("Iniciando sesion...\n"); 
 		    pw.flush();
 	 	    pw.close(); 
 	 		bw.close();
-		    }
+		   
 		}catch(Exception e) {}
 	    
 	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
  		// Hasta aqui las lineas que hay que copiar
 		
 		return this;
+	}
+	
+	public void mostrarAmigos() {
+		int i =0;
+		System.out.println("-----LISTA DE AMIGOS-----");
+		if(amigos_.size()<=0) {
+			System.out.println("No tiene amigos en su lista");
+		}
+		else {
+			for(i=0; i<amigos_.size(); i++) {
+				System.out.println((i+1)+" " +amigos_.get(i));
+			}
+		}
+		System.out.println();
 	}
 	
 	
