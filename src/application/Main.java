@@ -18,7 +18,7 @@ public class Main
 {		
 	public static void main(String args[]) throws IOException
 	{
-		Scanner sc = new Scanner(System.in); //xxxxxxxxxxxx
+		Scanner sc = new Scanner(System.in); //xxxxxxxxxxxx (NO BORRAR)
 		
 		Usuario SesionIniciada = new Usuario(); // Este se usara para que, una vez logeado, el sistema sepa con que datos trabajar
 		boolean encontrado = false;
@@ -130,7 +130,7 @@ public class Main
 					
 					ListaEventosFavoritos listaAux3 = new ListaEventosFavoritos();
 					ListaEventosFavoritos lista3 = listaAux3.buscarEventos(user);
-					//lista3.mostrarEventos();
+					lista3.mostrarEventos();
 					System.out.println("Pulsa ENTER para volver al menú principal\n");
 					sc.nextLine();
 					//volverAlMenu =false;

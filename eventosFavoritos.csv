@@ -1,12 +1,12 @@
-Usuario,ID evento
-,(coger de la otra tabla)
-pgonzalezs,486
-pgonzalezs,243
-yago,21
-pgonzalezs,84
-maria,110
-yago,3
-yago,304
-pgonzalezs,356
-maria,225
-yago,154
+Usuario,ID evento;
+,(coger de la otra tabla);
+pgonzalezs,300;
+pgonzalezs,243;
+yago,21;
+pgonzalezs,84;
+maria,110;
+yago,3;
+yago,304;
+pgonzalezs,356;
+maria,225;
+yago,154;

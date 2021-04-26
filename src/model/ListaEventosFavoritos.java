@@ -23,8 +23,7 @@ public class ListaEventosFavoritos {
 			// Hasta aqui las lineas que hay que copiar
 			
 			Scanner reader = new Scanner(tablaEventoF);  //Le paso como parámetro el fichero que quiero leer
-			
-			
+						
 		    //Leemos cada línea
 		    Evento eventoAux = new Evento();
 		    Evento eventoAux2 = new Evento();
@@ -40,28 +39,44 @@ public class ListaEventosFavoritos {
 		    	String[] evFavDividido = linea.split(",");
 		    	if(evFavDividido[0].equals(user.getUser()))
 		    	{
-		    		idEventos.add(evFavDividido[1]);
+		    		String cadena = evFavDividido[1];
+		    		
+		    		cadena = cadena.substring(0, cadena.length()-1);
+		    		System.out.println("CADENA "+cadena);
+		    		idEventos.add(cadena);
 		    	}
 		       
 		    }
+		    for(i =0; i<idEventos.size(); i++) {
+		    	System.out.println(idEventos.get(i));
+		    }
+		    
 //		    System.out.println(idEventos.get(2));
-//		    Vector<Evento> eventosF = new Vector<Evento>();
+		    Vector<Evento> eventosF = new Vector<Evento>();
+		    
+		    
+		    
 		    System.out.println("-----LISTA DE EVENTOS FAVORITOS-----");
 		    for(i =0; i<idEventos.size(); i++) {
-		    	eventoAux2 = eventoAux.buscarEvento(idEventos.get(i).toString());
 		    	
-		    	System.out.println(eventoAux2.infoEvento());
+		    	System.out.println(idEventos.get(i));
+		    	eventoAux.buscarEvento(idEventos.get(i));
 		    	
-//		    	eventosF.add(eventoAux2);
-//		    	System.out.println(eventosF.get(i).getArtista());
+		    	System.out.println(eventoAux.infoEvento());
+		    	
+		    	eventosF.add(eventoAux);
+		    	//eventosF.add(new Evento().buscarEvento(idEventos.get(i).toString()));
+		    	System.out.println(eventosF.get(i).getArtista());
 		    }
+		    
+		    
 //		    System.out.println("XXXXX" + eventosF.get(0).infoEvento());
 //		    for(i =0; i<eventos_.size(); i++) {
 //		    	System.out.println(eventos_.get(i).getArtista());
 //		    }
 		    
 		    this.user_ = user.getUser();
-//		    this.eventos_ = eventosF;
+		    this.eventos_ = eventosF;
 		     //System.out.println("Iniciando sesion...\n"); 
 		    pw.flush();
 	 	    pw.close(); 

@@ -75,6 +75,7 @@ public class Evento
 		    	String[] eventoDividido = linea.split(",");
 		    	if(eventoDividido[0].equals(id))
 		    	{
+		    		System.out.println("XXXXX" + eventoDividido[1]); 
 		    		setId(eventoDividido[0]);
 	    			setArtista(eventoDividido[1]);
 	    			setCiudad(eventoDividido[2]);
