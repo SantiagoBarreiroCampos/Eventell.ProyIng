@@ -18,7 +18,7 @@ public class Main
 {		
 	public static void main(String args[]) throws IOException
 	{
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in); //xxxxxxxxxxxx
 		
 		Usuario SesionIniciada = new Usuario(); // Este se usara para que, una vez logeado, el sistema sepa con que datos trabajar
 		boolean encontrado = false;
