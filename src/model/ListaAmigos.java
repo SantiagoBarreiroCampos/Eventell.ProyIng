@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class ListaAmigos {
+public class ListaAmigos { 
 
 	private String usuario;
 	private Vector<String> amigos_;
