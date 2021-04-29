@@ -1,24 +1,3 @@
-	// String[] usuarioDividido = new String[8]; -> Cada vez que se cree un usuario sera el un array de 9 espacios
-	// Cada espacio correspondera a un campo, ver en la BD que numero es cada uno
-	//System.out.println("Nombre: ");
-	//usuarioDividido[0] = sc.next();			
-	//System.out.println("Apellidos: ");
-	//usuarioDividido[1] = sc.next();	
-	//System.out.println("Correo: ");
-	//usuarioDividido[2] = sc.next();	
-	//System.out.println("Fecha de nacimiento: ");
-	//usuarioDividido[3] = sc.next();
-	//System.out.println("Ciudad: ");
-	//usuarioDividido[4] = sc.next();
-	//System.out.println("Nombre de usuario: ");
-	//usuarioDividido[5] = sc.next();
-	//System.out.println("Contraseña: ");
-	//usuarioDividido[6] = sc.next();
-	//System.out.println("Sexo: ");
-	//usuarioDividido[7] = sc.next();
-	//usuarioDividido[8] = "0"; -> Si es admin o no. Por defecto decir que no
-	// String linea = concatenar(usuarioDividido,","); // Concatenamos para guardar con coma como delimitador
-												// Este String con todo sera lo que hay que grabar en el CSV
 package model;
 
 import java.io.BufferedWriter;
@@ -28,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,7 +32,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	}
 	
 	public Usuario(String nombre, String apellidos, String nacimiento, String correo, String ciudad, String sexo, String user, String password)
-	{ // HAY QUE REORDENAR ESTO DE ACUERDO AL ORDEN DEL CSV
+	{
 		this.nombre_ = nombre;
 		this.apellidos_ = apellidos;
 		this.nacimiento_ = nacimiento;
@@ -63,9 +43,57 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		this.password_ = password;
 	}
 	
-	public void MostrarFicha()
+	public void MostrarFicha(Usuario amigo) throws IOException
 	{
-		// Aquí tu parte, Merche. Son basicamente muchos println
+		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		File tablaAmigos = new File("amistades.csv");
+		File tablaUsuarios = new File("usuarios.csv");
+		Scanner reader = new Scanner(tablaAmigos);
+		Scanner reader2 = new Scanner(tablaUsuarios);
+		BufferedWriter bw;
+		PrintWriter pw;
+		bw = new BufferedWriter(new FileWriter(tablaAmigos, true));
+		pw = new PrintWriter(bw);
+		// Hasta aqui las lineas que hay que copiar
+		
+		Vector<Usuario> usuarios = new Vector<Usuario>();
+		
+		while(reader.hasNextLine())
+	    {
+	    	String linea = reader.nextLine();
+	    	String[] usuarioDividido = linea.split(",");		       
+	    }
+		
+		System.out.println("- - - - - - - - - - - -");
+		System.out.println("PERFIL DE: " + nombre_ );
+		System.out.println("Nombre de usuario: " + user_);
+		System.out.println("Busca conciertos desde: " + ciudad_);
+		
+		/*while(reader.hasNextLine())
+	    {
+	    	String linea = reader.nextLine();
+	    	String[] amistadDividida = linea.split(",");
+	    	if(amistadDividida[0].equals(user_))
+	    	{
+	    		encontrado = true;
+	    	}		       
+	    }*/
+		
+		System.out.println("Pulsa (0) para regresar al menú");
+		//if(es tu amigo)
+		//{
+			System.out.println("Pulsa (1) para eliminar amigo");
+		//}
+		//else
+		//{
+			System.out.println("Pulsa (1) para añadir amigo");
+		//}
+			
+		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
+		pw.flush();
+	    pw.close(); 
+		bw.close();
+		// Hasta aqui las lineas que hay que copiar
 	}
 	
 	public Usuario ConfigurarPerfil() throws IOException
@@ -76,19 +104,20 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
 		pw = new PrintWriter(bw);
-		do {
-		System.out.println("¿Que dato desea añadir?");
-		System.out.println("Pulse (1) para cambiar Nombre"
-				+ "\nPulse (2) para cambiar primer apellido"
-				+ "\nPulse (3) para cambiar sexo"
-				+ "\nPulse (4) para cambiar correo electronico"
-				+ "\nPulse (5) para cambiar fecha"
-				+ "\nPulse (6) para cambiar ciudad"
-				+ "\nPulse (7) para cambiar nombre de usuario"
-				+ "\nPulse (8) para cambiar contraseña"
-				+ "\nPulse (9) para salir");
-		elec = sc.nextInt();
-		switch(elec)
+		do
+		{
+			System.out.println("¿Que dato desea añadir?");
+			System.out.println("Pulse (1) para cambiar Nombre"
+					+ "\nPulse (2) para cambiar primer apellido"
+					+ "\nPulse (3) para cambiar sexo"
+					+ "\nPulse (4) para cambiar correo electronico"
+					+ "\nPulse (5) para cambiar fecha"
+					+ "\nPulse (6) para cambiar ciudad"
+					+ "\nPulse (7) para cambiar nombre de usuario"
+					+ "\nPulse (8) para cambiar contraseña"
+					+ "\nPulse (9) para salir");
+			elec = sc.nextInt();
+			switch(elec)
 			{
 				case 1:
 					
@@ -175,7 +204,8 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	public Usuario Registrarse() throws IOException
 	{
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
-		File tablaUsuarios = new File("usuarios.csv");				
+		File tablaUsuarios = new File("usuarios.csv");
+		Scanner reader = new Scanner(tablaUsuarios);
 		BufferedWriter bw;
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
@@ -194,17 +224,61 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			if (matcher.find() == false) {
 				System.out.println("Correo no aceptado. Intentelo de nuevo");
 			}
-			else { check = true; }
+			else
+			{
+			    boolean encontrado = false;
+			    while(reader.hasNextLine())
+			    {
+			    	String linea = reader.nextLine();
+			    	String[] usuarioDividido = linea.split(",");
+			    	if(usuarioDividido[5].equals(correoAux) && usuarioDividido[0].equals("1"))
+			    	{
+			    		encontrado = true;
+			    	}		       
+			    }
+			    if(encontrado == true)
+			    {
+			    	System.out.println("Correo ya registrado. Intente de nuevo");
+			    }
+			    else
+			    {
+			    	check = true;			    	
+			    }
+			}
 		} while(check == false);
 		setCorreo(correoAux);			
-		System.out.println("Introduce un nombre de usuario: ");
-		String nombreAux = sc.next();
+		String nombreAux;
+		do
+		{
+			check = false;
+			reader = new Scanner(tablaUsuarios);
+			System.out.println("Introduce un nombre de usuario: ");
+			nombreAux = sc.next();		
+			boolean encontrado = false;
+		    while(reader.hasNextLine())
+		    {
+		    	String linea = reader.nextLine();
+		    	String[] usuarioDividido = linea.split(",");
+		    	if(usuarioDividido[1].equals(nombreAux) && usuarioDividido[0].equals("1"))
+		    	{
+		    		encontrado = true;
+		    	}		       
+		    }
+		    if(encontrado == true)
+		    {
+		    	System.out.println("Username ya utilizado. Intente de nuevo");
+		    }
+		    else
+		    {
+		    	check = true;			    	
+		    }			
+		} while(check == false);
 		setUser(nombreAux);
 		System.out.println("Introduce una contraseña: ");
 		String contrasenaAux = sc.next();
 		setPassword(contrasenaAux);
 		
-		String linea = "1,"+nombreAux+"," + contrasenaAux + ",,,,,,,0";
+		String linea = "1," + nombreAux + "," + contrasenaAux + ",,,,,,,0";
 		pw.println(linea);
 		
 		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
@@ -214,6 +288,50 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		// Hasta aqui las lineas que hay que copiar
 
 		return this;
+	}
+	
+	public void DarseBaja() throws IOException
+	{
+		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		File tablaUsuarios = new File("usuarios.csv");
+		Scanner reader = new Scanner(tablaUsuarios);
+		BufferedWriter bw;
+		PrintWriter pw;
+		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
+		pw = new PrintWriter(bw);
+		// Hasta aqui las lineas que hay que copiar
+
+		System.out.println("Está seguro que desea darse de baja?");
+		System.out.println("Pulse (0) para eliminar su cuenta");
+		System.out.println("Pulse cualquier otra tecla para mantener su cuenta");
+		
+		String decision = sc.nextLine();
+		System.out.println(decision);
+		if(decision.equals("0"))
+		{
+			while(reader.hasNextLine())
+		    {
+		    	String linea = reader.nextLine();
+		    	String[] usuarioDividido = linea.split(",");
+		    	if(usuarioDividido[1].equals(this.user_) && usuarioDividido[0].equals("1"))
+		    	{
+		    		int concatenar;
+		    		if (esAdmin_ == true) { concatenar = 1; }
+		    		else { concatenar = 0; }
+		    		linea = "0," + user_ + "," + password_ + "," + nombre_ + "," +
+		    				apellidos_ + "," + correo_ + "," + nacimiento_ + "," +
+		    				ciudad_ + "," + sexo_ + "," + concatenar;
+		    		pw.println(linea);
+		    		setDisponible(false);
+		    	}		       
+		    }					
+		}
+		
+		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
+		pw.flush();
+	    pw.close(); 
+		bw.close();
+		// Hasta aqui las lineas que hay que copiar
 	}
 	
 	public Usuario Login(String username, String contrasena) throws IOException
@@ -305,6 +423,10 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	public String getPassword()
 	{
 		return password_;
+	}	
+	public boolean getDisponible()
+	{
+		return disponible_;
 	}
 	public void setNombre(String nombre)
 	{
@@ -345,5 +467,5 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	public void setNacimiento(String nacimiento)
 	{
 		this.nacimiento_ = nacimiento;
-	}	
+	}
 }

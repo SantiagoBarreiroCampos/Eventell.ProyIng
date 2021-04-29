@@ -24,10 +24,11 @@ public class ListaAmigos {
 	public void setAmigos(Vector<String> amigos){
 		this.amigos_ = amigos;
 	}
-	
-	
-	public ListaAmigos buscarAmigos(Usuario user) {
-		try {
+		
+	public ListaAmigos buscarAmigos(Usuario user)
+	{
+		try
+		{
 			// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 			File tablaAmistad = new File("amistades.csv");				
 			BufferedWriter bw;
@@ -49,8 +50,7 @@ public class ListaAmigos {
 		    	if(amigoDividido[0].equals(user.getUser()))
 		    	{
 		    		amigos.add(amigoDividido[1]);
-		    	}
-		       
+		    	}		       
 		    }
 		    this.usuario = user.getUser();
 		    this.amigos_ = amigos;
@@ -80,6 +80,4 @@ public class ListaAmigos {
 		}
 		System.out.println();
 	}
-	
-	
 }

@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-
 import model.ListaAmigos;
 import model.ListaArtistasFavoritos;
 import model.ListaEventosFavoritos;
@@ -49,7 +48,7 @@ public class Main
 					System.out.println("Introduzca su contraseña:");
 					String contrasena = sc.next();
 					SesionIniciada = usuarioAux.Login(username, contrasena);
-					if(SesionIniciada.getUser() != null)
+					if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true)
 					{
 						encontrado = true;
 						Menu(SesionIniciada);
@@ -74,23 +73,21 @@ public class Main
 		
 		do
 		{
-			System.out.println(" - - - - - MENU - - - - - - [Accedido desde: " + user.getUser() + "]");
+			System.out.println(" - - - - MENU - - - - - [Accedido desde: " + user.getUser() + "]");
 			System.out.println("Pulse (0) para cerrar sesion"
 							+ "\nPulse (1) para cambiar ajustes de perfil"
-							+ "\nPulse (2) para ver eventos comprados"
-							+ "\nPulse (3) para ver lista de amigos"
-							+ "\nPulse (4) para ver lista de artistas favoritos"
-							+ "\nPulse (5) para ver lista de eventos favoritos"
-							+ "\nPulse (6) para iniciar una busqueda"
-							+ "\nPulse (7) para ver calendario personalizado"
-							+ "\nPulse (8) para solicitar sugerencias de eventos"
-							+ "\nPulse (9) para darse de baja en el sistema de EVENTELL");
+							+ "\nPulse (2) para ver lista de amigos"
+							+ "\nPulse (3) para ver lista de artistas favoritos"
+							+ "\nPulse (4) para ver lista de eventos favoritos"
+							+ "\nPulse (5) para iniciar una busqueda"
+							+ "\nPulse (6) para ver calendario personalizado"
+							+ "\nPulse (7) para solicitar sugerencias de eventos"
+							+ "\nPulse (8) para darse de baja en el sistema");
 			eleccion2 = sc.nextLine();
 				
 			switch(eleccion2)
 			{
-				case "0":
-					
+				case "0":					
 					eleccion2 = "0";
 					user = null;
 					System.out.println("Acaba de cerrar sesión. Regrasará al menú de inicio");
@@ -102,12 +99,7 @@ public class Main
 					Usuario perfil = perfilAux.ConfigurarPerfil();
 					break;
 					
-				case "2":
-					
-					break;
-					
-				case "3":
-					
+				case "2":					
 					ListaAmigos listaAux = new ListaAmigos();
 					ListaAmigos lista = listaAux.buscarAmigos(user);
 					lista.mostrarAmigos();
@@ -116,8 +108,7 @@ public class Main
 					//volverAlMenu =false;
 					break;
 					
-				case "4":
-					
+				case "3":					
 					ListaArtistasFavoritos listaAux2 = new ListaArtistasFavoritos();
 					ListaArtistasFavoritos lista2 = listaAux2.buscarArtistas(user);
 					lista2.mostrarArtistas();
@@ -126,8 +117,7 @@ public class Main
 					//volverAlMenu =false;
 					break;
 					
-				case "5":
-					
+				case "4":					
 					ListaEventosFavoritos listaAux3 = new ListaEventosFavoritos();
 					ListaEventosFavoritos lista3 = listaAux3.buscarEventos(user);
 					lista3.mostrarEventos();
@@ -136,24 +126,15 @@ public class Main
 					//volverAlMenu =false;
 					break;
 					
+				case "5":
+					break;
 				case "6":
 					break;
 				case "7":
 					break;
 				case "8":
-					break;
-				case "9":
-					System.out.println("Está seguro que desea darse de baja en el sistema?\n Si: (1), No: (2)");
-					eleccion2 = sc.next();
-					if(eleccion2 == "1")
-					{
-						user.setDisponible(false);
-						eleccion2 = "0";						
-					}
-					else
-					{
-						System.out.println("Usted conservará sus datos en el sistema");
-					}
+					user.DarseBaja();
+					volverAlMenu = user.getDisponible();
 					break;
 				default:
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
