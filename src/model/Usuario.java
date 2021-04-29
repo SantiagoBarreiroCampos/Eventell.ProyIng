@@ -89,91 +89,87 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 				+ "\nPulse (9) para salir");
 		elec = sc.nextInt();
 		switch(elec)
-		{
-			case 1:
-				
-				System.out.println("Introduzca su nombre: ");
-				String CnombreAux = sc.next();
-				setNombre(CnombreAux);
-			break;
-			case 2:
-				System.out.println("Introduzca su primer apellido: ");
-				String Capellido1Aux = sc.next();
-				setApellidos(Capellido1Aux);
-			break;
-			case 3:
-				System.out.println("Introduzca su sexo ");
-				String CsexoAux = sc.next();
-				setApellidos(CsexoAux);
-			break;
-			case 4:
-				String CcorreoAux;
-				boolean check = false;
-				do
-				{
-					System.out.println("Introduzca su correo electronico: ");
-					CcorreoAux = sc.nextLine();
-					Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-					Matcher matcher = pattern.matcher(CcorreoAux);
-					if (matcher.find() == false) {
-						System.out.println("Correo no aceptado. Intentelo de nuevo");
+			{
+				case 1:
+					
+					System.out.println("Introduzca su nombre: ");
+					String CnombreAux = sc.next();
+					setNombre(CnombreAux);
+				break;
+				case 2:
+					System.out.println("Introduzca su primer apellido: ");
+					String Capellido1Aux = sc.next();
+					setApellidos(Capellido1Aux);
+				break;
+				case 3:
+					System.out.println("Introduzca su sexo ");
+					String CsexoAux = sc.next();
+					setApellidos(CsexoAux);
+				break;
+				case 4:
+					String CcorreoAux;
+					boolean check = false;
+					do
+					{
+						System.out.println("Introduzca su correo electronico: ");
+						CcorreoAux = sc.nextLine();
+						Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+								+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+						Matcher matcher = pattern.matcher(CcorreoAux);
+						if (matcher.find() == false) {
+							System.out.println("Correo no aceptado. Intentelo de nuevo");
+						}
+						else { check = true; }
+					} while(check == false);
+					setCorreo(CcorreoAux);	
+				break;
+				case 5:
+					String fecha;
+					String dia,mes,anyo;
+					int posicion;
+					int datodia,datomes,datoanyo;
+					String fecha1;
+					System.out.println("Introduzca su fecha de nacimiento (dd/mm/aaaa): ");
+					fecha = sc.next();
+					
+					posicion= fecha.indexOf("/");
+					dia=fecha.substring(0, posicion);
+					fecha=fecha.substring(posicion+1);
+					posicion= fecha.indexOf("/");
+					mes=fecha.substring(0, posicion);
+					fecha=fecha.substring(posicion+1);
+					anyo=fecha;
+					datodia=Integer.parseInt(dia);
+					datomes=Integer.parseInt(mes);
+					datoanyo=Integer.parseInt(anyo);
+					if(1>datodia||datodia>31||1>datomes||datomes>12) {
+						System.out.println("La fecha introducida es incorrecta");
+					
 					}
-					else { check = true; }
-				} while(check == false);
-				setCorreo(CcorreoAux);	
-			break;
-			case 5:
-				String fecha;
-				String dia,mes,anyo;
-				int posicion;
-				int datodia,datomes,datoanyo;
-				String fecha1;
-				System.out.println("Introduzca su fecha de nacimiento (dd/mm/aaaa): ");
-				fecha = sc.next();
-				
-				posicion= fecha.indexOf("/");
-				dia=fecha.substring(0, posicion);
-				fecha=fecha.substring(posicion+1);
-				posicion= fecha.indexOf("/");
-				mes=fecha.substring(0, posicion);
-				fecha=fecha.substring(posicion+1);
-				anyo=fecha;
-				datodia=Integer.parseInt(dia);
-				datomes=Integer.parseInt(mes);
-				datoanyo=Integer.parseInt(anyo);
-				if(1>datodia||datodia>31||1>datomes||datomes>12) {
-					System.out.println("La fecha introducida es incorrecta");
-				
-				}
-				else {
-					setNacimiento(fecha);
-				}
-			break;
-			case 6:
-				System.out.println("Introduzca su ciudad: ");
-				String CciudadAux = sc.next();
-				setCiudad(CciudadAux);
-			break;
-			case 7:
-				System.out.println("Introduzca su nombre de usuario: ");
-				String CnombreUAux = sc.next();
-				setUser(CnombreUAux);
-			break;
-			case 8:
-				System.out.println("Introduzca su nueva contraseña: ");
-				String Acontrasena = sc.next();
-				setPassword(Acontrasena);
-			break;
-			
+					else {
+						setNacimiento(fecha);
+					}
+				break;
+				case 6:
+					System.out.println("Introduzca su ciudad: ");
+					String CciudadAux = sc.next();
+					setCiudad(CciudadAux);
+				break;
+				case 7:
+					System.out.println("Introduzca su nombre de usuario: ");
+					String CnombreUAux = sc.next();
+					setUser(CnombreUAux);
+				break;
+				case 8:
+					System.out.println("Introduzca su nueva contraseña: ");
+					String Acontrasena = sc.next();
+					setPassword(Acontrasena);
+				break;
+			}
 		}
-		}
-		while (elec != 9);
+		while(elec != 9);
 		
-		// Aqui tu parte, Maria
-		// print "que dato desea añadir?" -> switch -> cada case lleva a un dato, lo validas, y lo metes con un setter
-		return this;
-		
+		return this;		
 	}
 	
 	public Usuario Registrarse() throws IOException
@@ -230,7 +226,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		pw = new PrintWriter(bw);
 		// Hasta aqui las lineas que hay que copiar
 		
-		Scanner reader = new Scanner(tablaUsuarios);  //Le paso como parámetro el fichero que quiero leer
+		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parámetro el fichero que quiero leer
 	
 	    //Leemos cada línea
 	    int lineNumber = 0;
@@ -349,6 +345,5 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	public void setNacimiento(String nacimiento)
 	{
 		this.nacimiento_ = nacimiento;
-	}
-	
+	}	
 }

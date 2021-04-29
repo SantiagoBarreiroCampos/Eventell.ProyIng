@@ -37,7 +37,7 @@ public class Main
 			{
 				case "0":					
 					encontrado = true;
-					System.out.println("Hasta la próxima");
+					System.out.println("Acaba de abandonar el sistema EVENTELL. Un saludo");
 					break;
 				case "1":					
 					SesionIniciada = usuarioAux.Registrarse();
@@ -158,16 +158,6 @@ public class Main
 				default:
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
 			}
-		} while(volverAlMenu == true); // Esto es provisional para que no se me salga del programa
-		
+		} while(volverAlMenu == true);		
 	}
-	
-	public static void LogOut()
-	{
-		System.out.println("Estas en la funcion LogOut(). Pulsa cualquier tecla para volver al menu");
-		Scanner sc = new Scanner(System.in);
-		String a = sc.nextLine();
-		//Menu();
-	}
-	 
 }
