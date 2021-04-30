@@ -31,7 +31,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		
 	}
 	
-	public Usuario(String nombre, String apellidos, String nacimiento, String correo, String ciudad, String sexo, String user, String password)
+	public Usuario(int disponible, String user, String password, String nombre, String apellidos, String correo, String nacimiento, String ciudad, String sexo, int esAdmin)
 	{
 		this.nombre_ = nombre;
 		this.apellidos_ = apellidos;
@@ -41,54 +41,80 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		this.sexo_ = sexo;
 		this.user_ = user;
 		this.password_ = password;
+		this.esAdmin_ = (esAdmin == 1);
+		this.disponible_ = (disponible == 1);
 	}
 	
-	public void MostrarFicha(Usuario amigo) throws IOException
+	public void MostrarFicha(Usuario perfil) throws IOException
 	{
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 		File tablaAmigos = new File("amistades.csv");
-		File tablaUsuarios = new File("usuarios.csv");
 		Scanner reader = new Scanner(tablaAmigos);
-		Scanner reader2 = new Scanner(tablaUsuarios);
 		BufferedWriter bw;
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaAmigos, true));
 		pw = new PrintWriter(bw);
 		// Hasta aqui las lineas que hay que copiar
 		
-		Vector<Usuario> usuarios = new Vector<Usuario>();
-		
-		while(reader.hasNextLine())
-	    {
-	    	String linea = reader.nextLine();
-	    	String[] usuarioDividido = linea.split(",");		       
-	    }
-		
-		System.out.println("- - - - - - - - - - - -");
-		System.out.println("PERFIL DE: " + nombre_ );
-		System.out.println("Nombre de usuario: " + user_);
-		System.out.println("Busca conciertos desde: " + ciudad_);
-		
-		/*while(reader.hasNextLine())
-	    {
-	    	String linea = reader.nextLine();
-	    	String[] amistadDividida = linea.split(",");
-	    	if(amistadDividida[0].equals(user_))
-	    	{
-	    		encontrado = true;
-	    	}		       
-	    }*/
-		
-		System.out.println("Pulsa (0) para regresar al menú");
-		//if(es tu amigo)
-		//{
-			System.out.println("Pulsa (1) para eliminar amigo");
-		//}
-		//else
-		//{
-			System.out.println("Pulsa (1) para añadir amigo");
-		//}
+		boolean puedeSalir;
+		do
+		{
+			System.out.println("- - - - - - - - - - - -");
+			System.out.println("PERFIL DE: " + perfil.getNombre());
+			System.out.println("Nombre de usuario: " + perfil.getUser());
+			System.out.println("Busca conciertos desde: " + perfil.getCiudad());
+			System.out.println("\nPulsa (0) para regresar al menú");
 			
+			boolean esAmigo = false;
+			
+			while(reader.hasNextLine())
+		    {
+		    	String linea = reader.nextLine();
+		    	String[] amistadDividida = linea.split(",");
+		    	
+		    	if(amistadDividida[0].equals(perfil.getUser()) || amistadDividida[1].equals(perfil.getUser()))
+		    	{
+		    		if(amistadDividida[0].equals(user_) || amistadDividida[1].equals(user_))
+		    		{
+		    			esAmigo = true;
+		    		}
+		    	}
+		    }
+			
+			if(esAmigo == true)
+			{
+				System.out.println("Pulsa (1) para eliminar amigo");
+			}
+			else
+			{
+				System.out.println("Pulsa (1) para añadir amigo");
+			}
+			
+			String eleccion = sc.nextLine();
+			
+			switch(eleccion)
+			{
+				case "0":
+					puedeSalir = true;
+					break;
+				case "1":
+					if(esAmigo == true)
+					{
+						// eliminar amigo, pendientes de como hacer eso en POO
+					}
+					else
+					{
+						pw.println(user_ + "," + perfil.getUser());
+					}
+					puedeSalir = false;
+					break;
+				default:
+					System.out.println("Dato introducido incorrecto. Intente de nuevo");
+					puedeSalir = false;
+					break;
+			}
+		} while(puedeSalir == false);
+		
 		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
 		pw.flush();
 	    pw.close(); 
@@ -322,6 +348,8 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    				apellidos_ + "," + correo_ + "," + nacimiento_ + "," +
 		    				ciudad_ + "," + sexo_ + "," + concatenar;
 		    		pw.println(linea);
+		    		// aqui falta que elimine la linea original, porque solo añade una
+		    		// linea nueva de no disponible, no sobreescribe
 		    		setDisponible(false);
 		    	}		       
 		    }					

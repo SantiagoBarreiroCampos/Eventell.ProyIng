@@ -14,10 +14,10 @@ import java.io.File;
 import java.io.PrintWriter;
 
 public class Main
-{		
+{			
 	public static void main(String args[]) throws IOException
 	{
-		Scanner sc = new Scanner(System.in); //xxxxxxxxxxxx (NO BORRAR)
+		Scanner sc = new Scanner(System.in);
 		
 		Usuario SesionIniciada = new Usuario(); // Este se usara para que, una vez logeado, el sistema sepa con que datos trabajar
 		boolean encontrado = false;
@@ -26,7 +26,7 @@ public class Main
 		{
 			Usuario usuarioAux = new Usuario();
 			String eleccion1;		
-			System.out.println("BIENVENIDO A EVENTELL");
+			System.out.println("- - - BIENVENIDO A EVENTELL - - -");
 			System.out.println("Pulse (1) para registrarse"
 							+ "\nPulse (2) para iniciar sesion");
 			System.out.println("Pulse (0) para salir del programa");
@@ -54,7 +54,6 @@ public class Main
 						Menu(SesionIniciada);
 						encontrado = false;
 					}
-					
 					break;
 				default:
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
@@ -69,6 +68,8 @@ public class Main
 		Scanner sc = new Scanner(System.in);
 		String eleccion2;
 		String SesionIniciada = user.getUser();
+		ListaUsuarios listaUsuarios = new ListaUsuarios();
+		listaUsuarios.RellenarVector();
 		boolean volverAlMenu = true;
 		
 		do
@@ -82,7 +83,8 @@ public class Main
 							+ "\nPulse (5) para iniciar una busqueda"
 							+ "\nPulse (6) para ver calendario personalizado"
 							+ "\nPulse (7) para solicitar sugerencias de eventos"
-							+ "\nPulse (8) para darse de baja en el sistema");
+							+ "\nPulse (8) para darse de baja en el sistema"
+							+ "\nPulse (9) para ver el perfil de Yago");
 			eleccion2 = sc.nextLine();
 				
 			switch(eleccion2)
@@ -136,7 +138,16 @@ public class Main
 					user.DarseBaja();
 					volverAlMenu = user.getDisponible();
 					break;
-				default:
+				case "9": // case auxiliar para pruebas, podeis borrarlo sin problemas
+					for(int i = 0; i < listaUsuarios.getCapacidad() - 1; i++)
+					{
+						if(listaUsuarios.getUsuario(i).getUser().equals("yago"))
+						{
+							user.MostrarFicha(listaUsuarios.getUsuario(i));
+						}
+					}
+					break;
+				default:				
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
 			}
 		} while(volverAlMenu == true);		
