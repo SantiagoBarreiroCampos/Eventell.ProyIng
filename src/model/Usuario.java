@@ -103,8 +103,10 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 						// eliminar amigo, pendientes de como hacer eso en POO
 					}
 					else
-					{
-						pw.println(user_ + "," + perfil.getUser());
+					{						
+						String nuevaLinea = user_ + "," + perfil.getUser();
+						System.out.println("Aquí tendría que añadir una fila con: " + nuevaLinea);
+						pw.println(nuevaLinea);
 					}
 					puedeSalir = false;
 					break;
