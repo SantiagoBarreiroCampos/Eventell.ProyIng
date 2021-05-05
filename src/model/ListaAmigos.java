@@ -83,8 +83,7 @@ public class ListaAmigos {
 				System.out.println((i+1)+" " +amigos_.get(i));
 			}
 		}
-		System.out.println();
-		System.out.println("Introduzca el numero del amigo que desea consultar");
+		System.out.println("\nIntroduzca el numero del amigo que desea consultar");
 		System.out.println("Pulse cualquier otro numero para volver al menu principal");
 		int numAmigo = sc.nextInt();
 		if(numAmigo <= 0 || numAmigo > amigos_.size()) {

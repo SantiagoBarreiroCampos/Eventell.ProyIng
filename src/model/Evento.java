@@ -89,7 +89,7 @@ public class Evento
 		pw = new PrintWriter(bw);
 		// Hasta aqui las lineas que hay que copiar
 		
-		boolean puedeSalir;
+		boolean puedeSalir = false;
 		do
 		{
 			System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
@@ -119,13 +119,17 @@ public class Evento
 			
 			if(esFavorito == true)
 			{
-				System.out.println("Pulsa (1) para eliminar este evento de favoritos");
+				System.out.println("\nPulsa (1) para eliminar este evento de favoritos");
 			}
 			else
 			{
-				System.out.println("Pulsa (1) para añadir este evento a favoritos");
+				System.out.println("\nPulsa (1) para añadir este evento a favoritos");
 			}
-			System.out.println("\nPulsa (0) para regresar al menú");
+			
+			System.out.println("Pulsa (2) para abrir el link de compra");
+			System.out.println("Pulsa (3) para compartir el evento con un amigo");
+			
+			System.out.println("Pulsa (0) para regresar al menú");
 			
 			String eleccion = sc.nextLine();
 			
@@ -145,8 +149,18 @@ public class Evento
 						System.out.println("Aquí tendría que añadir una fila con: " + nuevaLinea);
 						//pw.println(nuevaLinea);
 					}
-					puedeSalir = false;
+					//puedeSalir = false;
 					break;
+					
+					
+				case "2":
+					System.out.println("Abriendo link");//falta esta parte
+					break;
+				case "3":
+					System.out.println("Compratiendo con un amigo");//falta esta parte
+					break;
+					
+					
 				default:
 					System.out.println("Dato introducido incorrecto. Intente de nuevo");
 					puedeSalir = false;
