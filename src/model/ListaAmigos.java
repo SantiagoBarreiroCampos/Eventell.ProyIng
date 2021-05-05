@@ -3,6 +3,7 @@ package model;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Vector;
@@ -67,8 +68,9 @@ public class ListaAmigos {
 		return this;
 	}
 	
-	public void mostrarAmigos() {
+	public void mostrarAmigos() throws IOException {
 		int i =0;
+		Scanner sc = new Scanner(System.in);
 		System.out.println("-----LISTA DE AMIGOS-----");
 		if(amigos_.size()<=0) {
 			System.out.println("No tiene amigos en su lista");
@@ -79,5 +81,25 @@ public class ListaAmigos {
 			}
 		}
 		System.out.println();
+		System.out.println("Introduzca el numero del amigo que desea consultar");
+		System.out.println("Pulse cualquier otro numero para volver al menu principal");
+		int numAmigo = sc.nextInt();
+		if(numAmigo <= 0 || numAmigo > amigos_.size()) {
+			
+		}
+		else {
+			Usuario user = new Usuario();
+			
+			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+			
+			user.buscarUsuarioPorUser(amigos_.get(numAmigo - 1));
+			
+			//System.out.println("Se ha encontrado: " + user.getNombre());
+			user.mostrarFicha();
+			
+			System.out.println();
+		}
 	}
+	
+	
 }

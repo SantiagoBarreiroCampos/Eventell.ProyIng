@@ -45,7 +45,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		this.disponible_ = (disponible == 1);
 	}
 	
-	public void MostrarFicha(Usuario perfil) throws IOException
+	public void mostrarFicha() throws IOException
 	{
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 		File tablaAmigos = new File("amistades.csv");
@@ -60,9 +60,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		do
 		{
 			System.out.println("- - - - - - - - - - - -");
-			System.out.println("PERFIL DE: " + perfil.getNombre());
-			System.out.println("Nombre de usuario: " + perfil.getUser());
-			System.out.println("Busca conciertos desde: " + perfil.getCiudad());
+			System.out.println("PERFIL DE: " + this.getNombre());
+			System.out.println("Nombre de usuario: " + this.getUser());
+			System.out.println("Busca conciertos desde: " + this.getCiudad());
 			System.out.println("\nPulsa (0) para regresar al menú");
 			
 			boolean esAmigo = false;
@@ -72,7 +72,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    	String linea = reader.nextLine();
 		    	String[] amistadDividida = linea.split(",");
 		    	
-		    	if(amistadDividida[0].equals(perfil.getUser()) || amistadDividida[1].equals(perfil.getUser()))
+		    	if(amistadDividida[0].equals(this.getUser()) || amistadDividida[1].equals(this.getUser()))
 		    	{
 		    		if(amistadDividida[0].equals(user_) || amistadDividida[1].equals(user_))
 		    		{
@@ -104,7 +104,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					}
 					else
 					{						
-						String nuevaLinea = user_ + "," + perfil.getUser();
+						String nuevaLinea = user_ + "," + this.getUser();
 						System.out.println("Aquí tendría que añadir una fila con: " + nuevaLinea);
 						pw.println(nuevaLinea);
 					}
@@ -379,8 +379,10 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    //Leemos cada línea
 	    int lineNumber = 0;
 	    boolean encontrado = false;
+	    
 	    while(reader.hasNextLine())
 	    {
+	    	
 	    	String linea = reader.nextLine();
 	    	String[] usuarioDividido = linea.split(",");
 	    	if(usuarioDividido[1].equals(username))
@@ -419,6 +421,62 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
  		bw.close();
  		// Hasta aqui las lineas que hay que copiar
 		
+		return this;
+	}
+	
+	public Usuario buscarUsuarioPorUser(String username) throws IOException
+	{ 
+		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		File tablaUsuarios = new File("usuarios.csv");				
+		BufferedWriter bw;
+		PrintWriter pw;
+		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
+		pw = new PrintWriter(bw);
+		// Hasta aqui las lineas que hay que copiar
+		
+		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parámetro el fichero que quiero leer
+	
+	    //Leemos cada línea
+	    int lineNumber = 0;
+	    boolean encontrado = false;
+	    while(reader.hasNextLine())
+	    {
+	    	String linea = reader.nextLine();
+	    	String[] usuarioDividido = linea.split(",");
+	    	if(usuarioDividido[1].equals(username))
+	    	{
+	    		
+	    			if(String.valueOf(usuarioDividido[0]).equals("1")) // Si esta disponible
+	    			{
+	    				
+	    				encontrado = true;
+	    				setDisponible(true);
+	    				setUser(usuarioDividido[1]);
+	    				setPassword(usuarioDividido[2]);
+	    				setNombre(usuarioDividido[3]);
+	    				setApellidos(usuarioDividido[4]);
+	    				setCorreo(usuarioDividido[5]);
+	    				setNacimiento(usuarioDividido[6]); //-> No se usar tipo Date
+	    				setCiudad(usuarioDividido[7]);
+	    				setSexo(usuarioDividido[8]);
+	    				setEsAdmin(Boolean.parseBoolean(usuarioDividido[9]));
+	    			}
+	    	}
+	        lineNumber++;
+	    }
+//	    if (encontrado == false)
+//	    { 
+//	    	System.out.println("Usuario o contraseña incorrectos.\nPulse ENTER para regresar al menu de inicio");
+//	    	String tiempo = sc.nextLine();
+//	    	
+//    	}
+	    //else { System.out.println("Iniciando sesion...\n"); }
+	    
+	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
+ 		pw.flush();
+ 	    pw.close(); 
+ 		bw.close();
+ 		// Hasta aqui las lineas que hay que copiar
 		return this;
 	}
 	

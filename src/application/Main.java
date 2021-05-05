@@ -83,8 +83,7 @@ public class Main
 							+ "\nPulse (5) para iniciar una busqueda"
 							+ "\nPulse (6) para ver calendario personalizado"
 							+ "\nPulse (7) para solicitar sugerencias de eventos"
-							+ "\nPulse (8) para darse de baja en el sistema"
-							+ "\nPulse (9) para ver el perfil de Yago");
+							+ "\nPulse (8) para darse de baja en el sistema");
 			eleccion2 = sc.nextLine();
 				
 			switch(eleccion2)
@@ -138,15 +137,18 @@ public class Main
 					user.DarseBaja();
 					volverAlMenu = user.getDisponible();
 					break;
-				case "9": // case auxiliar para pruebas, podeis borrarlo sin problemas
-					for(int i = 0; i < listaUsuarios.getCapacidad() - 1; i++)
-					{
-						if(listaUsuarios.getUsuario(i).getUser().equals("yago"))
-						{
-							user.MostrarFicha(listaUsuarios.getUsuario(i));
-						}
-					}
-					break;
+					
+				//yo no pondria la opcion 9
+					
+//				case "9": // case auxiliar para pruebas, podeis borrarlo sin problemas
+//					for(int i = 0; i < listaUsuarios.getCapacidad() - 1; i++)
+//					{
+//						if(listaUsuarios.getUsuario(i).getUser().equals("yago"))
+//						{
+//							listaUsuarios.getUsuario(i).mostrarFicha();
+//						}
+//					}
+//					break;
 				default:				
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
 			}
