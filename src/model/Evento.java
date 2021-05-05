@@ -55,8 +55,8 @@ public class Evento
 	}
 	
 	public Evento buscarEvento(String id) {
+		Evento evAux = new Evento();
 		try {
-			
 			// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 			File tablaEventos = new File("eventos.csv");				
 			BufferedWriter bw;
@@ -69,21 +69,23 @@ public class Evento
 		
 		    //Leemos cada línea
 		    //boolean encontrado = false;
+			
 		    while(reader.hasNextLine())
 		    {
 		    	String linea = reader.nextLine();
 		    	String[] eventoDividido = linea.split(",");
+		    	//System.out.println(eventoDividido[0]);
 		    	if(eventoDividido[0].equals(id))
 		    	{
-		    		System.out.println("XXXXX" + eventoDividido[1]); 
-		    		setId(eventoDividido[0]);
-	    			setArtista(eventoDividido[1]);
-	    			setCiudad(eventoDividido[2]);
-	    			setFecha(eventoDividido[3]);
-	    			setPrecioMin(eventoDividido[4]);
-	    			setPrecioMax(eventoDividido[5]);
-	    			setLugar(eventoDividido[6]);
-	    			setGenero(eventoDividido[7]);
+		    		System.out.println("ENCONTRADO: " + id +" "+ eventoDividido[1]); 
+		    		evAux.setId(eventoDividido[0]);
+		    		evAux.setArtista(eventoDividido[1]);
+		    		evAux.setCiudad(eventoDividido[2]);
+		    		evAux.setFecha(eventoDividido[3]);
+		    		evAux.setPrecioMin(eventoDividido[4]);
+		    		evAux.setPrecioMax(eventoDividido[5]);
+		    		evAux.setLugar(eventoDividido[6]);
+		    		evAux.setGenero(eventoDividido[7]);
 		    	}
 		       
 		    }
@@ -92,12 +94,13 @@ public class Evento
 	 	    pw.close(); 
 	 		bw.close();
 	 		reader.close();
+	 		return evAux;
 		   
 		}catch(Exception e) {}
 	    
 	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
  		// Hasta aqui las lineas que hay que copiar
 		
-		return this;
+		return evAux;
 	}
 }

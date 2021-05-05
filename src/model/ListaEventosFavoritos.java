@@ -41,8 +41,8 @@ public class ListaEventosFavoritos {
 		    	{
 		    		String cadena = evFavDividido[1];
 		    		
-		    		cadena = cadena.substring(0, cadena.length()-1);
-		    		System.out.println("CADENA "+cadena);
+		    		cadena = cadena.substring(0, cadena.length());
+//		    		System.out.println("CADENA "+cadena);
 		    		idEventos.add(cadena);
 		    	}
 		       
@@ -56,17 +56,17 @@ public class ListaEventosFavoritos {
 		    
 		    
 		    
-		    System.out.println("-----LISTA DE EVENTOS FAVORITOS-----");
+		    System.out.println("-----BUSCANDO EVENTOS FAVORITOS-----");
 		    for(i =0; i<idEventos.size(); i++) {
 		    	
-		    	System.out.println(idEventos.get(i));
-		    	eventoAux.buscarEvento(idEventos.get(i));
+		    	//System.out.println(idEventos.get(i));
+		    	eventoAux2 = eventoAux.buscarEvento(idEventos.get(i));
 		    	
-		    	System.out.println(eventoAux.infoEvento());
+		    	//System.out.println(eventoAux2.infoEvento());
 		    	
-		    	eventosF.add(eventoAux);
+		    	eventosF.add(eventoAux2);
 		    	//eventosF.add(new Evento().buscarEvento(idEventos.get(i).toString()));
-		    	System.out.println(eventosF.get(i).getArtista());
+		    	//System.out.println(eventosF.get(i).getArtista());
 		    }
 		    
 		    

@@ -51,7 +51,10 @@ public class ListaAmigos {
 		    	if(amigoDividido[0].equals(user.getUser()))
 		    	{
 		    		amigos.add(amigoDividido[1]);
-		    	}		       
+		    	}
+		    	else if(amigoDividido[1].equals(user.getUser())) {
+		    		amigos.add(amigoDividido[0]);
+		    	}
 		    }
 		    this.usuario = user.getUser();
 		    this.amigos_ = amigos;

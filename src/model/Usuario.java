@@ -60,10 +60,12 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		do
 		{
 			System.out.println("- - - - - - - - - - - -");
-			System.out.println("PERFIL DE: " + this.getNombre());
+			System.out.println("PERFIL DE: " + this.getNombre() +" "+ this.getApellidos());
 			System.out.println("Nombre de usuario: " + this.getUser());
 			System.out.println("Busca conciertos desde: " + this.getCiudad());
 			System.out.println("\nPulsa (0) para regresar al menú");
+			
+			//faltaría opcion de enviarle por correo uno de tus eventos favoritos
 			
 			boolean esAmigo = false;
 			
