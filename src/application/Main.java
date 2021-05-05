@@ -104,8 +104,8 @@ public class Main
 					ListaAmigos listaAux = new ListaAmigos();
 					ListaAmigos lista = listaAux.buscarAmigos(user);
 					lista.mostrarAmigos();
-					System.out.println("Pulsa ENTER para volver al menú principal\n");
-					sc.nextLine();
+//					System.out.println("Pulsa ENTER para volver al menú principal\n");
+//					sc.nextLine();
 					//volverAlMenu =false;
 					break;
 					
@@ -121,9 +121,9 @@ public class Main
 				case "4":					
 					ListaEventosFavoritos listaAux3 = new ListaEventosFavoritos();
 					ListaEventosFavoritos lista3 = listaAux3.buscarEventos(user);
-					lista3.mostrarEventos();
-					System.out.println("Pulsa ENTER para volver al menú principal\n");
-					sc.nextLine();
+					lista3.mostrarEventos(user.getUser());
+//					System.out.println("Pulsa ENTER para volver al menú principal\n");
+//					sc.nextLine();
 					//volverAlMenu =false;
 					break;
 					

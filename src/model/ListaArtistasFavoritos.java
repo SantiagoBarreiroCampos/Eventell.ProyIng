@@ -70,7 +70,7 @@ public class ListaArtistasFavoritos
 	
 	public void mostrarArtistas() {
 		int i =0;
-		System.out.println("-----LISTA DE ARTISTAS FAVORITOS-----");
+		System.out.println("\n-----LISTA DE ARTISTAS FAVORITOS-----");
 		if(artistas_.size()<=0) {
 			System.out.println("No tiene artistas en su lista");
 		}

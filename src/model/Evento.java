@@ -3,12 +3,15 @@ package model;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Vector;
 
 public class Evento
 {
+	Scanner sc = new Scanner(System.in);
+	
 	private String id_;
 	private String artista_;
 	private String ciudad_;
@@ -18,38 +21,7 @@ public class Evento
 	private String precioMin_;
 	private String genero_;
 	
-	public void setId(String id) {
-		this.id_ = id;
-	}
-	
-	public void setArtista(String artista) {
-		this.artista_ = artista;
-	}
-	
-	public void setCiudad(String ciudad) {
-		this.ciudad_ = ciudad;
-	}
-	
-	public void setLugar(String lugar) {
-		this.lugar_ = lugar;
-	}
-	public void setFecha(String fecha) {
-		this.fecha_ = fecha;
-	}
-	public void setPrecioMax(String precio) {
-		this.precioMax_ = precio;
-	}
-	public void setPrecioMin(String precio) {
-		this.precioMin_ = precio;
-	}
-	public void setGenero(String genero) {
-		this.genero_ = genero;
-	}
-	
-	public String getArtista() {
-		return this.artista_;
-	}
-	
+
 	public String infoEvento() {
 		return (artista_ + " en " + lugar_ + ", " + ciudad_ + " el día " + fecha_);
 	}
@@ -78,14 +50,14 @@ public class Evento
 		    	if(eventoDividido[0].equals(id))
 		    	{
 		    		System.out.println("ENCONTRADO: " + id +" "+ eventoDividido[1]); 
-		    		evAux.setId(eventoDividido[0]);
-		    		evAux.setArtista(eventoDividido[1]);
-		    		evAux.setCiudad(eventoDividido[2]);
-		    		evAux.setFecha(eventoDividido[3]);
-		    		evAux.setPrecioMin(eventoDividido[4]);
-		    		evAux.setPrecioMax(eventoDividido[5]);
-		    		evAux.setLugar(eventoDividido[6]);
-		    		evAux.setGenero(eventoDividido[7]);
+		    		evAux.setId_(eventoDividido[0]);
+		    		evAux.setArtista_(eventoDividido[1]);
+		    		evAux.setCiudad_(eventoDividido[2]);
+		    		evAux.setFecha_(eventoDividido[3]);
+		    		evAux.setPrecioMin_(eventoDividido[4]);
+		    		evAux.setPrecioMax_(eventoDividido[5]);
+		    		evAux.setLugar_(eventoDividido[6]);
+		    		evAux.setGenero_(eventoDividido[7]);
 		    	}
 		       
 		    }
@@ -102,5 +74,154 @@ public class Evento
  		// Hasta aqui las lineas que hay que copiar
 		
 		return evAux;
+	}
+	
+	
+	
+	public void mostrarFicha(String user) throws IOException
+	{
+		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		File tablaEventos = new File("eventosFavoritos.csv");
+		Scanner reader = new Scanner(tablaEventos);
+		BufferedWriter bw;
+		PrintWriter pw;
+		bw = new BufferedWriter(new FileWriter(tablaEventos, true));
+		pw = new PrintWriter(bw);
+		// Hasta aqui las lineas que hay que copiar
+		
+		boolean puedeSalir;
+		do
+		{
+			System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
+			System.out.println("Genero: " + this.getGenero_());
+			System.out.println("Artista: " + this.getArtista_());
+			System.out.println("Ciudad: " + this.getCiudad_());
+			System.out.println("Lugar: " + this.getLugar_());
+			System.out.println("Fecha: " + this.getFecha_());
+			System.out.println("Precios: " + this.getPrecioMin_() +"€ - "+ this.getPrecioMax_() +"€");
+			
+			
+			//faltaría opcion de enviarle por correo uno de tus eventos favoritos
+			
+			boolean esFavorito = false;
+			while(reader.hasNextLine())
+		    {
+		    	String linea = reader.nextLine();
+		    	String[] eventoDividida = linea.split(",");
+		    	
+		    	if(eventoDividida[0].equals(user) && eventoDividida[1].equals(this.getId_()))
+		    	{
+		    		
+		    			esFavorito = true;
+		    		
+		    	}
+		    }
+			
+			if(esFavorito == true)
+			{
+				System.out.println("Pulsa (1) para eliminar este evento de favoritos");
+			}
+			else
+			{
+				System.out.println("Pulsa (1) para añadir este evento a favoritos");
+			}
+			System.out.println("\nPulsa (0) para regresar al menú");
+			
+			String eleccion = sc.nextLine();
+			
+			switch(eleccion)
+			{
+				case "0":
+					puedeSalir = true;
+					break;
+				case "1":
+					if(esFavorito == true)
+					{
+						// eliminar evento, pendientes de como hacer eso en POO
+					}
+					else
+					{						
+						String nuevaLinea = user + "," + this.getId_();
+						System.out.println("Aquí tendría que añadir una fila con: " + nuevaLinea);
+						//pw.println(nuevaLinea);
+					}
+					puedeSalir = false;
+					break;
+				default:
+					System.out.println("Dato introducido incorrecto. Intente de nuevo");
+					puedeSalir = false;
+					break;
+			}
+		} while(puedeSalir == false);
+		
+		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
+		pw.flush();
+	    pw.close(); 
+		bw.close();
+		// Hasta aqui las lineas que hay que copiar
+	}
+
+	public String getId_() {
+		return id_;
+	}
+
+	public void setId_(String id_) {
+		this.id_ = id_;
+	}
+
+	public String getArtista_() {
+		return artista_;
+	}
+
+	public void setArtista_(String artista_) {
+		this.artista_ = artista_;
+	}
+
+	public String getCiudad_() {
+		return ciudad_;
+	}
+
+	public void setCiudad_(String ciudad_) {
+		this.ciudad_ = ciudad_;
+	}
+
+	public String getLugar_() {
+		return lugar_;
+	}
+
+	public void setLugar_(String lugar_) {
+		this.lugar_ = lugar_;
+	}
+
+	public String getFecha_() {
+		return fecha_;
+	}
+
+	public void setFecha_(String fecha_) {
+		this.fecha_ = fecha_;
+	}
+
+	public String getPrecioMax_() {
+		return precioMax_;
+	}
+
+	public void setPrecioMax_(String precioMax_) {
+		this.precioMax_ = precioMax_;
+	}
+
+	public String getPrecioMin_() {
+		return precioMin_;
+	}
+
+	public void setPrecioMin_(String precioMin_) {
+		this.precioMin_ = precioMin_;
+	}
+
+	public String getGenero_() {
+		return genero_;
+	}
+
+	public void setGenero_(String genero_) {
+		this.genero_ = genero_;
 	}
 }

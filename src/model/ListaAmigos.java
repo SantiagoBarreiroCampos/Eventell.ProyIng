@@ -74,7 +74,7 @@ public class ListaAmigos {
 	public void mostrarAmigos() throws IOException {
 		int i =0;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("-----LISTA DE AMIGOS-----");
+		System.out.println("\n-----LISTA DE AMIGOS-----");
 		if(amigos_.size()<=0) {
 			System.out.println("No tiene amigos en su lista");
 		}

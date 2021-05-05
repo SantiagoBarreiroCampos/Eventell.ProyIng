@@ -3,6 +3,7 @@ package model;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Vector;
@@ -11,6 +12,7 @@ public class ListaEventosFavoritos {
 
 	private String user_;
 	private Vector<Evento> eventos_;
+	private Vector<String> idEventos_;
 	
 	public ListaEventosFavoritos buscarEventos(Usuario user) {
 		try {
@@ -77,6 +79,7 @@ public class ListaEventosFavoritos {
 		    
 		    this.user_ = user.getUser();
 		    this.eventos_ = eventosF;
+		    this.idEventos_ = idEventos;
 		     //System.out.println("Iniciando sesion...\n"); 
 		    pw.flush();
 	 	    pw.close(); 
@@ -91,9 +94,10 @@ public class ListaEventosFavoritos {
 	}
 	
 	
-	public void mostrarEventos() {
+	public void mostrarEventos(String user) throws IOException {
+		Scanner sc = new Scanner(System.in);
 		int i =0;
-		System.out.println("-----LISTA DE EVENTOS FAVORITOS-----");
+		System.out.println("\n-----LISTA DE EVENTOS FAVORITOS-----");
 		if(eventos_.size()<=0) {
 			System.out.println("No tiene eventos en su lista");
 		}
@@ -103,5 +107,24 @@ public class ListaEventosFavoritos {
 			}
 		}
 		System.out.println();
+		
+		System.out.println("Introduzca el numero del evento que desea consultar");
+		System.out.println("Pulse cualquier otro numero para volver al menu principal");
+		int numEvento = sc.nextInt();
+		if(numEvento <= 0 || numEvento > eventos_.size()) {
+			
+		}
+		else {
+			Evento ev = new Evento();
+			
+			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+			
+			Evento evAux = ev.buscarEvento(idEventos_.get(numEvento - 1));
+			
+			//System.out.println("Se ha encontrado: " + user.getNombre());
+			evAux.mostrarFicha(user);
+			
+			System.out.println();
+		}
 	}
 }

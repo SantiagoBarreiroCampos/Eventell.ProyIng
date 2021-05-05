@@ -59,11 +59,11 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		boolean puedeSalir;
 		do
 		{
-			System.out.println("- - - - - - - - - - - -");
+			System.out.println("\n- - - - - FICHA DE USUARIO - - - - - - -");
 			System.out.println("PERFIL DE: " + this.getNombre() +" "+ this.getApellidos());
 			System.out.println("Nombre de usuario: " + this.getUser());
 			System.out.println("Busca conciertos desde: " + this.getCiudad());
-			System.out.println("\nPulsa (0) para regresar al menú");
+			
 			
 			//faltaría opcion de enviarle por correo uno de tus eventos favoritos
 			
@@ -91,6 +91,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			{
 				System.out.println("Pulsa (1) para añadir amigo");
 			}
+			System.out.println("\nPulsa (0) para regresar al menú");
 			
 			String eleccion = sc.nextLine();
 			
