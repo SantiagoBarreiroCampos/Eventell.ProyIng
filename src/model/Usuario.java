@@ -1,8 +1,11 @@
 package model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.text.SimpleDateFormat;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,6 +48,113 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		this.disponible_ = (disponible == 1);
 	}
 	
+	public void BuscarArtista(String nombre) throws IOException {
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+		
+		int encontrado = 0;
+	
+		try {
+			   reader = new BufferedReader(new FileReader(csvFile));
+			   while ((line = reader.readLine()) != null) {      
+			       String[] ficha = line.split(cvsSplit);
+			       
+			      if(ficha[1].equalsIgnoreCase(nombre)) {
+			      System.out.println("\nArtista:" + ficha[1] 
+			    		  		   + "\nGenero:" + ficha[7] 
+			    		  		   + "\nEvento:" + ficha [6]
+			    		  		   + "\nCuidad" + ficha[2]
+			    		  		   + "\nFecha:" + ficha[3]
+			    		  		   +"\nPrecio desde: " + "â‚¬" + ficha[4]  + " hasta: " + "â‚¬" + ficha[5]);
+			      encontrado++;
+			      }
+			      
+			   }
+			   
+			   if (encontrado == 0) {
+				   System.out.println("Artista no encontrado");
+			   }
+			   
+			} catch (FileNotFoundException e) {
+			   e.printStackTrace();
+			} catch (IOException e) {
+			   e.printStackTrace();
+			} finally {
+			   if (reader != null) {
+			       try {
+			           reader.close();
+			       } catch (IOException e) {
+			           e.printStackTrace();
+			       }
+			   }
+			}
+	}
+	public void BuscarCiudad(String city) throws IOException {
+		
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+		int hallado = 0;
+		
+		
+		try {
+			   reader = new BufferedReader(new FileReader(csvFile));
+			   while ((line = reader.readLine()) != null) {      
+			       String[] ficha = line.split(cvsSplit);
+			       
+				      if(ficha[2].equalsIgnoreCase(city)) {
+				      System.out.println("\nCuidad:" + ficha[2] 
+				    		  		   + "\nArtista:" + ficha[1] 
+				    		  		   + "\nGenero:" + ficha [7]
+				    		  		   + "\nCuidad" + ficha[2]
+				    		  		   + "\nFecha:" + ficha[3]
+				    		  		   +"\nPrecio desde:" + ficha[4] + "hasta:" + ficha[5]);
+				      hallado ++;
+				      }
+				      
+			     if (hallado == 0) {
+			    	  System.out.println("Cuidad no encontrada");
+			      }
+			   }
+			} catch (FileNotFoundException e) {
+			   e.printStackTrace();
+			} catch (IOException e) {
+			   e.printStackTrace();
+			} finally {
+			   if (reader != null) {
+			       try {
+			           reader.close();
+			       } catch (IOException e) {
+			           e.printStackTrace();
+			       }
+			   }
+			}
+			}
+	public void BuscarGenero() throws IOException {
+		BufferedReader reader = null;
+		
+		System.out.println("\nPulse (1) para hiphop/r&b"
+				+ "\nPulse (2) para reggaeton"
+				+ "\nPulse (3) para pop"
+				+ "\nPulse (4) para hard rock/metal"
+				+ "\nPulse (5) para hiphop/r&b"
+				+ "\nPulse (6) para rock/metal"
+				+ "\nPulse (7) para clÃ¡sica"
+				+ "\nPulse (8) para jazz/blues"
+				+ "\nPulse (9) para pop/rock"
+				+ "\nPulse (10) para world"
+				+ "\nPulse (11) para dance/electronica"
+				+ "\nPulse (12) para flamenco/rumba"
+				+ "\nPulse (13) para indie/alternativo");
+	/*
+	 *  Lo voy terminar	 (Merche) :)
+	 */
+	}
+	
+	
 	public void mostrarFicha() throws IOException
 	{
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
@@ -65,7 +175,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			System.out.println("Busca conciertos desde: " + this.getCiudad());
 			
 			
-			//faltaría opcion de enviarle por correo uno de tus eventos favoritos
+			//faltarï¿½a opcion de enviarle por correo uno de tus eventos favoritos
 			
 			boolean esAmigo = false;
 			
@@ -89,9 +199,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			}
 			else
 			{
-				System.out.println("Pulsa (1) para añadir amigo");
+				System.out.println("Pulsa (1) para aï¿½adir amigo");
 			}
-			System.out.println("\nPulsa (0) para regresar al menú");
+			System.out.println("\nPulsa (0) para regresar al menï¿½");
 			
 			String eleccion = sc.nextLine();
 			
@@ -108,7 +218,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					else
 					{						
 						String nuevaLinea = user_ + "," + this.getUser();
-						System.out.println("Aquí tendría que añadir una fila con: " + nuevaLinea);
+						System.out.println("Aquï¿½ tendrï¿½a que aï¿½adir una fila con: " + nuevaLinea);
 						pw.println(nuevaLinea);
 					}
 					puedeSalir = false;
@@ -137,7 +247,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		pw = new PrintWriter(bw);
 		do
 		{
-			System.out.println("¿Que dato desea añadir?");
+			System.out.println("ï¿½Que dato desea aï¿½adir?");
 			System.out.println("Pulse (1) para cambiar Nombre"
 					+ "\nPulse (2) para cambiar primer apellido"
 					+ "\nPulse (3) para cambiar sexo"
@@ -145,7 +255,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					+ "\nPulse (5) para cambiar fecha"
 					+ "\nPulse (6) para cambiar ciudad"
 					+ "\nPulse (7) para cambiar nombre de usuario"
-					+ "\nPulse (8) para cambiar contraseña"
+					+ "\nPulse (8) para cambiar contraseï¿½a"
 					+ "\nPulse (9) para salir");
 			elec = sc.nextInt();
 			switch(elec)
@@ -221,7 +331,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					setUser(CnombreUAux);
 				break;
 				case 8:
-					System.out.println("Introduzca su nueva contraseña: ");
+					System.out.println("Introduzca su nueva contraseï¿½a: ");
 					String Acontrasena = sc.next();
 					setPassword(Acontrasena);
 				break;
@@ -305,7 +415,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    }			
 		} while(check == false);
 		setUser(nombreAux);
-		System.out.println("Introduce una contraseña: ");
+		System.out.println("Introduce una contraseï¿½a: ");
 		String contrasenaAux = sc.next();
 		setPassword(contrasenaAux);
 		
@@ -332,7 +442,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		pw = new PrintWriter(bw);
 		// Hasta aqui las lineas que hay que copiar
 
-		System.out.println("Está seguro que desea darse de baja?");
+		System.out.println("Estï¿½ seguro que desea darse de baja?");
 		System.out.println("Pulse (0) para eliminar su cuenta");
 		System.out.println("Pulse cualquier otra tecla para mantener su cuenta");
 		
@@ -353,7 +463,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    				apellidos_ + "," + correo_ + "," + nacimiento_ + "," +
 		    				ciudad_ + "," + sexo_ + "," + concatenar;
 		    		pw.println(linea);
-		    		// aqui falta que elimine la linea original, porque solo añade una
+		    		// aqui falta que elimine la linea original, porque solo aï¿½ade una
 		    		// linea nueva de no disponible, no sobreescribe
 		    		setDisponible(false);
 		    	}		       
@@ -377,9 +487,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		pw = new PrintWriter(bw);
 		// Hasta aqui las lineas que hay que copiar
 		
-		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parámetro el fichero que quiero leer
+		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parï¿½metro el fichero que quiero leer
 	
-	    //Leemos cada línea
+	    //Leemos cada lï¿½nea
 	    int lineNumber = 0;
 	    boolean encontrado = false;
 	    
@@ -412,7 +522,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    }
 	    if (encontrado == false)
 	    { 
-	    	System.out.println("Usuario o contraseña incorrectos.\nPulse ENTER para regresar al menu de inicio");
+	    	System.out.println("Usuario o contraseï¿½a incorrectos.\nPulse ENTER para regresar al menu de inicio");
 	    	String tiempo = sc.nextLine();
 	    	
     	}
@@ -437,9 +547,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		pw = new PrintWriter(bw);
 		// Hasta aqui las lineas que hay que copiar
 		
-		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parámetro el fichero que quiero leer
+		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parï¿½metro el fichero que quiero leer
 	
-	    //Leemos cada línea
+	    //Leemos cada lï¿½nea
 	    int lineNumber = 0;
 	    boolean encontrado = false;
 	    while(reader.hasNextLine())
@@ -469,7 +579,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    }
 //	    if (encontrado == false)
 //	    { 
-//	    	System.out.println("Usuario o contraseña incorrectos.\nPulse ENTER para regresar al menu de inicio");
+//	    	System.out.println("Usuario o contraseï¿½a incorrectos.\nPulse ENTER para regresar al menu de inicio");
 //	    	String tiempo = sc.nextLine();
 //	    	
 //    	}

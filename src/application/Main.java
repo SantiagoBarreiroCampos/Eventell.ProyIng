@@ -45,7 +45,7 @@ public class Main
 				case "2":
 					System.out.println("Introduzca su nombre de usuario:");
 					String username = sc.next();
-					System.out.println("Introduzca su contraseña:");
+					System.out.println("Introduzca su contraseï¿½a:");
 					String contrasena = sc.next();
 					SesionIniciada = usuarioAux.Login(username, contrasena);
 					if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true)
@@ -91,7 +91,7 @@ public class Main
 				case "0":					
 					eleccion2 = "0";
 					user = null;
-					System.out.println("Acaba de cerrar sesión. Regrasará al menú de inicio");
+					System.out.println("Acaba de cerrar sesiï¿½n. Regrasarï¿½ al menï¿½ de inicio");
 					volverAlMenu = false;
 					break;
 					
@@ -104,7 +104,7 @@ public class Main
 					ListaAmigos listaAux = new ListaAmigos();
 					ListaAmigos lista = listaAux.buscarAmigos(user);
 					lista.mostrarAmigos();
-//					System.out.println("Pulsa ENTER para volver al menú principal\n");
+//					System.out.println("Pulsa ENTER para volver al menï¿½ principal\n");
 //					sc.nextLine();
 					//volverAlMenu =false;
 					break;
@@ -113,7 +113,7 @@ public class Main
 					ListaArtistasFavoritos listaAux2 = new ListaArtistasFavoritos();
 					ListaArtistasFavoritos lista2 = listaAux2.buscarArtistas(user);
 					lista2.mostrarArtistas();
-					System.out.println("Pulsa ENTER para volver al menú principal\n");
+					System.out.println("Pulsa ENTER para volver al menï¿½ principal\n");
 					sc.nextLine();
 					//volverAlMenu =false;
 					break;
@@ -122,12 +122,41 @@ public class Main
 					ListaEventosFavoritos listaAux3 = new ListaEventosFavoritos();
 					ListaEventosFavoritos lista3 = listaAux3.buscarEventos(user);
 					lista3.mostrarEventos(user.getUser());
-//					System.out.println("Pulsa ENTER para volver al menú principal\n");
+//					System.out.println("Pulsa ENTER para volver al menï¿½ principal\n");
 //					sc.nextLine();
 					//volverAlMenu =false;
 					break;
 					
 				case "5":
+					Scanner sc1 = new Scanner(System.in);
+					String eleccion;
+					//String eleccion = "sc1";
+					
+					System.out.println("\nPresione (1) si desea buscar por artista"
+							+ "\nPresione (2) si desea buscar por cuidad"
+							+ "\nPresione (3) si desea buscar por genero");
+					
+					eleccion = sc1.nextLine();
+				
+						switch(eleccion) {
+						case "1":
+							System.out.println("Por favor introduzca el nombre del artista");				
+							String nombre = sc1.nextLine();
+							Usuario artistaAux = new Usuario();
+							artistaAux.BuscarArtista(nombre);
+						
+						case "2":
+							System.out.println("Por favor introduzca el nombre de la cuidad");				
+							String city = sc1.nextLine();
+							Usuario cuidadAux = new Usuario();
+							cuidadAux.BuscarCiudad(city);
+							
+						case "3":
+							Usuario generoAux = new Usuario();
+							generoAux.BuscarGenero();
+						}
+						
+					
 					break;
 				case "6":
 					break;
