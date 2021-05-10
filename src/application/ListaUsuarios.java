@@ -41,7 +41,7 @@ public class ListaUsuarios
 	    	aux.setNacimiento(usuarioDividido[6]);
 	    	aux.setCiudad(usuarioDividido[7]);
 	    	aux.setSexo(usuarioDividido[8]);
-	    	aux.setEsAdmin(usuarioDividido[9].equals("1"));
+	    	aux.setEsAdmin(usuarioDividido[9]);
 	    	
 	    	usuarios.add(aux);
 	    }

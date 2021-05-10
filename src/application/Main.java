@@ -48,7 +48,13 @@ public class Main
 					System.out.println("Introduzca su contrase�a:");
 					String contrasena = sc.next();
 					SesionIniciada = usuarioAux.Login(username, contrasena);
-					if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true)
+					if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true && SesionIniciada.getEsAdmin().equals("1"))
+					{
+						Usuario AdminAux = new Usuario();
+						Usuario Admin = AdminAux.Administrador();
+					}
+					
+					else if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true)
 					{
 						encontrado = true;
 						Menu(SesionIniciada);

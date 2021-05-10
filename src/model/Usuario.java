@@ -26,7 +26,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	private String sexo_;
 	private String user_;
 	private String password_;
-	private boolean esAdmin_;
+	private String esAdmin_;
 	private boolean disponible_;
 	
 	public Usuario()
@@ -34,19 +34,19 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		
 	}
 	
-	public Usuario(int disponible, String user, String password, String nombre, String apellidos, String correo, String nacimiento, String ciudad, String sexo, int esAdmin)
-	{
-		this.nombre_ = nombre;
-		this.apellidos_ = apellidos;
-		this.nacimiento_ = nacimiento;
-		this.correo_ = correo;
-		this.ciudad_ = ciudad;
-		this.sexo_ = sexo;
-		this.user_ = user;
-		this.password_ = password;
-		this.esAdmin_ = (esAdmin == 1);
-		this.disponible_ = (disponible == 1);
-	}
+//	public Usuario(int disponible, String user, String password, String nombre, String apellidos, String correo, String nacimiento, String ciudad, String sexo, int esAdmin)
+//	{
+//		this.nombre_ = nombre;
+//		this.apellidos_ = apellidos;
+//		this.nacimiento_ = nacimiento;
+//		this.correo_ = correo;
+//		this.ciudad_ = ciudad;
+//		this.sexo_ = sexo;
+//		this.user_ = user;
+//		this.password_ = password;
+//		this.esAdmin_ = (esAdmin == 1);
+//		this.disponible_ = (disponible == 1);
+//	}
 	
 	public void BuscarArtista(String nombre) throws IOException {
 		BufferedReader reader = null;
@@ -90,6 +90,64 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			       }
 			   }
 			}
+	}
+	public Usuario Administrador() throws IOException{
+		int elec;
+		File tablaUsuarios = new File("usuarios.csv");
+		Scanner reader = new Scanner(tablaUsuarios);
+		BufferedWriter bw;
+		PrintWriter pw;
+		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
+		pw = new PrintWriter(bw);
+		
+		    	
+		    	System.out.println("Se ha detectado que su usuario es administrador");
+		    	System.out.println("¿Que dato desea Hacer?");
+				System.out.println("Pulse (1) para añadir Administrador "
+						+ "\nPulse (2) para añadir evento"
+						+ "\nPulse (3) para eliminar evento"
+						);
+				elec = sc.nextInt();
+				switch(elec)
+				{
+					case 1:
+						
+						
+					break;
+					case 2:
+						System.out.println("Introduce nombre del Artista: ");
+						String ArtistaAux = sc.next();
+						setNombre(ArtistaAux);
+						System.out.println("Introduce ciudad: ");
+						String CiudadAux = sc.next();
+						setNombre(CiudadAux);
+						System.out.println("Introduce fecha: ");
+						String FechaAux = sc.next();
+						setNombre(FechaAux);
+						System.out.println("Introduce precio minimo: ");
+						String MinimoAux = sc.next();
+						setNombre(MinimoAux);
+						System.out.println("Introduce precio maximo: ");
+						String MaximoAux = sc.next();
+						setNombre(MaximoAux);
+						System.out.println("Introduce ubicación: ");
+						String UbicacionAux = sc.next();
+						setNombre(UbicacionAux);
+						System.out.println("Introduce genero: ");
+						String GeneroAux = sc.next();
+						setNombre(GeneroAux);
+						String linea = "1," + ArtistaAux + "," + CiudadAux +"," +FechaAux+"," +MinimoAux+","+MaximoAux+","+UbicacionAux+","+GeneroAux;
+						pw.println(linea);
+						pw.flush();
+					    pw.close(); 
+						bw.close();
+					break;
+					case 3:
+						
+					break;
+					}
+		
+		return this;
 	}
 	public void BuscarCiudad(String city) throws IOException {
 		
@@ -457,7 +515,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    	if(usuarioDividido[1].equals(this.user_) && usuarioDividido[0].equals("1"))
 		    	{
 		    		int concatenar;
-		    		if (esAdmin_ == true) { concatenar = 1; }
+		    		if (esAdmin_.equals("1")) { concatenar = 1; }
 		    		else { concatenar = 0; }
 		    		linea = "0," + user_ + "," + password_ + "," + nombre_ + "," +
 		    				apellidos_ + "," + correo_ + "," + nacimiento_ + "," +
@@ -514,7 +572,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    				setNacimiento(usuarioDividido[6]); //-> No se usar tipo Date
 	    				setCiudad(usuarioDividido[7]);
 	    				setSexo(usuarioDividido[8]);
-	    				setEsAdmin(Boolean.parseBoolean(usuarioDividido[9]));
+	    				setEsAdmin(usuarioDividido[9]);
 	    			}
 	    		}
 	    	}
@@ -572,7 +630,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    				setNacimiento(usuarioDividido[6]); //-> No se usar tipo Date
 	    				setCiudad(usuarioDividido[7]);
 	    				setSexo(usuarioDividido[8]);
-	    				setEsAdmin(Boolean.parseBoolean(usuarioDividido[9]));
+	    				setEsAdmin(usuarioDividido[9]);
 	    			}
 	    	}
 	        lineNumber++;
@@ -629,6 +687,10 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	{
 		return disponible_;
 	}
+	public String getEsAdmin()
+	{
+		return esAdmin_;
+	}
 	public void setNombre(String nombre)
 	{
 		this.nombre_ = nombre;
@@ -657,7 +719,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	{
 		this.sexo_ = sexo;
 	}
-	public void setEsAdmin(boolean esAdmin)
+	public void setEsAdmin(String esAdmin)
 	{
 		this.esAdmin_ = esAdmin;
 	}
