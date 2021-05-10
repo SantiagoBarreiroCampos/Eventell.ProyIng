@@ -44,8 +44,7 @@ public class Evento
 			       String[] eventoDividido = line.split(cvsSplit);
 		    
 		    	if(eventoDividido[0].equals(id))
-		    	{
-		    		//System.out.println("ENCONTRADO: " + id +" "+ eventoDividido[1]); 
+		    	{ 
 		    		evAux.setId_(eventoDividido[0]);
 		    		evAux.setArtista_(eventoDividido[1]);
 		    		evAux.setCiudad_(eventoDividido[2]);
@@ -57,15 +56,11 @@ public class Evento
 		    	}
 		       
 		    }
-		     //System.out.println("Iniciando sesion...\n"); 
 	 		reader.close();
 	 		return evAux;
 		   
 		}catch(Exception e) {}
 	    
-	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
- 		// Hasta aqui las lineas que hay que copiar
-		
 		return evAux;
 	}
 	
@@ -87,11 +82,9 @@ public class Evento
 			   while ((line = reader.readLine()) != null) {      
 				   String[] eventoDividido = line.split(cvsSplit);
 		    
-				   //System.out.println(eventoDividido[1]);
 				   if(eventoDividido[1].equals(Artista))
 				   {
 					   Evento evAux = new Evento();
-					  // System.out.println("ENCONTRADO: " + Artista +" "+ eventoDividido[0]); 
 					   evAux.setId_(eventoDividido[0]);
 					   evAux.setArtista_(eventoDividido[1]);
 					   evAux.setCiudad_(eventoDividido[2]);
@@ -105,14 +98,11 @@ public class Evento
 				   
 		       
 			   }
-			   //System.out.println("Iniciando sesion...\n"); 
 			   reader.close();
 			   return eventos;
 		   
 		}catch(Exception e) {}
 	    
-	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
- 		// Hasta aqui las lineas que hay que copiar
 		
 		return eventos;
 	}

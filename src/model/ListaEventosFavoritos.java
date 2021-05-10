@@ -32,8 +32,6 @@ public class ListaEventosFavoritos {
 		    Vector<String> idEventos = new Vector<String>();
 		    
 		    int i =0;
-		    //boolean encontrado = false;
-		    
 		    
 		    while(reader.hasNextLine())
 		    {
@@ -44,52 +42,29 @@ public class ListaEventosFavoritos {
 		    		String cadena = evFavDividido[1];
 		    		
 		    		cadena = cadena.substring(0, cadena.length());
-//		    		System.out.println("CADENA "+cadena);
 		    		idEventos.add(cadena);
 		    	}
 		       
 		    }
-//		    for(i =0; i<idEventos.size(); i++) {
-//		    	System.out.println(idEventos.get(i));
-//		    }
-		    
-//		    System.out.println(idEventos.get(2));
 		    Vector<Evento> eventosF = new Vector<Evento>();
 		    
-		    
-		    
-		   // System.out.println("-----BUSCANDO EVENTOS FAVORITOS-----");
 		    for(i =0; i<idEventos.size(); i++) {
 		    	
-		    	//System.out.println(idEventos.get(i));
 		    	eventoAux2 = eventoAux.buscarEvento(idEventos.get(i));
 		    	
-		    	//System.out.println(eventoAux2.infoEvento());
 		    	
 		    	eventosF.add(eventoAux2);
-		    	//eventosF.add(new Evento().buscarEvento(idEventos.get(i).toString()));
-		    	//System.out.println(eventosF.get(i).getArtista());
 		    }
-		    
-		    
-//		    System.out.println("XXXXX" + eventosF.get(0).infoEvento());
-//		    for(i =0; i<eventos_.size(); i++) {
-//		    	System.out.println(eventos_.get(i).getArtista());
-//		    }
 		    
 		    this.user_ = user.getUser();
 		    this.eventos_ = eventosF;
 		    this.idEventos_ = idEventos;
-		     //System.out.println("Iniciando sesion...\n"); 
+		    
 		    pw.flush();
 	 	    pw.close(); 
 	 		bw.close();
 		   
 		}catch(Exception e) {}
-	    
-	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
- 		// Hasta aqui las lineas que hay que copiar
-		
 		return this;
 	}
 	
@@ -102,7 +77,6 @@ public class ListaEventosFavoritos {
 			System.out.println("No tiene eventos en su lista");
 		}
 		else {
-			//System.out.println("Tiene");
 			for(i=0; i<eventos_.size(); i++) {
 				System.out.println((i+1)+" " + eventos_.get(i).infoEvento());
 			}
@@ -118,11 +92,7 @@ public class ListaEventosFavoritos {
 		else {
 			Evento ev = new Evento();
 			
-			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
-			
 			Evento evAux = ev.buscarEvento(idEventos_.get(numEvento - 1));
-			
-			//System.out.println("Se ha encontrado: " + user.getNombre());
 			
 			evAux.mostrarFicha(user);
 			

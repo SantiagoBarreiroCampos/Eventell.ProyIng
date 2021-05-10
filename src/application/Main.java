@@ -110,33 +110,23 @@ public class Main
 					ListaAmigos listaAux = new ListaAmigos();
 					ListaAmigos lista = listaAux.buscarAmigos(user);
 					lista.mostrarAmigos();
-//					System.out.println("Pulsa ENTER para volver al men� principal\n");
-//					sc.nextLine();
-					//volverAlMenu =false;
 					break;
 					
 				case "3":					
 					ListaArtistasFavoritos listaAux2 = new ListaArtistasFavoritos();
 					ListaArtistasFavoritos lista2 = listaAux2.buscarArtistas(user);
 					lista2.mostrarArtistas(user.getUser());
-//					System.out.println("Pulsa ENTER para volver al men� principal\n");
-//					sc.nextLine();
-					//volverAlMenu =false;
 					break;
 					
 				case "4":					
 					ListaEventosFavoritos listaAux3 = new ListaEventosFavoritos();
 					ListaEventosFavoritos lista3 = listaAux3.buscarEventos(user);
 					lista3.mostrarEventos(user.getUser());
-//					System.out.println("Pulsa ENTER para volver al men� principal\n");
-//					sc.nextLine();
-					//volverAlMenu =false;
 					break;
 					
 				case "5":
 					Scanner sc1 = new Scanner(System.in);
 					String eleccion;
-					//String eleccion = "sc1";
 					
 					System.out.println("\nPresione (1) si desea buscar por artista"
 							+ "\nPresione (2) si desea buscar por cuidad"
@@ -172,18 +162,6 @@ public class Main
 					user.DarseBaja();
 					volverAlMenu = user.getDisponible();
 					break;
-					
-				//yo no pondria la opcion 9
-					
-//				case "9": // case auxiliar para pruebas, podeis borrarlo sin problemas
-//					for(int i = 0; i < listaUsuarios.getCapacidad() - 1; i++)
-//					{
-//						if(listaUsuarios.getUsuario(i).getUser().equals("yago"))
-//						{
-//							listaUsuarios.getUsuario(i).mostrarFicha();
-//						}
-//					}
-//					break;
 				default:				
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
 			}
