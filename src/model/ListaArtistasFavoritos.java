@@ -50,7 +50,7 @@ public class ListaArtistasFavoritos
 		    	String[] artistaDividido = linea.split(",");
 		    	if(artistaDividido[0].equals(user.getUser()))
 		    	{
-		    		System.out.println(artistaDividido[1]);
+		    		//System.out.println(artistaDividido[1]);
 		    		artistas.add(artistaDividido[1]);
 		    	}
 		       
@@ -93,17 +93,41 @@ public class ListaArtistasFavoritos
 		}
 		else {
 			Evento ev = new Evento();
-			System.out.println("Todo bien");
+			//System.out.println("Todo bien");
 			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
-			System.out.println(artistas_.get(numArtista - 1));
+			//System.out.println(artistas_.get(numArtista - 1));
 			Vector <Evento> evAux = ev.buscarEventosPorArtista(artistas_.get(numArtista - 1));
 			
-			//System.out.println("Se ha encontrado: " + user.getNombre());
+			//System.out.println("Se ha encontrado: " + user);
+			
+			System.out.println("------FICHA DE ARTISTA------");
+			System.out.println("Nombre :" + artistas_.get(numArtista - 1));
+			System.out.println("Eventos: ");
 			for(i =0; i<evAux.size(); i++) {
-				evAux.get(i).mostrarFicha(user);
+				System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
 			}
 			
 			System.out.println();
+			
+			System.out.println("Introduzca el numero del evento que desea consultar");
+			System.out.println("Pulse cualquier otro numero para volver al menu principal");
+			int numEvento = sc.nextInt();
+			if(numEvento <= 0 || numEvento > evAux.size()) {
+				
+			}
+			else {
+				Evento eve = new Evento();
+				
+				//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+				
+				Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());
+				
+				//System.out.println("Se ha encontrado: " + user.getNombre());
+				
+				evAux2.mostrarFicha(user);
+				
+				System.out.println();
+			}
 		}
 	}
 }

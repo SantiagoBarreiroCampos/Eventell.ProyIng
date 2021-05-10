@@ -49,16 +49,16 @@ public class ListaEventosFavoritos {
 		    	}
 		       
 		    }
-		    for(i =0; i<idEventos.size(); i++) {
-		    	System.out.println(idEventos.get(i));
-		    }
+//		    for(i =0; i<idEventos.size(); i++) {
+//		    	System.out.println(idEventos.get(i));
+//		    }
 		    
 //		    System.out.println(idEventos.get(2));
 		    Vector<Evento> eventosF = new Vector<Evento>();
 		    
 		    
 		    
-		    System.out.println("-----BUSCANDO EVENTOS FAVORITOS-----");
+		   // System.out.println("-----BUSCANDO EVENTOS FAVORITOS-----");
 		    for(i =0; i<idEventos.size(); i++) {
 		    	
 		    	//System.out.println(idEventos.get(i));
@@ -102,6 +102,7 @@ public class ListaEventosFavoritos {
 			System.out.println("No tiene eventos en su lista");
 		}
 		else {
+			//System.out.println("Tiene");
 			for(i=0; i<eventos_.size(); i++) {
 				System.out.println((i+1)+" " + eventos_.get(i).infoEvento());
 			}
@@ -122,6 +123,7 @@ public class ListaEventosFavoritos {
 			Evento evAux = ev.buscarEvento(idEventos_.get(numEvento - 1));
 			
 			//System.out.println("Se ha encontrado: " + user.getNombre());
+			
 			evAux.mostrarFicha(user);
 			
 			System.out.println();

@@ -29,29 +29,23 @@ public class Evento
 	}
 	
 	public Evento buscarEvento(String id) {
-		Evento evAux = new Evento();
-		try {
-			// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
-			File tablaEventos = new File("eventos.csv");				
-			BufferedWriter bw;
-			PrintWriter pw;
-			bw = new BufferedWriter(new FileWriter(tablaEventos, true));
-			pw = new PrintWriter(bw);
-			// Hasta aqui las lineas que hay que copiar
-			
-			Scanner reader = new Scanner(tablaEventos);  //Le paso como parámetro el fichero que quiero leer
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
 		
-		    //Leemos cada línea
-		    //boolean encontrado = false;
-			
-		    while(reader.hasNextLine())
-		    {
-		    	String linea = reader.nextLine();
-		    	String[] eventoDividido = linea.split(",");
-		    	//System.out.println(eventoDividido[0]);
+		Evento evAux = new Evento();
+		
+		int encontrado = 0;
+	
+		try {
+			   reader = new BufferedReader(new FileReader(csvFile));
+			   while ((line = reader.readLine()) != null) {      
+			       String[] eventoDividido = line.split(cvsSplit);
+		    
 		    	if(eventoDividido[0].equals(id))
 		    	{
-		    		System.out.println("ENCONTRADO: " + id +" "+ eventoDividido[1]); 
+		    		//System.out.println("ENCONTRADO: " + id +" "+ eventoDividido[1]); 
 		    		evAux.setId_(eventoDividido[0]);
 		    		evAux.setArtista_(eventoDividido[1]);
 		    		evAux.setCiudad_(eventoDividido[2]);
@@ -64,9 +58,6 @@ public class Evento
 		       
 		    }
 		     //System.out.println("Iniciando sesion...\n"); 
-		    pw.flush();
-	 	    pw.close(); 
-	 		bw.close();
 	 		reader.close();
 	 		return evAux;
 		   
@@ -86,34 +77,37 @@ public class Evento
 		String cvsSplit = ",";
 		String csvFile = "eventos.csv";
 		
-		Evento evAux = new Evento();
+		
 		
 		int encontrado = 0;
 	
 		try {
 			   reader = new BufferedReader(new FileReader(csvFile));
+			   
 			   while ((line = reader.readLine()) != null) {      
-			       String[] eventoDividido = line.split(cvsSplit);
+				   String[] eventoDividido = line.split(cvsSplit);
 		    
-		    	System.out.println(eventoDividido[1]);
-		    	if(eventoDividido[1].equals(Artista))
-		    	{
-		    		System.out.println("ENCONTRADO: " + Artista +" "+ eventoDividido[0]); 
-		    		evAux.setId_(eventoDividido[0]);
-		    		evAux.setArtista_(eventoDividido[1]);
-		    		evAux.setCiudad_(eventoDividido[2]);
-		    		evAux.setFecha_(eventoDividido[3]);
-		    		evAux.setPrecioMin_(eventoDividido[4]);
-		    		evAux.setPrecioMax_(eventoDividido[5]);
-		    		evAux.setLugar_(eventoDividido[6]);
-		    		evAux.setGenero_(eventoDividido[7]);
-		    		eventos.add(evAux);
-		    	}
+				   //System.out.println(eventoDividido[1]);
+				   if(eventoDividido[1].equals(Artista))
+				   {
+					   Evento evAux = new Evento();
+					  // System.out.println("ENCONTRADO: " + Artista +" "+ eventoDividido[0]); 
+					   evAux.setId_(eventoDividido[0]);
+					   evAux.setArtista_(eventoDividido[1]);
+					   evAux.setCiudad_(eventoDividido[2]);
+					   evAux.setFecha_(eventoDividido[3]);
+					   evAux.setPrecioMin_(eventoDividido[4]);
+					   evAux.setPrecioMax_(eventoDividido[5]);
+					   evAux.setLugar_(eventoDividido[6]);
+					   evAux.setGenero_(eventoDividido[7]);
+					   eventos.add(evAux);
+				   }
+				   
 		       
-		    }
-		     //System.out.println("Iniciando sesion...\n"); 
-	 		reader.close();
-	 		return eventos;
+			   }
+			   //System.out.println("Iniciando sesion...\n"); 
+			   reader.close();
+			   return eventos;
 		   
 		}catch(Exception e) {}
 	    
@@ -221,6 +215,7 @@ public class Evento
 		bw.close();
 		// Hasta aqui las lineas que hay que copiar
 	}
+	
 
 	public String getId_() {
 		return id_;
