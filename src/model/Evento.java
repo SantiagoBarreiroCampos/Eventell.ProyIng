@@ -1,7 +1,9 @@
 package model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -74,6 +76,51 @@ public class Evento
  		// Hasta aqui las lineas que hay que copiar
 		
 		return evAux;
+	}
+	
+	
+	public Vector<Evento> buscarEventosPorArtista(String Artista) {
+		Vector<Evento> eventos = new Vector<Evento>();
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+		
+		Evento evAux = new Evento();
+		
+		int encontrado = 0;
+	
+		try {
+			   reader = new BufferedReader(new FileReader(csvFile));
+			   while ((line = reader.readLine()) != null) {      
+			       String[] eventoDividido = line.split(cvsSplit);
+		    
+		    	System.out.println(eventoDividido[1]);
+		    	if(eventoDividido[1].equals(Artista))
+		    	{
+		    		System.out.println("ENCONTRADO: " + Artista +" "+ eventoDividido[0]); 
+		    		evAux.setId_(eventoDividido[0]);
+		    		evAux.setArtista_(eventoDividido[1]);
+		    		evAux.setCiudad_(eventoDividido[2]);
+		    		evAux.setFecha_(eventoDividido[3]);
+		    		evAux.setPrecioMin_(eventoDividido[4]);
+		    		evAux.setPrecioMax_(eventoDividido[5]);
+		    		evAux.setLugar_(eventoDividido[6]);
+		    		evAux.setGenero_(eventoDividido[7]);
+		    		eventos.add(evAux);
+		    	}
+		       
+		    }
+		     //System.out.println("Iniciando sesion...\n"); 
+	 		reader.close();
+	 		return eventos;
+		   
+		}catch(Exception e) {}
+	    
+	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
+ 		// Hasta aqui las lineas que hay que copiar
+		
+		return eventos;
 	}
 	
 	

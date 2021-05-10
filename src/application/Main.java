@@ -118,7 +118,7 @@ public class Main
 				case "3":					
 					ListaArtistasFavoritos listaAux2 = new ListaArtistasFavoritos();
 					ListaArtistasFavoritos lista2 = listaAux2.buscarArtistas(user);
-					lista2.mostrarArtistas();
+					lista2.mostrarArtistas(user.getUser());
 					System.out.println("Pulsa ENTER para volver al men� principal\n");
 					sc.nextLine();
 					//volverAlMenu =false;
