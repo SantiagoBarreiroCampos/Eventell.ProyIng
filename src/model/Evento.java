@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Vector;
+import java.io.IOException;
+import java.security.InvalidParameterException;
+import javax.mail.MessagingException;
 
 public class Evento
 {
@@ -53,8 +56,7 @@ public class Evento
 		    		evAux.setPrecioMax_(eventoDividido[5]);
 		    		evAux.setLugar_(eventoDividido[6]);
 		    		evAux.setGenero_(eventoDividido[7]);
-		    	}
-		       
+		    	}		       
 		    }
 	 		reader.close();
 	 		return evAux;
@@ -63,52 +65,46 @@ public class Evento
 	    
 		return evAux;
 	}
-	
-	
+		
 	public Vector<Evento> buscarEventosPorArtista(String Artista) {
 		Vector<Evento> eventos = new Vector<Evento>();
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
 		String csvFile = "eventos.csv";
-		
-		
-		
+			
 		int encontrado = 0;
 	
-		try {
-			   reader = new BufferedReader(new FileReader(csvFile));
-			   
-			   while ((line = reader.readLine()) != null) {      
-				   String[] eventoDividido = line.split(cvsSplit);
-		    
-				   if(eventoDividido[1].equals(Artista))
-				   {
-					   Evento evAux = new Evento();
-					   evAux.setId_(eventoDividido[0]);
-					   evAux.setArtista_(eventoDividido[1]);
-					   evAux.setCiudad_(eventoDividido[2]);
-					   evAux.setFecha_(eventoDividido[3]);
-					   evAux.setPrecioMin_(eventoDividido[4]);
-					   evAux.setPrecioMax_(eventoDividido[5]);
-					   evAux.setLugar_(eventoDividido[6]);
-					   evAux.setGenero_(eventoDividido[7]);
-					   eventos.add(evAux);
-				   }
-				   
-		       
+		try
+		{
+		   reader = new BufferedReader(new FileReader(csvFile));
+		   
+		   while ((line = reader.readLine()) != null)
+		   {      
+			   String[] eventoDividido = line.split(cvsSplit);
+	    
+			   if(eventoDividido[1].equals(Artista))
+			   {
+				   Evento evAux = new Evento();
+				   evAux.setId_(eventoDividido[0]);
+				   evAux.setArtista_(eventoDividido[1]);
+				   evAux.setCiudad_(eventoDividido[2]);
+				   evAux.setFecha_(eventoDividido[3]);
+				   evAux.setPrecioMin_(eventoDividido[4]);
+				   evAux.setPrecioMax_(eventoDividido[5]);
+				   evAux.setLugar_(eventoDividido[6]);
+				   evAux.setGenero_(eventoDividido[7]);
+				   eventos.add(evAux);
 			   }
-			   reader.close();
-			   return eventos;
+		   }
+		   reader.close();
+		   return eventos;
 		   
 		}catch(Exception e) {}
-	    
-		
+	    	
 		return eventos;
 	}
-	
-	
-	
+		
 	public void mostrarFicha(String user) throws IOException
 	{
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
@@ -130,8 +126,7 @@ public class Evento
 			System.out.println("Lugar: " + this.getLugar_());
 			System.out.println("Fecha: " + this.getFecha_());
 			System.out.println("Precios: " + this.getPrecioMin_() +"€ - "+ this.getPrecioMax_() +"€");
-			
-			
+					
 			//faltaría opcion de enviarle por correo uno de tus eventos favoritos
 			
 			boolean esFavorito = false;
@@ -141,10 +136,8 @@ public class Evento
 		    	String[] eventoDividida = linea.split(",");
 		    	
 		    	if(eventoDividida[0].equals(user) && eventoDividida[1].equals(this.getId_()))
-		    	{
-		    		
-		    			esFavorito = true;
-		    		
+		    	{	    		
+		    			esFavorito = true;	    		
 		    	}
 		    }
 			
@@ -158,8 +151,7 @@ public class Evento
 			}
 			
 			System.out.println("Pulsa (2) para abrir el link de compra");
-			System.out.println("Pulsa (3) para compartir el evento con un amigo");
-			
+			System.out.println("Pulsa (3) para compartir el evento con un amigo");			
 			System.out.println("Pulsa (0) para regresar al menú");
 			
 			String eleccion = sc.nextLine();
@@ -181,17 +173,13 @@ public class Evento
 						//pw.println(nuevaLinea);
 					}
 					//puedeSalir = false;
-					break;
-					
-					
+					break;								
 				case "2":
 					System.out.println("Abriendo link");//falta esta parte
 					break;
 				case "3":
-					System.out.println("Compratiendo con un amigo");//falta esta parte
-					break;
-					
-					
+					EnviarEvento();
+					break;				
 				default:
 					System.out.println("Dato introducido incorrecto. Intente de nuevo");
 					puedeSalir = false;
@@ -206,6 +194,36 @@ public class Evento
 		// Hasta aqui las lineas que hay que copiar
 	}
 	
+	void EnviarEvento()
+	{
+		try
+		{
+            Mail m = new Mail("config/configuracion.prop");
+
+            m.enviarEmail("Test", "Hola mundo", "gonzalezpablosanchez@gmail.com");
+            
+            String correos[] = {"pgonzalezs1999@gmail.com", "gonzalezpablosanchez@gmail.com"};
+            
+            m.enviarEmail("Test", "Hola mundo", correos);
+
+            System.out.println("Se ha enviado!!");
+        }
+		catch (InvalidParameterException ex1)
+		{
+            System.out.println(ex1.getMessage());
+            System.out.println("ex1");
+        }
+		catch (IOException ex2)
+		{
+            System.out.println(ex2.getMessage());
+            System.out.println("ex2");
+        }
+		catch (MessagingException ex3)
+		{
+            System.out.println(ex3.getMessage());
+            System.out.println("ex3");
+        }
+	}
 
 	public String getId_() {
 		return id_;
