@@ -1,4 +1,4 @@
-package application;
+package model;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Vector;
-
-import model.Usuario;
 
 public class ListaUsuarios
 {

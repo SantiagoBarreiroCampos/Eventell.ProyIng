@@ -28,8 +28,10 @@ public class ListaArtistasFavoritos
 		return artistas_;
 	}
 	
-	public ListaArtistasFavoritos buscarArtistas(Usuario user) {
-		try {
+	public ListaArtistasFavoritos buscarArtistas(Usuario user)
+	{
+		try
+		{
 			// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 			File tablaArtista = new File("artistasFavoritos.csv");				
 			BufferedWriter bw;
@@ -52,8 +54,7 @@ public class ListaArtistasFavoritos
 		    	{
 		    		//System.out.println(artistaDividido[1]);
 		    		artistas.add(artistaDividido[1]);
-		    	}
-		       
+		    	}		       
 		    }
 		    this.user_ = user.getUser();
 		    this.artistas_ = artistas;

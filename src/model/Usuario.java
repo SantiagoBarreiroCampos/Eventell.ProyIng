@@ -48,48 +48,76 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 //		this.disponible_ = (disponible == 1);
 //	}
 	
-	public void BuscarArtista(String nombre) throws IOException {
+	public void BuscarArtista(String nombre, Usuario user) throws IOException
+	{
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
-		String csvFile = "eventos.csv";
-		
-		int encontrado = 0;
-	
-		try {
-			   reader = new BufferedReader(new FileReader(csvFile));
-			   while ((line = reader.readLine()) != null) {      
-			       String[] ficha = line.split(cvsSplit);
-			       
-			      if(ficha[1].equalsIgnoreCase(nombre)) {
-			      System.out.println("\nArtista:" + ficha[1] 
-			    		  		   + "\nGenero:" + ficha[7] 
-			    		  		   + "\nEvento:" + ficha [6]
-			    		  		   + "\nCuidad" + ficha[2]
-			    		  		   + "\nFecha:" + ficha[3]
-			    		  		   +"\nPrecio desde: " + "â‚¬" + ficha[4]  + " hasta: " + "â‚¬" + ficha[5]);
-			      encontrado++;
-			      }
-			      
-			   }
-			   
-			   if (encontrado == 0) {
-				   System.out.println("Artista no encontrado");
-			   }
-			   
-			} catch (FileNotFoundException e) {
-			   e.printStackTrace();
-			} catch (IOException e) {
-			   e.printStackTrace();
-			} finally {
-			   if (reader != null) {
-			       try {
-			           reader.close();
-			       } catch (IOException e) {
-			           e.printStackTrace();
-			       }
-			   }
-			}
+		String csvFile = "eventos.csv";		
+		int encontrados = 0;
+		int numFila = 0;
+		Scanner scanner = new Scanner(System.in);
+		try
+		{
+			int[] numFilas = new int[2000];
+		    reader = new BufferedReader(new FileReader(csvFile));
+		    while ((line = reader.readLine()) != null)
+		    {
+			   String[] ficha = line.split(cvsSplit);
+			   numFila++;
+		       
+		       if(ficha[1].equalsIgnoreCase(nombre))
+		       {
+		    	   if (encontrados == 0)
+		    	   {
+		    		   System.out.println("Estos son los eventos de \"" + nombre + "\":");
+		    	   }
+		    	   numFilas[encontrados] = numFila;
+		    	   encontrados++;		    	   
+		    	   
+		    	   //Evento auxEvento = new Evento();
+		    	   //auxEvento.MostrarPorBusqueda(numFila, user.getUser());
+		    	   
+		    	   System.out.println("(" +encontrados+ "): " +ficha[6]+ " (" +ficha[2]+ "). " +ficha[3]);			       
+		       }
+		       numFila++;
+		    }
+		    if (encontrados == 0)
+		    {
+			    System.out.println("\nArtista no encontrado");
+		    }
+		    else
+		    {
+			    System.out.println("\nIntroduzca el numero del evento que desea consultar");
+			    System.out.println("Pulse cualquier otra tecla para abandonar la búsqueda: ");
+			    
+			    int decision = sc.nextInt();
+			    try
+			    {
+			    	Evento auxEvento = new Evento();
+			    	auxEvento.MostrarPorBusqueda(numFilas[decision+1], user.getUser()); 
+			    }
+			    catch(Exception e) {}
+			    
+			    //linkar num fila con num de evento mostrado (2 vectores?)
+		    }
+	   } catch (FileNotFoundException e){
+		   e.printStackTrace();
+	   } catch (IOException e) {
+		   e.printStackTrace();
+	   } finally {
+		   if (reader != null)
+		   {
+			   try
+			   {
+				   reader.close();
+		       }
+			   catch (IOException e)
+			   {
+		           e.printStackTrace();
+		       }
+		   }
+	   }
 	}
 	public Usuario Administrador() throws IOException{
 		int elec;
@@ -99,8 +127,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
 		pw = new PrintWriter(bw);
-		
-		    	
+				    	
 		    	System.out.println("Se ha detectado que su usuario es administrador");
 		    	System.out.println("¿Que dato desea Hacer?");
 				System.out.println("Pulse (1) para añadir Administrador "
@@ -111,8 +138,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 				switch(elec)
 				{
 					case 1:
-						
-						
+												
 					break;
 					case 2:
 						System.out.println("Introduce nombre del Artista: ");
@@ -149,48 +175,48 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		
 		return this;
 	}
-	public void BuscarCiudad(String city) throws IOException {
-		
+	public void BuscarCiudad(String city) throws IOException
+	{	
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
 		String csvFile = "eventos.csv";
 		int hallado = 0;
-		
-		
-		try {
-			   reader = new BufferedReader(new FileReader(csvFile));
-			   while ((line = reader.readLine()) != null) {      
-			       String[] ficha = line.split(cvsSplit);
-			       
-				      if(ficha[2].equalsIgnoreCase(city)) {
-				      System.out.println("\nCuidad:" + ficha[2] 
-				    		  		   + "\nArtista:" + ficha[1] 
-				    		  		   + "\nGenero:" + ficha [7]
-				    		  		   + "\nCuidad" + ficha[2]
-				    		  		   + "\nFecha:" + ficha[3]
-				    		  		   +"\nPrecio desde:" + ficha[4] + "hasta:" + ficha[5]);
-				      hallado ++;
-				      }
-				      
-			     if (hallado == 0) {
-			    	  System.out.println("Cuidad no encontrada");
+				
+		try
+		{
+		   reader = new BufferedReader(new FileReader(csvFile));
+		   while ((line = reader.readLine()) != null) {      
+		       String[] ficha = line.split(cvsSplit);
+		       
+			      if(ficha[2].equalsIgnoreCase(city)) {
+			      System.out.println("\nCuidad:" + ficha[2] 
+			    		  		   + "\nArtista:" + ficha[1] 
+			    		  		   + "\nGenero:" + ficha [7]
+			    		  		   + "\nCuidad" + ficha[2]
+			    		  		   + "\nFecha:" + ficha[3]
+			    		  		   +"\nPrecio desde:" + ficha[4] + "hasta:" + ficha[5]);
+			      hallado ++;
 			      }
-			   }
-			} catch (FileNotFoundException e) {
-			   e.printStackTrace();
-			} catch (IOException e) {
-			   e.printStackTrace();
-			} finally {
-			   if (reader != null) {
-			       try {
-			           reader.close();
-			       } catch (IOException e) {
-			           e.printStackTrace();
-			       }
-			   }
-			}
-			}
+			      
+		     if (hallado == 0) {
+		    	  System.out.println("Cuidad no encontrada");
+		      }
+		   }
+		} catch (FileNotFoundException e) {
+		   e.printStackTrace();
+		} catch (IOException e) {
+		   e.printStackTrace();
+		} finally {
+		   if (reader != null) {
+		       try {
+		           reader.close();
+		       } catch (IOException e) {
+		           e.printStackTrace();
+		       }
+		   }
+		}
+	}
 	public void BuscarGenero() throws IOException {
 		BufferedReader reader = null;
 		
@@ -402,6 +428,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	
 	public Usuario Registrarse() throws IOException
 	{
+		System.out.println("Le recordamos que no podrá asistir a ciertos" +
+							"\neventos reservados con Eventell si usted es" +
+							"\nmenor de edad\n");
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 		File tablaUsuarios = new File("usuarios.csv");
 		Scanner reader = new Scanner(tablaUsuarios);

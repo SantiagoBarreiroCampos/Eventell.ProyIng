@@ -13,6 +13,17 @@ import java.io.IOException;
 import java.security.InvalidParameterException;
 import javax.mail.MessagingException;
 
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.swing.JOptionPane;
+
 public class Evento
 {
 	Scanner sc = new Scanner(System.in);
@@ -194,35 +205,51 @@ public class Evento
 		// Hasta aqui las lineas que hay que copiar
 	}
 	
+	public void MostrarPorBusqueda(int fila, String username) throws IOException
+	{
+		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		File tablaEventos = new File("eventos.csv");
+		Scanner reader = new Scanner(tablaEventos);
+		BufferedWriter bw;
+		PrintWriter pw;
+		bw = new BufferedWriter(new FileWriter(tablaEventos, true));
+		pw = new PrintWriter(bw);
+		// Hasta aqui las lineas que hay que copiar
+		
+		System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
+		System.out.println("Genero: " + this.getGenero_());
+		System.out.println("Artista: " + this.getArtista_());
+		System.out.println("Ciudad: " + this.getCiudad_());
+		System.out.println("Lugar: " + this.getLugar_());
+		System.out.println("Fecha: " + this.getFecha_());
+		System.out.println("Precios: " + this.getPrecioMin_() +"€ - "+ this.getPrecioMax_() +"€");
+		
+		boolean esFavorito = false;
+		while(reader.hasNextLine())
+	    {
+	    	String linea = reader.nextLine();
+	    	String[] eventoDividida = linea.split(",");
+	    	
+	    	//if(eventoDividida[0].equals(user) && eventoDividida[1].equals(this.getId_()))
+	    	//{	    		
+	    			//esFavorito = true;	    		
+	    	//}
+	    }
+			
+		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
+		pw.flush();
+	    pw.close(); 
+		bw.close();
+		// Hasta aqui las lineas que hay que copiar
+	}
+	
 	void EnviarEvento()
 	{
-		try
-		{
-            Mail m = new Mail("config/configuracion.prop");
+		String destinatario =  "pgonzalezs1999@gmail.com"; //A quien le quieres escribir.
+	    String asunto = "Correo de prueba enviado desde Java";
+	    String cuerpo = "Esta es una prueba de correo...";
 
-            m.enviarEmail("Test", "Hola mundo", "gonzalezpablosanchez@gmail.com");
-            
-            String correos[] = {"pgonzalezs1999@gmail.com", "gonzalezpablosanchez@gmail.com"};
-            
-            m.enviarEmail("Test", "Hola mundo", correos);
-
-            System.out.println("Se ha enviado!!");
-        }
-		catch (InvalidParameterException ex1)
-		{
-            System.out.println(ex1.getMessage());
-            System.out.println("ex1");
-        }
-		catch (IOException ex2)
-		{
-            System.out.println(ex2.getMessage());
-            System.out.println("ex2");
-        }
-		catch (MessagingException ex3)
-		{
-            System.out.println(ex3.getMessage());
-            System.out.println("ex3");
-        }
+	    Mail.enviarConGMail(destinatario, asunto, cuerpo);
 	}
 
 	public String getId_() {

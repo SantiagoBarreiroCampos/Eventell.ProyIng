@@ -1,5 +1,35 @@
 package model;
 
+import java.awt.BorderLayout;
+import java.awt.Desktop;
+import java.awt.FileDialog;
+import java.awt.FlowLayout;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,68 +44,36 @@ import javax.mail.internet.MimeMessage;
 
 public class Mail
 {
-    private Properties properties;
-    private Session session;
+	public static void enviarConGMail(String destinatario, String asunto, String cuerpo)
+	{
+	    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.	    
+	    try
+	    {
+	    	String remitente = "uemeventell";  //Para la dirección uemeventell@gmail.com
 
-    public Mail(String ruta) throws IOException
-    {
-        this.properties = new Properties();
-        loadConfig(ruta);
-        session = Session.getDefaultInstance(properties);
-    }
+		    Properties props = System.getProperties();
+		    props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
+		    props.put("mail.smtp.user", remitente);
+		    props.put("mail.smtp.clave", "miClaveDeGMail");    //La clave de la cuenta
+		    props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave
+		    props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
+		    props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google
 
-    private void loadConfig(String ruta) throws InvalidParameterException, IOException
-    {
-        InputStream is = new FileInputStream(ruta);
-        this.properties.load(is);
-        checkConfig();
-    }
-
-    private void checkConfig() throws InvalidParameterException
-    {
-        String[] keys =
-        {
-        	"mail.smtp.host",
-            "mail.smtp.port",
-            "mail.smtp.user",
-            "mail.smtp.password",
-            "mail.smtp.starttls.enable",
-            "mail.smtp.auth"
-        };
-        
-        for (int i = 0; i < keys.length; i++)
-        {
-            if (this.properties.get(keys[i]) == null)
-            {
-                throw new InvalidParameterException("No existe la clave " + keys[i]);
-            }
-        }
-    }
-
-    public void enviarEmail(String asunto, String mensaje, String correo) throws MessagingException
-    {
-        MimeMessage contenedor = new MimeMessage(session);
-        contenedor.setFrom(new InternetAddress((String) this.properties.get("mail.smtp.user")));
-        contenedor.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));
-        contenedor.setSubject(asunto);
-        contenedor.setText(mensaje);
-        Transport t = session.getTransport("smtp");
-        t.connect((String) this.properties.get("mail.smtp.user"), (String) this.properties.get("mail.smtp.password"));
-        t.sendMessage(contenedor, contenedor.getAllRecipients());
-    }
-
-    public void enviarEmail(String asunto, String mensaje, String[] correos) throws MessagingException
-    {
-        MimeMessage contenedor = new MimeMessage(session);
-        contenedor.setFrom(new InternetAddress((String) this.properties.get("mail.smtp.user")));
-        for (int i = 0; i < correos.length; i++)
-        {
-            contenedor.addRecipient(Message.RecipientType.TO, new InternetAddress(correos[i]));
-        }
-        contenedor.setSubject(asunto);
-        contenedor.setText(mensaje);
-        Transport t = session.getTransport("smtp");
-        t.connect((String) this.properties.get("mail.smtp.user"), (String) this.properties.get("mail.smtp.password"));
-        t.sendMessage(contenedor, contenedor.getAllRecipients());
-    }
+		    Session session = Session.getDefaultInstance(props);
+		    MimeMessage message = new MimeMessage(session);
+	        message.setFrom(new InternetAddress(remitente));
+	        message.addRecipients(Message.RecipientType.TO, destinatario); // Se podrían añadir varios de la misma manera
+	        message.setSubject(asunto);
+	        message.setText(cuerpo);
+	        Transport transport = session.getTransport("smtp");
+	        String clave = "eventell2021";
+			transport.connect("smtp.gmail.com", remitente, clave );
+	        transport.sendMessage(message, message.getAllRecipients());
+	        transport.close();
+	    }
+	    catch (MessagingException me)
+	    {
+	        me.printStackTrace();   //Si se produce un error
+	    }
+	}
 }

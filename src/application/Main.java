@@ -7,6 +7,7 @@ import java.util.Scanner;
 import model.ListaAmigos;
 import model.ListaArtistasFavoritos;
 import model.ListaEventosFavoritos;
+import model.ListaUsuarios;
 import model.Usuario;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -14,7 +15,7 @@ import java.io.File;
 import java.io.PrintWriter;
 
 public class Main
-{			
+{
 	public static void main(String args[]) throws IOException
 	{
 		Scanner sc = new Scanner(System.in);
@@ -134,25 +135,27 @@ public class Main
 					
 					eleccion = sc1.nextLine();
 				
-						switch(eleccion) {
+					switch(eleccion)
+					{
 						case "1":
-							System.out.println("Por favor introduzca el nombre del artista");				
+							System.out.println("Introduzca el nombre del artista");				
 							String nombre = sc1.nextLine();
 							Usuario artistaAux = new Usuario();
-							artistaAux.BuscarArtista(nombre);
-						
+							artistaAux.BuscarArtista(nombre, user);
+							break;
 						case "2":
-							System.out.println("Por favor introduzca el nombre de la cuidad");				
+							System.out.println("Introduzca el nombre de la cuidad");				
 							String city = sc1.nextLine();
 							Usuario cuidadAux = new Usuario();
 							cuidadAux.BuscarCiudad(city);
-							
+							break;
 						case "3":
 							Usuario generoAux = new Usuario();
 							generoAux.BuscarGenero();
-						}
-						
-					
+							break;
+						default:
+							System.out.println("Valor introducido incorrecto. Regresando al menú...");
+					}
 					break;
 				case "6":
 					break;
