@@ -205,42 +205,34 @@ public class Evento
 		// Hasta aqui las lineas que hay que copiar
 	}
 	
-	public void MostrarPorBusqueda(int fila, String username) throws IOException
+	public void MostrarPorBusqueda(int fila, String user) throws Exception
 	{
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
-		File tablaEventos = new File("eventos.csv");
-		Scanner reader = new Scanner(tablaEventos);
-		BufferedWriter bw;
-		PrintWriter pw;
-		bw = new BufferedWriter(new FileWriter(tablaEventos, true));
-		pw = new PrintWriter(bw);
+		BufferedReader reader = null;
+		BufferedReader reader2 = null;
+		String line = "";
+		String line2 = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+		reader = new BufferedReader(new FileReader(csvFile));
 		// Hasta aqui las lineas que hay que copiar
 		
-		System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
-		System.out.println("Genero: " + this.getGenero_());
-		System.out.println("Artista: " + this.getArtista_());
-		System.out.println("Ciudad: " + this.getCiudad_());
-		System.out.println("Lugar: " + this.getLugar_());
-		System.out.println("Fecha: " + this.getFecha_());
-		System.out.println("Precios: " + this.getPrecioMin_() +"€ - "+ this.getPrecioMax_() +"€");
-		
-		boolean esFavorito = false;
-		while(reader.hasNextLine())
+		while ((line = reader.readLine()) != null)
 	    {
-	    	String linea = reader.nextLine();
-	    	String[] eventoDividida = linea.split(",");
+	    	String linea = reader.readLine();
+	    	String[] eventoDividido = linea.split(",");
 	    	
-	    	//if(eventoDividida[0].equals(user) && eventoDividida[1].equals(this.getId_()))
-	    	//{	    		
-	    			//esFavorito = true;	    		
-	    	//}
-	    }
-			
-		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
-		pw.flush();
-	    pw.close(); 
-		bw.close();
-		// Hasta aqui las lineas que hay que copiar
+	    	if(eventoDividido[0].equals(String.valueOf(fila)))
+	    	{    		
+	    		System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
+	    		System.out.println("Genero: " + eventoDividido[7]);
+	    		System.out.println("Artista: " + eventoDividido[1]);
+	    		System.out.println("Ciudad: " + eventoDividido[2]);
+	    		System.out.println("Lugar: " + eventoDividido[6]);
+	    		System.out.println("Fecha: " + eventoDividido[3]);
+	    		System.out.println("Precios entre " + eventoDividido[4] +"€ y "+ eventoDividido[5] +"€");
+	    	}	    	
+	    }		
 	}
 	
 	void EnviarEvento()

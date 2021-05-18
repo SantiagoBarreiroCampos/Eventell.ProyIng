@@ -29,25 +29,6 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	private String esAdmin_;
 	private boolean disponible_;
 	
-	public Usuario()
-	{
-		
-	}
-	
-//	public Usuario(int disponible, String user, String password, String nombre, String apellidos, String correo, String nacimiento, String ciudad, String sexo, int esAdmin)
-//	{
-//		this.nombre_ = nombre;
-//		this.apellidos_ = apellidos;
-//		this.nacimiento_ = nacimiento;
-//		this.correo_ = correo;
-//		this.ciudad_ = ciudad;
-//		this.sexo_ = sexo;
-//		this.user_ = user;
-//		this.password_ = password;
-//		this.esAdmin_ = (esAdmin == 1);
-//		this.disponible_ = (disponible == 1);
-//	}
-	
 	public void BuscarArtista(String nombre, Usuario user) throws IOException
 	{
 		BufferedReader reader = null;
@@ -59,24 +40,20 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		Scanner scanner = new Scanner(System.in);
 		try
 		{
-			int[] numFilas = new int[2000];
+			int[] numEventos = new int[300];
 		    reader = new BufferedReader(new FileReader(csvFile));
 		    while ((line = reader.readLine()) != null)
 		    {
 			   String[] ficha = line.split(cvsSplit);
-			   numFila++;
 		       
 		       if(ficha[1].equalsIgnoreCase(nombre))
 		       {
 		    	   if (encontrados == 0)
 		    	   {
-		    		   System.out.println("Estos son los eventos de \"" + nombre + "\":");
+		    		   System.out.println("\nEstos son los eventos de \"" + nombre + "\":");
 		    	   }
-		    	   numFilas[encontrados] = numFila;
+		    	   numEventos[encontrados+1] = numFila;
 		    	   encontrados++;		    	   
-		    	   
-		    	   //Evento auxEvento = new Evento();
-		    	   //auxEvento.MostrarPorBusqueda(numFila, user.getUser());
 		    	   
 		    	   System.out.println("(" +encontrados+ "): " +ficha[6]+ " (" +ficha[2]+ "). " +ficha[3]);			       
 		       }
@@ -91,15 +68,37 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    System.out.println("\nIntroduzca el numero del evento que desea consultar");
 			    System.out.println("Pulse cualquier otra tecla para abandonar la búsqueda: ");
 			    
-			    int decision = sc.nextInt();
+			    int decision = sc.nextInt();			    
 			    try
-			    {
+			    {				    	
 			    	Evento auxEvento = new Evento();
-			    	auxEvento.MostrarPorBusqueda(numFilas[decision+1], user.getUser()); 
+			    	auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
 			    }
 			    catch(Exception e) {}
 			    
-			    //linkar num fila con num de evento mostrado (2 vectores?)
+			    boolean esFavorito;
+			    
+				try
+				{
+					esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+				
+			    	if (esFavorito == true)
+			    	{
+			    		System.out.println("\nPulse (1) para eliminar de eventos favoritos");
+			    	}
+			    	else
+			    	{
+			    		System.out.println("\nPulse (1) para añadir a eventos favoritos");
+			    	}
+			    	System.out.println("Pulse cualquier otra tecla para abandonar la búsqueda: ");
+			    	
+			    	String opcion = scanner.nextLine();
+			    	if (opcion.equals(1))
+			    	{
+			    		// añadir / eliminar de favoritos
+			    	}
+			    	
+				} catch (Exception e) {}
 		    }
 	   } catch (FileNotFoundException e){
 		   e.printStackTrace();
@@ -129,7 +128,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		pw = new PrintWriter(bw);
 				    	
 		    	System.out.println("Se ha detectado que su usuario es administrador");
-		    	System.out.println("¿Que dato desea Hacer?");
+		    	System.out.println("¿Que dato desea hacer?");
 				System.out.println("Pulse (1) para añadir Administrador "
 						+ "\nPulse (2) para añadir evento"
 						+ "\nPulse (3) para eliminar evento"
@@ -622,6 +621,26 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
  		// Hasta aqui las lineas que hay que copiar
 		
 		return this;
+	}
+	
+	public boolean ComprobarEventoFavorito(int id, String username) throws Exception
+	{
+		boolean respuesta = false;
+		
+		BufferedReader in = null;
+		String read;
+    	in = new BufferedReader(new FileReader("eventosFavoritos.csv"));
+	    	
+    	while ((read = in.readLine()) != null)
+    	{
+    		String[] split = read.split(",");
+    		    		
+	    	if(split[0].equals(username) && split[1].equals(String.valueOf(id)))
+	    	{
+	    		respuesta = true;
+	    	}
+	    }
+    	return respuesta;
 	}
 	
 	public Usuario buscarUsuarioPorUser(String username) throws IOException

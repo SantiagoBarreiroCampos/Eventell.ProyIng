@@ -13,12 +13,6 @@ public class ListaArtistasFavoritos
 	private String user_;
 	private Vector<String> artistas_;
 	
-//	public ListaArtistasFavoritos(String user, Vector<Artista> artistas)
-//	{
-//		this.user_ = user;
-//		this.artistas_ = artistas;
-//	}
-	
 	public String getUser()
 	{
 		return user_;
