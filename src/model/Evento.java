@@ -207,30 +207,22 @@ public class Evento
 	
 	public void MostrarPorBusqueda(int fila, String user) throws Exception
 	{
-		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
-		BufferedReader reader = null;
-		BufferedReader reader2 = null;
-		String line = "";
-		String line2 = "";
-		String cvsSplit = ",";
-		String csvFile = "eventos.csv";
-		reader = new BufferedReader(new FileReader(csvFile));
-		// Hasta aqui las lineas que hay que copiar
+		BufferedReader in = null;
+		String read;
+		in = new BufferedReader(new FileReader("eventos.csv"));
 		
-		while ((line = reader.readLine()) != null)
+		while ((read = in.readLine()) != null)
 	    {
-	    	String linea = reader.readLine();
-	    	String[] eventoDividido = linea.split(",");
-	    	
-	    	if(eventoDividido[0].equals(String.valueOf(fila)))
+			String[] split = read.split(",");
+	    	if(split[0].equals(String.valueOf(fila)))
 	    	{    		
 	    		System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
-	    		System.out.println("Genero: " + eventoDividido[7]);
-	    		System.out.println("Artista: " + eventoDividido[1]);
-	    		System.out.println("Ciudad: " + eventoDividido[2]);
-	    		System.out.println("Lugar: " + eventoDividido[6]);
-	    		System.out.println("Fecha: " + eventoDividido[3]);
-	    		System.out.println("Precios entre " + eventoDividido[4] +"€ y "+ eventoDividido[5] +"€");
+	    		System.out.println("Genero: " + split[7]);
+	    		System.out.println("Artista: " + split[1]);
+	    		System.out.println("Ciudad: " + split[2]);
+	    		System.out.println("Lugar: " + split[6]);
+	    		System.out.println("Fecha: " + split[3]);
+	    		System.out.println("Precios entre " + split[4] +"€ y "+ split[5] +"€");
 	    	}	    	
 	    }		
 	}

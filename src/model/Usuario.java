@@ -40,7 +40,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		Scanner scanner = new Scanner(System.in);
 		try
 		{
-			int[] numEventos = new int[300];
+			int[] numEventos = new int[150];
 		    reader = new BufferedReader(new FileReader(csvFile));
 		    while ((line = reader.readLine()) != null)
 		    {
@@ -174,48 +174,97 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		
 		return this;
 	}
-	public void BuscarCiudad(String city) throws IOException
+	public void BuscarCiudad(String city, Usuario user) throws IOException
 	{	
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
 		String csvFile = "eventos.csv";
-		int hallado = 0;
+		int numFila = 0;
+		int encontrados = 0;
 				
 		try
 		{
-		   reader = new BufferedReader(new FileReader(csvFile));
-		   while ((line = reader.readLine()) != null) {      
-		       String[] ficha = line.split(cvsSplit);
+			int[] numEventos = new int[150];
+		    reader = new BufferedReader(new FileReader(csvFile));
+		    while ((line = reader.readLine()) != null)
+		    {
+			   String[] ficha = line.split(cvsSplit);
 		       
-			      if(ficha[2].equalsIgnoreCase(city)) {
-			      System.out.println("\nCuidad:" + ficha[2] 
-			    		  		   + "\nArtista:" + ficha[1] 
-			    		  		   + "\nGenero:" + ficha [7]
-			    		  		   + "\nCuidad" + ficha[2]
-			    		  		   + "\nFecha:" + ficha[3]
-			    		  		   +"\nPrecio desde:" + ficha[4] + "hasta:" + ficha[5]);
-			      hallado ++;
-			      }
-			      
-		     if (hallado == 0) {
-		    	  System.out.println("Cuidad no encontrada");
-		      }
-		   }
-		} catch (FileNotFoundException e) {
+		       if(ficha[2].equalsIgnoreCase(city))
+		       {
+		    	   if (encontrados == 0)
+		    	   {
+		    		   System.out.println("\nEstos son los eventos de \"" + city + "\":");
+		    	   }
+		    	   numEventos[encontrados+1] = numFila;
+		    	   encontrados++;		    	   
+		    	   
+		    	   System.out.println("(" +encontrados+ "): " +ficha[6]+ " (" +ficha[2]+ "). " +ficha[3]);			       
+		       }
+		       numFila++;
+		    }
+		    if (encontrados == 0)
+		    {
+			    System.out.println("\nCiudad no encontrada");
+		    }
+		    else
+		    {
+			    System.out.println("\nIntroduzca el numero del evento que desea consultar");
+		 	     System.out.println("Pulse cualquier otra tecla para abandonar la búsqueda: ");
+			    
+			     int decision = sc.nextInt();			    
+			     try
+			     {				    				    	 
+			    	 Evento auxEvento = new Evento();
+			    	 auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
+			     }
+			     catch(Exception e) {}
+			    
+			     boolean esFavorito;
+			    
+				 try
+				 {
+					 esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+				
+			    	 if (esFavorito == true)
+			    	 {
+			    		 System.out.println("\nPulse (1) para eliminar de eventos favoritos");
+			    	 }
+			    	 else
+			    	 {
+			    		 System.out.println("\nPulse (1) para añadir a eventos favoritos");
+			    	 }
+			    	 System.out.println("Pulse cualquier otra tecla para abandonar la búsqueda: ");
+			    	
+			    	 Scanner scanner = new Scanner(System.in);
+					 String opcion = scanner.nextLine();
+			    	 if (opcion.equals(1))
+			    	 {
+			    		 // añadir / eliminar de favoritos
+			    	 }
+			    	
+				 } catch (Exception e) {}
+		     }
+	   } catch (FileNotFoundException e){
 		   e.printStackTrace();
-		} catch (IOException e) {
+	   } catch (IOException e) {
 		   e.printStackTrace();
-		} finally {
-		   if (reader != null) {
-		       try {
-		           reader.close();
-		       } catch (IOException e) {
+	   } finally {
+		   if (reader != null)
+		   {
+			   try
+			   {
+				   reader.close();
+		       }
+			   catch (IOException e)
+			   {
 		           e.printStackTrace();
 		       }
 		   }
-		}
+	   }
 	}
+	
 	public void BuscarGenero() throws IOException {
 		BufferedReader reader = null;
 		

@@ -129,9 +129,9 @@ public class Main
 					Scanner sc1 = new Scanner(System.in);
 					String eleccion;
 					
-					System.out.println("\nPresione (1) si desea buscar por artista"
-							+ "\nPresione (2) si desea buscar por cuidad"
-							+ "\nPresione (3) si desea buscar por genero");
+					System.out.println("\nPulse (1) si desea buscar un evento por artista"
+							+ "\nPulse (2) si desea buscar un evento por cuidad"
+							+ "\nPulse (3) si desea buscar un evento por genero musical");
 					
 					eleccion = sc1.nextLine();
 				
@@ -147,7 +147,7 @@ public class Main
 							System.out.println("Introduzca el nombre de la cuidad");				
 							String city = sc1.nextLine();
 							Usuario cuidadAux = new Usuario();
-							cuidadAux.BuscarCiudad(city);
+							cuidadAux.BuscarCiudad(city, user);
 							break;
 						case "3":
 							Usuario generoAux = new Usuario();
