@@ -38,11 +38,13 @@ public class Evento
 	private String genero_;
 	
 
-	public String infoEvento() {
+	public String infoEvento()
+	{
 		return (artista_ + " en " + lugar_ + ", " + ciudad_ + " el día " + fecha_);
 	}
 	
-	public Evento buscarEvento(String id) {
+	public Evento buscarEvento(String id)
+	{
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
@@ -77,7 +79,8 @@ public class Evento
 		return evAux;
 	}
 		
-	public Vector<Evento> buscarEventosPorArtista(String Artista) {
+	public Vector<Evento> buscarEventosPorArtista(String Artista)
+	{
 		Vector<Evento> eventos = new Vector<Evento>();
 		BufferedReader reader = null;
 		String line = "";
@@ -154,11 +157,11 @@ public class Evento
 			
 			if(esFavorito == true)
 			{
-				System.out.println("\nPulsa (1) para eliminar este evento de favoritos");
+				System.out.println("\nPulsa (1) para eliminar de favoritos");
 			}
 			else
 			{
-				System.out.println("\nPulsa (1) para añadir este evento a favoritos");
+				System.out.println("\nPulsa (1) para añadir a favoritos");
 			}
 			
 			System.out.println("Pulsa (2) para abrir el link de compra");

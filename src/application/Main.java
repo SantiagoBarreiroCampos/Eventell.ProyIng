@@ -1,16 +1,16 @@
 package application;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-
 import model.EditarCSV;
 import model.ListaAmigos;
 import model.ListaArtistasFavoritos;
 import model.ListaEventosFavoritos;
 import model.ListaUsuarios;
 import model.Usuario;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -90,9 +90,8 @@ public class Main
 							+ "\nPulse (3) para ver lista de artistas favoritos"
 							+ "\nPulse (4) para ver lista de eventos favoritos"
 							+ "\nPulse (5) para iniciar una busqueda"
-							//+ "\nPulse (6) para ver calendario personalizado"
-							+ "\nPulse (7) para solicitar sugerencias de eventos"
-							+ "\nPulse (8) para darse de baja en el sistema");
+							+ "\nPulse (6) para solicitar sugerencias de eventos"
+							+ "\nPulse (7) para darse de baja en el sistema");
 			eleccion2 = sc.nextLine();
 				
 			switch(eleccion2)
@@ -100,7 +99,7 @@ public class Main
 				case "0":					
 					eleccion2 = "0";
 					user = null;
-					System.out.println("Acaba de cerrar sesiï¿½n. Regrasarï¿½ al menï¿½ de inicio");
+					System.out.println("Acaba de cerrar sesión. Regrasará al menú de inicio");
 					volverAlMenu = false;
 					break;
 					
@@ -162,8 +161,6 @@ public class Main
 				case "6":
 					break;
 				case "7":
-					break;
-				case "8":
 					user.DarseBaja();
 					volverAlMenu = user.getDisponible();
 					break;

@@ -1,11 +1,3 @@
-/*1,pabloadmin,pablo123,Pablo,Gonzalez Sanchez,pgonzalezs1999@gmail.com,08/01/1999,Malaga,1,1
-0,pablogs,pablo123,Pablo,Gonzalez Sanchez,pgonzalezs1999@gmail.com,08/01/1999,Malaga,1,0
-1,maria2500,maria123,Maria,Rodriguez Gomez,mtrgomez00@gmail.com,25/07/2000,Madrid,2,1
-1,yago,yago123,Santiago,Barreiro Campos,s.barreirocampos@gmail.com,01/05/1999,Vigo,1,0
-1,pr1,pr1,,,,,,,0
-1,m.benz02,merche123,Mercedes,Noide1 Noidea2,norellenolastablas2@gmail.com,23/04/2022,Shanghai,2,1
-1,Meche,Miau123,,,,,,,0*/
-
 package model;
 
 import java.io.File;
@@ -107,53 +99,44 @@ public class EditarCSV
 		}
 	}
 
-	public void addFila() // Se añade fila al final: Nº fila = length
-	{	
-		addFila(this.datos.length);
-	}
+	/*private String nombre_;
+	private String apellidos_;
+	private String nacimiento_;
+	private String correo_;
+	private String ciudad_;
+	private String sexo_;
+	private String user_;
+	private String password_;
+	private String esAdmin_;
+	private boolean disponible_;*/
 
-	public void addFila(int orden) {
-		// Introduce una fila en la posición orden
-		// 0: Primera fila
-		// FilasMatriz : Última fila
-		if (orden >= 0 &&
-			orden < (this.datos.length+1) ) {
-			
-			// Se reserva espacio para una matriz con una fila más
-			String[][] nuevosDatos = new String[this.datos.length+1][this.datos[0].length];
-			
-			int correccionFila = 0; // Se usa para corregir la fila de lectura
-			
-			// Se recorre esa matriz asignando los valores de la anterior
-			for (int i=0; i< nuevosDatos.length; i++) {
-				// Se localiza si estamos en la fila deseada...
-				if (i == orden) {
-					// Se meten todo Strings vacíos
-					for (int j=0; j<nuevosDatos[0].length; j++) {
-						nuevosDatos[i][j] = "";
-					}
-					correccionFila = -1;
+	public void addFila(String username, int IDevento) // Introduce una fila en la posición orden
+	{
+		String[][] nuevosDatos = new String[this.datos.length+1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila más		
+		int correccionFila = 0; // Se usa para corregir la fila de lectura
+				
+		for (int i = 0; i < nuevosDatos.length; i++) // Se recorre esa matriz asignando los valores de la anterior
+		{			
+			if (i == 0) // Se localiza si estamos en la fila deseada...
+			{					
+				for (int j = 0; j < nuevosDatos[0].length; j++)
+				{
+					nuevosDatos[i][0] = username; // Se meten todo Strings vacíos
+					nuevosDatos[i][1] = String.valueOf(IDevento);
 				}
-				else {
-					// Se copia toda la fila, aplicando corrección
-					nuevosDatos[i] = this.datos[i+correccionFila];
-				}
+				correccionFila = -1;
 			}
-			this.datos = nuevosDatos;
+			else
+			{					
+				nuevosDatos[i] = this.datos[i+correccionFila]; // Se copia toda la fila, aplicando corrección
+			}
 		}
-		else {
-			System.out.println("ERROR(addFila) - Número para la nueva fila incorrecto.");
-		}
+		this.datos = nuevosDatos;
+		this.guardarCSV();
 	}
 
 	public void delFila(int orden) // Elimina la fila en la posición orden
-	{		
-		int numFilas = this.contarLineasFichero();
-		int numColumnas = this.contarColumnasFichero();	
-		System.out.println("Orden = " + orden);
-		System.out.println("Numero de filas = " + numFilas);
-		System.out.println("Numero de columnas = " + numColumnas);
-		
+	{			
 		if (orden >= 0 && orden < (this.datos.length))
 		{
 			String[][] nuevosDatos = new String[this.datos.length - 1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila MENOS
@@ -163,12 +146,10 @@ public class EditarCSV
 			{
 				if (i == orden) // Se localiza si estamos en la fila deseada...
 				{
-					System.out.println("Dentro del if. La i = " + i);
 					correccionFila = -1; // No se copian los datos y se corrije a la fila anterior
 				}
 				else // Se copia toda la fila, aplicando corrección
 				{
-					System.out.println("Dentro del else. La i = " + i);
 					nuevosDatos[i + correccionFila] = this.datos[i];
 				}
 			}
@@ -181,77 +162,10 @@ public class EditarCSV
 		}
 	}
 
-	public void addColumna() //Se añade columna al final: Nº columna = length de una fila
-	{		
-		addColumna(this.datos[0].length);
-	}
-
-	public void addColumna(int orden) {
-		// Introduce una columna en la posición orden
-		// 0: Primera column
-		// ColumnasMatriz : Última columna
-		if (orden >= 0 &&
-			orden < (this.datos[0].length+1) ) {
-			
-			// Se reserva espacio para una matriz con una columna más
-			String[][] nuevosDatos = new String[this.datos.length][this.datos[0].length+1];
-			
-						
-			// Se recorre esa matriz asignando los valores de la anterior
-			for (int i=0; i< nuevosDatos.length; i++) {
-				int correccionColumna = 0; // Se usa para corregir la columna de lectura
-				for (int j=0; j< nuevosDatos[0].length; j++) {
-					if (j == orden) {
-						// Se mete String vacío
-						nuevosDatos[i][j] = "";
-						correccionColumna = -1;
-					}
-					else {
-						nuevosDatos[i][j] = this.datos[i][j+correccionColumna];
-					}
-				}
-			}
-			this.datos = nuevosDatos;
-		}
-		else {
-			System.out.println("ERROR(addColumna) - Nº de nueva columna incorrecto.");
-		}
-	}
-	
-	public void delColumna(int orden) // Elimina la columna de la posición orden
-	{
-		if (orden >= 0 && orden < (this.datos[0].length + 1))
-		{						
-			String[][] nuevosDatos = new String[this.datos.length][this.datos[0].length-1]; // Se reserva espacio para una matriz con una columna MENOS
-												
-			for (int i = 0; i < this.datos.length; i++) // Se recorre la matriz asignando los valores a la nueva
-			{
-				int correccionColumna = 0; // Se usa para corregir la columna de lectura
-				for (int j = 0; j < this.datos[0].length; j++)
-				{
-					if (j == orden) // Se elimina la columna
-					{					
-						correccionColumna = -1; // corrección de la siguiente columna
-					}
-					else
-					{
-						nuevosDatos[i][j+correccionColumna] = this.datos[i][j];
-					}
-				}
-			}
-			this.datos = nuevosDatos;			
-		}
-		else // Puede darse el caso de quedar una matriz con 0 columnas y algunas filas...
-		{
-			System.out.println("ERROR(delColumna) - Nº de columna a eliminar incorrecto.");
-		}
-	}
-
 	public int contarLineasFichero()
 	{
-		int lineas = 0;
-		// Usamos Scanner para contar las lineas
-		try
+		int lineas = 0;		
+		try // Usamos Scanner para contar las lineas
 		{
 			Scanner fichero = new Scanner(new File(this.ruta));
 			while (fichero.hasNextLine())
@@ -268,40 +182,39 @@ public class EditarCSV
 		return lineas;
 	}
 
-	public int contarColumnasFichero() {
+	public int contarColumnasFichero()
+	{
 		int columnas = 0;
 		String primeraLinea = "";
-
-		// Usamos Scanner para contar las lineas
-		try {
+		
+		try // Usamos Scanner para contar las lineas
+		{
 			Scanner fichero = new Scanner(new File(this.ruta));
-			if (fichero.hasNextLine()) {
+			if (fichero.hasNextLine())
+			{
 				primeraLinea = fichero.nextLine();
 			}
 			fichero.close();
-		} catch (FileNotFoundException e) {
+		}
+		catch (FileNotFoundException e)
+		{
 			System.out.println("Ha habido un error contando las columnas de " + ruta);
 		}
-		
-		// primeraLinea algo de este estilo: "3.5;-4.0;88.0"  | ";;"
 		columnas = primeraLinea.split(",").length;
-		
-		// Para resolver el problema del split si datos, solo ;
-		// es el caso de ",,,...;"
-		if (columnas == 0) {
-			columnas = primeraLinea.lastIndexOf(',')+2; // posición del último ; 
+
+		if(columnas == 0)
+		{
+			columnas = primeraLinea.lastIndexOf(',')+2; // Posición del último "," 
 		}
 		return columnas;
 	}
 
-	// Pinta matrices en base a sus dimensiones
-	public  void listar()
+	public void ImprimirMatriz()
 	{
 		System.out.println("----------------------");
 		for (int i = 0; i < this.datos.length; i++)
-		{
-			// dentro de cada fila, recorremos las columnas
-			for (int j = 0; j < this.datos[0].length; j++)
+		{			
+			for (int j = 0; j < this.datos[0].length; j++) // Dentro de cada fila, recorremos las columnas
 			{
 				System.out.print(this.datos[i][j] + "\t");
 			}

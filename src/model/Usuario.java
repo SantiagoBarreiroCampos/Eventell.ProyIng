@@ -82,7 +82,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 				{
 					esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
 				
-			    	if (esFavorito == true)
+			    	if(esFavorito == true)
 			    	{
 			    		System.out.println("\nPulse (1) para eliminar de eventos favoritos");
 			    	}
@@ -93,18 +93,40 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    	System.out.println("Pulse cualquier otra tecla para abandonar la búsqueda: ");
 			    	
 			    	String opcion = scanner.nextLine();
-			    	if (opcion.equals(1))
+			    	if (opcion.equals("1"))
 			    	{
-			    		// añadir / eliminar de favoritos
+			    		if(esFavorito == true) 
+			    		{
+			    			// Eliminar fila de "eventosFavoritos.csv"
+			    			// Primero hay que averiguar que numero es la fila
+			    		}
+			    		else // Falta añadir fila "usuario,IDdeevento" a "eventosFavoritos.csv"
+			    		{
+			    			EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
+			    			boolean haCargado = editarEvFavs.cargarCSV();
+			    			if(haCargado == true)
+				    		{
+				    			editarEvFavs.addFila(user.getUser(), 74);
+				    		}
+			    			else
+			    			{
+			    				System.out.println("No se ha podido cargar el fichero");
+			    			}
+			    		}
 			    	}
 			    	
-				} catch (Exception e) {}
+				} catch (Exception e) { System.out.println("EXPLOSIOOOOOOOON"); }
 		    }
-	   } catch (FileNotFoundException e){
+	   }
+	   catch (FileNotFoundException e)
+	   {
 		   e.printStackTrace();
-	   } catch (IOException e) {
-		   e.printStackTrace();
-	   } finally {
+	   }
+	   catch (IOException e) {
+		    e.printStackTrace();
+	   }
+	   finally
+	   {
 		   if (reader != null)
 		   {
 			   try
@@ -200,7 +222,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    	   numEventos[encontrados+1] = numFila;
 		    	   encontrados++;		    	   
 		    	   
-		    	   System.out.println("(" +encontrados+ "): " +ficha[6]+ " (" +ficha[2]+ "). " +ficha[3]);			       
+		    	   System.out.println("(" +encontrados+ "): " +ficha[1] + ". " +ficha[6]+ " (" +ficha[2]+ "). " +ficha[3]);			       
 		       }
 		       numFila++;
 		    }
@@ -239,7 +261,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    	
 			    	 Scanner scanner = new Scanner(System.in);
 					 String opcion = scanner.nextLine();
-			    	 if (opcion.equals(1))
+			    	 if (opcion.equals("1"))
 			    	 {
 			    		 // añadir / eliminar de favoritos
 			    	 }
@@ -274,18 +296,16 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 				+ "\nPulse (4) para hard rock/metal"
 				+ "\nPulse (5) para hiphop/r&b"
 				+ "\nPulse (6) para rock/metal"
-				+ "\nPulse (7) para clÃ¡sica"
+				+ "\nPulse (7) para clásica"
 				+ "\nPulse (8) para jazz/blues"
 				+ "\nPulse (9) para pop/rock"
 				+ "\nPulse (10) para world"
 				+ "\nPulse (11) para dance/electronica"
 				+ "\nPulse (12) para flamenco/rumba"
 				+ "\nPulse (13) para indie/alternativo");
-	/*
-	 *  Lo voy terminar	 (Merche) :)
-	 */
+		
+	// Lo voy terminar (Merche) :)
 	}
-	
 	
 	public void mostrarFicha() throws IOException
 	{
@@ -305,8 +325,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			System.out.println("PERFIL DE: " + this.getNombre() +" "+ this.getApellidos());
 			System.out.println("Nombre de usuario: " + this.getUser());
 			System.out.println("Busca conciertos desde: " + this.getCiudad());
-			
-			
+					
 			//faltarï¿½a opcion de enviarle por correo uno de tus eventos favoritos
 			
 			boolean esAmigo = false;
@@ -331,7 +350,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			}
 			else
 			{
-				System.out.println("Pulsa (1) para aï¿½adir amigo");
+				System.out.println("Pulsa (1) para añadir amigo");
 			}
 			System.out.println("\nPulsa (0) para regresar al menï¿½");
 			
@@ -350,7 +369,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					else
 					{						
 						String nuevaLinea = user_ + "," + this.getUser();
-						System.out.println("Aquï¿½ tendrï¿½a que aï¿½adir una fila con: " + nuevaLinea);
+						System.out.println("Aquí tendría que añadir una fila con: " + nuevaLinea);
 						pw.println(nuevaLinea);
 					}
 					puedeSalir = false;
@@ -444,9 +463,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					datodia=Integer.parseInt(dia);
 					datomes=Integer.parseInt(mes);
 					datoanyo=Integer.parseInt(anyo);
-					if(1>datodia||datodia>31||1>datomes||datomes>12) {
-						System.out.println("La fecha introducida es incorrecta");
-					
+					if(1>datodia||datodia>31||1>datomes||datomes>12)
+					{
+						System.out.println("La fecha introducida es incorrecta");					
 					}
 					else {
 						setNacimiento(fecha);
@@ -463,7 +482,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					setUser(CnombreUAux);
 				break;
 				case 8:
-					System.out.println("Introduzca su nueva contraseï¿½a: ");
+					System.out.println("Introduzca su nueva contraseña: ");
 					String Acontrasena = sc.next();
 					setPassword(Acontrasena);
 				break;
@@ -550,7 +569,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    }			
 		} while(check == false);
 		setUser(nombreAux);
-		System.out.println("Introduce una contraseï¿½a: ");
+		System.out.println("Introduce una contraseña: ");
 		String contrasenaAux = sc.next();
 		setPassword(contrasenaAux);
 		
@@ -605,8 +624,8 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    		if(haCargado == true)
 		    		{
 		    			int numFila = editarUsuarios.buscarCoindicencias(0, "1", 1, this.getUser());
-		    			System.out.println("numFila: " + numFila);
 		    			editarUsuarios.delFila(numFila-1); // Aun no va bien -> adaptar matriz
+		    			System.out.println("Regresando al menú de inicio de sesión...");
 		    		}
 		    		else
 		    		{
@@ -635,13 +654,12 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		
 		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parï¿½metro el fichero que quiero leer
 	
-	    //Leemos cada lï¿½nea
+	    //Leemos cada linea
 	    int lineNumber = 0;
 	    boolean encontrado = false;
 	    
 	    while(reader.hasNextLine())
-	    {
-	    	
+	    {	    	
 	    	String linea = reader.nextLine();
 	    	String[] usuarioDividido = linea.split(",");
 	    	if(usuarioDividido[1].equals(username))
@@ -668,7 +686,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    }
 	    if (encontrado == false)
 	    { 
-	    	System.out.println("Usuario o contraseï¿½a incorrectos.\nPulse ENTER para regresar al menu de inicio");
+	    	System.out.println("Usuario o contraseña incorrectos.\nPulse ENTER para regresar al menu de inicio");
 	    	String tiempo = sc.nextLine();
 	    	
     	}
@@ -723,11 +741,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    	String linea = reader.nextLine();
 	    	String[] usuarioDividido = linea.split(",");
 	    	if(usuarioDividido[1].equals(username))
-	    	{
-	    		
+	    	{    		
 	    			if(String.valueOf(usuarioDividido[0]).equals("1")) // Si esta disponible
-	    			{
-	    				
+	    			{	    				
 	    				encontrado = true;
 	    				setDisponible(true);
 	    				setUser(usuarioDividido[1]);
