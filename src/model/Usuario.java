@@ -577,12 +577,11 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		pw = new PrintWriter(bw);
 		// Hasta aqui las lineas que hay que copiar
 
-		System.out.println("Estï¿½ seguro que desea darse de baja?");
+		System.out.println("Está seguro que desea darse de baja?");
 		System.out.println("Pulse (0) para eliminar su cuenta");
 		System.out.println("Pulse cualquier otra tecla para mantener su cuenta");
 		
 		String decision = sc.nextLine();
-		System.out.println(decision);
 		if(decision.equals("0"))
 		{
 			while(reader.hasNextLine())
@@ -598,9 +597,21 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    				apellidos_ + "," + correo_ + "," + nacimiento_ + "," +
 		    				ciudad_ + "," + sexo_ + "," + concatenar;
 		    		pw.println(linea);
-		    		// aqui falta que elimine la linea original, porque solo aï¿½ade una
-		    		// linea nueva de no disponible, no sobreescribe
+
 		    		setDisponible(false);
+		    		
+		    		EditarCSV editarUsuarios = new EditarCSV("usuarios.csv");
+		    		boolean haCargado = editarUsuarios.cargarCSV();
+		    		if(haCargado == true)
+		    		{
+		    			int numFila = editarUsuarios.buscarCoindicencias(0, "1", 1, this.getUser());
+		    			System.out.println("numFila: " + numFila);
+		    			editarUsuarios.delFila(numFila-1); // Aun no va bien -> adaptar matriz
+		    		}
+		    		else
+		    		{
+		    			System.out.println("No se encontro el archivo");
+		    		}		    		
 		    	}		       
 		    }					
 		}

@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+
+import model.EditarCSV;
 import model.ListaAmigos;
 import model.ListaArtistasFavoritos;
 import model.ListaEventosFavoritos;
@@ -88,7 +90,7 @@ public class Main
 							+ "\nPulse (3) para ver lista de artistas favoritos"
 							+ "\nPulse (4) para ver lista de eventos favoritos"
 							+ "\nPulse (5) para iniciar una busqueda"
-							+ "\nPulse (6) para ver calendario personalizado"
+							//+ "\nPulse (6) para ver calendario personalizado"
 							+ "\nPulse (7) para solicitar sugerencias de eventos"
 							+ "\nPulse (8) para darse de baja en el sistema");
 			eleccion2 = sc.nextLine();
