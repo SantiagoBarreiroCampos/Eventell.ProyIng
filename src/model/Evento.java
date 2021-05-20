@@ -166,7 +166,7 @@ public class Evento
 			
 			System.out.println("Pulsa (2) para abrir el link de compra");
 			System.out.println("Pulsa (3) para compartir el evento con un amigo");			
-			System.out.println("Pulsa (0) para regresar al menú");
+			System.out.println("Pulsa (0) para regresar al men\u00fa");
 			
 			String eleccion = sc.nextLine();
 			
