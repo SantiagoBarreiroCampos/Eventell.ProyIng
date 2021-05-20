@@ -236,7 +236,7 @@ public class Evento
 	    String asunto = "Correo de prueba enviado desde Java";
 	    String cuerpo = "Esta es una prueba de correo...";
 
-	    Mail.enviarConGMail(destinatario, asunto, cuerpo);
+	    Mail.enviarCorreo(destinatario);
 	}
 
 	public String getId_() {
