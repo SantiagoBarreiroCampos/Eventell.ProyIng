@@ -83,8 +83,8 @@ public class ListaEventosFavoritos {
 		}
 		System.out.println();
 		
-		System.out.println("Introduzca el numero del evento que desea consultar");
-		System.out.println("Pulse cualquier otro numero para volver al menu principal");
+		System.out.println("Introduzca el n\u00famero del evento que desea consultar");
+		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
 		int numEvento = sc.nextInt();
 		if(numEvento <= 0 || numEvento > eventos_.size()) {
 			

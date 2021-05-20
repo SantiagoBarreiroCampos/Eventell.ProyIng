@@ -15,6 +15,20 @@ public class EditarCSV
 	{
 		this.ruta = nuevaRuta;
 	}
+	public boolean modificarValor(int columna, String nombreAux) {
+		boolean resultado = true;
+		 for(int i=0;i<datos.length;i++){
+	            for(int j=0;j<datos[i].length;j++){
+	            	if (datos[i][j].equals(nombreAux)) {
+	            		System.out.println("llega aquí 2");
+			this.datos[i][columna]="1";
+			resultado = true;
+	            	}
+	            }
+		}
+		return true;
+		
+	}
 	
 	public int buscarCoindicencias(int col1, String dato1, int col2, String dato2)
 	{

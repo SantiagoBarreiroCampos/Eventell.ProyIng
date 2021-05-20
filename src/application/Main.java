@@ -48,7 +48,7 @@ public class Main
 				case "2":
 					System.out.println("Introduzca su nombre de usuario:");
 					String username = sc.next();
-					System.out.println("Introduzca su contraseï¿½a:");
+					System.out.println("Introduzca su contrase\u00f1a:");
 					String contrasena = sc.next();
 					SesionIniciada = usuarioAux.Login(username, contrasena);
 					if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true && SesionIniciada.getEsAdmin().equals("1"))
@@ -99,7 +99,7 @@ public class Main
 				case "0":					
 					eleccion2 = "0";
 					user = null;
-					System.out.println("Acaba de cerrar sesión. Regrasará al menú de inicio");
+					System.out.println("Acaba de cerrar sesi\u00f3n. Regrasará al men\u00fa de inicio");
 					volverAlMenu = false;
 					break;
 					
@@ -155,7 +155,7 @@ public class Main
 							generoAux.BuscarGenero();
 							break;
 						default:
-							System.out.println("Valor introducido incorrecto. Regresando al menú...");
+							System.out.println("Valor introducido incorrecto. Regresando al men\u00fa...");
 					}
 					break;
 				case "6":

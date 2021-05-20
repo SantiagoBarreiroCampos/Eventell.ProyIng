@@ -161,7 +161,7 @@ public class Evento
 			}
 			else
 			{
-				System.out.println("\nPulsa (1) para añadir a favoritos");
+				System.out.println("\nPulsa (1) para a\u00f1adir a favoritos");
 			}
 			
 			System.out.println("Pulsa (2) para abrir el link de compra");
@@ -183,7 +183,7 @@ public class Evento
 					else
 					{						
 						String nuevaLinea = user + "," + this.getId_();
-						System.out.println("Aquí tendría que añadir una fila con: " + nuevaLinea);
+						System.out.println("Aquí tendría que a\u00f1adir una fila con: " + nuevaLinea);
 						//pw.println(nuevaLinea);
 					}
 					//puedeSalir = false;
