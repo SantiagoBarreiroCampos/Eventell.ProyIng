@@ -14,6 +14,8 @@ import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
 public class Usuario // La linea 1 explica como guardar y bajar usuarios de la BD. Desplegar para ver
 {
 	Scanner sc = new Scanner(System.in);
@@ -66,7 +68,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    else
 		    {
 			    System.out.println("\nIntroduzca el numero del evento que desea consultar");
-			    System.out.println("Pulse cualquier otra tecla para abandonar la b�squeda: ");
+			    System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
 			    
 			    int decision = sc.nextInt();			    
 			    try
@@ -88,9 +90,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    	}
 			    	else
 			    	{
-			    		System.out.println("\nPulse (1) para a�adir a eventos favoritos");
+			    		System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
 			    	}
-			    	System.out.println("Pulse cualquier otra tecla para abandonar la b�squeda: ");
+			    	System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
 			    	
 			    	String opcion = scanner.nextLine();
 			    	if (opcion.equals("1"))
@@ -142,26 +144,44 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	}
 	public Usuario Administrador() throws IOException{
 		int elec;
-		File tablaUsuarios = new File("usuarios.csv");
-		Scanner reader = new Scanner(tablaUsuarios);
+		
 		BufferedWriter bw;
 		PrintWriter pw;
-		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
-		pw = new PrintWriter(bw);
+		
 				    	
 		    	System.out.println("Se ha detectado que su usuario es administrador");
-		    	System.out.println("�Que dato desea hacer?");
-				System.out.println("Pulse (1) para a�adir Administrador "
-						+ "\nPulse (2) para a�adir evento"
+		    	System.out.println("�Que dato desea Hacer?");
+				System.out.println("Pulse (1) para a\u00f1adir Administrador "
+						+ "\nPulse (2) para a\u00f1adir evento"
 						+ "\nPulse (3) para eliminar evento"
 						);
 				elec = sc.nextInt();
 				switch(elec)
 				{
 					case 1:
-												
+						File tablaUsuarios = new File("usuarios.csv");
+						Scanner reader = new Scanner(tablaUsuarios);
+						bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
+						pw = new PrintWriter(bw);
+						
+						//sCadena.toLowerCase()
+						String linea = reader.nextLine();
+				    	String[] usuarioDividido = linea.split(",");
+				    	
+						System.out.println("Introduzca el nombre del usuario: ");
+						String nombreAux = sc.next();
+						if(usuarioDividido[1].equals(nombreAux)) {
+							int columna = 9;
+							System.out.println("llega aqu� 1");
+							EditarCSV CSV = new EditarCSV("usuarios.csv");
+							boolean edit = CSV.modificarValor(columna, nombreAux);
+						}
 					break;
 					case 2:
+						File tablaEventos = new File("eventos.csv");
+						Scanner read = new Scanner(tablaEventos);
+						bw = new BufferedWriter(new FileWriter(tablaEventos, true));
+						pw = new PrintWriter(bw);
 						System.out.println("Introduce nombre del Artista: ");
 						String ArtistaAux = sc.next();
 						setNombre(ArtistaAux);
@@ -171,25 +191,29 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 						System.out.println("Introduce fecha: ");
 						String FechaAux = sc.next();
 						setNombre(FechaAux);
-						System.out.println("Introduce precio minimo: ");
+						System.out.println("Introduce precio m\u00ednimo: ");
 						String MinimoAux = sc.next();
 						setNombre(MinimoAux);
-						System.out.println("Introduce precio maximo: ");
+						System.out.println("Introduce precio m\u00e1ximo: ");
 						String MaximoAux = sc.next();
 						setNombre(MaximoAux);
-						System.out.println("Introduce ubicaci�n: ");
+						System.out.println("Introduce ubicaci\u00f3n: ");
 						String UbicacionAux = sc.next();
 						setNombre(UbicacionAux);
 						System.out.println("Introduce genero: ");
 						String GeneroAux = sc.next();
 						setNombre(GeneroAux);
-						String linea = "1," + ArtistaAux + "," + CiudadAux +"," +FechaAux+"," +MinimoAux+","+MaximoAux+","+UbicacionAux+","+GeneroAux;
-						pw.println(linea);
+						String lineas = "1," + ArtistaAux + "," + CiudadAux +"," +FechaAux+"," +MinimoAux+","+MaximoAux+","+UbicacionAux+","+GeneroAux;
+						pw.println(lineas);
 						pw.flush();
 					    pw.close(); 
 						bw.close();
 					break;
 					case 3:
+						File tablaEvento = new File("eventos.csv");
+						Scanner rea = new Scanner(tablaEvento);
+						bw = new BufferedWriter(new FileWriter(tablaEvento, true));
+						pw = new PrintWriter(bw);
 						
 					break;
 					}
@@ -233,7 +257,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    else
 		    {
 			    System.out.println("\nIntroduzca el numero del evento que desea consultar");
-		 	     System.out.println("Pulse cualquier otra tecla para abandonar la b�squeda: ");
+		 	     System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
 			    
 			     int decision = sc.nextInt();			    
 			     try
@@ -255,9 +279,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    	 }
 			    	 else
 			    	 {
-			    		 System.out.println("\nPulse (1) para a�adir a eventos favoritos");
+			    		 System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
 			    	 }
-			    	 System.out.println("Pulse cualquier otra tecla para abandonar la b�squeda: ");
+			    	 System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
 			    	
 			    	 Scanner scanner = new Scanner(System.in);
 					 String opcion = scanner.nextLine();
@@ -288,7 +312,6 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	}
 	
 	public void BuscarGenero(String genero, Usuario user) throws IOException {
-		
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
@@ -376,7 +399,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		       }
 		   }
 	   }
-}
+		
+	
+	}
 	
 	public void mostrarFicha() throws IOException
 	{
@@ -421,9 +446,9 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			}
 			else
 			{
-				System.out.println("Pulsa (1) para a�adir amigo");
+				System.out.println("Pulsa (1) para a\u00f1adir amigo");
 			}
-			System.out.println("\nPulsa (0) para regresar al men�");
+			System.out.println("\nPulsa (0) para regresar al men\u00fa");
 			
 			String eleccion = sc.nextLine();
 			
@@ -440,7 +465,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					else
 					{						
 						String nuevaLinea = user_ + "," + this.getUser();
-						System.out.println("Aqu� tendr�a que a�adir una fila con: " + nuevaLinea);
+						System.out.println("Aqu� tendr�a que a\u00f1adir una fila con: " + nuevaLinea);
 						pw.println(nuevaLinea);
 					}
 					puedeSalir = false;
@@ -469,7 +494,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		pw = new PrintWriter(bw);
 		do
 		{
-			System.out.println("�Que dato desea a�adir?");
+			System.out.println("�Que dato desea a\u00f1adir?");
 			System.out.println("Pulse (1) para cambiar Nombre"
 					+ "\nPulse (2) para cambiar primer apellido"
 					+ "\nPulse (3) para cambiar sexo"
@@ -477,7 +502,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					+ "\nPulse (5) para cambiar fecha"
 					+ "\nPulse (6) para cambiar ciudad"
 					+ "\nPulse (7) para cambiar nombre de usuario"
-					+ "\nPulse (8) para cambiar contrase�a"
+					+ "\nPulse (8) para cambiar contrase\u00f1a"
 					+ "\nPulse (9) para salir");
 			elec = sc.nextInt();
 			switch(elec)
@@ -553,7 +578,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 					setUser(CnombreUAux);
 				break;
 				case 8:
-					System.out.println("Introduzca su nueva contrase�a: ");
+					System.out.println("Introduzca su nueva contrase\u00f1a: ");
 					String Acontrasena = sc.next();
 					setPassword(Acontrasena);
 				break;
@@ -640,7 +665,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    }			
 		} while(check == false);
 		setUser(nombreAux);
-		System.out.println("Introduce una contrase�a: ");
+		System.out.println("Introduce una contrase\u00f1a: ");
 		String contrasenaAux = sc.next();
 		setPassword(contrasenaAux);
 		
@@ -696,7 +721,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    		{
 		    			int numFila = editarUsuarios.buscarCoindicencias(0, "1", 1, this.getUser());
 		    			editarUsuarios.delFila(numFila-1); // Aun no va bien -> adaptar matriz
-		    			System.out.println("Regresando al men� de inicio de sesi�n...");
+		    			System.out.println("Regresando al men\u00fa de inicio de sesi\u00f3n...");
 		    		}
 		    		else
 		    		{
@@ -757,7 +782,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	    }
 	    if (encontrado == false)
 	    { 
-	    	System.out.println("Usuario o contrase�a incorrectos.\nPulse ENTER para regresar al menu de inicio");
+	    	System.out.println("Usuario o contrase\u00f1a incorrectos.\nPulse ENTER para regresar al menu de inicio");
 	    	String tiempo = sc.nextLine();
 	    	
     	}

@@ -48,7 +48,7 @@ public class Main
 				case "2":
 					System.out.println("Introduzca su nombre de usuario:");
 					String username = sc.next();
-					System.out.println("Introduzca su contrase�a:");
+					System.out.println("Introduzca su contrase\u00f1a:");
 					String contrasena = sc.next();
 					SesionIniciada = usuarioAux.Login(username, contrasena);
 					if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true && SesionIniciada.getEsAdmin().equals("1"))
@@ -99,7 +99,7 @@ public class Main
 				case "0":					
 					eleccion2 = "0";
 					user = null;
-					System.out.println("Acaba de cerrar sesi�n. Regrasar� al men� de inicio");
+					System.out.println("Acaba de cerrar sesi\u00f3n. Regrasar� al men\u00fa de inicio");
 					volverAlMenu = false;
 					break;
 					
@@ -151,7 +151,6 @@ public class Main
 							cuidadAux.BuscarCiudad(city, user);
 							break;
 						case "3":
-							
 							System.out.println("\nPulse (1) para hiphop/r&b"
 									+ "\nPulse (2) para reggaeton"
 									+ "\nPulse (3) para pop"
@@ -169,10 +168,10 @@ public class Main
 							String genero = sc1.nextLine();
 							generoAux.BuscarGenero(genero, user);
 							break;
-							
 						default:
-							System.out.println("Valor introducido incorrecto. Regresando al men?...");
+							System.out.println("\nValor introducido incorrecto.");
 					}
+					
 					break;
 				case "6":
 					break;
