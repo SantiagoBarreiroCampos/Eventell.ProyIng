@@ -151,11 +151,26 @@ public class Main
 							cuidadAux.BuscarCiudad(city, user);
 							break;
 						case "3":
+							System.out.println("\nPulse (1) para hiphop/r&b"
+									+ "\nPulse (2) para reggaeton"
+									+ "\nPulse (3) para pop"
+									+ "\nPulse (4) para hard rock/metal"
+									+ "\nPulse (5) para rock/metal"
+									+ "\nPulse (6) para clásica"
+									+ "\nPulse (7) para jazz/blues"
+									+ "\nPulse (8) para pop/rock"
+									+ "\nPulse (9) para world"
+									+ "\nPulse (10) para dance/electronica"
+									+ "\nPulse (11) para flamenco/rumba"
+									+ "\nPulse (12) para indie/alternativo");
+							
 							Usuario generoAux = new Usuario();
-							generoAux.BuscarGenero();
+							String genero = sc1.nextLine();
+							generoAux.BuscarGenero(genero, user);
 							break;
+							
 						default:
-							System.out.println("Valor introducido incorrecto. Regresando al men\u00fa...");
+							System.out.println("Valor introducido incorrecto.");
 					}
 					break;
 				case "6":

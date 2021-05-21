@@ -57,7 +57,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    	   numEventos[encontrados+1] = numFila;
 		    	   encontrados++;		    	   
 		    	   
-		    	   System.out.println("(" +encontrados+ "): " +ficha[6]+ " (" +ficha[2]+ "). " +ficha[3]);			       
+		    	   System.out.println("(" +encontrados+ "): " +ficha[2]+ ", día " +ficha[3]);			       
 		       }
 		       numFila++;
 		    }
@@ -142,6 +142,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		   }
 	   }
 	}
+	
 	public Usuario Administrador() throws IOException{
 		int elec;
 		
@@ -246,7 +247,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		    	   numEventos[encontrados+1] = numFila;
 		    	   encontrados++;		    	   
 		    	   
-		    	   System.out.println("(" +encontrados+ "): " +ficha[1] + ". " +ficha[6]+ " (" +ficha[2]+ "). " +ficha[3]);			       
+		    	   System.out.println("(" +encontrados+ "): " +ficha[1] + ", día " +ficha[3]);			       
 		       }
 		       numFila++;
 		    }
@@ -311,24 +312,95 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	   }
 	}
 	
-	public void BuscarGenero() throws IOException {
+	public void BuscarGenero(String genero, Usuario user) throws IOException {
+
 		BufferedReader reader = null;
-		
-		System.out.println("\nPulse (1) para hiphop/r&b"
-				+ "\nPulse (2) para reggaeton"
-				+ "\nPulse (3) para pop"
-				+ "\nPulse (4) para hard rock/metal"
-				+ "\nPulse (5) para hiphop/r&b"
-				+ "\nPulse (6) para rock/metal"
-				+ "\nPulse (7) para clásica"
-				+ "\nPulse (8) para jazz/blues"
-				+ "\nPulse (9) para pop/rock"
-				+ "\nPulse (10) para world"
-				+ "\nPulse (11) para dance/electronica"
-				+ "\nPulse (12) para flamenco/rumba"
-				+ "\nPulse (13) para indie/alternativo");
-		
-	// Lo voy terminar (Merche) :)
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+		int numFila = 0;
+		int encontrados = 0;
+				
+		try
+		{
+			int[] numEventos = new int[150];
+		    reader = new BufferedReader(new FileReader(csvFile));
+		    while ((line = reader.readLine()) != null)
+		    {
+			   String[] ficha = line.split(cvsSplit);
+		       
+		       if(ficha[8].equalsIgnoreCase(genero))
+		       {
+		    	   if (encontrados == 0)
+		    	   {
+		    		   System.out.println("\nEstos son los eventos encontrados" + ":");
+		    	   }
+		    	   numEventos[encontrados+1] = numFila;
+		    	   encontrados++;		    	   
+		    	   
+		    	   System.out.println("(" +encontrados+ "): " +ficha[1]+ " en " +ficha[2]+ ", día " +ficha[3]);			       
+		       }
+		       numFila++;
+		    }
+		    if (encontrados == 0)
+		    {
+			    System.out.println("\nGenero musical no encontrado");
+		    }
+		    else
+		    {
+			    System.out.println("\nIntroduzca el numero del evento que desea consultar");
+		 	     System.out.println("Pulse cualquier otra tecla para abandonar la b?squeda: ");
+			    
+			     int decision = sc.nextInt();			    
+			     try
+			     {				    				    	 
+			    	 Evento auxEvento = new Evento();
+			    	 auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
+			     }
+			     catch(Exception e) {}
+			    
+			     boolean esFavorito;
+			    
+				 try
+				 {
+					 esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+				
+			    	 if (esFavorito == true)
+			    	 {
+			    		 System.out.println("\nPulse (1) para eliminar de eventos favoritos");
+			    	 }
+			    	 else
+			    	 {
+			    		 System.out.println("\nPulse (1) para a?adir a eventos favoritos");
+			    	 }
+			    	 System.out.println("Pulse cualquier otra tecla para abandonar la b?squeda: ");
+			    	
+			    	 Scanner scanner = new Scanner(System.in);
+					 String opcion = scanner.nextLine();
+			    	 if (opcion.equals(1))
+			    	 {
+			    		 // a?adir / eliminar de favoritos
+			    	 }
+			    	
+				 } catch (Exception e) {}
+		     }
+	   } catch (FileNotFoundException e){
+		   e.printStackTrace();
+	   } catch (IOException e) {
+		   e.printStackTrace();
+	   } finally {
+		   if (reader != null)
+		   {
+			   try
+			   {
+				   reader.close();
+		       }
+			   catch (IOException e)
+			   {
+		           e.printStackTrace();
+		       }
+		   }
+	   }
 	}
 	
 	public void mostrarFicha() throws IOException
