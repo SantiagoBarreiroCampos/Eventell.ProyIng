@@ -27,7 +27,7 @@ import javax.swing.JOptionPane;
 public class Evento
 {
 	Scanner sc = new Scanner(System.in);
-	
+
 	private String id_;
 	private String artista_;
 	private String ciudad_;
@@ -36,49 +36,49 @@ public class Evento
 	private String precioMax_;
 	private String precioMin_;
 	private String genero_;
-	
+
 
 	public String infoEvento()
 	{
 		return (artista_ + " en " + lugar_ + ", " + ciudad_ + " el día " + fecha_);
 	}
-	
+
 	public Evento buscarEvento(String id)
 	{
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
 		String csvFile = "eventos.csv";
-		
+
 		Evento evAux = new Evento();
-		
+
 		int encontrado = 0;
-	
+
 		try {
-			   reader = new BufferedReader(new FileReader(csvFile));
-			   while ((line = reader.readLine()) != null) {      
-			       String[] eventoDividido = line.split(cvsSplit);
-		    
-		    	if(eventoDividido[0].equals(id))
-		    	{ 
-		    		evAux.setId_(eventoDividido[0]);
-		    		evAux.setArtista_(eventoDividido[1]);
-		    		evAux.setCiudad_(eventoDividido[2]);
-		    		evAux.setFecha_(eventoDividido[3]);
-		    		evAux.setPrecioMin_(eventoDividido[4]);
-		    		evAux.setPrecioMax_(eventoDividido[5]);
-		    		evAux.setLugar_(eventoDividido[6]);
-		    		evAux.setGenero_(eventoDividido[7]);
-		    	}		       
-		    }
-	 		reader.close();
-	 		return evAux;
-		   
+			reader = new BufferedReader(new FileReader(csvFile));
+			while ((line = reader.readLine()) != null) {      
+				String[] eventoDividido = line.split(cvsSplit);
+
+				if(eventoDividido[0].equals(id))
+				{ 
+					evAux.setId_(eventoDividido[0]);
+					evAux.setArtista_(eventoDividido[1]);
+					evAux.setCiudad_(eventoDividido[2]);
+					evAux.setFecha_(eventoDividido[3]);
+					evAux.setPrecioMin_(eventoDividido[4]);
+					evAux.setPrecioMax_(eventoDividido[5]);
+					evAux.setLugar_(eventoDividido[6]);
+					evAux.setGenero_(eventoDividido[7]);
+				}		       
+			}
+			reader.close();
+			return evAux;
+
 		}catch(Exception e) {}
-	    
+
 		return evAux;
 	}
-		
+
 	public Vector<Evento> buscarEventosPorArtista(String Artista)
 	{
 		Vector<Evento> eventos = new Vector<Evento>();
@@ -86,39 +86,39 @@ public class Evento
 		String line = "";
 		String cvsSplit = ",";
 		String csvFile = "eventos.csv";
-			
+
 		int encontrado = 0;
-	
+
 		try
 		{
-		   reader = new BufferedReader(new FileReader(csvFile));
-		   
-		   while ((line = reader.readLine()) != null)
-		   {      
-			   String[] eventoDividido = line.split(cvsSplit);
-	    
-			   if(eventoDividido[1].equals(Artista))
-			   {
-				   Evento evAux = new Evento();
-				   evAux.setId_(eventoDividido[0]);
-				   evAux.setArtista_(eventoDividido[1]);
-				   evAux.setCiudad_(eventoDividido[2]);
-				   evAux.setFecha_(eventoDividido[3]);
-				   evAux.setPrecioMin_(eventoDividido[4]);
-				   evAux.setPrecioMax_(eventoDividido[5]);
-				   evAux.setLugar_(eventoDividido[6]);
-				   evAux.setGenero_(eventoDividido[7]);
-				   eventos.add(evAux);
-			   }
-		   }
-		   reader.close();
-		   return eventos;
-		   
+			reader = new BufferedReader(new FileReader(csvFile));
+
+			while ((line = reader.readLine()) != null)
+			{      
+				String[] eventoDividido = line.split(cvsSplit);
+
+				if(eventoDividido[1].equals(Artista))
+				{
+					Evento evAux = new Evento();
+					evAux.setId_(eventoDividido[0]);
+					evAux.setArtista_(eventoDividido[1]);
+					evAux.setCiudad_(eventoDividido[2]);
+					evAux.setFecha_(eventoDividido[3]);
+					evAux.setPrecioMin_(eventoDividido[4]);
+					evAux.setPrecioMax_(eventoDividido[5]);
+					evAux.setLugar_(eventoDividido[6]);
+					evAux.setGenero_(eventoDividido[7]);
+					eventos.add(evAux);
+				}
+			}
+			reader.close();
+			return eventos;
+
 		}catch(Exception e) {}
-	    	
+
 		return eventos;
 	}
-		
+
 	public void mostrarFicha(String user) throws IOException
 	{
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
@@ -129,7 +129,7 @@ public class Evento
 		bw = new BufferedWriter(new FileWriter(tablaEventos, true));
 		pw = new PrintWriter(bw);
 		// Hasta aqui las lineas que hay que copiar
-		
+
 		boolean puedeSalir = false;
 		do
 		{
@@ -140,21 +140,19 @@ public class Evento
 			System.out.println("Lugar: " + this.getLugar_());
 			System.out.println("Fecha: " + this.getFecha_());
 			System.out.println("Precios: " + this.getPrecioMin_() +"€ - "+ this.getPrecioMax_() +"€");
-					
-			//faltaría opcion de enviarle por correo uno de tus eventos favoritos
-			
+
 			boolean esFavorito = false;
 			while(reader.hasNextLine())
-		    {
-		    	String linea = reader.nextLine();
-		    	String[] eventoDividida = linea.split(",");
-		    	
-		    	if(eventoDividida[0].equals(user) && eventoDividida[1].equals(this.getId_()))
-		    	{	    		
-		    			esFavorito = true;	    		
-		    	}
-		    }
-			
+			{
+				String linea = reader.nextLine();
+				String[] eventoDividida = linea.split(",");
+
+				if(eventoDividida[0].equals(user) && eventoDividida[1].equals(this.getId_()))
+				{	    		
+					esFavorito = true;	    		
+				}
+			}
+
 			if(esFavorito == true)
 			{
 				System.out.println("\nPulsa (1) para eliminar de favoritos");
@@ -163,81 +161,86 @@ public class Evento
 			{
 				System.out.println("\nPulsa (1) para a\u00f1adir a favoritos");
 			}
-			
-			System.out.println("Pulsa (2) para abrir el link de compra");
-			System.out.println("Pulsa (3) para compartir el evento con un amigo");			
+
+			System.out.println("Pulsa (2) para compartir el evento");			
 			System.out.println("Pulsa (0) para regresar al men\u00fa");
-			
+
 			String eleccion = sc.nextLine();
-			
+
 			switch(eleccion)
 			{
-				case "0":
-					puedeSalir = true;
-					break;
-				case "1":
-					if(esFavorito == true)
+			case "0":
+				puedeSalir = true;
+				break;
+			case "1":
+				try
+				{
+					Usuario usuarioAux = new Usuario();
+					int esFav = usuarioAux.ComprobarEventoFavorito(Integer.parseInt(this.getId_()), user);
+
+					EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
+					boolean haCargado = editarEvFavs.cargarCSV();
+
+					if(haCargado == true)
 					{
-						// eliminar evento, pendientes de como hacer eso en POO
+						if(esFav == -1) 
+						{
+							editarEvFavs.addFila(user, Integer.parseInt(this.getId_()));
+							System.out.println("Evento añadido a favoritos correctamente\nRegresando al menú...\n");
+						}
+						else 
+						{
+							int numFila = editarEvFavs.buscarCoindicencias(0, user, 1, this.getId_());
+							editarEvFavs.delFila(numFila-1);
+							System.out.println("Evento eliminado de favoritos correctamente\nRegresando al menú...\n");
+						}		    		
 					}
 					else
-					{						
-						String nuevaLinea = user + "," + this.getId_();
-						System.out.println("Aquí tendría que a\u00f1adir una fila con: " + nuevaLinea);
-						//pw.println(nuevaLinea);
+					{
+						System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
 					}
-					//puedeSalir = false;
-					break;								
-				case "2":
-					System.out.println("Abriendo link");//falta esta parte
-					break;
-				case "3":
-					EnviarEvento();
-					break;				
-				default:
-					System.out.println("Dato introducido incorrecto. Intente de nuevo");
-					puedeSalir = false;
-					break;
+
+				} catch (Exception e) { System.out.println("EXPLOSIOOOOOOOON"); }
+				puedeSalir = true;
+				break;								
+			case "2":
+				//EnviarEvento();
+				break;				
+			default:
+				System.out.println("Dato introducido incorrecto. Intente de nuevo");
+				puedeSalir = false;
+				break;
 			}
 		} while(puedeSalir == false);
-		
+
 		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
 		pw.flush();
-	    pw.close(); 
+		pw.close(); 
 		bw.close();
 		// Hasta aqui las lineas que hay que copiar
 	}
-	
+
 	public void MostrarPorBusqueda(int fila, String user) throws Exception
 	{
 		BufferedReader in = null;
 		String read;
 		in = new BufferedReader(new FileReader("eventos.csv"));
-		
-		while ((read = in.readLine()) != null)
-	    {
-			String[] split = read.split(",");
-	    	if(split[0].equals(String.valueOf(fila)))
-	    	{    		
-	    		System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
-	    		System.out.println("Genero: " + split[7]);
-	    		System.out.println("Artista: " + split[1]);
-	    		System.out.println("Ciudad: " + split[2]);
-	    		System.out.println("Lugar: " + split[6]);
-	    		System.out.println("Fecha: " + split[3]);
-	    		System.out.println("Precios entre " + split[4] +"€ y "+ split[5] +"€");
-	    	}	    	
-	    }
-		in.close();
-	}
-	
-	void EnviarEvento()
-	{
-		String destinatario =  "pgonzalezs1999@gmail.com"; //A quien le quieres escribir.
-	    String asunto = "Correo de prueba enviado desde Java";
-	    String cuerpo = "Esta es una prueba de correo...";
 
-	    Mail.enviarCorreo(destinatario);
+		while ((read = in.readLine()) != null)
+		{
+			String[] split = read.split(",");
+			if(split[0].equals(String.valueOf(fila)))
+			{    		
+				System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
+				System.out.println("Genero: " + split[7]);
+				System.out.println("Artista: " + split[1]);
+				System.out.println("Ciudad: " + split[2]);
+				System.out.println("Lugar: " + split[6]);
+				System.out.println("Fecha: " + split[3]);
+				System.out.println("Precios entre " + split[4] +"€ y "+ split[5] +"€");
+			}	    	
+		}
+		in.close();
 	}
 
 	public String getId_() {

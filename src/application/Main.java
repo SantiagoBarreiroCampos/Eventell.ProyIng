@@ -18,7 +18,7 @@ import java.io.PrintWriter;
 
 public class Main
 {
-	public static void main(String args[]) throws IOException
+	public static void main(String args[]) throws Exception
 	{
 		Scanner sc = new Scanner(System.in);
 		
@@ -72,7 +72,7 @@ public class Main
 		sc.close();
 	}
 	
-	public static void Menu(Usuario user) throws IOException
+	public static void Menu(Usuario user) throws Exception
 	{
 		Scanner sc = new Scanner(System.in);
 		String eleccion2;
@@ -151,18 +151,19 @@ public class Main
 							cuidadAux.BuscarCiudad(city, user);
 							break;
 						case "3":
-							System.out.println("\nPulse (1) para hiphop/r&b"
-									+ "\nPulse (2) para reggaeton"
-									+ "\nPulse (3) para pop"
-									+ "\nPulse (4) para hard rock/metal"
-									+ "\nPulse (5) para rock/metal"
-									+ "\nPulse (6) para clásica"
-									+ "\nPulse (7) para jazz/blues"
-									+ "\nPulse (8) para pop/rock"
-									+ "\nPulse (9) para world"
-									+ "\nPulse (10) para dance/electronica"
-									+ "\nPulse (11) para flamenco/rumba"
-									+ "\nPulse (12) para indie/alternativo");
+							System.out.println("\nElija uno de los siguientes géneros:"
+									+ "\nPulse (1) hiphop/r&b"
+									+ "\nPulse (2) reggaeton"
+									+ "\nPulse (3) pop"
+									+ "\nPulse (4) hard rock/metal"
+									+ "\nPulse (5) rock/metal"
+									+ "\nPulse (6) clásica"
+									+ "\nPulse (7) jazz/blues"
+									+ "\nPulse (8) pop/rock"
+									+ "\nPulse (9) world"
+									+ "\nPulse (10) dance/electronica"
+									+ "\nPulse (11) flamenco/rumba"
+									+ "\nPulse (12) indie/alternativo");
 							
 							Usuario generoAux = new Usuario();
 							String genero = sc1.nextLine();

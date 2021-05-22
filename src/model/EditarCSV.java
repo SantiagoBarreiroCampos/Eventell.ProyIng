@@ -167,7 +167,6 @@ public class EditarCSV
 
 	public void delFila(int orden) // Elimina la fila en la posición orden
 	{
-		System.out.println("orden = " + orden);
 		if (orden >= 0 && orden < (this.datos.length))
 		{
 			String[][] nuevosDatos = new String[this.datos.length - 1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila MENOS
