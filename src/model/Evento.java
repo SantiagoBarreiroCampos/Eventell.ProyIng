@@ -227,7 +227,8 @@ public class Evento
 	    		System.out.println("Fecha: " + split[3]);
 	    		System.out.println("Precios entre " + split[4] +"€ y "+ split[5] +"€");
 	    	}	    	
-	    }		
+	    }
+		in.close();
 	}
 	
 	void EnviarEvento()

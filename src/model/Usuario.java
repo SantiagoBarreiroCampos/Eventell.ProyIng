@@ -78,42 +78,42 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    }
 			    catch(Exception e) {}
 			    
-			    boolean esFavorito;
-			    
 				try
 				{
-					esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+					int esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
 				
-			    	if(esFavorito == true)
+			    	if(esFavorito == -1)
 			    	{
-			    		System.out.println("\nPulse (1) para eliminar de eventos favoritos");
+			    		System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
 			    	}
 			    	else
 			    	{
-			    		System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
+			    		System.out.println("\nPulse (1) para eliminar de eventos favoritos");
 			    	}
 			    	System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
 			    	
 			    	String opcion = scanner.nextLine();
 			    	if (opcion.equals("1"))
 			    	{
-			    		if(esFavorito == true) 
-			    		{
-			    			// Eliminar fila de "eventosFavoritos.csv"
-			    			// Primero hay que averiguar que numero es la fila
-			    		}
-			    		else // Falta añadir fila "usuario,IDdeevento" a "eventosFavoritos.csv"
+			    		if(esFavorito == -1) 
 			    		{
 			    			EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
 			    			boolean haCargado = editarEvFavs.cargarCSV();
 			    			if(haCargado == true)
-				    		{
-				    			editarEvFavs.addFila(user.getUser(), 74);
-				    		}
+			    			{
+			    				// Falta añadir fila "usuario,IDdeevento" a "eventosFavoritos.csv"
+			    				System.out.println("numEventos[decision] = " + numEventos[decision]);
+			    				editarEvFavs.addFila(user.getUser(), numEventos[decision]);
+			    			}
 			    			else
 			    			{
 			    				System.out.println("No se ha podido cargar el fichero");
 			    			}
+			    		}
+			    		else 
+			    		{
+			    			// Eliminar fila de "eventosFavoritos.csv"
+			    			// Primero hay que averiguar que numero es la fila
 			    		}
 			    	}
 			    	
@@ -272,7 +272,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    
 				 try
 				 {
-					 esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+					 /*esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
 				
 			    	 if (esFavorito == true)
 			    	 {
@@ -289,7 +289,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    	 if (opcion.equals("1"))
 			    	 {
 			    		 // añadir / eliminar de favoritos
-			    	 }
+			    	 }*/
 			    	
 				 } catch (Exception e) {}
 		     }
@@ -312,22 +312,28 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 	   }
 	}
 	
-	public void BuscarGenero(String genero, Usuario user) throws IOException {
-
-		BufferedReader reader = null;
-		String line = "";
-		String cvsSplit = ",";
-		String csvFile = "eventos.csv";
+	public void BuscarGenero(String genero, Usuario user) throws IOException
+	{
+		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		File tablaUsuarios = new File("usuarios.csv");
+		Scanner reader = new Scanner(tablaUsuarios);
+		BufferedWriter bw;
+		PrintWriter pw;
+		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
+		pw = new PrintWriter(bw);
+		// Hasta aqui las lineas que hay que copiar
+		
 		int numFila = 0;
 		int encontrados = 0;
 				
 		try
 		{
 			int[] numEventos = new int[150];
-		    reader = new BufferedReader(new FileReader(csvFile));
-		    while ((line = reader.readLine()) != null)
+
+			while(reader.hasNextLine())
 		    {
-			   String[] ficha = line.split(cvsSplit);
+		    	String linea = reader.nextLine();
+		    	String[] ficha = linea.split(",");
 		       
 		       if(ficha[8].equalsIgnoreCase(genero))
 		       {
@@ -363,7 +369,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    
 				 try
 				 {
-					 esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+					 /*esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
 				
 			    	 if (esFavorito == true)
 			    	 {
@@ -377,17 +383,13 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    	
 			    	 Scanner scanner = new Scanner(System.in);
 					 String opcion = scanner.nextLine();
-			    	 if (opcion.equals(1))
+			    	 if (opcion.equals("1"))
 			    	 {
 			    		 // a?adir / eliminar de favoritos
-			    	 }
+			    	 }*/
 			    	
-				 } catch (Exception e) {}
+				 } catch (Exception e) { System.out.println("Algo salió mal"); }
 		     }
-	   } catch (FileNotFoundException e){
-		   e.printStackTrace();
-	   } catch (IOException e) {
-		   e.printStackTrace();
 	   } finally {
 		   if (reader != null)
 		   {
@@ -395,7 +397,7 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			   {
 				   reader.close();
 		       }
-			   catch (IOException e)
+			   catch (Exception e)
 			   {
 		           e.printStackTrace();
 		       }
@@ -797,23 +799,28 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 		return this;
 	}
 	
-	public boolean ComprobarEventoFavorito(int id, String username) throws Exception
+	public int ComprobarEventoFavorito(int id, String username) throws Exception
 	{
-		boolean respuesta = false;
+		int respuesta = -1;
 		
 		BufferedReader in = null;
 		String read;
     	in = new BufferedReader(new FileReader("eventosFavoritos.csv"));
-	    	
+	    
+    	int i = 0;
     	while ((read = in.readLine()) != null)
     	{
     		String[] split = read.split(",");
     		    		
+    		System.out.println("i = " + i + ", username = " + username + ", id = " + id);
 	    	if(split[0].equals(username) && split[1].equals(String.valueOf(id)))
 	    	{
-	    		respuesta = true;
+	    		respuesta = i;
 	    	}
+	    	i++;
 	    }
+    	in.close();
+    	
     	return respuesta;
 	}
 	

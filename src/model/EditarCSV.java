@@ -122,7 +122,7 @@ public class EditarCSV
 	private String user_;
 	private String password_;
 	private String esAdmin_;
-	private boolean disponible_;*/
+	private boolean disponible_;74*/
 
 	public void addFila(String username, int IDevento) // Introduce una fila en la posición orden
 	{
