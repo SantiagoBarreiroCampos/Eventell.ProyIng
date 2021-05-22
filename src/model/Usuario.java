@@ -14,8 +14,6 @@ import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-
 public class Usuario
 {
 	Scanner sc = new Scanner(System.in);
@@ -141,7 +139,8 @@ public class Usuario
 		}
 	}
 
-	public Usuario Administrador() throws IOException{
+	public Usuario Administrador() throws IOException
+	{
 		int elec;
 
 		BufferedWriter bw;
@@ -510,114 +509,102 @@ public class Usuario
 
 	public Usuario ConfigurarPerfil() throws IOException
 	{
-		int elec;
-		File tablaUsuarios = new File("usuarios.csv");
-		BufferedWriter bw;
-		PrintWriter pw;
-		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
-		pw = new PrintWriter(bw);
+		int numFila = 0;		
+		String eleccion;
 		do
 		{
 			System.out.println("ï¿½Que dato desea a\u00f1adir?");
-			System.out.println("Pulse (1) para cambiar Nombre"
-					+ "\nPulse (2) para cambiar primer apellido"
-					+ "\nPulse (3) para cambiar sexo"
-					+ "\nPulse (4) para cambiar correo electronico"
-					+ "\nPulse (5) para cambiar fecha"
-					+ "\nPulse (6) para cambiar ciudad"
-					+ "\nPulse (7) para cambiar nombre de usuario"
-					+ "\nPulse (8) para cambiar contrase\u00f1a"
-					+ "\nPulse (9) para salir");
-			elec = sc.nextInt();
-			switch(elec)
+			System.out.println("\nPulse (1) para terminar la configuración"
+							+ "\nPulse (2) para cambiar su contrase\u00f1a"
+							+ "\nPulse (3) para cambiar su nombre"
+							+ "\nPulse (4) para cambiar sus apellidos"
+							+ "\nPulse (5) para cambiar su correo electronico"
+							+ "\nPulse (6) para cambiar su fecha de nacimiento"
+							+ "\nPulse (7) para cambiar su ciudad de preferencia"
+							+ "\nPulse (8) para cambiar su sexo");		
+			eleccion = sc.nextLine();
+			
+			switch(eleccion)
 			{
-			case 1:
-
-				System.out.println("Introduzca su nombre: ");
-				String CnombreAux = sc.next();
-				setNombre(CnombreAux);
-				break;
-			case 2:
-				System.out.println("Introduzca su primer apellido: ");
-				String Capellido1Aux = sc.next();
-				setApellidos(Capellido1Aux);
-				break;
-			case 3:
-				System.out.println("Introduzca su sexo ");
-				String CsexoAux = sc.next();
-				setApellidos(CsexoAux);
-				break;
-			case 4:
-				String CcorreoAux;
-				boolean check = false;
-				do
-				{
-					System.out.println("Introduzca su correo electronico: ");
-					CcorreoAux = sc.nextLine();
-					Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-					Matcher matcher = pattern.matcher(CcorreoAux);
-					if (matcher.find() == false) {
-						System.out.println("Correo no aceptado. Intentelo de nuevo");
+				case "1":
+					System.out.println("Regresando al menú principal...");
+					break;
+				case "2":
+					System.out.println("Introduzca una nueva contraseña: ");
+					String pass1 = sc.nextLine();
+					System.out.println("Confirme la nueva contraseña: ");
+					String pass2 = sc.nextLine();
+					if(pass1.equals(pass2))
+					{
+						this.setPassword(pass2);
+						System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
 					}
-					else { check = true; }
-				} while(check == false);
-				setCorreo(CcorreoAux);	
-				break;
-			case 5:
-				String fecha;
-				String dia,mes,anyo;
-				int posicion;
-				int datodia,datomes,datoanyo;
-				String fecha1;
-				System.out.println("Introduzca su fecha de nacimiento (dd/mm/aaaa): ");
-				fecha = sc.next();
-
-				posicion= fecha.indexOf("/");
-				dia=fecha.substring(0, posicion);
-				fecha=fecha.substring(posicion+1);
-				posicion= fecha.indexOf("/");
-				mes=fecha.substring(0, posicion);
-				fecha=fecha.substring(posicion+1);
-				anyo=fecha;
-				datodia=Integer.parseInt(dia);
-				datomes=Integer.parseInt(mes);
-				datoanyo=Integer.parseInt(anyo);
-				if(1>datodia||datodia>31||1>datomes||datomes>12)
-				{
-					System.out.println("La fecha introducida es incorrecta");					
-				}
-				else {
-					setNacimiento(fecha);
-				}
-				break;
-			case 6:
-				System.out.println("Introduzca su ciudad: ");
-				String CciudadAux = sc.next();
-				setCiudad(CciudadAux);
-				break;
-			case 7:
-				System.out.println("Introduzca su nombre de usuario: ");
-				String CnombreUAux = sc.next();
-				setUser(CnombreUAux);
-				break;
-			case 8:
-				System.out.println("Introduzca su nueva contrase\u00f1a: ");
-				String Acontrasena = sc.next();
-				setPassword(Acontrasena);
-				break;
+					else
+					{
+						System.out.println("Las contraseñas deben coincidir\n");
+					}
+					break;
+				case "3":
+					System.out.println("Introduzca un nuevo nombre: ");
+					this.setNombre(sc.nextLine());	
+					System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
+					break;
+				case "4":
+					System.out.println("Introduzca nuevos apellidos: ");
+					this.setApellidos(sc.nextLine());
+					System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
+					break;
+				case "5":
+					System.out.println("Introduzca un nuevo correo: ");
+					this.setCorreo(sc.nextLine());
+					System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
+					break;
+				case "6":
+					System.out.println("Introduzca un año de nacimiento: ");
+					String year = sc.nextLine();
+					String mes = sc.nextLine();
+					String dia = sc.nextLine();
+					String fecha = dia +"/"+ mes +"/"+ year;
+					this.setNacimiento(fecha);
+					System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
+					break;
+				case "7":
+					System.out.println("Introduzca una nueva ciudad: ");
+					this.setCiudad(sc.nextLine());	
+					System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
+					break;
+				case "8":
+					System.out.println("Introduzca un nuevo sexo: ");
+					this.setSexo(sc.nextLine());	
+					System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
+					break;
+				default:
+					System.out.println("Dato introducido incorrecto. Intente de nuevo");
 			}
+			
+		} while(!eleccion.equals("1"));
+			
+		EditarCSV editarEvFavs = new EditarCSV("usuarios.csv");
+		boolean haCargado = editarEvFavs.cargarCSV();
+		if(haCargado == true)
+		{
+			editarEvFavs.addFila(this);
+			numFila = editarEvFavs.buscarCoindicencias(1, this);
+			editarEvFavs.delFila(numFila-1);
+			System.out.println("Perfil actualizado correctamente\nRegresando al menú...");		    		
 		}
-		while(elec != 9);
+		else
+		{
+			System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
+		}
 
 		return this;		
 	}
 
 	public Usuario Registrarse() throws IOException
 	{
-		System.out.println("Le recordamos que no podrá asistir a ciertos" +
-				"\neventos reservados con Eventell si usted es" +
-				"\nmenor de edad\n");
+		System.out.println("Le recordamos que no podrá asistir a ciertos eventos" +
+				"\nreservados con Eventell si es menor de edad\n");
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 		File tablaUsuarios = new File("usuarios.csv");
 		Scanner reader = new Scanner(tablaUsuarios);
@@ -668,6 +655,7 @@ public class Usuario
 			check = false;
 			reader = new Scanner(tablaUsuarios);
 			System.out.println("Introduce un nombre de usuario: ");
+			System.out.println("Recuerde que el username no podrá modificarse");
 			nombreAux = sc.next();		
 			boolean encontrado = false;
 			while(reader.hasNextLine())

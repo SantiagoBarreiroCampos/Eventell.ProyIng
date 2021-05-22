@@ -46,6 +46,19 @@ public class EditarCSV
 		return numFila;
 	}
 	
+	public int buscarCoindicencias(int col, Usuario user)
+	{
+		int numFila = -70;
+		for(int i = 0; i < datos.length; i++)
+		{
+			if(datos[i][col].equals(user.getUser()))
+			{
+				numFila = i + 1;
+			}
+		}
+		return numFila;
+	}
+	
 	public int buscarCoindicencias(int col1, Usuario dato1, int col2, int dato2)
 	{
 		int numFila = -70;
@@ -129,17 +142,48 @@ public class EditarCSV
 		}
 	}
 
-	/*private String nombre_;
-	private String apellidos_;
-	private String nacimiento_;
-	private String correo_;
-	private String ciudad_;
-	private String sexo_;
-	private String user_;
-	private String password_;
-	private String esAdmin_;
-	private boolean disponible_;*/
+	/*boolean disponible_;
+	String user_;
+	String password_;
+	String nombre_;
+	String apellidos_;
+	String correo_;
+	String nacimiento_;
+	String ciudad_;
+	String sexo_;
+	String esAdmin_;*/
 
+	public void addFila(Usuario user) // Introduce una fila en la posición orden
+	{
+		String[][] nuevosDatos = new String[this.datos.length+1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila más		
+		int correccionFila = 0; // Se usa para corregir la fila de lectura
+				
+		for (int i = 0; i < nuevosDatos.length; i++) // Se recorre esa matriz asignando los valores de la anterior
+		{			
+			if (i == 0) // Se localiza si estamos en la fila deseada...
+			{
+				nuevosDatos[i][0] = "1";
+				nuevosDatos[i][1] = user.getUser();
+				nuevosDatos[i][2] = user.getPassword();
+				nuevosDatos[i][3] = user.getNombre();
+				nuevosDatos[i][4] = user.getApellidos();
+				nuevosDatos[i][5] = user.getCorreo();
+				nuevosDatos[i][6] = user.getNacimiento();
+				nuevosDatos[i][7] = user.getCiudad();
+				nuevosDatos[i][8] = user.getSexo();
+				nuevosDatos[i][9] = user.getEsAdmin();
+				
+				correccionFila = -1;
+			}
+			else
+			{					
+				nuevosDatos[i] = this.datos[i+correccionFila]; // Se copia toda la fila, aplicando corrección
+			}
+		}
+		this.datos = nuevosDatos;
+		this.guardarCSV();
+	}
+	
 	public void addFila(String username, int IDevento) // Introduce una fila en la posición orden
 	{
 		String[][] nuevosDatos = new String[this.datos.length+1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila más		

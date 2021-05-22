@@ -104,8 +104,7 @@ public class Main
 					break;
 					
 				case "1":
-					Usuario perfilAux = new Usuario();
-					Usuario perfil = perfilAux.ConfigurarPerfil();
+					user.ConfigurarPerfil();
 					break;
 					
 				case "2":					
