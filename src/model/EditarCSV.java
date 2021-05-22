@@ -15,19 +15,22 @@ public class EditarCSV
 	{
 		this.ruta = nuevaRuta;
 	}
-	public boolean modificarValor(int columna, String nombreAux) {
-		boolean resultado = true;
-		 for(int i=0;i<datos.length;i++){
-	            for(int j=0;j<datos[i].length;j++){
-	            	if (datos[i][j].equals(nombreAux)) {
-	            		System.out.println("llega aquí 2");
-			this.datos[i][columna]="1";
-			resultado = true;
-	            	}
-	            }
-		}
-		return true;
+	public boolean modificarValor(int columna, String nombreAux)
+	{
+		boolean resultado = false;
 		
+		 for(int i=0;i<datos.length;i++)
+		 {
+            for(int j=0;j<datos[i].length;j++)
+            {
+            	if (datos[i][j].equals(nombreAux))
+            	{
+            		this.datos[i][columna]="1";
+            		resultado = true;
+            	}
+            }
+		}
+		return true;	
 	}
 	
 	public int buscarCoindicencias(int col1, String dato1, int col2, String dato2)
@@ -36,6 +39,19 @@ public class EditarCSV
 		for(int i = 0; i < datos.length; i++)
 		{			
 			if(datos[i][col1].equals(dato1) && datos[i][col2].equals(dato2))
+			{
+				numFila = i + 1;
+			}
+		}
+		return numFila;
+	}
+	
+	public int buscarCoindicencias(int col1, Usuario dato1, int col2, int dato2)
+	{
+		int numFila = -70;
+		for(int i = 0; i < datos.length; i++)
+		{			
+			if(datos[i][col1].equals(dato1.getUser()) && datos[i][col2].equals(String.valueOf(dato2)))
 			{
 				numFila = i + 1;
 			}
@@ -122,7 +138,7 @@ public class EditarCSV
 	private String user_;
 	private String password_;
 	private String esAdmin_;
-	private boolean disponible_;74*/
+	private boolean disponible_;*/
 
 	public void addFila(String username, int IDevento) // Introduce una fila en la posición orden
 	{
@@ -150,7 +166,8 @@ public class EditarCSV
 	}
 
 	public void delFila(int orden) // Elimina la fila en la posición orden
-	{			
+	{
+		System.out.println("orden = " + orden);
 		if (orden >= 0 && orden < (this.datos.length))
 		{
 			String[][] nuevosDatos = new String[this.datos.length - 1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila MENOS

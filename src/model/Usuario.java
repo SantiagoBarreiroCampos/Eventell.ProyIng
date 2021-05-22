@@ -95,25 +95,27 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
 			    	String opcion = scanner.nextLine();
 			    	if (opcion.equals("1"))
 			    	{
-			    		if(esFavorito == -1) 
+			    		EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
+			    		boolean haCargado = editarEvFavs.cargarCSV();
+			    		if(haCargado == true)
 			    		{
-			    			EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
-			    			boolean haCargado = editarEvFavs.cargarCSV();
-			    			if(haCargado == true)
+			    			if(esFavorito == -1) 
 			    			{
-			    				// Falta añadir fila "usuario,IDdeevento" a "eventosFavoritos.csv"
-			    				System.out.println("numEventos[decision] = " + numEventos[decision]);
 			    				editarEvFavs.addFila(user.getUser(), numEventos[decision]);
+			    				System.out.println("Evento añadido a favoritos correctamente\nRegresando al menú...");
 			    			}
-			    			else
-			    			{
-			    				System.out.println("No se ha podido cargar el fichero");
-			    			}
+				    		else 
+				    		{
+				    			numFila = editarEvFavs.buscarCoindicencias(0, user, 1, numEventos[decision]);
+				    			System.out.println(numFila);
+				    			editarEvFavs.delFila(numFila-1); // Aun no va bien -> adaptar matriz
+				    			//System.out.println("Evento eliminado de favoritos correctamente\nRegresando al menú...");
+				    		}
+			    		
 			    		}
-			    		else 
+			    		else
 			    		{
-			    			// Eliminar fila de "eventosFavoritos.csv"
-			    			// Primero hay que averiguar que numero es la fila
+			    			System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
 			    		}
 			    	}
 			    	
@@ -812,7 +814,6 @@ public class Usuario // La linea 1 explica como guardar y bajar usuarios de la B
     	{
     		String[] split = read.split(",");
     		    		
-    		System.out.println("i = " + i + ", username = " + username + ", id = " + id);
 	    	if(split[0].equals(username) && split[1].equals(String.valueOf(id)))
 	    	{
 	    		respuesta = i;
