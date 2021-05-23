@@ -118,6 +118,76 @@ public class Evento
 
 		return eventos;
 	}
+	
+	public Vector<Evento> buscarEventosPorCiudad(String Ciudad)
+	{
+		Vector<Evento> eventos = new Vector<Evento>();
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+
+		try
+		{
+			reader = new BufferedReader(new FileReader(csvFile));
+
+			while ((line = reader.readLine()) != null)
+			{      
+				String[] eventoDividido = line.split(cvsSplit);
+
+				if(eventoDividido[2].equals(Ciudad))
+				{
+					Evento evAux = new Evento();
+					evAux.setId_(eventoDividido[0]);
+					evAux.setArtista_(eventoDividido[1]);
+					evAux.setCiudad_(eventoDividido[2]);
+					evAux.setFecha_(eventoDividido[3]);
+					evAux.setPrecioMin_(eventoDividido[4]);
+					evAux.setPrecioMax_(eventoDividido[5]);
+					evAux.setLugar_(eventoDividido[6]);
+					evAux.setGenero_(eventoDividido[7]);
+					eventos.add(evAux);
+				}
+			}
+			reader.close();
+			return eventos;
+
+		}catch(Exception e) {}
+
+		return eventos;
+	}
+	
+	public Vector<String> buscarArtistasPorGenero(String Genero)
+	{
+		Vector<String> artistas = new Vector<String>();
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+		
+		String artistaActual = "";
+
+		try
+		{
+			reader = new BufferedReader(new FileReader(csvFile));
+
+			while ((line = reader.readLine()) != null)
+			{      
+				String[] eventoDividido = line.split(cvsSplit);
+
+				if(eventoDividido[7].equals(Genero) && !(artistaActual.equals(eventoDividido[1])))
+				{
+					artistaActual = eventoDividido[1];
+					artistas.add(artistaActual);
+				}
+			}
+			reader.close();
+			return artistas;
+
+		}catch(Exception e) {}
+
+		return artistas;
+	}
 
 	public void mostrarFicha(String user) throws IOException
 	{

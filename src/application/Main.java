@@ -1,6 +1,8 @@
 package application;
 
+import model.Busquedas;
 import model.EditarCSV;
+import model.Evento;
 import model.ListaAmigos;
 import model.ListaArtistasFavoritos;
 import model.ListaEventosFavoritos;
@@ -11,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Vector;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -126,47 +129,44 @@ public class Main
 					break;
 					
 				case "5":
+					Busquedas busqueda = new Busquedas();
+					
 					Scanner sc1 = new Scanner(System.in);
 					String eleccion;
 					
-					System.out.println("\nPulse (1) si desea buscar un evento por artista"
-							+ "\nPulse (2) si desea buscar un evento por cuidad"
-							+ "\nPulse (3) si desea buscar un evento por genero musical");
+					System.out.println("\nPulse (1) si desea buscar un artista"
+							+ "\nPulse (2) si desea buscar eventos por cuidad"
+							+ "\nPulse (3) si desea buscar eventos por genero musical");
 					
 					eleccion = sc1.nextLine();
 				
 					switch(eleccion)
 					{
 						case "1":
-							System.out.println("Introduzca el nombre del artista");				
-							String nombre = sc1.nextLine();
-							Usuario artistaAux = new Usuario();
-							artistaAux.BuscarArtista(nombre, user);
+							busqueda.buscarArtista(user.getUser());
 							break;
 						case "2":
-							System.out.println("Introduzca el nombre de la cuidad");				
-							String city = sc1.nextLine();
-							Usuario cuidadAux = new Usuario();
-							cuidadAux.BuscarCiudad(city, user);
+							busqueda.buscarCiudad(user.getUser());
 							break;
 						case "3":
-							System.out.println("\nElija uno de los siguientes géneros:"
-									+ "\nPulse (1) hiphop/r&b"
-									+ "\nPulse (2) reggaeton"
-									+ "\nPulse (3) pop"
-									+ "\nPulse (4) hard rock/metal"
-									+ "\nPulse (5) rock/metal"
-									+ "\nPulse (6) clásica"
-									+ "\nPulse (7) jazz/blues"
-									+ "\nPulse (8) pop/rock"
-									+ "\nPulse (9) world"
-									+ "\nPulse (10) dance/electronica"
-									+ "\nPulse (11) flamenco/rumba"
-									+ "\nPulse (12) indie/alternativo");
-							
-							Usuario generoAux = new Usuario();
-							String genero = sc1.nextLine();
-							generoAux.BuscarGenero(genero, user);
+							busqueda.buscarGenero(user.getUser());
+//							System.out.println("\nElija uno de los siguientes géneros:"
+//									+ "\nPulse (1) hiphop/r&b"
+//									+ "\nPulse (2) reggaeton"
+//									+ "\nPulse (3) pop"
+//									+ "\nPulse (4) hard rock/metal"
+//									+ "\nPulse (5) rock/metal"
+//									+ "\nPulse (6) clásica"
+//									+ "\nPulse (7) jazz/blues"
+//									+ "\nPulse (8) pop/rock"
+//									+ "\nPulse (9) world"
+//									+ "\nPulse (10) dance/electronica"
+//									+ "\nPulse (11) flamenco/rumba"
+//									+ "\nPulse (12) indie/alternativo");
+//							
+//							Usuario generoAux = new Usuario();
+//							String genero = sc1.nextLine();
+//							generoAux.BuscarGenero(genero, user);
 							break;
 							
 						default:

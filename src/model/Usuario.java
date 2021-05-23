@@ -29,117 +29,126 @@ public class Usuario
 	private String esAdmin_;
 	private boolean disponible_;
 
-	public void BuscarArtista(String nombre, Usuario user) throws IOException
-	{
-		BufferedReader reader = null;
-		String line = "";
-		String cvsSplit = ",";
-		String csvFile = "eventos.csv";		
-		int encontrados = 0;
-		int numFila = 0;
-		Scanner scanner = new Scanner(System.in);
-		try
-		{
-			int[] numEventos = new int[150];
-			reader = new BufferedReader(new FileReader(csvFile));
-			while ((line = reader.readLine()) != null)
-			{
-				String[] ficha = line.split(cvsSplit);
-
-				if(ficha[1].equalsIgnoreCase(nombre))
-				{
-					if (encontrados == 0)
-					{
-						System.out.println("\nEstos son los eventos de \"" + nombre + "\":");
-					}
-					numEventos[encontrados+1] = numFila;
-					encontrados++;		    	   
-
-					System.out.println("(" +encontrados+ "): " +ficha[2]+ ", día " +ficha[3]);			       
-				}
-				numFila++;
-			}
-			if (encontrados == 0)
-			{
-				System.out.println("\nArtista no encontrado");
-			}
-			else
-			{
-				System.out.println("\nIntroduzca el numero del evento que desea consultar");
-				System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
-
-				int decision = sc.nextInt();			    
-
-				try
-				{
-					Evento auxEvento = new Evento();
-					auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
-
-					int esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
-
-					if(esFavorito == -1)
-					{
-						System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
-					}
-					else
-					{
-						System.out.println("\nPulse (1) para eliminar de eventos favoritos");
-					}
-					System.out.println("Pulse (2) para compartir el evento");
-					System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
-
-					String opcion = scanner.nextLine();
-					if (opcion.equals("1"))
-					{
-						EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
-						boolean haCargado = editarEvFavs.cargarCSV();
-						if(haCargado == true)
-						{
-							if(esFavorito == -1) 
-							{
-								editarEvFavs.addFila(user.getUser(), numEventos[decision]);
-								System.out.println("Evento añadido a favoritos correctamente\nRegresando al menú...");
-							}
-							else 
-							{
-								numFila = editarEvFavs.buscarCoindicencias(0, user, 1, numEventos[decision]);
-								editarEvFavs.delFila(numFila-1);
-								System.out.println("Evento eliminado de favoritos correctamente\nRegresando al menú...");
-							}		    		
-						}
-						else
-						{
-							System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
-						}
-					}
-
-				} catch (Exception e) { System.out.println("EXPLOSIOOOOOOOON"); }
-			}
-		}
-		catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally
-		{
-			if (reader != null)
-			{
-				try
-				{
-					reader.close();
-				}
-				catch (IOException e)
-				{
-					e.printStackTrace();
-				}
-			}
-		}
-	}
+//	public void BuscarArtista(String nombre, Usuario user) throws IOException
+//	{
+//		BufferedReader reader = null;
+//		String line = "";
+//		String cvsSplit = ",";
+//		String csvFile = "eventos.csv";		
+//		int encontrados = 0;
+//		int numFila = 0;
+//		Scanner scanner = new Scanner(System.in);
+//		try
+//		{
+//			int[] numEventos = new int[150];
+//			reader = new BufferedReader(new FileReader(csvFile));
+//			while ((line = reader.readLine()) != null)
+//			{
+//				String[] ficha = line.split(cvsSplit);
+//
+//				if(ficha[1].equalsIgnoreCase(nombre))
+//				{
+//					if (encontrados == 0)
+//					{
+//						System.out.println("\nEstos son los eventos de \"" + nombre + "\":");
+//					}
+//					numEventos[encontrados+1] = numFila;
+//					encontrados++;		    	   
+//
+//					System.out.println("(" +encontrados+ "): " +ficha[2]+ ", día " +ficha[3]);			       
+//				}
+//				numFila++;
+//			}
+//			if (encontrados == 0)
+//			{
+//				System.out.println("\nArtista no encontrado");
+//			}
+//			else
+//			{
+//				System.out.println("\nIntroduzca el numero del evento que desea consultar");
+//				System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
+//
+//				int decision = sc.nextInt();			    
+//
+//				try
+//				{
+//					Evento auxEvento = new Evento();
+//					auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
+//
+//					int esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+//
+//					if(esFavorito == -1)
+//					{
+//						System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
+//					}
+//					else
+//					{
+//						System.out.println("\nPulse (1) para eliminar de eventos favoritos");
+//					}
+//					System.out.println("Pulse (2) para compartir el evento");
+//					System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
+//
+//					String opcion = scanner.nextLine();
+//					if (opcion.equals("1"))
+//					{
+//						EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
+//						boolean haCargado = editarEvFavs.cargarCSV();
+//						if(haCargado == true)
+//						{
+//							if(esFavorito == -1) 
+//							{
+//								editarEvFavs.addFila(user.getUser(), numEventos[decision]);
+//								System.out.println("Evento añadido a favoritos correctamente\nRegresando al menú...");
+//							}
+//							else 
+//							{
+//								numFila = editarEvFavs.buscarCoindicencias(0, user, 1, numEventos[decision]);
+//								editarEvFavs.delFila(numFila-1);
+//								System.out.println("Evento eliminado de favoritos correctamente\nRegresando al menú...");
+//							}		    		
+//						}
+//						else
+//						{
+//							System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
+//						}
+//					}
+//					else if (opcion.equals("2")) {
+//						Mail correo = new Mail();
+//						ListaAmigos amigos = new ListaAmigos();
+//						amigos.buscarAmigos(user);
+//						int i;
+//						String correoAmigo = amigos.consultaCorreoDeAmigos();
+//						//correo.enviarCorreo(correoAmigo, user.getUser(), this);
+//					}
+//
+//				} catch (Exception e) { System.out.println("EXPLOSIOOOOOOOON"); }
+//			}
+//		}
+//		catch (FileNotFoundException e)
+//		{
+//			e.printStackTrace();
+//		}
+//		catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		finally
+//		{
+//			if (reader != null)
+//			{
+//				try
+//				{
+//					reader.close();
+//				}
+//				catch (IOException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+//	}
 
 	public Usuario Administrador() throws IOException
+
 	{
 		int elec;
 
@@ -217,214 +226,216 @@ public class Usuario
 
 		return this;
 	}
-	public void BuscarCiudad(String city, Usuario user) throws IOException
-	{	
-		BufferedReader reader = null;
-		String line = "";
-		String cvsSplit = ",";
-		String csvFile = "eventos.csv";
-		int numFila = 0;
-		int encontrados = 0;
-
-		try
-		{
-			int[] numEventos = new int[150];
-			reader = new BufferedReader(new FileReader(csvFile));
-			while ((line = reader.readLine()) != null)
-			{
-				String[] ficha = line.split(cvsSplit);
-
-				if(ficha[2].equalsIgnoreCase(city))
-				{
-					if (encontrados == 0)
-					{
-						System.out.println("\nEstos son los eventos de \"" + city + "\":");
-					}
-					numEventos[encontrados+1] = numFila;
-					encontrados++;		    	   
-
-					System.out.println("(" +encontrados+ "): " +ficha[1] + ", día " +ficha[3]);			       
-				}
-				numFila++;
-			}
-			if (encontrados == 0)
-			{
-				System.out.println("\nCiudad no encontrada");
-			}
-			else
-			{
-				System.out.println("\nIntroduzca el numero del evento que desea consultar");
-				System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
-
-				int decision = sc.nextInt();
-				sc.nextLine();
-
-				try
-				{
-					Evento auxEvento = new Evento();
-					auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
-
-					int esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
-
-					if(esFavorito == -1)
-					{
-						System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
-					}
-					else
-					{
-						System.out.println("\nPulse (1) para eliminar de eventos favoritos");
-					}
-					System.out.println("Pulse (2) para compartir el evento");
-					System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
-
-					String opcion = sc.nextLine();
-
-					if (opcion.equals("1"))
-					{
-						EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
-						boolean haCargado = editarEvFavs.cargarCSV();
-						if(haCargado == true)
-						{
-							if(esFavorito == -1) 
-							{
-								editarEvFavs.addFila(user.getUser(), numEventos[decision]);
-								System.out.println("Evento añadido a favoritos correctamente\nRegresando al menú...\n");
-							}
-							else 
-							{
-								numFila = editarEvFavs.buscarCoindicencias(0, user, 1, numEventos[decision]);
-								editarEvFavs.delFila(numFila-1);
-								System.out.println("Evento eliminado de favoritos correctamente\nRegresando al menú...\n");
-							}		    		
-						}
-						else
-						{
-							System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
-						}
-					}
-
-				} catch (Exception e) { System.out.println("EXPLOSIOOOOOOOON"); }
-			}
-		}
-		catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally
-		{
-			if (reader != null)
-			{
-				try
-				{
-					reader.close();
-				}
-				catch (IOException e)
-				{
-					e.printStackTrace();
-				}
-			}
-		}
-	}
-
-	public void BuscarGenero(String genero, Usuario user) throws IOException
-	{
-		BufferedReader reader = null;
-		String line = "";
-		String cvsSplit = ",";
-		String csvFile = "eventos.csv";
-		int numFila = 0;
-		int encontrados = 0;
-
-		try
-		{
-			int[] numEventos = new int[150];
-			reader = new BufferedReader(new FileReader(csvFile));
-			while ((line = reader.readLine()) != null)
-			{
-				String[] ficha = line.split(cvsSplit);
-
-				if(ficha[8].equalsIgnoreCase(genero))
-				{
-					if (encontrados == 0)
-					{
-						System.out.println("\nEstos son los eventos encontrados" + ":");
-					}
-					numEventos[encontrados+1] = numFila;
-					encontrados++;		    	   
-
-					System.out.println("(" +encontrados+ "): " +ficha[1]+ " en " +ficha[2]+ ", d�a " +ficha[3]);			       
-				}
-				numFila++;
-			}
-			if (encontrados == 0)
-			{
-				System.out.println("\nGenero musical no encontrado");
-			}
-			else
-			{
-				System.out.println("\nIntroduzca el numero del evento que desea consultar");
-				System.out.println("Pulse cualquier otra tecla para abandonar la b?squeda: ");
-
-				int decision = sc.nextInt();
-				sc.nextLine();
-
-				try
-				{
-					Evento auxEvento = new Evento();
-					auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
-
-					int esFav = ComprobarEventoFavorito(numEventos[decision], user.getUser());
-
-					if(esFav == -1)
-					{
-						System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
-					}
-					else
-					{
-						System.out.println("\nPulse (1) para eliminar de eventos favoritos");
-					}
-					System.out.println("Pulse (2) para compartir el evento");
-					System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
-
-					String opcion = sc.nextLine();
-
-					if (opcion.equals("1"))
-					{
-						EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
-						boolean haCargado = editarEvFavs.cargarCSV();
-						if(haCargado == true)
-						{
-							if(esFav == -1) 
-							{
-								editarEvFavs.addFila(user.getUser(), numEventos[decision]);
-								System.out.println("Evento añadido a favoritos correctamente\nRegresando al menú...\n");
-							}
-							else 
-							{
-								numFila = editarEvFavs.buscarCoindicencias(0, user, 1, numEventos[decision]);
-								editarEvFavs.delFila(numFila-1);
-								System.out.println("Evento eliminado de favoritos correctamente\nRegresando al menú...\n");
-							}		    		
-						}
-						else
-						{
-							System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
-						}
-					}
-				} catch (Exception e)
-				{
-					System.out.println("EXPLOSIOOOOOOOON");
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			System.out.println("EXPLOSIOOOOOOOON");
-		}
-	}
+	
+	
+//	public void BuscarCiudad(String city, Usuario user) throws IOException
+//	{	
+//		BufferedReader reader = null;
+//		String line = "";
+//		String cvsSplit = ",";
+//		String csvFile = "eventos.csv";
+//		int numFila = 0;
+//		int encontrados = 0;
+//
+//		try
+//		{
+//			int[] numEventos = new int[150];
+//			reader = new BufferedReader(new FileReader(csvFile));
+//			while ((line = reader.readLine()) != null)
+//			{
+//				String[] ficha = line.split(cvsSplit);
+//
+//				if(ficha[2].equalsIgnoreCase(city))
+//				{
+//					if (encontrados == 0)
+//					{
+//						System.out.println("\nEstos son los eventos de \"" + city + "\":");
+//					}
+//					numEventos[encontrados+1] = numFila;
+//					encontrados++;		    	   
+//
+//					System.out.println("(" +encontrados+ "): " +ficha[1] + ", día " +ficha[3]);			       
+//				}
+//				numFila++;
+//			}
+//			if (encontrados == 0)
+//			{
+//				System.out.println("\nCiudad no encontrada");
+//			}
+//			else
+//			{
+//				System.out.println("\nIntroduzca el numero del evento que desea consultar");
+//				System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
+//
+//				int decision = sc.nextInt();
+//				sc.nextLine();
+//
+//				try
+//				{
+//					Evento auxEvento = new Evento();
+//					auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
+//
+//					int esFavorito = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+//
+//					if(esFavorito == -1)
+//					{
+//						System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
+//					}
+//					else
+//					{
+//						System.out.println("\nPulse (1) para eliminar de eventos favoritos");
+//					}
+//					System.out.println("Pulse (2) para compartir el evento");
+//					System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
+//
+//					String opcion = sc.nextLine();
+//
+//					if (opcion.equals("1"))
+//					{
+//						EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
+//						boolean haCargado = editarEvFavs.cargarCSV();
+//						if(haCargado == true)
+//						{
+//							if(esFavorito == -1) 
+//							{
+//								editarEvFavs.addFila(user.getUser(), numEventos[decision]);
+//								System.out.println("Evento añadido a favoritos correctamente\nRegresando al menú...\n");
+//							}
+//							else 
+//							{
+//								numFila = editarEvFavs.buscarCoindicencias(0, user, 1, numEventos[decision]);
+//								editarEvFavs.delFila(numFila-1);
+//								System.out.println("Evento eliminado de favoritos correctamente\nRegresando al menú...\n");
+//							}		    		
+//						}
+//						else
+//						{
+//							System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
+//						}
+//					}
+//
+//				} catch (Exception e) { System.out.println("EXPLOSIOOOOOOOON"); }
+//			}
+//		}
+//		catch (FileNotFoundException e)
+//		{
+//			e.printStackTrace();
+//		}
+//		catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		finally
+//		{
+//			if (reader != null)
+//			{
+//				try
+//				{
+//					reader.close();
+//				}
+//				catch (IOException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+//	}
+//
+//	public void BuscarGenero(String genero, Usuario user) throws IOException
+//	{
+//		BufferedReader reader = null;
+//		String line = "";
+//		String cvsSplit = ",";
+//		String csvFile = "eventos.csv";
+//		int numFila = 0;
+//		int encontrados = 0;
+//
+//		try
+//		{
+//			int[] numEventos = new int[150];
+//			reader = new BufferedReader(new FileReader(csvFile));
+//			while ((line = reader.readLine()) != null)
+//			{
+//				String[] ficha = line.split(cvsSplit);
+//
+//				if(ficha[8].equalsIgnoreCase(genero))
+//				{
+//					if (encontrados == 0)
+//					{
+//						System.out.println("\nEstos son los eventos encontrados" + ":");
+//					}
+//					numEventos[encontrados+1] = numFila;
+//					encontrados++;		    	   
+//
+//					System.out.println("(" +encontrados+ "): " +ficha[1]+ " en " +ficha[2]+ ", d�a " +ficha[3]);			       
+//				}
+//				numFila++;
+//			}
+//			if (encontrados == 0)
+//			{
+//				System.out.println("\nGenero musical no encontrado");
+//			}
+//			else
+//			{
+//				System.out.println("\nIntroduzca el numero del evento que desea consultar");
+//				System.out.println("Pulse cualquier otra tecla para abandonar la b?squeda: ");
+//
+//				int decision = sc.nextInt();
+//				sc.nextLine();
+//
+//				try
+//				{
+//					Evento auxEvento = new Evento();
+//					auxEvento.MostrarPorBusqueda(numEventos[decision], user.getUser());
+//
+//					int esFav = ComprobarEventoFavorito(numEventos[decision], user.getUser());
+//
+//					if(esFav == -1)
+//					{
+//						System.out.println("\nPulse (1) para a\u00f1adir a eventos favoritos");
+//					}
+//					else
+//					{
+//						System.out.println("\nPulse (1) para eliminar de eventos favoritos");
+//					}
+//					System.out.println("Pulse (2) para compartir el evento");
+//					System.out.println("Pulse cualquier otra tecla para abandonar la b\u00fasqueda: ");
+//
+//					String opcion = sc.nextLine();
+//
+//					if (opcion.equals("1"))
+//					{
+//						EditarCSV editarEvFavs = new EditarCSV("eventosFavoritos.csv");
+//						boolean haCargado = editarEvFavs.cargarCSV();
+//						if(haCargado == true)
+//						{
+//							if(esFav == -1) 
+//							{
+//								editarEvFavs.addFila(user.getUser(), numEventos[decision]);
+//								System.out.println("Evento añadido a favoritos correctamente\nRegresando al menú...\n");
+//							}
+//							else 
+//							{
+//								numFila = editarEvFavs.buscarCoindicencias(0, user, 1, numEventos[decision]);
+//								editarEvFavs.delFila(numFila-1);
+//								System.out.println("Evento eliminado de favoritos correctamente\nRegresando al menú...\n");
+//							}		    		
+//						}
+//						else
+//						{
+//							System.out.println("Lo sentimos, algo ha ocurrido con el fichero");
+//						}
+//					}
+//				} catch (Exception e)
+//				{
+//					System.out.println("EXPLOSIOOOOOOOON");
+//				}
+//			}
+//		}
+//		catch (Exception e)
+//		{
+//			System.out.println("EXPLOSIOOOOOOOON");
+//		}
+//	}
 
 	public void mostrarFicha() throws IOException
 	{
