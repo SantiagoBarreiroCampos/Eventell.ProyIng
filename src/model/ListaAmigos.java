@@ -103,5 +103,39 @@ public class ListaAmigos {
 		}
 	}
 	
+	public String consultaCorreoDeAmigos() throws IOException {
+		int i =0;
+		String correo = null;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\n-----LISTA DE AMIGOS-----");
+		if(amigos_.size()<=0) {
+			System.out.println("No tiene amigos en su lista");
+		}
+		else {
+			for(i=0; i<amigos_.size(); i++) {
+				System.out.println((i+1)+" " +amigos_.get(i));
+			}
+		}
+		System.out.println("\nIntroduzca el numero del amigo al que desea enviarle el evento");
+		System.out.println("Pulse cualquier otro numero para volver al menu principal");
+		int numAmigo = sc.nextInt();
+		if(numAmigo <= 0 || numAmigo > amigos_.size()) {
+			
+		}
+		else {
+			Usuario user = new Usuario();
+			
+			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+			
+			user.buscarUsuarioPorUser(amigos_.get(numAmigo - 1));
+			
+			//System.out.println("Se ha encontrado: " + user.getNombre());
+			correo = user.getCorreo();
+			
+			System.out.println();
+		}
+		return correo;
+	}
+	
 	
 }

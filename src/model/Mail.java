@@ -17,7 +17,7 @@ public class Mail {
 	
 	 public static String codigoEnviado = "";
 	 
-	 public static void enviarCorreo(String recepient) {
+	 public void enviarCorreo(String recepient, String amigo, Evento evento) {
 	    Properties propiedades = new Properties();
 	     
 	   	propiedades.put("mail.smtp.auth", true);
@@ -37,7 +37,7 @@ public class Mail {
     		}
 	   	});
 	    	
-	   	Message mensaje = prepararMensaje(session, miCorreo, recepient);
+	   	Message mensaje = prepararMensaje(session, miCorreo, recepient, amigo, evento);
 	   	
 	   	try {
 			Transport.send(mensaje);
@@ -49,21 +49,17 @@ public class Mail {
 	   	
 	 }
 	    
-	 private static Message prepararMensaje(Session session, String miCorreo, String recepient) {
+	 private static Message prepararMensaje(Session session, String miCorreo, String recepient, String amigo, Evento evento) {
 		try {		
 			//codigoEnviado = CodigoController.generarCodigo(7);
 			
 			Message mensaje = new MimeMessage(session);
 			mensaje.setFrom(new InternetAddress(miCorreo));
 			mensaje.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-			mensaje.setSubject("Reestablecimiento de clave - Somnium");
-			mensaje.setContent("<p>Usa este codigo para restablecer la clave de tu cuenta de Somnium.</p>"
-					+ "\n"
-					+ "<p>Codigo: </p>"
-					+ "<h1 style=\"color: #2f375b;\">"+codigoEnviado+"</h1>"
-					+ "\n"
-					+ "\nUn saludo,"
-					+ "<p>El equipo de Somnium.</p>","text/html");
+			mensaje.setSubject("Evento enviado - Eventell");
+			mensaje.setContent("<p>Tu amigo "+amigo+" quiere invitarte a este evento:</p>"
+								+ "<p>"+evento.infoEvento()+"</p>"
+								+ "<p>¡Entra a eventell para ver más información!</p>","text/html");
 			
 			return mensaje;
 						

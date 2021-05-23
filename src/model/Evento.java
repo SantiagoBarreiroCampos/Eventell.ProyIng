@@ -204,7 +204,14 @@ public class Evento
 				puedeSalir = true;
 				break;								
 			case "2":
-				//EnviarEvento();
+				Mail correo = new Mail();
+				ListaAmigos amigos = new ListaAmigos();
+				Usuario userAux = new Usuario();
+				userAux.buscarUsuarioPorUser(user);
+				amigos.buscarAmigos(userAux);
+				int i;
+				String correoAmigo = amigos.consultaCorreoDeAmigos();
+				correo.enviarCorreo(correoAmigo, user, this);
 				break;				
 			default:
 				System.out.println("Dato introducido incorrecto. Intente de nuevo");
