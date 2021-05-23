@@ -87,8 +87,6 @@ public class Evento
 		String cvsSplit = ",";
 		String csvFile = "eventos.csv";
 
-		int encontrado = 0;
-
 		try
 		{
 			reader = new BufferedReader(new FileReader(csvFile));

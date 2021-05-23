@@ -150,23 +150,6 @@ public class Main
 							break;
 						case "3":
 							busqueda.buscarGenero(user.getUser());
-//							System.out.println("\nElija uno de los siguientes géneros:"
-//									+ "\nPulse (1) hiphop/r&b"
-//									+ "\nPulse (2) reggaeton"
-//									+ "\nPulse (3) pop"
-//									+ "\nPulse (4) hard rock/metal"
-//									+ "\nPulse (5) rock/metal"
-//									+ "\nPulse (6) clásica"
-//									+ "\nPulse (7) jazz/blues"
-//									+ "\nPulse (8) pop/rock"
-//									+ "\nPulse (9) world"
-//									+ "\nPulse (10) dance/electronica"
-//									+ "\nPulse (11) flamenco/rumba"
-//									+ "\nPulse (12) indie/alternativo");
-//							
-//							Usuario generoAux = new Usuario();
-//							String genero = sc1.nextLine();
-//							generoAux.BuscarGenero(genero, user);
 							break;
 							
 						default:
