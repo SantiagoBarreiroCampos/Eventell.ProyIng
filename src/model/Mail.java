@@ -61,7 +61,7 @@ public class Mail {
 			mensaje.setSubject("Evento enviado - Eventell");
 			mensaje.setContent("<p>Tu amigo "+amigo+" quiere invitarte a este evento:</p>"
 								+ "<p>"+evento.infoEvento()+"</p>"
-								+ "<p>¡Entra a eventell para ver más información!</p>","text/html");
+								+ "<p>¡Entra a Eventell para ver más información!</p>","text/html");
 			
 			return mensaje;
 						
