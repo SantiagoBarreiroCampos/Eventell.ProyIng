@@ -15,7 +15,9 @@ import javax.mail.internet.MimeMessage;
 
 public class Mail {
 	
+	
 	 public static String codigoEnviado = "";
+	 
 	 
 	 public void enviarCorreo(String recepient, String amigo, Evento evento) {
 	    Properties propiedades = new Properties();
