@@ -1,5 +1,6 @@
 package model;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
@@ -24,8 +25,6 @@ public class Busquedas {
 		{
 			try
 			{
-				//encontrado.MostrarInfo();
-				//System.out.println("El buscador es: " + buscador.getUser());
 				encontrado.mostrarFicha();				
 			}
 			catch(Exception e)
@@ -38,7 +37,8 @@ public class Busquedas {
 	
 	public void buscarArtista(String user) throws IOException
 	{
-		int i;
+		Scanner reader = new Scanner(new File("artistasFavoritos.csv"));
+		
 		System.out.println("Introduzca el nombre del artista");				
 		String nombre = sc.nextLine();
 		
@@ -48,30 +48,82 @@ public class Busquedas {
 		System.out.println("------FICHA DE ARTISTA------");
 		System.out.println("Nombre: " + nombre);
 		System.out.println("Eventos: ");
-		for(i = 0; i<evAux.size(); i++)
+		for(int i = 0; i < evAux.size(); i++)
 		{
-			System.out.println("   (" + (i+1) + ") "+ evAux.get(i).infoEvento());
+			System.out.println("   (" + (i+1) + ") " + evAux.get(i).infoEvento());
 		}
+		System.out.println("\nPulse el número del evento que desea consultar");
 		
-		System.out.println();
-		
-		System.out.println("Introduzca el numero del evento que desea consultar");
-		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
-		int numEvento = sc.nextInt();
-		if(numEvento <= 0 || numEvento > evAux.size())
+		boolean esFavorito = false;
+		while (reader.hasNextLine())
 		{
-			
+			String linea = reader.nextLine();
+			String[] lineaDividida = linea.split(",");
+
+			if(lineaDividida[0].equals(user) && lineaDividida[1].equals(nombre))
+			{
+				esFavorito = true;
+			}
+		}
+		if(esFavorito == true)
+		{
+			System.out.println("Pulse (0) para eliminar artista de favoritos");
 		}
 		else
 		{
-			Evento eve = new Evento();
-			
-			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());
-			
-			evAux2.mostrarFicha(user);
-			
-			System.out.println();
+			System.out.println("Pulse (0) para añadir artista a favoritos");
 		}
+		
+		System.out.println("Pulse cualquier otra tecla para volver al menú principal");
+		
+		String eleccion = sc.nextLine();
+		try
+		{
+			int numEleccion = Integer.parseInt(eleccion);
+			
+			if(numEleccion == 0)
+			{
+				EditarCSV editarFavoritos = new EditarCSV("artistasFavoritos.csv");
+				boolean haCargado = editarFavoritos.cargarCSV();
+				if(haCargado == true)
+				{
+					if(esFavorito == true)
+					{
+						int numFila = editarFavoritos.buscarCoindicencias(0, user, 1, nombre);
+						editarFavoritos.delFila(numFila-1);
+						System.out.println("\nArtista eliminado de favoritos correctamente\nRegresando al menú...\n");
+					}
+					else
+					{
+						editarFavoritos.addFila(user, nombre);
+						System.out.println("\nUsuario añadido a amigos correctamente"
+								+ "\nRegresando al menú...\n");
+					}
+				}
+				else
+				{
+					System.out.println("Algo pasó con el fichero");
+				}
+			}
+			else
+			{
+				if(numEleccion < 0 || numEleccion > evAux.size())
+				{
+					System.out.println("Dato introducido incorrecto\nRegresando al menú...\n");
+				}
+				else
+				{
+					Evento eve = new Evento();		
+					Evento evAux2 = eve.buscarEvento(evAux.get(numEleccion - 1).getId_());					
+					evAux2.mostrarFicha(user);			
+				}				
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Dato introducido incorrecto\nRegresando al menú...\n");
+		}
+		reader.close();
 	}
 
 	public void buscarCiudad(String user) throws IOException
@@ -100,10 +152,8 @@ public class Busquedas {
 		}
 		else
 		{
-			Evento eve = new Evento();
-			
-			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());
-			
+			Evento eve = new Evento();		
+			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
 			evAux2.mostrarFicha(user);
 			
 			System.out.println();

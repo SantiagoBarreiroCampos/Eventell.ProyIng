@@ -154,8 +154,7 @@ public class Main
 							break;
 						case "4":
 							busqueda.buscarUsuario(user);
-							break;
-							
+							break;						
 						default:
 							System.out.println("Valor introducido incorrecto.");
 					}

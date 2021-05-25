@@ -40,6 +40,7 @@ public class Usuario
 	
 	public Usuario Administrador() throws IOException
 	{
+		File tablaAmigos = new File("amistades.csv");
 		BufferedWriter bw;
 		PrintWriter pw;
 		int elec;
@@ -118,14 +119,8 @@ public class Usuario
 
 	public void mostrarFicha() throws IOException
 	{
-		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 		File tablaAmigos = new File("amistades.csv");
 		Scanner reader = new Scanner(tablaAmigos);
-		BufferedWriter bw;
-		PrintWriter pw;
-		bw = new BufferedWriter(new FileWriter(tablaAmigos, true));
-		pw = new PrintWriter(bw);
-		// Hasta aqui las lineas que hay que copiar
 
 		boolean puedeSalir;
 		do
@@ -136,7 +131,6 @@ public class Usuario
 			System.out.println("Busca conciertos desde: " + this.getCiudad());
 
 			boolean esAmigo = false;
-
 			while(reader.hasNextLine())
 			{
 				String linea = reader.nextLine();
@@ -164,7 +158,6 @@ public class Usuario
 				System.out.println("\nPulsa (1) para a\u00f1adir amigo");
 			}
 			System.out.println("Pulsa (0) para regresar al men\u00fa");
-			System.out.println("getUser()="+this.getUser()+", getEsAdmin()="+this.getEsAdmin());
 
 			String eleccion = sc.nextLine();
 
@@ -176,22 +169,18 @@ public class Usuario
 			case "1":
 				if(esAmigo == true)
 				{
-					System.out.println("getUser()="+this.getUser()+", getEsAdmin()="+this.getEsAdmin());
 					EditarCSV editarAmistades = new EditarCSV("amistades.csv");
 					boolean haCargado = editarAmistades.cargarCSV();
 					if(haCargado == true)
 					{
 						int numFila = editarAmistades.buscarCoindicencias(0, this.getUser(), 1, this.getUserMain().getUser());
-						System.out.println("numfila = " + numFila);
 						if(numFila == -70)
 						{
 							numFila = editarAmistades.buscarCoindicencias(0, this.getUserMain().getUser(), 1, this.getUser());
 						}
-						System.out.println("numfila = " + numFila);
 						editarAmistades.delFila(numFila-1);
 					}
-					System.out.println("\nUsuario eliminado de amigos correctamente"
-							+ "\nRegresando al menú...\n");
+					System.out.println("\nUsuario eliminado de amigos correctamente\nRegresando al menú...\n");
 				}
 				else
 				{						
@@ -214,11 +203,7 @@ public class Usuario
 			}
 		} while(puedeSalir == false);
 
-		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
-		pw.flush();
-		pw.close(); 
-		bw.close();
-		// Hasta aqui las lineas que hay que copiar
+		reader.close();
 	}
 
 	public Usuario ConfigurarPerfil() throws IOException
