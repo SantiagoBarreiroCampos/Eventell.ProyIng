@@ -71,6 +71,18 @@ public class EditarCSV
 		}
 		return numFila;
 	}
+	public int buscarCoindicencias(int col1, Usuario dato1, int col2, String dato2)
+	{
+		int numFila = -70;
+		for(int i = 0; i < datos.length; i++)
+		{			
+			if(datos[i][col1].equals(dato1.getUser()) && datos[i][col2].equals(dato2))
+			{
+				numFila = i + 1;
+			}
+		}
+		return numFila;
+	}
 	public boolean cargarCSV()
 	{
 		boolean resultado = false;

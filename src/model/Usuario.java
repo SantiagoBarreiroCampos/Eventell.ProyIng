@@ -141,13 +141,17 @@ public class Usuario
 			{
 				String linea = reader.nextLine();
 				String[] amistadDividida = linea.split(",");
-
-				if(amistadDividida[0].equals(this.getUser()) || amistadDividida[1].equals(this.getUserMain().getUser()))
+				
+				if(amistadDividida[0].equals(this.getUser()) && amistadDividida[1].equals(this.getUserMain().getUser()))
 				{
-					if(amistadDividida[0].equals(this.getUserMain().getUser()) || amistadDividida[1].equals(this.getUser()))
+					esAmigo = true;
+				}
+				else
+				{
+					if(amistadDividida[0].equals(this.getUserMain().getUser()) && amistadDividida[1].equals(this.getUser()))
 					{
 						esAmigo = true;
-					}
+					}					
 				}
 			}
 
@@ -160,6 +164,7 @@ public class Usuario
 				System.out.println("\nPulsa (1) para a\u00f1adir amigo");
 			}
 			System.out.println("Pulsa (0) para regresar al men\u00fa");
+			System.out.println("getUser()="+this.getUser()+", getEsAdmin()="+this.getEsAdmin());
 
 			String eleccion = sc.nextLine();
 
@@ -171,15 +176,16 @@ public class Usuario
 			case "1":
 				if(esAmigo == true)
 				{
+					System.out.println("getUser()="+this.getUser()+", getEsAdmin()="+this.getEsAdmin());
 					EditarCSV editarAmistades = new EditarCSV("amistades.csv");
 					boolean haCargado = editarAmistades.cargarCSV();
 					if(haCargado == true)
 					{
-						System.out.println("this.getUser()="+this.getUser()+", this.getEsAdmin()="+this.getEsAdmin());
-						int numFila = editarAmistades.buscarCoindicencias(1, this.getUser(), 2, this.getEsAdmin());
-						if(numFila == -1)
+						int numFila = editarAmistades.buscarCoindicencias(0, this.getUser(), 1, this.getUserMain().getUser());
+						System.out.println("numfila = " + numFila);
+						if(numFila == -70)
 						{
-							numFila = editarAmistades.buscarCoindicencias(1, this.getEsAdmin(), 2, this.getUser());
+							numFila = editarAmistades.buscarCoindicencias(0, this.getUserMain().getUser(), 1, this.getUser());
 						}
 						System.out.println("numfila = " + numFila);
 						editarAmistades.delFila(numFila-1);

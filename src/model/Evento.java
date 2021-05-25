@@ -191,6 +191,7 @@ public class Evento
 	{
 		Usuario encontrado = new Usuario();
 		encontrado.setUser("kkppqqss");
+		encontrado.setUserMain(buscador);
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
