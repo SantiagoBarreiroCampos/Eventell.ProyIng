@@ -136,7 +136,8 @@ public class Main
 					
 					System.out.println("\nPulse (1) si desea buscar un artista"
 							+ "\nPulse (2) si desea buscar eventos por cuidad"
-							+ "\nPulse (3) si desea buscar eventos por genero musical");
+							+ "\nPulse (3) si desea buscar eventos por genero musical"
+							+ "\nPulse (4) si desea buscar otros usuarios");
 					
 					eleccion = sc1.nextLine();
 				
@@ -150,6 +151,9 @@ public class Main
 							break;
 						case "3":
 							busqueda.buscarGenero(user.getUser());
+							break;
+						case "4":
+							busqueda.buscarUsuario(user);
 							break;
 							
 						default:

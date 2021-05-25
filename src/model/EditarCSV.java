@@ -153,6 +153,29 @@ public class EditarCSV
 	String sexo_;
 	String esAdmin_;*/
 
+	public void addFila(String username1, String username2) // Introduce una fila en la posición orden
+	{
+		String[][] nuevosDatos = new String[this.datos.length+1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila más		
+		int correccionFila = 0; // Se usa para corregir la fila de lectura
+				
+		for (int i = 0; i < nuevosDatos.length; i++) // Se recorre esa matriz asignando los valores de la anterior
+		{			
+			if (i == 0) // Se localiza si estamos en la fila deseada...
+			{
+				nuevosDatos[i][0] = username1;
+				nuevosDatos[i][1] = username2;
+				
+				correccionFila = -1;
+			}
+			else
+			{					
+				nuevosDatos[i] = this.datos[i+correccionFila]; // Se copia toda la fila, aplicando corrección
+			}
+		}
+		this.datos = nuevosDatos;
+		this.guardarCSV();
+	}
+	
 	public void addFila(Usuario user) // Introduce una fila en la posición orden
 	{
 		String[][] nuevosDatos = new String[this.datos.length+1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila más		
@@ -253,6 +276,7 @@ public class EditarCSV
 		{
 			System.out.println("Ha habido un error contando las lineas de " + ruta);
 		}
+		//System.out.println("Hay " + lineas + " lineas en " + ruta);
 		return lineas;
 	}
 
@@ -280,6 +304,7 @@ public class EditarCSV
 		{
 			columnas = primeraLinea.lastIndexOf(',')+2; // Posición del último "," 
 		}
+		//System.out.println("Hay " + columnas + " columnas en " + ruta);
 		return columnas;
 	}
 

@@ -37,10 +37,9 @@ public class Evento
 	private String precioMin_;
 	private String genero_;
 
-
 	public String infoEvento()
 	{
-		return (artista_ + " en " + lugar_ + ", " + ciudad_ + " el día " + fecha_);
+		return (artista_ + " en " + ciudad_ + ", día " + fecha_);
 	}
 
 	public Evento buscarEvento(String id)
@@ -54,9 +53,11 @@ public class Evento
 
 		int encontrado = 0;
 
-		try {
+		try
+		{
 			reader = new BufferedReader(new FileReader(csvFile));
-			while ((line = reader.readLine()) != null) {      
+			while ((line = reader.readLine()) != null)
+			{      
 				String[] eventoDividido = line.split(cvsSplit);
 
 				if(eventoDividido[0].equals(id))
@@ -161,8 +162,7 @@ public class Evento
 		BufferedReader reader = null;
 		String line = "";
 		String cvsSplit = ",";
-		String csvFile = "eventos.csv";
-		
+		String csvFile = "eventos.csv";		
 		String artistaActual = "";
 
 		try
@@ -185,6 +185,41 @@ public class Evento
 		}catch(Exception e) {}
 
 		return artistas;
+	}
+	
+	public Usuario buscarUsuarios(String buscado, Usuario buscador)
+	{
+		Usuario encontrado = new Usuario();
+		encontrado.setUser("kkppqqss");
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "usuarios.csv";
+
+		try
+		{
+			reader = new BufferedReader(new FileReader(csvFile));
+			while ((line = reader.readLine()) != null)
+			{      
+				String[] usuarioDividido = line.split(cvsSplit);
+				
+				if(usuarioDividido[1].equals(buscado))
+				{
+					encontrado.setDisponible(true);
+					encontrado.setUser(usuarioDividido[1]);
+					encontrado.setNombre(usuarioDividido[3]);
+					encontrado.setApellidos(usuarioDividido[4]);
+					encontrado.setCorreo(usuarioDividido[5]);
+					encontrado.setNacimiento(usuarioDividido[6]);
+					encontrado.setCiudad(usuarioDividido[7]);
+					encontrado.setUserMain(buscador);
+				}
+			}
+			reader.close();
+		}
+		catch(Exception e) { System.out.println("Algo pasó con el fichero"); }
+
+		return encontrado;
 	}
 
 	public void mostrarFicha(String user) throws IOException
@@ -293,29 +328,6 @@ public class Evento
 		pw.close(); 
 		bw.close();
 		// Hasta aqui las lineas que hay que copiar
-	}
-
-	public void MostrarPorBusqueda(int fila, String user) throws Exception
-	{
-		BufferedReader in = null;
-		String read;
-		in = new BufferedReader(new FileReader("eventos.csv"));
-
-		while ((read = in.readLine()) != null)
-		{
-			String[] split = read.split(",");
-			if(split[0].equals(String.valueOf(fila)))
-			{    		
-				System.out.println("\n- - - - - - FICHA DE EVENTO - - - - - -");
-				System.out.println("Genero: " + split[7]);
-				System.out.println("Artista: " + split[1]);
-				System.out.println("Ciudad: " + split[2]);
-				System.out.println("Lugar: " + split[6]);
-				System.out.println("Fecha: " + split[3]);
-				System.out.println("Precios entre " + split[4] +"€ y "+ split[5] +"€");
-			}	    	
-		}
-		in.close();
 	}
 
 	public String getId_() {

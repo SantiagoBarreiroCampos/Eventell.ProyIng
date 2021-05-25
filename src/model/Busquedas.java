@@ -8,7 +8,36 @@ public class Busquedas {
 	
 	private Scanner sc = new Scanner(System.in);
 
-	public void buscarArtista(String user) throws IOException {
+	public void buscarUsuario(Usuario buscador)
+	{
+		System.out.println("Introduzca el username del amigo que busca: ");
+		String buscado = sc.nextLine();
+		
+		Evento ev = new Evento();
+		Usuario encontrado = ev.buscarUsuarios(buscado, buscador);		
+		
+		if(encontrado.getUser().equals("kkppqqss"))
+		{
+			System.out.println("Usuario no encontrado\nRegresando al menú...\n");
+		}
+		else
+		{
+			try
+			{
+				//encontrado.MostrarInfo();
+				//System.out.println("El buscador es: " + buscador.getUser());
+				encontrado.mostrarFicha();				
+			}
+			catch(Exception e)
+			{
+				System.out.println("Error interpretando el usuario\nRegresando al menú...\n");
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public void buscarArtista(String user) throws IOException
+	{
 		int i;
 		System.out.println("Introduzca el nombre del artista");				
 		String nombre = sc.nextLine();
@@ -17,10 +46,11 @@ public class Busquedas {
 		Vector <Evento> evAux = ev.buscarEventosPorArtista(nombre);
 		
 		System.out.println("------FICHA DE ARTISTA------");
-		System.out.println("Nombre :" + nombre);
+		System.out.println("Nombre: " + nombre);
 		System.out.println("Eventos: ");
-		for(i =0; i<evAux.size(); i++) {
-			System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
+		for(i = 0; i<evAux.size(); i++)
+		{
+			System.out.println("   (" + (i+1) + ") "+ evAux.get(i).infoEvento());
 		}
 		
 		System.out.println();
@@ -28,10 +58,12 @@ public class Busquedas {
 		System.out.println("Introduzca el numero del evento que desea consultar");
 		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
 		int numEvento = sc.nextInt();
-		if(numEvento <= 0 || numEvento > evAux.size()) {
+		if(numEvento <= 0 || numEvento > evAux.size())
+		{
 			
 		}
-		else {
+		else
+		{
 			Evento eve = new Evento();
 			
 			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());
@@ -42,7 +74,8 @@ public class Busquedas {
 		}
 	}
 
-	public void buscarCiudad(String user) throws IOException {
+	public void buscarCiudad(String user) throws IOException
+	{
 		System.out.println("Introduzca el nombre de la cuidad");				
 		String city = sc.nextLine();
 		
@@ -51,7 +84,8 @@ public class Busquedas {
 		Vector <Evento> evAux = ev.buscarEventosPorCiudad(city);
 		
 		System.out.println("------EVENTOS EN "+city+"------");
-		for(i =0; i<evAux.size(); i++) {
+		for(i =0; i<evAux.size(); i++)
+		{
 			System.out.println((i+1) +" "+ evAux.get(i).infoEvento());
 		}
 		
@@ -60,10 +94,12 @@ public class Busquedas {
 		System.out.println("Introduzca el numero del evento que desea consultar");
 		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
 		int numEvento = sc.nextInt();
-		if(numEvento <= 0 || numEvento > evAux.size()) {
+		if(numEvento <= 0 || numEvento > evAux.size())
+		{
 			
 		}
-		else {
+		else
+		{
 			Evento eve = new Evento();
 			
 			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());
@@ -71,12 +107,11 @@ public class Busquedas {
 			evAux2.mostrarFicha(user);
 			
 			System.out.println();
-		}
-		
-		
+		}		
 	}
 	
-	public void buscarGenero(String user) throws IOException {
+	public void buscarGenero(String user) throws IOException
+	{
 		int i;
 		System.out.println("\nElija uno de los siguientes géneros:"
 				+ "\nPulse (1) hiphop/r&b"
@@ -89,8 +124,7 @@ public class Busquedas {
 				+ "\nPulse (8) dance/electronica"
 				+ "\nPulse (9) flamenco/rumba"
 				+ "\nPulse (10) indie/alternativo");
-		
-		
+				
 		String genero = sc.nextLine();
 		Vector<String> artistas = new Vector<String>();
 		Evento evento = new Evento();
@@ -126,14 +160,15 @@ public class Busquedas {
 			artistas = evento.buscarArtistasPorGenero("indie/alternativo");
 		}
 		
-		
-
 		System.out.println("\n-----LISTA DE ARTISTAS POR GENERO-----");
-		if(artistas.size()<=0) {
+		if(artistas.size()<=0)
+		{
 			System.out.println("No hay artistas por este genero");
 		}
-		else {
-			for(i=0; i<artistas.size(); i++) {
+		else
+		{
+			for(i=0; i<artistas.size(); i++)
+			{
 				System.out.println((i+1)+" " +artistas.get(i));
 			}
 		}
@@ -143,10 +178,12 @@ public class Busquedas {
 		System.out.println("Pulse cualquier otro numero para volver al menu principal");
 		int numArtista = sc.nextInt();
 		
-		if(numArtista <= 0 || numArtista > artistas.size()) {
+		if(numArtista <= 0 || numArtista > artistas.size())
+		{
 			
 		}
-		else {
+		else
+		{
 			Evento ev = new Evento();
 			//System.out.println("Todo bien");
 			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
@@ -158,7 +195,8 @@ public class Busquedas {
 			System.out.println("------FICHA DE ARTISTA------");
 			System.out.println("Nombre :" + artistas.get(numArtista - 1));
 			System.out.println("Eventos: ");
-			for(i =0; i<evAux.size(); i++) {
+			for(i =0; i<evAux.size(); i++)
+			{
 				System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
 			}
 			
@@ -167,10 +205,12 @@ public class Busquedas {
 			System.out.println("Introduzca el numero del evento que desea consultar");
 			System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
 			int numEvento = sc.nextInt();
-			if(numEvento <= 0 || numEvento > evAux.size()) {
+			if(numEvento <= 0 || numEvento > evAux.size())
+			{
 				
 			}
-			else {
+			else
+			{
 				Evento eve = new Evento();
 				
 				//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
@@ -185,8 +225,8 @@ public class Busquedas {
 			}
 		}
 	}
-	public void buscarPrecio() {
+	public void buscarPrecio()
+	{
 		
 	}
-	
 }
