@@ -62,6 +62,7 @@ public class ListaAmigos {
 		    pw.flush();
 	 	    pw.close(); 
 	 		bw.close();
+	 		reader.close();
 		   
 		}catch(Exception e) {}
 	    
@@ -71,40 +72,42 @@ public class ListaAmigos {
 		return this;
 	}
 	
-	public void mostrarAmigos() throws IOException {
-		int i =0;
+	public void mostrarAmigos() throws IOException
+	{
+		int i = 0;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n-----LISTA DE AMIGOS-----");
-		if(amigos_.size()<=0) {
+		if(amigos_.size()<=0)
+		{
 			System.out.println("No tiene amigos en su lista");
 		}
-		else {
-			for(i=0; i<amigos_.size(); i++) {
+		else
+		{
+			for(i=0; i<amigos_.size(); i++)
+			{
 				System.out.println((i+1)+" " +amigos_.get(i));
 			}
 		}
 		System.out.println("\nIntroduzca el numero del amigo que desea consultar");
 		System.out.println("Pulse cualquier otro numero para volver al menu principal");
 		int numAmigo = sc.nextInt();
-		if(numAmigo <= 0 || numAmigo > amigos_.size()) {
+		if(numAmigo <= 0 || numAmigo > amigos_.size())
+		{
 			
 		}
-		else {
-			Usuario user = new Usuario();
-			
-			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
-			
-			user.buscarUsuarioPorUser(amigos_.get(numAmigo - 1));
-			
-			//System.out.println("Se ha encontrado: " + user.getNombre());
-			user.mostrarFicha();
-			
+		else
+		{
+			Usuario user = new Usuario();			
+			user.buscarUsuarioPorUser(amigos_.get(numAmigo - 1));			
+			user.mostrarFicha();		
 			System.out.println();
 		}
+		sc.close();
 	}
 	
-	public String consultaCorreoDeAmigos() throws IOException {
-		int i =0;
+	public String consultaCorreoDeAmigos() throws IOException
+	{
+		int i = 0;
 		String correo = null;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n-----LISTA DE AMIGOS-----");
@@ -122,20 +125,14 @@ public class ListaAmigos {
 		if(numAmigo <= 0 || numAmigo > amigos_.size()) {
 			
 		}
-		else {
-			Usuario user = new Usuario();
-			
-			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
-			
+		else
+		{
+			Usuario user = new Usuario();		
 			user.buscarUsuarioPorUser(amigos_.get(numAmigo - 1));
-			
-			//System.out.println("Se ha encontrado: " + user.getNombre());
-			correo = user.getCorreo();
-			
+			correo = user.getCorreo();	
 			System.out.println();
 		}
+		sc.close();
 		return correo;
-	}
-	
-	
+	}	
 }

@@ -21,11 +21,11 @@ import java.io.PrintWriter;
 
 public class Main
 {
+	static Usuario sesionIniciada = new Usuario(); // Este se usara para que, una vez logeado, el sistema sepa con que datos trabajar
+	
 	public static void main(String args[]) throws Exception
 	{
-		Scanner sc = new Scanner(System.in);
-		
-		Usuario SesionIniciada = new Usuario(); // Este se usara para que, una vez logeado, el sistema sepa con que datos trabajar
+		Scanner sc = new Scanner(System.in);		
 		boolean encontrado = false;
 		
 		do
@@ -45,25 +45,25 @@ public class Main
 					System.out.println("Acaba de abandonar el sistema EVENTELL. Un saludo");
 					break;
 				case "1":					
-					SesionIniciada = usuarioAux.Registrarse();
-					Menu(SesionIniciada);
+					sesionIniciada = usuarioAux.Registrarse();
+					Menu(getSesionIniciada());
 					break;
 				case "2":
 					System.out.println("Introduzca su nombre de usuario:");
 					String username = sc.next();
 					System.out.println("Introduzca su contrase\u00f1a:");
 					String contrasena = sc.next();
-					SesionIniciada = usuarioAux.Login(username, contrasena);
-					if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true && SesionIniciada.getEsAdmin().equals("1"))
+					sesionIniciada = usuarioAux.Login(username, contrasena);
+					if(sesionIniciada.getUser() != null && sesionIniciada.getDisponible() == true && sesionIniciada.getEsAdmin().equals("1"))
 					{
 						Usuario AdminAux = new Usuario();
 						Usuario Admin = AdminAux.Administrador();
 					}
 					
-					else if(SesionIniciada.getUser() != null && SesionIniciada.getDisponible() == true)
+					else if(sesionIniciada.getUser() != null && sesionIniciada.getDisponible() == true)
 					{
 						encontrado = true;
-						Menu(SesionIniciada);
+						Menu(sesionIniciada);
 						encontrado = false;
 					}
 					break;
@@ -75,18 +75,18 @@ public class Main
 		sc.close();
 	}
 	
-	public static void Menu(Usuario user) throws Exception
+	public static void Menu(Usuario sesionIniciada) throws Exception
 	{
 		Scanner sc = new Scanner(System.in);
 		String eleccion2;
-		String SesionIniciada = user.getUser();
+		String SesionIniciada = sesionIniciada.getUser();
 		ListaUsuarios listaUsuarios = new ListaUsuarios();
 		listaUsuarios.RellenarVector();
 		boolean volverAlMenu = true;
 		
 		do
 		{
-			System.out.println(" - - - - MENU - - - - - [Accedido desde: " + user.getUser() + "]");
+			System.out.println(" - - - - MENU - - - - - [Accedido desde: " + sesionIniciada.getUser() + "]");
 			System.out.println("Pulse (0) para cerrar sesion"
 							+ "\nPulse (1) para cambiar ajustes de perfil"
 							+ "\nPulse (2) para ver lista de amigos"
@@ -101,31 +101,31 @@ public class Main
 			{
 				case "0":					
 					eleccion2 = "0";
-					user = null;
+					sesionIniciada = null;
 					System.out.println("Acaba de cerrar sesi\u00f3n. Regrasará al men\u00fa de inicio");
 					volverAlMenu = false;
 					break;
 					
 				case "1":
-					user.ConfigurarPerfil();
+					sesionIniciada.ConfigurarPerfil();
 					break;
 					
 				case "2":					
 					ListaAmigos listaAux = new ListaAmigos();
-					ListaAmigos lista = listaAux.buscarAmigos(user);
+					ListaAmigos lista = listaAux.buscarAmigos(sesionIniciada);
 					lista.mostrarAmigos();
 					break;
 					
 				case "3":					
 					ListaArtistasFavoritos listaAux2 = new ListaArtistasFavoritos();
-					ListaArtistasFavoritos lista2 = listaAux2.buscarArtistas(user);
-					lista2.mostrarArtistas(user.getUser());
+					ListaArtistasFavoritos lista2 = listaAux2.buscarArtistas(sesionIniciada);
+					lista2.mostrarArtistas(sesionIniciada.getUser());
 					break;
 					
 				case "4":					
 					ListaEventosFavoritos listaAux3 = new ListaEventosFavoritos();
-					ListaEventosFavoritos lista3 = listaAux3.buscarEventos(user);
-					lista3.mostrarEventos(user.getUser());
+					ListaEventosFavoritos lista3 = listaAux3.buscarEventos(sesionIniciada);
+					lista3.mostrarEventos(sesionIniciada.getUser());
 					break;
 					
 				case "5":
@@ -144,16 +144,16 @@ public class Main
 					switch(eleccion)
 					{
 						case "1":
-							busqueda.buscarArtista(user.getUser());
+							busqueda.buscarArtista();
 							break;
 						case "2":
-							busqueda.buscarCiudad(user.getUser());
+							busqueda.buscarCiudad();
 							break;
 						case "3":
-							busqueda.buscarGenero(user.getUser());
+							busqueda.buscarGenero();
 							break;
 						case "4":
-							busqueda.buscarUsuario(user);
+							busqueda.buscarUsuario(sesionIniciada);
 							break;						
 						default:
 							System.out.println("Valor introducido incorrecto.");
@@ -162,12 +162,16 @@ public class Main
 				case "6":
 					break;
 				case "7":
-					user.DarseBaja();
-					volverAlMenu = user.getDisponible();
+					sesionIniciada.DarseBaja();
+					volverAlMenu = sesionIniciada.getDisponible();
 					break;
 				default:				
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
 			}
 		} while(volverAlMenu == true);		
+	}
+	public static Usuario getSesionIniciada()
+	{
+		return sesionIniciada;
 	}
 }

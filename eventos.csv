@@ -1,486 +1,484 @@
-ID,ARTISTA,CIUDAD,FECHA,PRECIO MINIMO,PRECIO MAXIMO,UBICACIÃ“N,GÃ‰NERO,ENLACE
-,(No tildes),(No tildes),(DD/MM/YYYY),(En euros),(En euros),(No tildes),(No tildes),
-1,Beret,Vizcaya,17/04/2021,28,55,Bizkaia Arena,hiphop/r&b,
-2,Beret,Palma de Mallorca,08/05/2021,28,35,Son Fusteret,hiphop/r&b,
-3,Beret,Sevilla,28/05/2021,28,35,Auditorio Rocio Jurado,hiphop/r&b,
-4,Beret,Valencia,29/05/2021,28,35,Auditorio Marina Sur,hiphop/r&b,
-5,Beret,Valladolid,05/06/2021,28,35,Polideportivo Pisuerga,hiphop/r&b,
-6,Beret,Barcelona,11/06/2021,26,55,Palau Sant Jordi,hiphop/r&b,
-7,Beret,Pontevedra,01/07/2021,20,65,Portamerica,hiphop/r&b,
-8,Beret,Madrid,10/07/2021,26,55,Wizink Center,hiphop/r&b,
-9,Beret,Cadiz,21/07/2021,26,55,Festival Cabo de Plata,hiphop/r&b,
-10,Beret,Alicante,07/08/2021,28,35,Plaza de Toros de Ondara,hiphop/r&b,
-11,Daddy Yankee,Santiago de Compostela,07/06/2021,79,199,O Son do CamiÃ±o,reggaeton,
-12,Daddy Yankee,Madrid,25/06/2021,82,205,Puro Reggaeton Festival,reggaeton,
-13,Daddy Yankee,Granada,26/06/2021,40,145,Granada Latina Festival,reggaeton,
-14,Daddy Yankee,Benidorm,10/07/2021,40,145,Reggaeton Beach Festival,reggaeton,
-15,Daddy Yankee,Palma de Mallorca,17/07/2021,79,199,Reggaeton Beach Festival,reggaeton,
-16,Daddy Yankee,Barcelona,24/07/2021,82,205,Reggaeton Beach Festival,reggaeton,
-17,Daddy Yankee,CastellÃ³n,27/07/2021,40,145,Festival Arenal Sound,reggaeton,
-18,Daddy Yankee,Cadiz,29/07/2021,40,145,Puro Latino Fest,reggaeton,
-19,Daddy Yankee,Santander,01/08/2021,40,145,Reggaeton Beach Festival,reggaeton,
-20,Myke Towers,Madrid,03/07/2021,58,189,Reggaeton Beach Festival,reggaeton,
-21,Myke Towers,Benidorm,10/07/2021,46,170,Reggaeton Beach Festival,reggaeton,
-22,Myke Towers,Barcelona,24/07/2021,58,189,Reggaeton Beach Festival,reggaeton,
-23,Myke Towers,Cadiz,29/07/2021,46,170,Puro Latino Fest,reggaeton,
-24,Myke Towers,Malaga,31/07/2021,49,178,Reggaeton Beach Festival,reggaeton,
-25,Lady Gaga,Madrid,04/05/2022,No info,No info,Wizink Center,pop/rock,
-26,Lady Gaga,Barcelona,21/05/2022,No info,No info,Palau Sant Jordi,pop/rock,
-27,Lady Gaga,Sevilla,01/06/2022,No info,No info,Auditorio Rocio Jurado,pop/rock,
-28,Lady Gaga,Salamanca,16/06/2022,No info,No info,Enjoy Multiusos ,pop/rock,
-29,Lady Gaga,Valencia,18/06/2022,No info,No info,Auditorio Marina Sur,pop/rock,
-30,La Sra.Tomasa,Madrid,22/05/2021,15,15,Teatro EDP Gran Via,pop/rock,
-31,Vanesa Martin,Madrid,07/05/2021,27.50,66,Wizink Center,pop/rock,
-32,Avenged Sevenfold,Madrid,09/08/2022,No info,No info,Wizink Center,hard rock/metal,
-33,Avenged Sevenfold,Sevilla,12/08/2022,No info,No info,Auditorio Rocio Jurado,hard rock/metal,
-34,Avenged Sevenfold,Cadiz,14/08/2022,No info,No info,Concert Music Festival,hard rock/metal,
-35,Avenged Sevenfold,Valencia,17/08/2022,No info,No info,Auditorio Marina Sur,hard rock/metal,
-36,Avenged Sevenfold,Zaragoza,20/08/2022,No info,No info,Teatro de las Esquinas,hard rock/metal,
-37,Avenged Sevenfold,Barcelona,25/08/2022,No info,No info,Rock Fest Barcelona,hard rock/metal,
-38,Arctic Monkeys,Madrid,09/06/2022,No info,No info,Wizink Center,hard rock/metal,
-39,Arctic Monkeys,Barcelona,14/06/2022,No info,No info,Rock Fest Barcelona,hard rock/metal,
-40,Arctic Monkeys,Valencia,19/06/2022,No info,No info,Arenal Sound,hard rock/metal,
-41,Arctic Monkeys,Palma de Mallorca,15/06/2022,No info,No info,Port Adriano,hard rock/metal,
-42,Arctic Monkeys,Alicante,22/06/2022,No info,No info,Festival Alacant Rock,hard rock/metal,
-43,Megadeht,Madrid,06/05/2022,No info,No info,Wizink Center,hard rock/metal,
-44,Megadeht,Barcelona,09/05/2022,No info,No info,Rock Fest Barcelona,hard rock/metal,
-45,Megadeht,Valencia,12/05/2022,No info,No info,Auditorio Marina Sur,hard rock/metal,
-46,Megadeht,Sevilla,15/05/2022,No info,No info,Auditorio Rocio Jurado,hard rock/metal,
-47,Megadeht,Canarias,17/05/2022,No info,No info,Auditorio Alfredo Kraus,hard rock/metal,
-48,Megadeht,Palma de Mallorca,20/05/2022,No info,No info,Port Adriano,hard rock/metal,
-49,Ayax y Prok,Madrid,09/08/2022,No info,No info,Wizink Center,hiphop/r&b,
-50,Ayax y Prok,Barcelona,16/08/2022,No info,No info,Palau Sant Jordi,hiphop/r&b,
-51,Ayax y Prok,Sevilla,19/08/2022,No info,No info,Auditorio Rocio Jurado,hiphop/r&b,
-52,Ayax y Prok,Malaga,25/08/2022,No info,No info,Sala Trinchera,hiphop/r&b,
-53,Ayax y Prok,Valencia,30/08/2022,No info,No info,Auditorio Marina Sur,hiphop/r&b,
-54,Marea,Madrid,14/06/2022,No info,No info,Wizink Center,pop/rock,
-55,Marea,Barcelona,17/06/2022,No info,No info,Palau Sant Jordi,pop/rock,
-56,Marea,Valencia,26/06/2022,No info,No info,Auditorio Marina Sur,pop/rock,
-57,Marea,Sevilla,28/06/2022,No info,No info,Auditorio Rocio Jurado,pop/rock,
-58,Classica Live - Los imprescindibles,Madrid,25/04/2021,18,18,G. Teatro Bankia PrÃ­ncipe PÃ­o,clÃ¡sica,
-59,Callas en Concierto,Madrid,18/04/2021,18,18,G. Teatro Bankia PrÃ­ncipe PÃ­o,clÃ¡sica,
-60,Danielle Gatti,Valencia,01/07/2021,40,60,Palau de les Arts Reina SofÃ­a,clÃ¡sica,
-61,Pablo Luisi,Valencia,19/06/2021,30,45,Palau de les Arts Reina SofÃ­a,clÃ¡sica,
-62,Sonya Yoncheva,Valencia,25/04/2021,10,40,Palau de les Arts Reina SofÃ­a,clÃ¡sica,
-63,RenÃ© RapÃ©,Valencia,16/05/2021,10,40,Palau de les Arts Reina SofÃ­a,clÃ¡sica,
-64,Antonello Manacorda,Valencia,29/05/2021,30,45,Palau de les Arts Reina SofÃ­a,clÃ¡sica,
-65,Irina Kolesnikova,Marbella,23/07/2021,31.99,119,Auditorio Starlite,clÃ¡sica,
-66,FINAL FANTASY VII REMAKE Orchestra World Tour,Barcelona,11/12/2021,42.30,154.67,Auditorio CCIB Forum,clÃ¡sica,
-67,Anita Rachvelishvili,Valencia,17/12/2021,40,60,Palau de les Arts Reina SofÃ­a,clÃ¡sica,
-68,Bluescazorla Festival,Cazorla,08/07/2021,80,80,Plaza de Toros Cazorla,jazz/blues,
-69,Rita Payes - Elisabeth Roma,Barcelona,21/04/2021,18,22,Sala Barts,jazz/blues,
-70,Silvia Perez Cruz,Barcelona,22/04/2021,18,32,Sala Barts,jazz/blues,
-71,Silvia Perez Cruz - Farsa Circus Band,Barcelona,07/05/2021,26,62,Gran Teatre del Liceu,jazz/blues,
-72,Tomatito,Barcelona,26/05/2021,18,54,Pelau de la Musica Catalana,jazz/blues,
-73,Brad Mehldau,Barcelona,09/06/2021,18,54,Pelau de la Musica Catalana,jazz/blues,
-74,Alicia Keys,Madrid,30/06/2021,79,999,Wizink Center,pop/rock,
-75,Alicia Keys,Barcelona,04/07/2021,104,298,Palau Sant Jordi,pop/rock,
-76,Jessie J,Madrid,20/07/2021,77,139,Real Jardin Botanico Alfonso XIII,pop/rock,
-77,The Weeknd,Madrid,24/10/2022,94,416,Wizink Center,hiphop/r&b,
-78,Dua Lipa,Madrid,17/10/2021,70,501,Wizink Center,hiphop/r&b,
-79,Dua Lipa,Barcelona,15/10/2021,68,260,Palau Sant Jordi,hiphop/r&b,
-80,Bbno$,Madrid,03/03/2022,25,63,Sala Caracol,hiphop/r&b,
-81,Bbno$,Barcelona,17/05/2021,61,214,Sala Razzmatazz 2,hiphop/r&b,
-82,Ltittle Dragon,Madrid,22/07/2021,35,80,Real Jardin Botanico Alfonso XIII,hiphop/r&b,
-83,Marc Anthony,CornellÃ  de Llobregat,17/06/2021,60,180,RCDE Stadium Espanyol,world,
-84,Marc Anthony,Oviedo,19/06/2021,60,180,Estadio Carlos Tartiere,world,
-85,Alejandro Fernandez,Madrid,23/11/2021,52,114.50,Wizink Center,world,
-86,Luciano Pereira,Madrid,18/05/2021,25,40,Teatro Cofidis,world,
-87,David Bisbal,Barcelona,22/05/2021,27.83,325,Palau Sant Jordi,pop/rock,
-88,Alejandro Sanz,Valencia,12/07/2021,55,121,Ciudad de las Artes y las Ciencias,pop/rock,
-89,Jose Luis Perales,Cordova,12/06/2021,33,60.50,Teatro de la Axerquia,world,
-90,Carlos Rivera,Marbella,03/07/2021,63,596,Starlite Marbella,world,
-91,Carlos Rivera,Barcelona,09/07/2021,73,378,Jardins del Palau de Debralbes,world,
-92,Carlos Rivera,Cadiz,23/07/2021,102,358,Poblado de Sancti Petri,world,
-93,Carlos Rivera,Murcia,30/07/2021,91,93,Plaza de toros de Murcia,world,
-94,Raphael,Marbella,05/08/2021,149,3079,Starlite Marbella,world,
-95,Enforcer,L'Hospitalet de Llobregat,10/05/2021,25,25,Salamandra Sala 1,hard rock/metal,
-96,Enforcer,Madrid,11/05/2021,25,25,Sala Caracol,hard rock/metal,
-97,Deathstars,Barcelona,14/05/2021,25,25,La 2 de Apolo,hard rock/metal,
-98,Deathstars,Madrid,15/05/2021,25,25,Sala Shoko,hard rock/metal,
-99,Iron Maiden,Barcelona,19/06/2021,107,262,Estadi Olimpic Lluis Companys,hard rock/metal,
-100,Nick Masonâ€™s Saurceful of Secrets (Pink Floyd),Madrid,02/07/2021,66,88,IFEMA Palacio Municipal,hard rock/metal,
-101,Kiss,Madrid,04/07/2021,123,1365.40,Wizink Center,hard rock/metal,
-102,Rock In Ton Park Santako,Santa Coloma de Gramenet,10/07/2021,50,50,Parc de Can Zam,hard rock/metal,
-103,Limp Bizkit,Madrid,25/08/2021,60,60,Wizink Center,hard rock/metal,
-104,BarÃ³n Rojo,Barcelona,04/09/2021,27,27,Sala Razzmatazz 1,hard rock/metal,
-105,The 69 Eyes,Madrid,01/08/2021,27,27,Sala Shoko,hard rock/metal,
-106,Nancy and the dolls holydays in the sun,Valencia,02/08/2021,16.35,16.35,Peter Rock Club,hard rock/metal,
-107,Evanescense,Madrid,07/08/2021,50,90,Palacio Vistalegre,hard rock/metal,
-108,Blue Oyster Cult,Madrid,15/08/2021,43.90,43.90,Teatro Kapital,hard rock/metal,
-109,H.E.A.T.,Barcelona,21/08/2021,27,27,Razzmatazz 2,hard rock/metal,
-110,H.E.A.T.,Madrid,22/08/2021,27,27,Sala Mon Live,hard rock/metal,
-111,Ghostemane,Barcelona,11/11/2021,28.20,28.20,Sala Apolo,hard rock/metal,
-112,Ghostemane,Madrid,14/11/2021,28.20,28.20,CATS Concerts,hard rock/metal,
-113,Steve Hackett,Madrid,28/11/2021,82,60,IFEMA Palacio Municipal,hard rock/metal,
-114,Maiden United,Valencia,02/12/2021,19.20,19.20,16 Toneladas,hard rock/metal,
-115,Maiden United,Barcelona,03/12/2021,19.20,19.20,Razzmatazz 3,hard rock/metal,
-116,Maiden United,Madrid,04/12/2021,19.20,19.20,Sala La Boite,hard rock/metal,
-117,Maiden United,Madrid,04/12/2021,19.20,19.20,Sala 0,hard rock/metal,
-118,Maiden United,Madrid,04/12/2021,19.20,19.20,Sala Wurlitzer Ballroom,hard rock/metal,
-119,Faun,Madrid,09/12/2021,19,19,Sala Mon Live,hard rock/metal,
-120,Unleash the Archers,Bilbao,10/12/2021,30,30,Stage Live,hard rock/metal,
-121,Faun,Barcelona,10/12/2021,19,19,Sala Razzmatazz 2,hard rock/metal,
-122,Unleash the Archers,Madrid,11/12/2021,30,30,Sala Shoko,hard rock/metal,
-123,Unleash the Archers,Barcelona,12/12/2021,30,30,Razzmatazz 2,hard rock/metal,
-124,BarÃ³n Rojo,Madrid,28/12/2021,27,27,Wizink Center,hard rock/metal,
-125,The Bon Scott Band,Barcelona,08/01/2022,30,30,Sala Razzmatazz 2,hard rock/metal,
-126,Pestilence,Bilbao,13/01/2022,28,28,Stage Live,hard rock/metal,
-127,Pestilence,Madrid,14/01/2022,28,28,Sala Caracol,hard rock/metal,
-128,Pestilence,Barcelona,15/01/2022,28,28,Sala Razzmatazz 2,hard rock/metal,
-129,Accept,Burlada,21/01/2022,41.48,41.48,Casa de la Cultura,hard rock/metal,
-130,Accept,Madrid,22/01/2022,41.48,41.48,La Ribiera,hard rock/metal,
-131,Accept,Barcelona,23/01/2022,41.48,41.48,Sala Razzmatazz 1,hard rock/metal,
-132,Ozzy Osbourne,Madrid,05/02/2022,56.50,141,Wizink Center,hard rock/metal,
-133,The Pineapple Thief,Barcelona,01/03/2022,30,30,La Nau,hard rock/metal,
-134,The Pineapple Thief,Madrid,02/03/2022,30,30,Sala Caracol,hard rock/metal,
-135,Helloween,Madrid,08/04/2022,67.20,67.20,Wizink Center,hard rock/metal,
-136,Helloween,Barcelona,09/04/2022,67.20,67.20,Sant Jordi Club,hard rock/metal,
-137,Eisbrecher,Barcelona,19/04/2022,30,30,Sala Razzmatazz 2,hard rock/metal,
-138,Mago de Oz,Madrid,29/04/2022,42,388,La Ribiera,hard rock/metal,
-139,Yes,Madrid,13/05/2022,44.54,44.54,La Ribiera,hard rock/metal,
-140,Yes,Barcelona,14/05/2022,44.54,44.54,Sala Razzmatazz 1,hard rock/metal,
-141,Wolfmother,Barcelona,21/05/2022,31.10,31.10,Sala Razzmatazz 1,hard rock/metal,
-142,Guns'N'Roses,Sevilla,07/06/2022,95,536,Estadio Benito VillamarÃ­n,hard rock/metal,
-143,Kutxi Romero,Madrid,08/05/2021,25,25,Palacio Vistalegre,hard rock/metal,
-144,Kutxi Romero,Barcelona,15/08/2021,25,25,Teatre Barts,hard rock/metal,
-145,La Oreja de Van Gogh,Barcelona,01/05/2021,66,120,Teatre Barts,pop/rock,
-146,La Oreja de Van Gogh,Madrid,04/05/2021,72,72,Gran Teatro Bankia Principe Pio,pop/rock,
-147,La Oreja de Van Gogh,Madrid,05/05/2021,72,72,Gran Teatro Bankia Principe Pio,pop/rock,
-148,La Oreja de Van Gogh,Madrid,06/05/2021,72,72,Gran Teatro Bankia Principe Pio,pop/rock,
-149,La Oreja de Van Gogh,Valencia,09/05/2021,69,83,Auditorio Marina Sur,pop/rock,
-150,La Oreja de Van Gogh,San Sebastian,15/05/2021,60,89,Auditorio Kursaal ,pop/rock,
-151,La Oreja de Van Gogh,Marbella,25/05/2021,69,93,Starlite Marbella,pop/rock,
-152,La Oreja de Van Gogh,Murcia,26/05/2021,60,85,Plaza de toros de Murcia,pop/rock,
-153,La Oreja de Van Gogh,Saint Feliu de Guixols,12/08/2021,100,131,Guixols Arena,pop/rock,
-154,Amaral,Girona,30/04/2021,,,Catedral de Girona,pop/rock,
-155,Amaral,Granada,29/05/2021,91,120,Paseo Cortijo del Conde,pop/rock,
-156,Amaral,Valencia,04/06/2021,161,298,Ciutat de les Arts i les Ciences,pop/rock,
-157,Amaral,Valencia,05/06/2021,161,298,Ciutat de les Arts i les Ciences,pop/rock,
-158,Amaral,Murcia,12/06/2021,91,120,Plaza de Toros de Murica,pop/rock,
-159,Amaral,Almeria,20/06/2021,83,89,Recinto Ferial Almeria,pop/rock,
-160,Amaral,Torrelavega,01/07/2021,100,576,Campos del Malecon,pop/rock,
-161,Amaral,Torrelavega,03/07/2021,100,576,Campos del Malecon,pop/rock,
-162,Amaral,Calvia,16/07/2021,93,124,Antiguo Aqualand,pop/rock,
-163,Amaral,Zaragoza,25/07/2021,79,120,Pabellon Principe Felipe,pop/rock,
-164,Amaral,Burriana,27/07/2021,80,198,Playa El Arenal,pop/rock,
-165,Amaral,Almeria,19/08/2021,95,298,Recinto de Conciertos del Ferial de Almeria,pop/rock,
-166,Amaral,Madrid,26/08/2021,101,265,Huerta del Obispo,pop/rock,
-167,Dancing Divas By KISS FM,Madrid,17/04/2022,-,-,La Rivera,dance/electronica,
-168,Delaporte,Zaragoza,24/04/2022,-,-,Casa del Loco,dance/electronica,
-169,Delaporte,Barcelona,06/06/2022,15,-,Sala Apolo,dance/electronica,
-170,Love the 90Â´s Festival,Madrid,12/06/2022,"57,2",165,IFEMA ,dance/electronica,
-171,Don Diablo,Soldeu,12/06/2022,"28,6",160,Plataforma Pista Avet,dance/electronica,
-172,Love the Tuenti's,Madrid,26/06/2022,"59,4",154,IFEMA,dance/electronica,
-173,APPARAT,Barcelona,24/08/2022,"34,2",-,Sala Apolo,dance/electronica,
-174,APPARAT,Madrid,25/08/2022,"34,2",-,Teatro Kapital,dance/electronica,
-175,Delaporte,Oviedo,12/10/2022,12,-,La Salvaje,dance/electronica,
-176,Delaporte,Zamora,13/10/2022,12,-,La Cueva del Jazz,dance/electronica,
-177,Delaporte,Toledo,19/10/2022,12,-,Sala Circulo de Arte,dance/electronica,
-178,Delaporte,Bilbao,26/10/2022,13.5,-,Stage Live,dance/electronica,
-179,Delaporte,Donostia/San SebastiÃ¡n,27/10/2022,13.5,-,Sala Dabadaba,dance/electronica,
-180,Delaporte,Madrid,12/02/2023,19.50,-,La Riviera,dance/electronica,
-181,Antonio Orozco ,Sevilla,17/04/2022,43,59,Cartuja Center Cite,pop/rock,
-182,La Poptelera,Madrid,17/04/2022,10,18,Teatro Figaro,pop/rock,
-183,Roy Orbison & Buddy Holly,Madrid,17/04/2022,15,25,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock,
-184,Whitney Houston Hologram Tour,Madrid,17/04/2022,18,35,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock,
-185,CARRETE: Elio Toffana,Madrid,17/04/2022,20.50,-,La Riviera,pop/rock,
-186,CRISTINA RAMOS,Madrid,17/04/2022,17,30,Teatro Coliseum,pop/rock,
-187,CARLOS SADNESS,Barcelona,17/04/2022,-,-,Palau Sant Jordi,pop/rock,
-188,CARRETE: Lionware,Madrid,17/04/2022,20.50,-,La Riviera,pop/rock,
-189,Rita PayÃ©s-Elisabeth Roma ,Barcelona,21/04/2022,-,-,Sala Barts,pop/rock,
-190,SÃ­lvia PÃ©rez Cruz L,Barcelona,22/04/2022,-,-,Sala Barts,pop/rock,
-191,CARRETE: Ptazeta,Madrid,23/04/2022,26,-,La Rivera,pop/rock,
-192,Dani MartÃ­n ,Madrid,23/04/2022,30,58,WiZink Center ,pop/rock,
-193,CRISTINA RAMOS,Madrid,24/04/2022,17,30,Teatro Coliseum,pop/rock,
-194,FERRAN PALAU,Barcelona,24/04/2022,-,-,Sala Barts,pop/rock,
-195,Dani MartÃ­n ,Madrid,24/04/2022,30,58,WiZink Center,pop/rock,
-196,Simon&Garfunkel Through the years,Madrid,26/04/2022,-,-,Teatro Cofidis AlcÃ¡zar,pop/rock,
-197,Simon&Garfunkel Through the years,Madrid,27/05/2022,-,-,Teatro Cofidis AlcÃ¡zar,pop/rock,
-198,LA M.O.D.A. ,Barcelona,29/05/2022,-,-,Sala Barts,pop/rock,
-199,MARCEL I JÃšLIA ,Barcelona,29/05/2022,-,-,Sala Apolo,pop/rock,
-200,REMEMBER QUEEN,Madrid,30/04/2022,25,35,Teatro EDP Gran Via,pop/rock,
-201,Stay Homas,Palma de Mallorca,01/05/2022,18,-,Trui Teatre,pop/rock,
-202,LA OREJA DE VAN GOGH,Madrid,04/05/2022,-,-,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock,
-203,COQUE MALLA ,Barcelona,05/05/2022,26,40,Gran Teatre del Liceu,pop/rock,
-204,LA OREJA DE VAN GOGH,Madrid,05/05/2022,-,-,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock,
-205,AndrÃ©s Calamaro ,Pamplona/IruÃ±a,05/05/2022,38.50,-,Zentral,pop/rock,
-206,LA OREJA DE VAN GOGH ,Madrid,06/05/2022,-,-,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock,
-207,MARCEL I JÃšLIA ,Barcelona,06/05/2022,15,-,Sala Barts,pop/rock,
-208,SUU ,Barcelona,07/05/2022,-,-,Sala Barts,pop/rock,
-209,SÃ­lvia PÃ©rez Cruz & Farsa Circus Band,Barcelona,07/05/2022,-,-,Gran Teatre del Liceu,pop/rock,
-210,ANDRÃ‰S SUÃ�REZ,Barcelona,07/05/2022,20,35,Palau de la MÃºsica Catalana,pop/rock,
-211,Manuel Carrasco,Bilbao,07/05/2022,38.50,71.50,Bilbao Arena Miribilla,pop/rock,
-212,Rafa Romera,CÃ³rdoba,07/05/2022,17,-,Sala Hangar,pop/rock,
-213,Estopa,Lleida,07/05/2022,36.71,-,Camps Elisis,pop/rock,
-214,Estopa,Online,24/09/2021,9.99,9.99,Online,pop/rock,
-215,ZOO EN CONCIERTO,Madrid,08/05/2022,22,-,Teatro EDP Gran Via,pop/rock,
-216,Go Roneo,Barcelona,08/05/2022,19.80,-,Sala Apolo,pop/rock,
-217,Kutxi Romero,Madrid,08/05/2022,25,-,Palacio Vistalegre,pop/rock,
-218,MARÃ�A PELÃ�E,Barcelona,08/05/2022,20,25,Sala Barts,pop/rock,
-219,Rafa Romera,Sevilla,08/05/2022,17,-,Sala Fanatic,pop/rock,
-220,Stay Homas ,Valencia,08/05/2022,18,-,Palacio de Congresos de Valencia,pop/rock,
-221,ZOO EN CONCIERTO,Madrid,09/05/2022,22,-,Teatro EDP Gran Via,pop/rock,
-222,MARTA SOTO ,Barcelona,14/05/2022,16,20,Sala Barts,pop/rock,
-223,STRAD ,Madrid,14/05/2022,18,22,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock,
-224,Rafa Romera,Valencia,14/05/2022,17,-,Sala Moon,pop/rock,
-225,Extremoduro,Valencia,14/05/2022,41,51,Auditorio Marina Sur,pop/rock,
-226,Johnny Burning,Madrid,15/05/2022,25,30,Teatro EDP Gran Via,pop/rock,
-227,Kutxi Romero,Barcelona,15/05/2022,25,-,Teatre Barts,pop/rock,
-228,Pastora Soler,Sevilla,15/05/2022,27,55,Auditorio Rocio Jurado,pop/rock,
-229,Extremoduro,Valencia,15/05/2022,41,51,Auditorio Marina Sur,pop/rock,
-230,Extremoduro,Rivas-Vaciamadrid,31/07/2021,41,51,Auditorio Miguel RÃ­os,pop/rock,
-231,Bambikina,Madrid,16/05/2022,12,-,Moby Dick Club,pop/rock,
-232,MCLAN ,Barcelona,20/05/2022,30,-,Sala Barts,pop/rock,
-233,Rafa Romera,Barcelona,20/0/2022,17,-,Sala Razzmatazz 2,pop/rock,
-234,KEVIN JOHANSEN,Barcelona,21/05/2022,30,-,Sala Barts,pop/rock,
-235,Rafa Romera,Madrid,21/05/2022,17,-,Sala But,pop/rock,
-236,Shinova,Madrid,21/05/2022,22.50,-,La Riviera,pop/rock,
-237,Extremoduro,Murcia,21/05/2022,41,51,Recinto Ferial La Fica,pop/rock,
-238,Shinova,Madrid,22/05/2022,22.50,-,La Riviera,pop/rock,
-239,Extremoduro,Murcia,22/05/2022,41,51,Recinto Ferial La Fica,pop/rock,
-240,ELS AMICS DE LES ARTS,Barcelona,23/05/2022,25,30,Sala Barts,pop/rock,
-241,Tomatito,Barcelona,26/05/2022,26,54,Palau de la MÃºsica Catalana,pop/rock,
-242,JUDIT NEDDERMANN ,Barcelona,27/05/2022,20,40,Sala Barts,pop/rock,
-243,JUANITO MAKANDÃ‰ ,Barcelona,27/05/2022,30,-,Sala Barts,pop/rock,
-244,SebastiÃ¡n Cortes,Madrid,27/05/2022,22,-,La Riviera,pop/rock,
-245,JUANITO MAKANDÃ‰ ,Barcelona,27/05/2022,30,-,Sala Apolo,pop/rock,
-246,MERITXELL NEDDERMANN ,Barcelona,28/05/2022,30,-,Sala Apolo,pop/rock,
-247,JUANITO MAKANDÃ‰ ,Barcelona,28/05/2022,,,Sala Barts,pop/rock,
-248,Stay Homas,Barcelona,28/05/2022,18,-,Teatre Coliseum,pop/rock,
-249,50,Barcelona,29/05/2022,30,-,Sala Barts,pop/rock,
-250,EL KANKA ,Chiclana de la Frontera,11/07/2021,30,,Sancti Petri,pop/rock,
-251,Nil Moliner,Barcelona,29/05/2022,26,49,Sant Jordi Club,pop/rock,
-252,Oques Grasses,Barcelona,29/05/2022,19.50,-,Poble Espanyo,pop/rock,
-253,Stay Homas,Barcelona,29/05/2022,18,-,Teatre Coliseum,pop/rock,
-254,Extremoduro,Santiago de Compostela,29/05/2022,41,51,Monte do Gozo,pop/rock,
-255,CIAO MARINA ,Barcelona,30/05/2022,15,20,Sala Apolo,pop/rock,
-256,Alejandro Bejarano,Sevilla,04/06/2022,13.60,,Sala Fanatic,pop/rock,
-257,AndrÃ©s SuÃ¡rez,Santiago de Compostela,04/06/2022,-,-,Sala Capitol,pop/rock,
-258,Extremoduro,Rivas,04/06/2022,41,51,Auditorio Miguel RÃ­os,pop/rock,
-259,LILDAMI,Barcelona,05/06/2022,18,22,Sala Barts,pop/rock,
-260,AndrÃ©s SuÃ¡rez,Santiago de Compostela,05/06/2022,-,-,Sala Capitol,pop/rock,
-261,Extremoduro,Rivas-Vaciamadrid,05/06/2022,41,51,Auditorio Miguel RÃ­os,pop/rock,
-262,SECOND EN CONCIERTO,Madrid,06/06/2022,22,30,Teatro EDP Gran Via,pop/rock,
-263,Alejandro Bejarano,Madrid,06/06/2022,13.40,-,Moby Dick Club,pop/rock,
-264,THE MILK CARTON KIDS ,Barcelona,08/06/2022,21.40,-,Luz de Gas,pop/rock,
-265,Brad Mehldau ,Barcelona,09/06/2022,26,54,Palau de la MÃºsica Catalana,pop/rock,
-266,Alexandra Savior,Madrid,09/06/2022,26,-,Moby Dick Club,pop/rock,
-267,Marc Anthony,Madrid,09/06/2022,41,171,IFEMA,pop/rock,
-268,Alexandra Savior,Barcelona,10/06/2022,26,-,La Nau,pop/rock,
-269,Marc Anthony,Murcia,11/06/2022,41,171,Recinto Ferial La Fica,pop/rock,
-270,POL 3.14 ,Barcelona,12/06/2022,18,20,Teatre Apolo,pop/rock,
-271,Extremoduro,CÃ¡ceres,12/06/2022,41,51,Recinto Ferial,pop/rock,
-272,Marc Anthony,Valencia,13/06/2022,52,171,Auditorio Marina Sur,pop/rock,
-273,DANNY OCEAN ,Barcelona,16/06/2022,-,-,Sala Barts,pop/rock,
-274,LIFE,Madrid,16/06/2022,-,-,Moby Dick Club,pop/rock,
-275,Danny Ocean,Madrid,17/06/2022,-,-,La Riviera,pop/rock,
-276,POL 3.14,Madrid,17/06/2022,18,20,Teatro EDP Gran Via,pop/rock,
-277,Foo Fighters,Valencia,17/06/2022,85,-,Ciudad artes y ciencias,pop/rock,
-278,BELY BASARTE,Barcelona,18/06/2022,-,-,Sala Barts,pop/rock,
-279,Ella Baila Sola,Marbella,18/06/2022,20,42,Auditorio Starlite,pop/rock,
-280,Texas,Soldeu,19/06/2022,32,160,Plataforma Pista Avet,pop/rock,
-281,51,Sevilla,19/06/2022,34,51,Estadio La Cartuja de Sevilla,pop/rock,
-282,Extremoduro,Bilbao,17/07/2021,41,51,Parque Kobetamendi,pop/rock,
-283,Extremoduro,Rivas-Vaciamadrid,30/07/2021,41,,Auditorio Miguel RÃ­os,pop/rock,
-284,Miguel RÃ­os,Marbella,19/06/2022,39,119,Auditorio Starlite,pop/rock,
-285,"Alchemy Project, homenaje a Dire Straits",Madrid,20/06/2022,,,Teatro EDP Gran Via,pop/rock,
-286,AndrÃ©s Calamaro,Madrid,20/06/2022,27,"49,5",WiZink Center,pop/rock,
-287,Marc Anthony,Santiago de Compostela,20/06/2022,52,171,Monte do Gozo,pop/rock,
-288,PAT METHENY,Barcelona,22/06/2022,,,Palau de la MÃºsica Catalana,pop/rock,
-289,Marc Anthony,Sevilla,24/06/2022,94,171,Estadio La Cartuja de Sevilla,pop/rock,
-290,Alan Parsons,Sevilla,25/06/2022,-,-,Cartuja Center Cite,pop/rock,
-291,Alan Parsons,Marbella,14/07/2021,67,119,Auditorio Starlite,pop/rock,
-292,Extremoduro,Santa Coloma de Gramenet,25/06/2022,41,51,Parc de Can Zam,pop/rock,
-293,La Oreja de Van Gogh,Marbella,25/06/2022,20,42,Auditorio Starlite,pop/rock,
-294,Marc Anthony,Fuengirola,25/06/2022,68,205,Marenostrum Fuengirola,pop/rock,
-295,Monica Naranjo,Soldeu,26/06/2022,"28,6",160,Plataforma Pista Avet,pop/rock,
-296,Beret,Marbella,26/06/2022,25,79,Auditorio Starlite,pop/rock,
-297,Extremoduro,Santa Coloma de Gramenet,26/06/2022,41,51,Parc de Can Zam,pop/rock,
-298,Argentina,Valencia,23/04/2021,30,30,Teatre Martin Soler ,flamenco/rumba,
-299,Yiyo y su Troupe ,Barcelona,28/04/2021,25,25,Teatre Apolo ,flamenco/rumba,
-300,NiÃ±o de Eleche,Valencia,07/05/2021,30,30,Teatre Martin Soler ,flamenco/rumba,
-301,Paco Candela,Sevilla,22/05/2021,20,25,Cartuja Center Cite,flamenco/rumba,
-302,Camela,Villamartin,05/06/2021,27.50,38.50,Campos de Futbol de Villamartin,flamenco/rumba,
-303,Camela,Barcelona,11/06/2021,33,33,Poble Espanyo,flamenco/rumba,
-304,Maria Jose Llergo ,Fuengirola,05/06/2021,32,32,Marenostrum Fuengirola,flamenco/rumba,
-305,El Barrio,Puertollamo,04/09/2021,40.70,66,Plaza Toros Puertollanos,flamenco/rumba,
-306,Antonio Jose,Sevilla,24/09/2021,24,105,Auditorio Rocio Jurado,flamenco/rumba,
-307,Antonio Jose,Madrid,27/12/2021,28,110,WiZink Center,flamenco/rumba,
-308,Maluma ,Madrid,02/07/2021,40,145.60,WiZink Center,pop/rock,
-309,Maluma ,Barcelona,03/07/2021,35,220,Palau Sant Jordi,pop/rock,
-310,Maluma ,Marbella,16/07/2021,95.99,383.99,Auditorio Starlite,pop/rock,
-311,Sebastian Yatra,Marbella,02/07/2021,31,120,Auditorio Starlite,pop/rock,
-312,Deftones ,Barcelona,06/07/2021,51,51,Sala Razzmatazz,pop/rock,
-313,Alec Benjamin,Barcelona,07/07/2021,28.50,28.50,Sala Razzmatazz 2,pop/rock,
-314,Haim,Barcelona,08/07/2021,42,42,Sala Razzmatazz,pop/rock,
-315,Il Divo,Marbella,09/07/2021,79,250,Auditorio Starlite,pop/rock,
-316,Loquillo,Chiclana de la Frontera,09/07/2021,44,165,Sancti Petri,pop/rock,
-317,Zucchero ,Barcelona,13/07/2021,28,68,Palau de la MÃºsica Catalana,pop/rock,
-318,Miriam Rodriguez,Marbella,15/07/2021,20,59,Auditorio Starlite,pop/rock,
-319,Manuel Carrasco ,Chiclana de la Frontera,16/07/2021,60.50,630,Sancti Petri,pop/rock,
-320,Lola Indigo,Madrid,17/07/2021,29,29,WiZink Center,pop/rock,
-321,Dvicio,Marbella,21/07/2021,20,43,Auditorio Starlite,pop/rock,
-322,Aitana,Marbella,22/07/2021,51.99,185.99,Auditorio Starlite,pop/rock,
-323,Madrid Resiste,Madrid,24/07/2021,51.75,51.75,Auditorio Miguel RÃ­os,pop/rock,
-324,Miguel Bose,Marbella,24/07/2021,33,114,Auditorio Starlite,pop/rock,
-325,Pablo Lopez,Marbella,26/07/2021,51.99,185.99,Auditorio Starlite,pop/rock,
-326,Lionel Richie ,Marbella,28/07/2021,50,250,Auditorio Starlite,pop/rock,
-327,Ozuna ,Marbella,29/07/2021,40,145.60,Auditorio Starlite,pop/rock,
-328,El Ultimo Aplauso,Marbella,30/07/2021,20,43,Auditorio Starlite,pop/rock,
-329,Simple Minds,Marbella,31/07/2021,42,252,Auditorio Starlite,pop/rock,
-330,Morat,Marbella,02/08/2021,47,169,Auditorio Starlite,pop/rock,
-331,Rosario,Marbella,04/08/2021,23,86,Auditorio Starlite,pop/rock,
-332,Passenger,Marbella,06/08/2021,25,73,Auditorio Starlite,pop/rock,
-333,Pablo Lopez,Marbella,09/08/2021,50,74,Auditorio Starlite,pop/rock,
-334,Taburete,Marbella,10/08/2021,51.99,139,Auditorio Starlite,pop/rock,
-335,Morat,Chiclana de la Frontera,10/08/2021,35,110,Sancti Petri,pop/rock,
-336,Nathy Peluso,Marbella,12/08/2021,38,90,Auditorio Starlite,pop/rock,
-337,Bonnie Tyler ,Marbella,14/08/2021,25,163,Auditorio Starlite,pop/rock,
-338,Tom Jones,Marbella,16/08/2021,49,101,Auditorio Starlite,pop/rock,
-339,Antonio Orozco,Marbella,20/08/2021,46,154,Auditorio Starlite,pop/rock,
-340,Rozalen ,Marbella,26/08/2021,24,79,Auditorio Starlite,pop/rock,
-341,Ara Malikian ,Marbella,28/08/2021,42,120,Auditorio Starlite,pop/rock,
-342,Bumbury,Barcelona,04/09/2021,56,56,Poble Espanyol,pop/rock,
-343,Tash Sultana ,Madrid,07/09/2021,39,39,WiZink Center,pop/rock,
-344,Tash Sultana ,Barcelona,08/09/2021,39.50,39.50,Sant Jordi Club,pop/rock,
-345,Amaral,Zaragoza,18/09/2021,33,33,Pabellon Principe Felipe,pop/rock,
-346,Monkey Day ,Sevilla,18/09/2021,24,27,Centro Andaluz Arte Contemporaneo,pop/rock,
-347,Bumbury,Valencia,25/09/2021,50,61,Plaza de Toros Valencia,pop/rock,
-348,Enter Shikari,Barcelona,28/09/2021,26,26,Sala Razzmatazz 2,pop/rock,
-349,Enter Shikari,Madrid,30/09/2021,26,26,La Riviera,pop/rock,
-350,Bumbury,Madrid,02/10/2021,55,65,WiZink Center,pop/rock,
-351,All Them Witches,Madrid,06/10/2021,21,21,Sala Copernico,pop/rock,
-352,Biffy Clyro ,Madrid,06/10/2021,37.50,37.50,La Riviera,pop/rock,
-353,Biffy Clyro ,Barcelona,07/10/2021,37.50,37.50,Sala Razzmatazz 2,pop/rock,
-354,All Them Witches,Barcelona,07/10/2021,21,21,Sala Razzmatazz 2,pop/rock,
-355,Perturbador,Madrid,08/10/2021,25,25,La Riviera,pop/rock,
-356,Brass Against ,Madrid,08/10/2021,20,20,Sala Caracol,pop/rock,
-357,Perturbador,Barcelona,09/10/2021,25,25,Sala Razzmatazz 2,pop/rock,
-358,Eleftheria Arvatinaki ,Madrid,14/10/2021,35,48,Gran Teatro Caixabank Principe Pio,pop/rock,
-359,Eleftheria Arvatinaki ,Barcelona,15/10/2021,25,45,Sala Barts,pop/rock,
-360,Sauti Sol,Barcelona,15/10/2021,23,23,Sala Razzmatazz 3,pop/rock,
-361,Beret,Valencia,15/10/2021,31.50,39.50,Auditorio Marina Sur,pop/rock,
-362,Frog Leap,Madrid,16/10/2021,20.50,20.50,Sala Copernico,pop/rock,
-363,Nil Moliner,Zaragoza,16/10/2021,22,38.50,Sala Oasis,pop/rock,
-364,Sauti Sol,Madrid,16/10/2021,23,23,Sala El Sol,pop/rock,
-365,Nil Moliner,Lleida,17/10/2021,22,38.50,Biloba,pop/rock,
-366,Frog Leap,Bilbao,18/10/2021,20.50,20.50,Stage Live,pop/rock,
-367,Nothing But Thieves,Barcelona,18/10/2021,28.50,28.50,Sala Razzmatazz 2,pop/rock,
-368,Frog Leap,Barcelona,19/10/2021,20.50,20.50,Sala Razzmatazz 2,pop/rock,
-369,Nick Waterhouse,Madrid,20/10/2021,25.10,25.10,Sala Mon Live,pop/rock,
-370,Nick Waterhouse,Barcelona,21/10/2021,25.10,25.10,La 2 de Apolo,pop/rock,
-371,Charlie Cunningham,Barcelona,22/10/2021,18,24,Sala Barts,pop/rock,
-372,Elton John,Barcelona,22/10/2021,43,150,Palau Sant Jordi,pop/rock,
-373,Sleaford Mods,Madrid,23/10/2021,23,23,Sala Mon Live,pop/rock,
-374,Nil Moliner,Murcia,23/10/2021,22,38.50,Sala Rem ,pop/rock,
-375,Sleaford Mods,Barcelona,24/10/2021,23,23,Sala Razzmatazz 2,pop/rock,
-376,Tokio Hotel,Barcelona,27/10/2021,50,50,Sala Apolo,pop/rock,
-377,Balthazar,Barcelona,28/10/2021,25,25,Sala Apolo,pop/rock,
-378,El Barrio,Valencia,29/10/2021,25,45,Plaza de Toros Valencia,pop/rock,
-379,Greyson Chance,Madrid,30/10/2021,21.50,21.50,Sala Copernico,pop/rock,
-380,Cut Copy,Madrid,02/11/2021,24.70,24.70,La Riviera,pop/rock,
-381,Balthazar,Madrid,02/11/2021,25,25,Sala Mon Live,pop/rock,
-382,IAMDDB,Madrid,02/11/2021,25,25,CATS Concerts,pop/rock,
-383,Cut Copy,Valencia,03/11/2021,24.70,24.70,Sala Moon,pop/rock,
-384,IAMDDB,Barcelona,03/11/2021,25,25,Sala Razzmatazz 2,pop/rock,
-385,Cut Copy,Barcelona,04/11/2021,24.70,24.70,Sala Apolo,pop/rock,
-386,Loquillo,Zaragoza,05/11/2021,38.50,38.50,Pabellon Principe Felipe,pop/rock,
-387,Nil Moliner,Malaga,05/11/2021,22,38.50,Sala Paris 15,pop/rock,
-388,Loquillo,Pamplona/Iruna,06/11/2021,38.50,45,Navarra Arena,pop/rock,
-389,Nil Moliner,Sevilla,06/11/2021,22,38.50,Sala Custom,pop/rock,
-390,The Black Crowes,Barcelona,09/11/2021,56.50,56.50,Sant Jordi Club,pop/rock,
-391,Alanis Morissette,Barcelona,10/11/2021,79.50,120,Palau Sant Jordi,pop/rock,
-392,The Black Crowes,Madrid,10/11/2021,56.50,56.50,WiZink Center,pop/rock,
-393,Alanis Morissette,Madrid,11/11/2021,79.50,120,WiZink Center,pop/rock,
-394,Bus de isa y vuelta,Salamanca,13/11/2021,11,27,Pabellon Multiusos Sanchez Paraiso,pop/rock,
-395,Amaral,Pamplona/IruÃ±a,13/11/2021,33,35.20,Navarra Arena,pop/rock,
-396,Nil Moliner,Valladolid,13/11/2021,22,38.50,Sala Lava,pop/rock,
-397,Bon Iver,Barcelona,14/11/2021,58,58,Palau Sant Jordi,pop/rock,
-398,Damien Jurado,Barcelona,14/11/2021,28.20,33.30,Sala Apolo,pop/rock,
-399,DelafÃ©,Vilanova i la GeltrÃº,30/04/2023,17.50,17.50,La Daurada,indie/alternativo,
-400,MÃ¤bu en concierto,Madrid,01/05/2023,16,20,Teatro EDP Gran Via,indie/alternativo,
-401,Chaqueta de chÃ¡ndal,Barcelona,05/05/2023,14.40,14.40,La Nau,indie/alternativo,
-402,Da Souza,Vilanova i la GeltrÃº,07/05/2023,14.40,14.40,La Daurada,indie/alternativo,
-403,Fran Perea,Madrid,13/05/2023,15,15,G. Teatro Caixabank PrÃ­ncipe PÃ­o,indie/alternativo,
-404,Strad,Madrid,14/05/2023,18,18,G. Teatro Caixabank PrÃ­ncipe PÃ­o,indie/alternativo,
-405,Clara Peya,Barcelona,14/05/2023,26.60,26.60,Casino LÂ´AlianÃ§a del Poble Nou,indie/alternativo,
-406,The Church,Madrid,14/05/2023,29.01,29.01,Sala Mon Live,indie/alternativo,
-407,The Church,Barcelona,16/05/2023,29.01,29.01,Sala Bikini,indie/alternativo,
-408,Joan Miquel Oliver,Vilanova i la GeltrÃº,21/05/2023,24.70,24.70,La Daurada,indie/alternativo,
-409,Anna Andreu,Barcelona,27/05/2023,14.40,14.40,La Nau,indie/alternativo,
-410,Strad,Sevilla,28/05/2023,18,18,Cartuja Center Cite,indie/alternativo,
-411,Lebanon Hanover,Madrid,03/07/2023,22.83,22.83,Sala Copernico,indie/alternativo,
-412,The Sisters of Mercy,Barcelona,08/08/2023,35.20,35.20,Sala Razzmatazz 1,indie/alternativo,
-413,The Sisters of Mercy,Madrid,09/08/2023,35.20,35.20,La Riviera,indie/alternativo,
-414,Butengel,L'Hospitalet de Llobregat,26/11/2023,29,29,Salamandra Sala 1,indie/alternativo,
-415,Front 242,Madrid,17/12/2023,27.98,37.25,Sala Mon Live,indie/alternativo,
-416,Front 242,Barcelona,18/12/2023,27.98,37.25,Sala Apolo,indie/alternativo,
-417,Invisible Limits,Barcelona,04/02/2022,23.86,23.86,Sala Wolf,indie/alternativo,
-418,Invisible Limits,Madrid,05/02/2022,23.86,23.86,Sala Nazca,indie/alternativo,
-419,Invisible Limits,Madrid,05/02/2022,23.86,23.86,Sala Copernico,indie/alternativo,
-420,Metronomy,Madrid,04/03/2022,22,22,La Riviera,indie/alternativo,
-421,Metronomy,Barcelona,06/03/2022,22,22,Sala Razzmatazz,indie/alternativo,
-422,Clan of Xymox,Barcelona,10/06/2022,24.45,24.45,Sala Wolf,indie/alternativo,
-423,Clan of Xymox,Madrid,11/06/2022,24.45,24.45,Sala Copernico,indie/alternativo,
-424,Nil Moliner,Vitoria-Gasteiz,14/11/2023,22,22,Sala Kubik,pop/rock,
-425,Yungblud,Barcelona,15/11/2023,17,17,Sala Razzmatazz,pop/rock,
-426,Bon Iver,Madrid,16/11/2023,24,24,WiZink Center,pop/rock,
-427,Loquillo,Bilbao,19/11/2023,22,22,Bilbao Arena Miribilla,pop/rock,
-428,Jordan Mackampa,Madrid,20/11/2023,28.50,28.50,Moby Dick Club,pop/rock,
-429,Nil Moliner,Palma de Mallorca,20/11/2023,22,22,Es Gremi,pop/rock,
-430,Alejandro FernÃ¡ndez,A CoruÃ±a,21/11/2023,28.60,28.60,Colisseum,pop/rock,
-431,The Sadies,Madrid,21/11/2023,20,20,Independance Club,pop/rock,
-432,Alejandro FernÃ¡ndez,Madrid,23/11/2023,28.60,28.60,WiZink Center,pop/rock,
-433,Courtney Marie Andrews,Barcelona,23/11/2023,23,27,Razzmatazz 3,pop/rock,
-434,Alejandro FernÃ¡ndez,MÃ¡laga,25/11/2023,28.60,28.60,Palacio de Dep. MartÃ­n Carpena,pop/rock,
-435,The Sadies,Barcelona,26/11/2023,20,20,Razzmatazz 3,pop/rock,
-436,Alejandro FernÃ¡ndez,Bilbao,27/11/2023,28.60,28.60,Bilbao Arena Miribilla,pop/rock,
-437,Arlo Parks,Barcelona,29/11/2023,19.80,19.80,La 2 de Apolo,pop/rock,
-438,Alejandro FernÃ¡ndez,Barcelona,30/11/2023,28.60,28.60,Palau Sant Jordi,pop/rock,
-439,Arlo Parks,Madrid,30/11/2023,19.80,18.80,Sala Mon Live,pop/rock,
-440,Van Morrison,Madrid,01/12/2023,25.76,30,WiZink Center,pop/rock,
-441,Dani Martin,Barakaldo,11/12/2023,30.40,50.43,Bizkaia Arena Bec!,pop/rock,
-442,Raphael,Barcelona,11/12/2023,40,60.68,Palau Sant Jordi,pop/rock,
-443,Ian Anderson,Sevilla,16/12/2023,30,30,Cartuja Center Cite,pop/rock,
-444,Beret,Barakaldo,18/12/2023,28,55,Bizkaia Arena Bec!,pop/rock,
-445,Nil Moliner,GijÃ³n,18/12/2023,22,22,Casino de Asturias,pop/rock,
-446,Nil Moliner,Santiago de Compostela,19/12/2023,22,22,Sala Capitol,pop/rock,
-447,Carolina Durante,Madrid,20/12/2023,20,20,WiZink Center,pop/rock,
-448,Beret,Barcelona,22/12/2023,28,55,Palau Sant Jordi,pop/rock,
-449,Beret,Madrid,04/01/2022,28,55,WiZink Center,pop/rock,
-450,Beret,Valladolid,15/01/2022,28,55,Polideportivo Pisuerga,pop/rock,
-451,Melanie C,Madrid,22/01/2022,28.30,28.30,CATS Concerts,pop/rock,
-452,Melanie C,Barcelona,23/01/2022,28.30,28.30,Sala Apolo,pop/rock,
-453,Simon&Garfunkel,Madrid,07/02/2022,23,23,Teatro Cofidis AlcÃ¡zar,pop/rock,
-454,Simon&Garfunkel,Madrid,08/02/2022,23,23,Teatro Cofidis AlcÃ¡zar,pop/rock,
-455,Jacob Collier,Barcelona,02/03/2022,25,25,Sala Razzmatazz 1,pop/rock,
-456,Jacob Collier,Madrid,03/03/2022,25,25,La Riviera,pop/rock,
-457,Red Kross,Barcelona,08/03/2022,28.70,28.70,Sala Wolf,pop/rock,
-458,Mother Mother,Barcelona,11/03/2022,30,30,Sala Razzmatazz 2,pop/rock,
-459,La Femme,Barcelona,12/03/2022,24,24,Sala Razzmatazz 2,pop/rock,
-460,Mother Mother,Madrid,12/03/2022,30,30,Sala Mon Live,pop/rock,
-461,La Femme,Madrid,13/03/2022,24,24,La Riviera,pop/rock,
-462,Fontaines DC,Madrid,20/03/2022,22,22,La Riviera,pop/rock,
-463,Fontaines DC,Barcelona,21/03/2022,22,22,Sala Razzmatazz 1,pop/rock,
-464,Giant Rooks,Barcelona,31/03/2022,35.40,35.40,Razzmatazz 3,pop/rock,
-465,Giant Rooks,Madrid,01/04/2022,35.40,35.40,Independance Club,pop/rock,
-466,Miami Horror,Madrid,07/04/2022,20,20,Independance Club,pop/rock,
-467,Fangoria,Barcelona,23/04/2022,18.50,18.50,Sant Jordi Club,pop/rock,
-468,Larkin Poe,Madrid,12/05/2022,23,23,CATS Concerts,pop/rock,
-469,Larkin Poe,Valencia,13/05/2022,23,23,Sala Jerusalem,pop/rock,
-470,Larkin Poe,Barcelona,14/05/2022,23,23,Sala Apolo,pop/rock,
-471,Ligabue,Barcelona,20/05/2022,25.67,34.65,Sala Razzmatazz 1,pop/rock,
-472,Bad Religion,Madrid,21/05/2022,22.30,22.30,WiZink Center,pop/rock,
-473,Estopa,Sevilla,21/05/2022,26,26,Auditorio Rocio Jurado,pop/rock,
-474,Joe Satriani,Barcelona,27/05/2022,24.50,24.50,Sala Barts,pop/rock,
-475,Joe Satriani,Burjassot,28/05/2022,24.50,24.50,Auditorio Municipal de Burjassot,pop/rock,
-476,Joe Satriani,Madrid,29/05/2022,24.50,24.50,La Riviera,pop/rock,
-477,Aerosmith,Madrid,04/06/2022,56.50,153.50,Estadio Wanda Metropolitano,pop/rock,
-478,Guns'N'Roses,Sevilla,07/06/2022,51,181.50,Estadio Benito VillamarÃ­n,pop/rock,
-479,Beret,Palma de Mallorca,11/06/2022,28,55,Son Fusteret,pop/rock,
-480,Queen,Madrid,06/07/2022,56.50,141.50,WiZink Center,pop/rock,
-481,Fangoria,Chiclana de la Frontera,16/08/2022,18.50,18.50,Sancti Petri,pop/rock,
-482,Michael Kiwanuka,Barcelona,16/09/2022,22,22,Sala Razzmatazz,pop/rock,
-483,Michael Kiwanuka,Madrid,19/07/2022,22,22,La Riviera,pop/rock,
-484,The Weeknd,Madrid,24/08/2022,43,90.50,WiZink Center,pop/rock,
+1,Beret,Vizcaya,17/04/2021,28,55,Bizkaia Arena,hiphop/r&b
+2,Beret,Palma de Mallorca,08/05/2021,28,35,Son Fusteret,hiphop/r&b
+3,Beret,Sevilla,28/05/2021,28,35,Auditorio Rocio Jurado,hiphop/r&b
+4,Beret,Valencia,29/05/2021,28,35,Auditorio Marina Sur,hiphop/r&b
+5,Beret,Valladolid,05/06/2021,28,35,Polideportivo Pisuerga,hiphop/r&b
+6,Beret,Barcelona,11/06/2021,26,55,Palau Sant Jordi,hiphop/r&b
+7,Beret,Pontevedra,01/07/2021,20,65,Portamerica,hiphop/r&b
+8,Beret,Madrid,10/07/2021,26,55,Wizink Center,hiphop/r&b
+9,Beret,Cadiz,21/07/2021,26,55,Festival Cabo de Plata,hiphop/r&b
+10,Beret,Alicante,07/08/2021,28,35,Plaza de Toros de Ondara,hiphop/r&b
+11,Daddy Yankee,Santiago de Compostela,07/06/2021,79,199,O Son do CamiÃ±o,reggaeton
+12,Daddy Yankee,Madrid,25/06/2021,82,205,Puro Reggaeton Festival,reggaeton
+13,Daddy Yankee,Granada,26/06/2021,40,145,Granada Latina Festival,reggaeton
+14,Daddy Yankee,Benidorm,10/07/2021,40,145,Reggaeton Beach Festival,reggaeton
+15,Daddy Yankee,Palma de Mallorca,17/07/2021,79,199,Reggaeton Beach Festival,reggaeton
+16,Daddy Yankee,Barcelona,24/07/2021,82,205,Reggaeton Beach Festival,reggaeton
+17,Daddy Yankee,CastellÃ³n,27/07/2021,40,145,Festival Arenal Sound,reggaeton
+18,Daddy Yankee,Cadiz,29/07/2021,40,145,Puro Latino Fest,reggaeton
+19,Daddy Yankee,Santander,01/08/2021,40,145,Reggaeton Beach Festival,reggaeton
+20,Myke Towers,Madrid,03/07/2021,58,189,Reggaeton Beach Festival,reggaeton
+21,Myke Towers,Benidorm,10/07/2021,46,170,Reggaeton Beach Festival,reggaeton
+22,Myke Towers,Barcelona,24/07/2021,58,189,Reggaeton Beach Festival,reggaeton
+23,Myke Towers,Cadiz,29/07/2021,46,170,Puro Latino Fest,reggaeton
+24,Myke Towers,Malaga,31/07/2021,49,178,Reggaeton Beach Festival,reggaeton
+25,Lady Gaga,Madrid,04/05/2022,No info,No info,Wizink Center,pop/rock
+26,Lady Gaga,Barcelona,21/05/2022,No info,No info,Palau Sant Jordi,pop/rock
+27,Lady Gaga,Sevilla,01/06/2022,No info,No info,Auditorio Rocio Jurado,pop/rock
+28,Lady Gaga,Salamanca,16/06/2022,No info,No info,Enjoy Multiusos ,pop/rock
+29,Lady Gaga,Valencia,18/06/2022,No info,No info,Auditorio Marina Sur,pop/rock
+30,La Sra.Tomasa,Madrid,22/05/2021,15,15,Teatro EDP Gran Via,pop/rock
+31,Vanesa Martin,Madrid,07/05/2021,27.50,66,Wizink Center,pop/rock
+32,Avenged Sevenfold,Madrid,09/08/2022,No info,No info,Wizink Center,hard rock/metal
+33,Avenged Sevenfold,Sevilla,12/08/2022,No info,No info,Auditorio Rocio Jurado,hard rock/metal
+34,Avenged Sevenfold,Cadiz,14/08/2022,No info,No info,Concert Music Festival,hard rock/metal
+35,Avenged Sevenfold,Valencia,17/08/2022,No info,No info,Auditorio Marina Sur,hard rock/metal
+36,Avenged Sevenfold,Zaragoza,20/08/2022,No info,No info,Teatro de las Esquinas,hard rock/metal
+37,Avenged Sevenfold,Barcelona,25/08/2022,No info,No info,Rock Fest Barcelona,hard rock/metal
+38,Arctic Monkeys,Madrid,09/06/2022,No info,No info,Wizink Center,hard rock/metal
+39,Arctic Monkeys,Barcelona,14/06/2022,No info,No info,Rock Fest Barcelona,hard rock/metal
+40,Arctic Monkeys,Valencia,19/06/2022,No info,No info,Arenal Sound,hard rock/metal
+41,Arctic Monkeys,Palma de Mallorca,15/06/2022,No info,No info,Port Adriano,hard rock/metal
+42,Arctic Monkeys,Alicante,22/06/2022,No info,No info,Festival Alacant Rock,hard rock/metal
+43,Megadeht,Madrid,06/05/2022,No info,No info,Wizink Center,hard rock/metal
+44,Megadeht,Barcelona,09/05/2022,No info,No info,Rock Fest Barcelona,hard rock/metal
+45,Megadeht,Valencia,12/05/2022,No info,No info,Auditorio Marina Sur,hard rock/metal
+46,Megadeht,Sevilla,15/05/2022,No info,No info,Auditorio Rocio Jurado,hard rock/metal
+47,Megadeht,Canarias,17/05/2022,No info,No info,Auditorio Alfredo Kraus,hard rock/metal
+48,Megadeht,Palma de Mallorca,20/05/2022,No info,No info,Port Adriano,hard rock/metal
+49,Ayax y Prok,Madrid,09/08/2022,No info,No info,Wizink Center,hiphop/r&b
+50,Ayax y Prok,Barcelona,16/08/2022,No info,No info,Palau Sant Jordi,hiphop/r&b
+51,Ayax y Prok,Sevilla,19/08/2022,No info,No info,Auditorio Rocio Jurado,hiphop/r&b
+52,Ayax y Prok,Malaga,25/08/2022,No info,No info,Sala Trinchera,hiphop/r&b
+53,Ayax y Prok,Valencia,30/08/2022,No info,No info,Auditorio Marina Sur,hiphop/r&b
+54,Marea,Madrid,14/06/2022,No info,No info,Wizink Center,pop/rock
+55,Marea,Barcelona,17/06/2022,No info,No info,Palau Sant Jordi,pop/rock
+56,Marea,Valencia,26/06/2022,No info,No info,Auditorio Marina Sur,pop/rock
+57,Marea,Sevilla,28/06/2022,No info,No info,Auditorio Rocio Jurado,pop/rock
+58,Classica Live - Los imprescindibles,Madrid,25/04/2021,18,18,G. Teatro Bankia PrÃ­ncipe PÃ­o,clÃ¡sica
+59,Callas en Concierto,Madrid,18/04/2021,18,18,G. Teatro Bankia PrÃ­ncipe PÃ­o,clÃ¡sica
+60,Danielle Gatti,Valencia,01/07/2021,40,60,Palau de les Arts Reina SofÃ­a,clÃ¡sica
+61,Pablo Luisi,Valencia,19/06/2021,30,45,Palau de les Arts Reina SofÃ­a,clÃ¡sica
+62,Sonya Yoncheva,Valencia,25/04/2021,10,40,Palau de les Arts Reina SofÃ­a,clÃ¡sica
+63,RenÃ© RapÃ©,Valencia,16/05/2021,10,40,Palau de les Arts Reina SofÃ­a,clÃ¡sica
+64,Antonello Manacorda,Valencia,29/05/2021,30,45,Palau de les Arts Reina SofÃ­a,clÃ¡sica
+65,Irina Kolesnikova,Marbella,23/07/2021,31.99,119,Auditorio Starlite,clÃ¡sica
+66,FINAL FANTASY VII REMAKE Orchestra World Tour,Barcelona,11/12/2021,42.30,154.67,Auditorio CCIB Forum,clÃ¡sica
+67,Anita Rachvelishvili,Valencia,17/12/2021,40,60,Palau de les Arts Reina SofÃ­a,clÃ¡sica
+68,Bluescazorla Festival,Cazorla,08/07/2021,80,80,Plaza de Toros Cazorla,jazz/blues
+69,Rita Payes - Elisabeth Roma,Barcelona,21/04/2021,18,22,Sala Barts,jazz/blues
+70,Silvia Perez Cruz,Barcelona,22/04/2021,18,32,Sala Barts,jazz/blues
+71,Silvia Perez Cruz - Farsa Circus Band,Barcelona,07/05/2021,26,62,Gran Teatre del Liceu,jazz/blues
+72,Tomatito,Barcelona,26/05/2021,18,54,Pelau de la Musica Catalana,jazz/blues
+73,Brad Mehldau,Barcelona,09/06/2021,18,54,Pelau de la Musica Catalana,jazz/blues
+74,Alicia Keys,Madrid,30/06/2021,79,999,Wizink Center,pop/rock
+75,Alicia Keys,Barcelona,04/07/2021,104,298,Palau Sant Jordi,pop/rock
+76,Jessie J,Madrid,20/07/2021,77,139,Real Jardin Botanico Alfonso XIII,pop/rock
+77,The Weeknd,Madrid,24/10/2022,94,416,Wizink Center,hiphop/r&b
+78,Dua Lipa,Madrid,17/10/2021,70,501,Wizink Center,hiphop/r&b
+79,Dua Lipa,Barcelona,15/10/2021,68,260,Palau Sant Jordi,hiphop/r&b
+80,Bbno$,Madrid,03/03/2022,25,63,Sala Caracol,hiphop/r&b
+81,Bbno$,Barcelona,17/05/2021,61,214,Sala Razzmatazz 2,hiphop/r&b
+82,Ltittle Dragon,Madrid,22/07/2021,35,80,Real Jardin Botanico Alfonso XIII,hiphop/r&b
+83,Marc Anthony,CornellÃ  de Llobregat,17/06/2021,60,180,RCDE Stadium Espanyol,world
+84,Marc Anthony,Oviedo,19/06/2021,60,180,Estadio Carlos Tartiere,world
+85,Alejandro Fernandez,Madrid,23/11/2021,52,114.50,Wizink Center,world
+86,Luciano Pereira,Madrid,18/05/2021,25,40,Teatro Cofidis,world
+87,David Bisbal,Barcelona,22/05/2021,27.83,325,Palau Sant Jordi,pop/rock
+88,Alejandro Sanz,Valencia,12/07/2021,55,121,Ciudad de las Artes y las Ciencias,pop/rock
+89,Jose Luis Perales,Cordova,12/06/2021,33,60.50,Teatro de la Axerquia,world
+90,Carlos Rivera,Marbella,03/07/2021,63,596,Starlite Marbella,world
+91,Carlos Rivera,Barcelona,09/07/2021,73,378,Jardins del Palau de Debralbes,world
+92,Carlos Rivera,Cadiz,23/07/2021,102,358,Poblado de Sancti Petri,world
+93,Carlos Rivera,Murcia,30/07/2021,91,93,Plaza de toros de Murcia,world
+94,Raphael,Marbella,05/08/2021,149,3079,Starlite Marbella,world
+95,Enforcer,L'Hospitalet de Llobregat,10/05/2021,25,25,Salamandra Sala 1,hard rock/metal
+96,Enforcer,Madrid,11/05/2021,25,25,Sala Caracol,hard rock/metal
+97,Deathstars,Barcelona,14/05/2021,25,25,La 2 de Apolo,hard rock/metal
+98,Deathstars,Madrid,15/05/2021,25,25,Sala Shoko,hard rock/metal
+99,Iron Maiden,Barcelona,19/06/2021,107,262,Estadi Olimpic Lluis Companys,hard rock/metal
+100,Nick Masonâ€™s Saurceful of Secrets (Pink Floyd),Madrid,02/07/2021,66,88,IFEMA Palacio Municipal,hard rock/metal
+101,Kiss,Madrid,04/07/2021,123,1365.40,Wizink Center,hard rock/metal
+102,Rock In Ton Park Santako,Santa Coloma de Gramenet,10/07/2021,50,50,Parc de Can Zam,hard rock/metal
+103,Limp Bizkit,Madrid,25/08/2021,60,60,Wizink Center,hard rock/metal
+104,BarÃ³n Rojo,Barcelona,04/09/2021,27,27,Sala Razzmatazz 1,hard rock/metal
+105,The 69 Eyes,Madrid,01/08/2021,27,27,Sala Shoko,hard rock/metal
+106,Nancy and the dolls holydays in the sun,Valencia,02/08/2021,16.35,16.35,Peter Rock Club,hard rock/metal
+107,Evanescense,Madrid,07/08/2021,50,90,Palacio Vistalegre,hard rock/metal
+108,Blue Oyster Cult,Madrid,15/08/2021,43.90,43.90,Teatro Kapital,hard rock/metal
+109,H.E.A.T.,Barcelona,21/08/2021,27,27,Razzmatazz 2,hard rock/metal
+110,H.E.A.T.,Madrid,22/08/2021,27,27,Sala Mon Live,hard rock/metal
+111,Ghostemane,Barcelona,11/11/2021,28.20,28.20,Sala Apolo,hard rock/metal
+112,Ghostemane,Madrid,14/11/2021,28.20,28.20,CATS Concerts,hard rock/metal
+113,Steve Hackett,Madrid,28/11/2021,82,60,IFEMA Palacio Municipal,hard rock/metal
+114,Maiden United,Valencia,02/12/2021,19.20,19.20,16 Toneladas,hard rock/metal
+115,Maiden United,Barcelona,03/12/2021,19.20,19.20,Razzmatazz 3,hard rock/metal
+116,Maiden United,Madrid,04/12/2021,19.20,19.20,Sala La Boite,hard rock/metal
+117,Maiden United,Madrid,04/12/2021,19.20,19.20,Sala 0,hard rock/metal
+118,Maiden United,Madrid,04/12/2021,19.20,19.20,Sala Wurlitzer Ballroom,hard rock/metal
+119,Faun,Madrid,09/12/2021,19,19,Sala Mon Live,hard rock/metal
+120,Unleash the Archers,Bilbao,10/12/2021,30,30,Stage Live,hard rock/metal
+121,Faun,Barcelona,10/12/2021,19,19,Sala Razzmatazz 2,hard rock/metal
+122,Unleash the Archers,Madrid,11/12/2021,30,30,Sala Shoko,hard rock/metal
+123,Unleash the Archers,Barcelona,12/12/2021,30,30,Razzmatazz 2,hard rock/metal
+124,BarÃ³n Rojo,Madrid,28/12/2021,27,27,Wizink Center,hard rock/metal
+125,The Bon Scott Band,Barcelona,08/01/2022,30,30,Sala Razzmatazz 2,hard rock/metal
+126,Pestilence,Bilbao,13/01/2022,28,28,Stage Live,hard rock/metal
+127,Pestilence,Madrid,14/01/2022,28,28,Sala Caracol,hard rock/metal
+128,Pestilence,Barcelona,15/01/2022,28,28,Sala Razzmatazz 2,hard rock/metal
+129,Accept,Burlada,21/01/2022,41.48,41.48,Casa de la Cultura,hard rock/metal
+130,Accept,Madrid,22/01/2022,41.48,41.48,La Ribiera,hard rock/metal
+131,Accept,Barcelona,23/01/2022,41.48,41.48,Sala Razzmatazz 1,hard rock/metal
+132,Ozzy Osbourne,Madrid,05/02/2022,56.50,141,Wizink Center,hard rock/metal
+133,The Pineapple Thief,Barcelona,01/03/2022,30,30,La Nau,hard rock/metal
+134,The Pineapple Thief,Madrid,02/03/2022,30,30,Sala Caracol,hard rock/metal
+135,Helloween,Madrid,08/04/2022,67.20,67.20,Wizink Center,hard rock/metal
+136,Helloween,Barcelona,09/04/2022,67.20,67.20,Sant Jordi Club,hard rock/metal
+137,Eisbrecher,Barcelona,19/04/2022,30,30,Sala Razzmatazz 2,hard rock/metal
+138,Mago de Oz,Madrid,29/04/2022,42,388,La Ribiera,hard rock/metal
+139,Yes,Madrid,13/05/2022,44.54,44.54,La Ribiera,hard rock/metal
+140,Yes,Barcelona,14/05/2022,44.54,44.54,Sala Razzmatazz 1,hard rock/metal
+141,Wolfmother,Barcelona,21/05/2022,31.10,31.10,Sala Razzmatazz 1,hard rock/metal
+142,Guns'N'Roses,Sevilla,07/06/2022,95,536,Estadio Benito VillamarÃ­n,hard rock/metal
+143,Kutxi Romero,Madrid,08/05/2021,25,25,Palacio Vistalegre,hard rock/metal
+144,Kutxi Romero,Barcelona,15/08/2021,25,25,Teatre Barts,hard rock/metal
+145,La Oreja de Van Gogh,Barcelona,01/05/2021,66,120,Teatre Barts,pop/rock
+146,La Oreja de Van Gogh,Madrid,04/05/2021,72,72,Gran Teatro Bankia Principe Pio,pop/rock
+147,La Oreja de Van Gogh,Madrid,05/05/2021,72,72,Gran Teatro Bankia Principe Pio,pop/rock
+148,La Oreja de Van Gogh,Madrid,06/05/2021,72,72,Gran Teatro Bankia Principe Pio,pop/rock
+149,La Oreja de Van Gogh,Valencia,09/05/2021,69,83,Auditorio Marina Sur,pop/rock
+150,La Oreja de Van Gogh,San Sebastian,15/05/2021,60,89,Auditorio Kursaal ,pop/rock
+151,La Oreja de Van Gogh,Marbella,25/05/2021,69,93,Starlite Marbella,pop/rock
+152,La Oreja de Van Gogh,Murcia,26/05/2021,60,85,Plaza de toros de Murcia,pop/rock
+153,La Oreja de Van Gogh,Saint Feliu de Guixols,12/08/2021,100,131,Guixols Arena,pop/rock
+154,Amaral,Girona,30/04/2021,,,Catedral de Girona,pop/rock
+155,Amaral,Granada,29/05/2021,91,120,Paseo Cortijo del Conde,pop/rock
+156,Amaral,Valencia,04/06/2021,161,298,Ciutat de les Arts i les Ciences,pop/rock
+157,Amaral,Valencia,05/06/2021,161,298,Ciutat de les Arts i les Ciences,pop/rock
+158,Amaral,Murcia,12/06/2021,91,120,Plaza de Toros de Murica,pop/rock
+159,Amaral,Almeria,20/06/2021,83,89,Recinto Ferial Almeria,pop/rock
+160,Amaral,Torrelavega,01/07/2021,100,576,Campos del Malecon,pop/rock
+161,Amaral,Torrelavega,03/07/2021,100,576,Campos del Malecon,pop/rock
+162,Amaral,Calvia,16/07/2021,93,124,Antiguo Aqualand,pop/rock
+163,Amaral,Zaragoza,25/07/2021,79,120,Pabellon Principe Felipe,pop/rock
+164,Amaral,Burriana,27/07/2021,80,198,Playa El Arenal,pop/rock
+165,Amaral,Almeria,19/08/2021,95,298,Recinto de Conciertos del Ferial de Almeria,pop/rock
+166,Amaral,Madrid,26/08/2021,101,265,Huerta del Obispo,pop/rock
+167,Dancing Divas By KISS FM,Madrid,17/04/2022,-,-,La Rivera,dance/electronica
+168,Delaporte,Zaragoza,24/04/2022,-,-,Casa del Loco,dance/electronica
+169,Delaporte,Barcelona,06/06/2022,15,-,Sala Apolo,dance/electronica
+170,Love the 90Â´s Festival,Madrid,12/06/2022,"57,2",165,IFEMA 
+171,Don Diablo,Soldeu,12/06/2022,"28,6",160,Plataforma Pista Avet
+172,Love the Tuenti's,Madrid,26/06/2022,"59,4",154,IFEMA
+173,APPARAT,Barcelona,24/08/2022,"34,2",-,Sala Apolo
+174,APPARAT,Madrid,25/08/2022,"34,2",-,Teatro Kapital
+175,Delaporte,Oviedo,12/10/2022,12,-,La Salvaje,dance/electronica
+176,Delaporte,Zamora,13/10/2022,12,-,La Cueva del Jazz,dance/electronica
+177,Delaporte,Toledo,19/10/2022,12,-,Sala Circulo de Arte,dance/electronica
+178,Delaporte,Bilbao,26/10/2022,13.5,-,Stage Live,dance/electronica
+179,Delaporte,Donostia/San SebastiÃ¡n,27/10/2022,13.5,-,Sala Dabadaba,dance/electronica
+180,Delaporte,Madrid,12/02/2023,19.50,-,La Riviera,dance/electronica
+181,Antonio Orozco ,Sevilla,17/04/2022,43,59,Cartuja Center Cite,pop/rock
+182,La Poptelera,Madrid,17/04/2022,10,18,Teatro Figaro,pop/rock
+183,Roy Orbison & Buddy Holly,Madrid,17/04/2022,15,25,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock
+184,Whitney Houston Hologram Tour,Madrid,17/04/2022,18,35,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock
+185,CARRETE: Elio Toffana,Madrid,17/04/2022,20.50,-,La Riviera,pop/rock
+186,CRISTINA RAMOS,Madrid,17/04/2022,17,30,Teatro Coliseum,pop/rock
+187,CARLOS SADNESS,Barcelona,17/04/2022,-,-,Palau Sant Jordi,pop/rock
+188,CARRETE: Lionware,Madrid,17/04/2022,20.50,-,La Riviera,pop/rock
+189,Rita PayÃ©s-Elisabeth Roma ,Barcelona,21/04/2022,-,-,Sala Barts,pop/rock
+190,SÃ­lvia PÃ©rez Cruz L,Barcelona,22/04/2022,-,-,Sala Barts,pop/rock
+191,CARRETE: Ptazeta,Madrid,23/04/2022,26,-,La Rivera,pop/rock
+192,Dani MartÃ­n ,Madrid,23/04/2022,30,58,WiZink Center ,pop/rock
+193,CRISTINA RAMOS,Madrid,24/04/2022,17,30,Teatro Coliseum,pop/rock
+194,FERRAN PALAU,Barcelona,24/04/2022,-,-,Sala Barts,pop/rock
+195,Dani MartÃ­n ,Madrid,24/04/2022,30,58,WiZink Center,pop/rock
+196,Simon&Garfunkel Through the years,Madrid,26/04/2022,-,-,Teatro Cofidis AlcÃ¡zar,pop/rock
+197,Simon&Garfunkel Through the years,Madrid,27/05/2022,-,-,Teatro Cofidis AlcÃ¡zar,pop/rock
+198,LA M.O.D.A. ,Barcelona,29/05/2022,-,-,Sala Barts,pop/rock
+199,MARCEL I JÃšLIA ,Barcelona,29/05/2022,-,-,Sala Apolo,pop/rock
+200,REMEMBER QUEEN,Madrid,30/04/2022,25,35,Teatro EDP Gran Via,pop/rock
+201,Stay Homas,Palma de Mallorca,01/05/2022,18,-,Trui Teatre,pop/rock
+202,LA OREJA DE VAN GOGH,Madrid,04/05/2022,-,-,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock
+203,COQUE MALLA ,Barcelona,05/05/2022,26,40,Gran Teatre del Liceu,pop/rock
+204,LA OREJA DE VAN GOGH,Madrid,05/05/2022,-,-,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock
+205,AndrÃ©s Calamaro ,Pamplona/IruÃ±a,05/05/2022,38.50,-,Zentral,pop/rock
+206,LA OREJA DE VAN GOGH ,Madrid,06/05/2022,-,-,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock
+207,MARCEL I JÃšLIA ,Barcelona,06/05/2022,15,-,Sala Barts,pop/rock
+208,SUU ,Barcelona,07/05/2022,-,-,Sala Barts,pop/rock
+209,SÃ­lvia PÃ©rez Cruz & Farsa Circus Band,Barcelona,07/05/2022,-,-,Gran Teatre del Liceu,pop/rock
+210,ANDRÃ‰S SUÃ�REZ,Barcelona,07/05/2022,20,35,Palau de la MÃºsica Catalana,pop/rock
+211,Manuel Carrasco,Bilbao,07/05/2022,38.50,71.50,Bilbao Arena Miribilla,pop/rock
+212,Rafa Romera,CÃ³rdoba,07/05/2022,17,-,Sala Hangar,pop/rock
+213,Estopa,Lleida,07/05/2022,36.71,-,Camps Elisis,pop/rock
+214,Estopa,Online,24/09/2021,9.99,9.99,Online,pop/rock
+215,ZOO EN CONCIERTO,Madrid,08/05/2022,22,-,Teatro EDP Gran Via,pop/rock
+216,Go Roneo,Barcelona,08/05/2022,19.80,-,Sala Apolo,pop/rock
+217,Kutxi Romero,Madrid,08/05/2022,25,-,Palacio Vistalegre,pop/rock
+218,MARÃ�A PELÃ�E,Barcelona,08/05/2022,20,25,Sala Barts,pop/rock
+219,Rafa Romera,Sevilla,08/05/2022,17,-,Sala Fanatic,pop/rock
+220,Stay Homas ,Valencia,08/05/2022,18,-,Palacio de Congresos de Valencia,pop/rock
+221,ZOO EN CONCIERTO,Madrid,09/05/2022,22,-,Teatro EDP Gran Via,pop/rock
+222,MARTA SOTO ,Barcelona,14/05/2022,16,20,Sala Barts,pop/rock
+223,STRAD ,Madrid,14/05/2022,18,22,G. Teatro Caixabank PrÃ­ncipe PÃ­o,pop/rock
+224,Rafa Romera,Valencia,14/05/2022,17,-,Sala Moon,pop/rock
+225,Extremoduro,Valencia,14/05/2022,41,51,Auditorio Marina Sur,pop/rock
+226,Johnny Burning,Madrid,15/05/2022,25,30,Teatro EDP Gran Via,pop/rock
+227,Kutxi Romero,Barcelona,15/05/2022,25,-,Teatre Barts,pop/rock
+228,Pastora Soler,Sevilla,15/05/2022,27,55,Auditorio Rocio Jurado,pop/rock
+229,Extremoduro,Valencia,15/05/2022,41,51,Auditorio Marina Sur,pop/rock
+230,Extremoduro,Rivas-Vaciamadrid,31/07/2021,41,51,Auditorio Miguel RÃ­os,pop/rock
+231,Bambikina,Madrid,16/05/2022,12,-,Moby Dick Club,pop/rock
+232,MCLAN ,Barcelona,20/05/2022,30,-,Sala Barts,pop/rock
+233,Rafa Romera,Barcelona,20/0/2022,17,-,Sala Razzmatazz 2,pop/rock
+234,KEVIN JOHANSEN,Barcelona,21/05/2022,30,-,Sala Barts,pop/rock
+235,Rafa Romera,Madrid,21/05/2022,17,-,Sala But,pop/rock
+236,Shinova,Madrid,21/05/2022,22.50,-,La Riviera,pop/rock
+237,Extremoduro,Murcia,21/05/2022,41,51,Recinto Ferial La Fica,pop/rock
+238,Shinova,Madrid,22/05/2022,22.50,-,La Riviera,pop/rock
+239,Extremoduro,Murcia,22/05/2022,41,51,Recinto Ferial La Fica,pop/rock
+240,ELS AMICS DE LES ARTS,Barcelona,23/05/2022,25,30,Sala Barts,pop/rock
+241,Tomatito,Barcelona,26/05/2022,26,54,Palau de la MÃºsica Catalana,pop/rock
+242,JUDIT NEDDERMANN ,Barcelona,27/05/2022,20,40,Sala Barts,pop/rock
+243,JUANITO MAKANDÃ‰ ,Barcelona,27/05/2022,30,-,Sala Barts,pop/rock
+244,SebastiÃ¡n Cortes,Madrid,27/05/2022,22,-,La Riviera,pop/rock
+245,JUANITO MAKANDÃ‰ ,Barcelona,27/05/2022,30,-,Sala Apolo,pop/rock
+246,MERITXELL NEDDERMANN ,Barcelona,28/05/2022,30,-,Sala Apolo,pop/rock
+247,JUANITO MAKANDÃ‰ ,Barcelona,28/05/2022,,,Sala Barts,pop/rock
+248,Stay Homas,Barcelona,28/05/2022,18,-,Teatre Coliseum,pop/rock
+249,50,Barcelona,29/05/2022,30,-,Sala Barts,pop/rock
+250,EL KANKA ,Chiclana de la Frontera,11/07/2021,30,,Sancti Petri,pop/rock
+251,Nil Moliner,Barcelona,29/05/2022,26,49,Sant Jordi Club,pop/rock
+252,Oques Grasses,Barcelona,29/05/2022,19.50,-,Poble Espanyo,pop/rock
+253,Stay Homas,Barcelona,29/05/2022,18,-,Teatre Coliseum,pop/rock
+254,Extremoduro,Santiago de Compostela,29/05/2022,41,51,Monte do Gozo,pop/rock
+255,CIAO MARINA ,Barcelona,30/05/2022,15,20,Sala Apolo,pop/rock
+256,Alejandro Bejarano,Sevilla,04/06/2022,13.60,,Sala Fanatic,pop/rock
+257,AndrÃ©s SuÃ¡rez,Santiago de Compostela,04/06/2022,-,-,Sala Capitol,pop/rock
+258,Extremoduro,Rivas,04/06/2022,41,51,Auditorio Miguel RÃ­os,pop/rock
+259,LILDAMI,Barcelona,05/06/2022,18,22,Sala Barts,pop/rock
+260,AndrÃ©s SuÃ¡rez,Santiago de Compostela,05/06/2022,-,-,Sala Capitol,pop/rock
+261,Extremoduro,Rivas-Vaciamadrid,05/06/2022,41,51,Auditorio Miguel RÃ­os,pop/rock
+262,SECOND EN CONCIERTO,Madrid,06/06/2022,22,30,Teatro EDP Gran Via,pop/rock
+263,Alejandro Bejarano,Madrid,06/06/2022,13.40,-,Moby Dick Club,pop/rock
+264,THE MILK CARTON KIDS ,Barcelona,08/06/2022,21.40,-,Luz de Gas,pop/rock
+265,Brad Mehldau ,Barcelona,09/06/2022,26,54,Palau de la MÃºsica Catalana,pop/rock
+266,Alexandra Savior,Madrid,09/06/2022,26,-,Moby Dick Club,pop/rock
+267,Marc Anthony,Madrid,09/06/2022,41,171,IFEMA,pop/rock
+268,Alexandra Savior,Barcelona,10/06/2022,26,-,La Nau,pop/rock
+269,Marc Anthony,Murcia,11/06/2022,41,171,Recinto Ferial La Fica,pop/rock
+270,POL 3.14 ,Barcelona,12/06/2022,18,20,Teatre Apolo,pop/rock
+271,Extremoduro,CÃ¡ceres,12/06/2022,41,51,Recinto Ferial,pop/rock
+272,Marc Anthony,Valencia,13/06/2022,52,171,Auditorio Marina Sur,pop/rock
+273,DANNY OCEAN ,Barcelona,16/06/2022,-,-,Sala Barts,pop/rock
+274,LIFE,Madrid,16/06/2022,-,-,Moby Dick Club,pop/rock
+275,Danny Ocean,Madrid,17/06/2022,-,-,La Riviera,pop/rock
+276,POL 3.14,Madrid,17/06/2022,18,20,Teatro EDP Gran Via,pop/rock
+277,Foo Fighters,Valencia,17/06/2022,85,-,Ciudad artes y ciencias,pop/rock
+278,BELY BASARTE,Barcelona,18/06/2022,-,-,Sala Barts,pop/rock
+279,Ella Baila Sola,Marbella,18/06/2022,20,42,Auditorio Starlite,pop/rock
+280,Texas,Soldeu,19/06/2022,32,160,Plataforma Pista Avet,pop/rock
+281,51,Sevilla,19/06/2022,34,51,Estadio La Cartuja de Sevilla,pop/rock
+282,Extremoduro,Bilbao,17/07/2021,41,51,Parque Kobetamendi,pop/rock
+283,Extremoduro,Rivas-Vaciamadrid,30/07/2021,41,,Auditorio Miguel RÃ­os,pop/rock
+284,Miguel RÃ­os,Marbella,19/06/2022,39,119,Auditorio Starlite,pop/rock
+285,"Alchemy Project, homenaje a Dire Straits",Madrid,20/06/2022,,,Teatro EDP Gran Via
+286,AndrÃ©s Calamaro,Madrid,20/06/2022,27,"49,5",WiZink Center
+287,Marc Anthony,Santiago de Compostela,20/06/2022,52,171,Monte do Gozo,pop/rock
+288,PAT METHENY,Barcelona,22/06/2022,,,Palau de la MÃºsica Catalana,pop/rock
+289,Marc Anthony,Sevilla,24/06/2022,94,171,Estadio La Cartuja de Sevilla,pop/rock
+290,Alan Parsons,Sevilla,25/06/2022,-,-,Cartuja Center Cite,pop/rock
+291,Alan Parsons,Marbella,14/07/2021,67,119,Auditorio Starlite,pop/rock
+292,Extremoduro,Santa Coloma de Gramenet,25/06/2022,41,51,Parc de Can Zam,pop/rock
+293,La Oreja de Van Gogh,Marbella,25/06/2022,20,42,Auditorio Starlite,pop/rock
+294,Marc Anthony,Fuengirola,25/06/2022,68,205,Marenostrum Fuengirola,pop/rock
+295,Monica Naranjo,Soldeu,26/06/2022,"28,6",160,Plataforma Pista Avet
+296,Beret,Marbella,26/06/2022,25,79,Auditorio Starlite,pop/rock
+297,Extremoduro,Santa Coloma de Gramenet,26/06/2022,41,51,Parc de Can Zam,pop/rock
+298,Argentina,Valencia,23/04/2021,30,30,Teatre Martin Soler ,flamenco/rumba
+299,Yiyo y su Troupe ,Barcelona,28/04/2021,25,25,Teatre Apolo ,flamenco/rumba
+300,NiÃ±o de Eleche,Valencia,07/05/2021,30,30,Teatre Martin Soler ,flamenco/rumba
+301,Paco Candela,Sevilla,22/05/2021,20,25,Cartuja Center Cite,flamenco/rumba
+302,Camela,Villamartin,05/06/2021,27.50,38.50,Campos de Futbol de Villamartin,flamenco/rumba
+303,Camela,Barcelona,11/06/2021,33,33,Poble Espanyo,flamenco/rumba
+304,Maria Jose Llergo ,Fuengirola,05/06/2021,32,32,Marenostrum Fuengirola,flamenco/rumba
+305,El Barrio,Puertollamo,04/09/2021,40.70,66,Plaza Toros Puertollanos,flamenco/rumba
+306,Antonio Jose,Sevilla,24/09/2021,24,105,Auditorio Rocio Jurado,flamenco/rumba
+307,Antonio Jose,Madrid,27/12/2021,28,110,WiZink Center,flamenco/rumba
+308,Maluma ,Madrid,02/07/2021,40,145.60,WiZink Center,pop/rock
+309,Maluma ,Barcelona,03/07/2021,35,220,Palau Sant Jordi,pop/rock
+310,Maluma ,Marbella,16/07/2021,95.99,383.99,Auditorio Starlite,pop/rock
+311,Sebastian Yatra,Marbella,02/07/2021,31,120,Auditorio Starlite,pop/rock
+312,Deftones ,Barcelona,06/07/2021,51,51,Sala Razzmatazz,pop/rock
+313,Alec Benjamin,Barcelona,07/07/2021,28.50,28.50,Sala Razzmatazz 2,pop/rock
+314,Haim,Barcelona,08/07/2021,42,42,Sala Razzmatazz,pop/rock
+315,Il Divo,Marbella,09/07/2021,79,250,Auditorio Starlite,pop/rock
+316,Loquillo,Chiclana de la Frontera,09/07/2021,44,165,Sancti Petri,pop/rock
+317,Zucchero ,Barcelona,13/07/2021,28,68,Palau de la MÃºsica Catalana,pop/rock
+318,Miriam Rodriguez,Marbella,15/07/2021,20,59,Auditorio Starlite,pop/rock
+319,Manuel Carrasco ,Chiclana de la Frontera,16/07/2021,60.50,630,Sancti Petri,pop/rock
+320,Lola Indigo,Madrid,17/07/2021,29,29,WiZink Center,pop/rock
+321,Dvicio,Marbella,21/07/2021,20,43,Auditorio Starlite,pop/rock
+322,Aitana,Marbella,22/07/2021,51.99,185.99,Auditorio Starlite,pop/rock
+323,Madrid Resiste,Madrid,24/07/2021,51.75,51.75,Auditorio Miguel RÃ­os,pop/rock
+324,Miguel Bose,Marbella,24/07/2021,33,114,Auditorio Starlite,pop/rock
+325,Pablo Lopez,Marbella,26/07/2021,51.99,185.99,Auditorio Starlite,pop/rock
+326,Lionel Richie ,Marbella,28/07/2021,50,250,Auditorio Starlite,pop/rock
+327,Ozuna ,Marbella,29/07/2021,40,145.60,Auditorio Starlite,pop/rock
+328,El Ultimo Aplauso,Marbella,30/07/2021,20,43,Auditorio Starlite,pop/rock
+329,Simple Minds,Marbella,31/07/2021,42,252,Auditorio Starlite,pop/rock
+330,Morat,Marbella,02/08/2021,47,169,Auditorio Starlite,pop/rock
+331,Rosario,Marbella,04/08/2021,23,86,Auditorio Starlite,pop/rock
+332,Passenger,Marbella,06/08/2021,25,73,Auditorio Starlite,pop/rock
+333,Pablo Lopez,Marbella,09/08/2021,50,74,Auditorio Starlite,pop/rock
+334,Taburete,Marbella,10/08/2021,51.99,139,Auditorio Starlite,pop/rock
+335,Morat,Chiclana de la Frontera,10/08/2021,35,110,Sancti Petri,pop/rock
+336,Nathy Peluso,Marbella,12/08/2021,38,90,Auditorio Starlite,pop/rock
+337,Bonnie Tyler ,Marbella,14/08/2021,25,163,Auditorio Starlite,pop/rock
+338,Tom Jones,Marbella,16/08/2021,49,101,Auditorio Starlite,pop/rock
+339,Antonio Orozco,Marbella,20/08/2021,46,154,Auditorio Starlite,pop/rock
+340,Rozalen ,Marbella,26/08/2021,24,79,Auditorio Starlite,pop/rock
+341,Ara Malikian ,Marbella,28/08/2021,42,120,Auditorio Starlite,pop/rock
+342,Bumbury,Barcelona,04/09/2021,56,56,Poble Espanyol,pop/rock
+343,Tash Sultana ,Madrid,07/09/2021,39,39,WiZink Center,pop/rock
+344,Tash Sultana ,Barcelona,08/09/2021,39.50,39.50,Sant Jordi Club,pop/rock
+345,Amaral,Zaragoza,18/09/2021,33,33,Pabellon Principe Felipe,pop/rock
+346,Monkey Day ,Sevilla,18/09/2021,24,27,Centro Andaluz Arte Contemporaneo,pop/rock
+347,Bumbury,Valencia,25/09/2021,50,61,Plaza de Toros Valencia,pop/rock
+348,Enter Shikari,Barcelona,28/09/2021,26,26,Sala Razzmatazz 2,pop/rock
+349,Enter Shikari,Madrid,30/09/2021,26,26,La Riviera,pop/rock
+350,Bumbury,Madrid,02/10/2021,55,65,WiZink Center,pop/rock
+351,All Them Witches,Madrid,06/10/2021,21,21,Sala Copernico,pop/rock
+352,Biffy Clyro ,Madrid,06/10/2021,37.50,37.50,La Riviera,pop/rock
+353,Biffy Clyro ,Barcelona,07/10/2021,37.50,37.50,Sala Razzmatazz 2,pop/rock
+354,All Them Witches,Barcelona,07/10/2021,21,21,Sala Razzmatazz 2,pop/rock
+355,Perturbador,Madrid,08/10/2021,25,25,La Riviera,pop/rock
+356,Brass Against ,Madrid,08/10/2021,20,20,Sala Caracol,pop/rock
+357,Perturbador,Barcelona,09/10/2021,25,25,Sala Razzmatazz 2,pop/rock
+358,Eleftheria Arvatinaki ,Madrid,14/10/2021,35,48,Gran Teatro Caixabank Principe Pio,pop/rock
+359,Eleftheria Arvatinaki ,Barcelona,15/10/2021,25,45,Sala Barts,pop/rock
+360,Sauti Sol,Barcelona,15/10/2021,23,23,Sala Razzmatazz 3,pop/rock
+361,Beret,Valencia,15/10/2021,31.50,39.50,Auditorio Marina Sur,pop/rock
+362,Frog Leap,Madrid,16/10/2021,20.50,20.50,Sala Copernico,pop/rock
+363,Nil Moliner,Zaragoza,16/10/2021,22,38.50,Sala Oasis,pop/rock
+364,Sauti Sol,Madrid,16/10/2021,23,23,Sala El Sol,pop/rock
+365,Nil Moliner,Lleida,17/10/2021,22,38.50,Biloba,pop/rock
+366,Frog Leap,Bilbao,18/10/2021,20.50,20.50,Stage Live,pop/rock
+367,Nothing But Thieves,Barcelona,18/10/2021,28.50,28.50,Sala Razzmatazz 2,pop/rock
+368,Frog Leap,Barcelona,19/10/2021,20.50,20.50,Sala Razzmatazz 2,pop/rock
+369,Nick Waterhouse,Madrid,20/10/2021,25.10,25.10,Sala Mon Live,pop/rock
+370,Nick Waterhouse,Barcelona,21/10/2021,25.10,25.10,La 2 de Apolo,pop/rock
+371,Charlie Cunningham,Barcelona,22/10/2021,18,24,Sala Barts,pop/rock
+372,Elton John,Barcelona,22/10/2021,43,150,Palau Sant Jordi,pop/rock
+373,Sleaford Mods,Madrid,23/10/2021,23,23,Sala Mon Live,pop/rock
+374,Nil Moliner,Murcia,23/10/2021,22,38.50,Sala Rem ,pop/rock
+375,Sleaford Mods,Barcelona,24/10/2021,23,23,Sala Razzmatazz 2,pop/rock
+376,Tokio Hotel,Barcelona,27/10/2021,50,50,Sala Apolo,pop/rock
+377,Balthazar,Barcelona,28/10/2021,25,25,Sala Apolo,pop/rock
+378,El Barrio,Valencia,29/10/2021,25,45,Plaza de Toros Valencia,pop/rock
+379,Greyson Chance,Madrid,30/10/2021,21.50,21.50,Sala Copernico,pop/rock
+380,Cut Copy,Madrid,02/11/2021,24.70,24.70,La Riviera,pop/rock
+381,Balthazar,Madrid,02/11/2021,25,25,Sala Mon Live,pop/rock
+382,IAMDDB,Madrid,02/11/2021,25,25,CATS Concerts,pop/rock
+383,Cut Copy,Valencia,03/11/2021,24.70,24.70,Sala Moon,pop/rock
+384,IAMDDB,Barcelona,03/11/2021,25,25,Sala Razzmatazz 2,pop/rock
+385,Cut Copy,Barcelona,04/11/2021,24.70,24.70,Sala Apolo,pop/rock
+386,Loquillo,Zaragoza,05/11/2021,38.50,38.50,Pabellon Principe Felipe,pop/rock
+387,Nil Moliner,Malaga,05/11/2021,22,38.50,Sala Paris 15,pop/rock
+388,Loquillo,Pamplona/Iruna,06/11/2021,38.50,45,Navarra Arena,pop/rock
+389,Nil Moliner,Sevilla,06/11/2021,22,38.50,Sala Custom,pop/rock
+390,The Black Crowes,Barcelona,09/11/2021,56.50,56.50,Sant Jordi Club,pop/rock
+391,Alanis Morissette,Barcelona,10/11/2021,79.50,120,Palau Sant Jordi,pop/rock
+392,The Black Crowes,Madrid,10/11/2021,56.50,56.50,WiZink Center,pop/rock
+393,Alanis Morissette,Madrid,11/11/2021,79.50,120,WiZink Center,pop/rock
+394,Bus de isa y vuelta,Salamanca,13/11/2021,11,27,Pabellon Multiusos Sanchez Paraiso,pop/rock
+395,Amaral,Pamplona/IruÃ±a,13/11/2021,33,35.20,Navarra Arena,pop/rock
+396,Nil Moliner,Valladolid,13/11/2021,22,38.50,Sala Lava,pop/rock
+397,Bon Iver,Barcelona,14/11/2021,58,58,Palau Sant Jordi,pop/rock
+398,Damien Jurado,Barcelona,14/11/2021,28.20,33.30,Sala Apolo,pop/rock
+399,DelafÃ©,Vilanova i la GeltrÃº,30/04/2023,17.50,17.50,La Daurada,indie/alternativo
+400,MÃ¤bu en concierto,Madrid,01/05/2023,16,20,Teatro EDP Gran Via,indie/alternativo
+401,Chaqueta de chÃ¡ndal,Barcelona,05/05/2023,14.40,14.40,La Nau,indie/alternativo
+402,Da Souza,Vilanova i la GeltrÃº,07/05/2023,14.40,14.40,La Daurada,indie/alternativo
+403,Fran Perea,Madrid,13/05/2023,15,15,G. Teatro Caixabank PrÃ­ncipe PÃ­o,indie/alternativo
+404,Strad,Madrid,14/05/2023,18,18,G. Teatro Caixabank PrÃ­ncipe PÃ­o,indie/alternativo
+405,Clara Peya,Barcelona,14/05/2023,26.60,26.60,Casino LÂ´AlianÃ§a del Poble Nou,indie/alternativo
+406,The Church,Madrid,14/05/2023,29.01,29.01,Sala Mon Live,indie/alternativo
+407,The Church,Barcelona,16/05/2023,29.01,29.01,Sala Bikini,indie/alternativo
+408,Joan Miquel Oliver,Vilanova i la GeltrÃº,21/05/2023,24.70,24.70,La Daurada,indie/alternativo
+409,Anna Andreu,Barcelona,27/05/2023,14.40,14.40,La Nau,indie/alternativo
+410,Strad,Sevilla,28/05/2023,18,18,Cartuja Center Cite,indie/alternativo
+411,Lebanon Hanover,Madrid,03/07/2023,22.83,22.83,Sala Copernico,indie/alternativo
+412,The Sisters of Mercy,Barcelona,08/08/2023,35.20,35.20,Sala Razzmatazz 1,indie/alternativo
+413,The Sisters of Mercy,Madrid,09/08/2023,35.20,35.20,La Riviera,indie/alternativo
+414,Butengel,L'Hospitalet de Llobregat,26/11/2023,29,29,Salamandra Sala 1,indie/alternativo
+415,Front 242,Madrid,17/12/2023,27.98,37.25,Sala Mon Live,indie/alternativo
+416,Front 242,Barcelona,18/12/2023,27.98,37.25,Sala Apolo,indie/alternativo
+417,Invisible Limits,Barcelona,04/02/2022,23.86,23.86,Sala Wolf,indie/alternativo
+418,Invisible Limits,Madrid,05/02/2022,23.86,23.86,Sala Nazca,indie/alternativo
+419,Invisible Limits,Madrid,05/02/2022,23.86,23.86,Sala Copernico,indie/alternativo
+420,Metronomy,Madrid,04/03/2022,22,22,La Riviera,indie/alternativo
+421,Metronomy,Barcelona,06/03/2022,22,22,Sala Razzmatazz,indie/alternativo
+422,Clan of Xymox,Barcelona,10/06/2022,24.45,24.45,Sala Wolf,indie/alternativo
+423,Clan of Xymox,Madrid,11/06/2022,24.45,24.45,Sala Copernico,indie/alternativo
+424,Nil Moliner,Vitoria-Gasteiz,14/11/2023,22,22,Sala Kubik,pop/rock
+425,Yungblud,Barcelona,15/11/2023,17,17,Sala Razzmatazz,pop/rock
+426,Bon Iver,Madrid,16/11/2023,24,24,WiZink Center,pop/rock
+427,Loquillo,Bilbao,19/11/2023,22,22,Bilbao Arena Miribilla,pop/rock
+428,Jordan Mackampa,Madrid,20/11/2023,28.50,28.50,Moby Dick Club,pop/rock
+429,Nil Moliner,Palma de Mallorca,20/11/2023,22,22,Es Gremi,pop/rock
+430,Alejandro FernÃ¡ndez,A CoruÃ±a,21/11/2023,28.60,28.60,Colisseum,pop/rock
+431,The Sadies,Madrid,21/11/2023,20,20,Independance Club,pop/rock
+432,Alejandro FernÃ¡ndez,Madrid,23/11/2023,28.60,28.60,WiZink Center,pop/rock
+433,Courtney Marie Andrews,Barcelona,23/11/2023,23,27,Razzmatazz 3,pop/rock
+434,Alejandro FernÃ¡ndez,MÃ¡laga,25/11/2023,28.60,28.60,Palacio de Dep. MartÃ­n Carpena,pop/rock
+435,The Sadies,Barcelona,26/11/2023,20,20,Razzmatazz 3,pop/rock
+436,Alejandro FernÃ¡ndez,Bilbao,27/11/2023,28.60,28.60,Bilbao Arena Miribilla,pop/rock
+437,Arlo Parks,Barcelona,29/11/2023,19.80,19.80,La 2 de Apolo,pop/rock
+438,Alejandro FernÃ¡ndez,Barcelona,30/11/2023,28.60,28.60,Palau Sant Jordi,pop/rock
+439,Arlo Parks,Madrid,30/11/2023,19.80,18.80,Sala Mon Live,pop/rock
+440,Van Morrison,Madrid,01/12/2023,25.76,30,WiZink Center,pop/rock
+441,Dani Martin,Barakaldo,11/12/2023,30.40,50.43,Bizkaia Arena Bec!,pop/rock
+442,Raphael,Barcelona,11/12/2023,40,60.68,Palau Sant Jordi,pop/rock
+443,Ian Anderson,Sevilla,16/12/2023,30,30,Cartuja Center Cite,pop/rock
+444,Beret,Barakaldo,18/12/2023,28,55,Bizkaia Arena Bec!,pop/rock
+445,Nil Moliner,GijÃ³n,18/12/2023,22,22,Casino de Asturias,pop/rock
+446,Nil Moliner,Santiago de Compostela,19/12/2023,22,22,Sala Capitol,pop/rock
+447,Carolina Durante,Madrid,20/12/2023,20,20,WiZink Center,pop/rock
+448,Beret,Barcelona,22/12/2023,28,55,Palau Sant Jordi,pop/rock
+449,Beret,Madrid,04/01/2022,28,55,WiZink Center,pop/rock
+450,Beret,Valladolid,15/01/2022,28,55,Polideportivo Pisuerga,pop/rock
+451,Melanie C,Madrid,22/01/2022,28.30,28.30,CATS Concerts,pop/rock
+452,Melanie C,Barcelona,23/01/2022,28.30,28.30,Sala Apolo,pop/rock
+453,Simon&Garfunkel,Madrid,07/02/2022,23,23,Teatro Cofidis AlcÃ¡zar,pop/rock
+454,Simon&Garfunkel,Madrid,08/02/2022,23,23,Teatro Cofidis AlcÃ¡zar,pop/rock
+455,Jacob Collier,Barcelona,02/03/2022,25,25,Sala Razzmatazz 1,pop/rock
+456,Jacob Collier,Madrid,03/03/2022,25,25,La Riviera,pop/rock
+457,Red Kross,Barcelona,08/03/2022,28.70,28.70,Sala Wolf,pop/rock
+458,Mother Mother,Barcelona,11/03/2022,30,30,Sala Razzmatazz 2,pop/rock
+459,La Femme,Barcelona,12/03/2022,24,24,Sala Razzmatazz 2,pop/rock
+460,Mother Mother,Madrid,12/03/2022,30,30,Sala Mon Live,pop/rock
+461,La Femme,Madrid,13/03/2022,24,24,La Riviera,pop/rock
+462,Fontaines DC,Madrid,20/03/2022,22,22,La Riviera,pop/rock
+463,Fontaines DC,Barcelona,21/03/2022,22,22,Sala Razzmatazz 1,pop/rock
+464,Giant Rooks,Barcelona,31/03/2022,35.40,35.40,Razzmatazz 3,pop/rock
+465,Giant Rooks,Madrid,01/04/2022,35.40,35.40,Independance Club,pop/rock
+466,Miami Horror,Madrid,07/04/2022,20,20,Independance Club,pop/rock
+467,Fangoria,Barcelona,23/04/2022,18.50,18.50,Sant Jordi Club,pop/rock
+468,Larkin Poe,Madrid,12/05/2022,23,23,CATS Concerts,pop/rock
+469,Larkin Poe,Valencia,13/05/2022,23,23,Sala Jerusalem,pop/rock
+470,Larkin Poe,Barcelona,14/05/2022,23,23,Sala Apolo,pop/rock
+471,Ligabue,Barcelona,20/05/2022,25.67,34.65,Sala Razzmatazz 1,pop/rock
+472,Bad Religion,Madrid,21/05/2022,22.30,22.30,WiZink Center,pop/rock
+473,Estopa,Sevilla,21/05/2022,26,26,Auditorio Rocio Jurado,pop/rock
+474,Joe Satriani,Barcelona,27/05/2022,24.50,24.50,Sala Barts,pop/rock
+475,Joe Satriani,Burjassot,28/05/2022,24.50,24.50,Auditorio Municipal de Burjassot,pop/rock
+476,Joe Satriani,Madrid,29/05/2022,24.50,24.50,La Riviera,pop/rock
+477,Aerosmith,Madrid,04/06/2022,56.50,153.50,Estadio Wanda Metropolitano,pop/rock
+478,Guns'N'Roses,Sevilla,07/06/2022,51,181.50,Estadio Benito VillamarÃ­n,pop/rock
+479,Beret,Palma de Mallorca,11/06/2022,28,55,Son Fusteret,pop/rock
+480,Queen,Madrid,06/07/2022,56.50,141.50,WiZink Center,pop/rock
+481,Fangoria,Chiclana de la Frontera,16/08/2022,18.50,18.50,Sancti Petri,pop/rock
+482,Michael Kiwanuka,Barcelona,16/09/2022,22,22,Sala Razzmatazz,pop/rock
+483,Michael Kiwanuka,Madrid,19/07/2022,22,22,La Riviera,pop/rock
+484,The Weeknd,Madrid,24/08/2022,43,90.50,WiZink Center,pop/rock

@@ -188,6 +188,35 @@ public class EditarCSV
 		this.guardarCSV();
 	}
 	
+	public void addFila(String[] evento) // id, artista, ciudad, fecha, precioMin, precioMax, lugar, genero
+	{
+		String[][] nuevosDatos = new String[this.datos.length+1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila más		
+		int correccionFila = 0; // Se usa para corregir la fila de lectura
+				
+		for (int i = 0; i < nuevosDatos.length; i++) // Se recorre esa matriz asignando los valores de la anterior
+		{			
+			if (i == 0) // Se localiza si estamos en la fila deseada...
+			{
+				nuevosDatos[i][0] = evento[0];
+				nuevosDatos[i][1] = evento[1];
+				nuevosDatos[i][2] = evento[2];
+				nuevosDatos[i][3] = evento[3];
+				nuevosDatos[i][4] = evento[4];
+				nuevosDatos[i][5] = evento[5];
+				nuevosDatos[i][6] = evento[6];
+				nuevosDatos[i][7] = evento[7];
+				
+				correccionFila = -1;
+			}
+			else
+			{					
+				nuevosDatos[i] = this.datos[i+correccionFila]; // Se copia toda la fila, aplicando corrección
+			}
+		}
+		this.datos = nuevosDatos;
+		this.guardarCSV();
+	}
+	
 	public void addFila(Usuario user) // Introduce una fila en la posición orden
 	{
 		String[][] nuevosDatos = new String[this.datos.length+1][this.datos[0].length]; // Se reserva espacio para una matriz con una fila más		

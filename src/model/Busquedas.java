@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
 
+import application.Main;
+
 public class Busquedas {
 	
 	private Scanner sc = new Scanner(System.in);
@@ -35,7 +37,7 @@ public class Busquedas {
 		}
 	}
 	
-	public void buscarArtista(String user) throws IOException
+	public void buscarArtista() throws IOException
 	{
 		Scanner reader = new Scanner(new File("artistasFavoritos.csv"));
 		
@@ -60,7 +62,7 @@ public class Busquedas {
 			String linea = reader.nextLine();
 			String[] lineaDividida = linea.split(",");
 
-			if(lineaDividida[0].equals(user) && lineaDividida[1].equals(nombre))
+			if(lineaDividida[0].equals(Main.getSesionIniciada().getUser()) && lineaDividida[1].equals(nombre))
 			{
 				esFavorito = true;
 			}
@@ -89,15 +91,14 @@ public class Busquedas {
 				{
 					if(esFavorito == true)
 					{
-						int numFila = editarFavoritos.buscarCoindicencias(0, user, 1, nombre);
+						int numFila = editarFavoritos.buscarCoindicencias(0, Main.getSesionIniciada().getUser(), 1, nombre);
 						editarFavoritos.delFila(numFila-1);
 						System.out.println("\nArtista eliminado de favoritos correctamente\nRegresando al menú...\n");
 					}
 					else
 					{
-						editarFavoritos.addFila(user, nombre);
-						System.out.println("\nUsuario añadido a amigos correctamente"
-								+ "\nRegresando al menú...\n");
+						editarFavoritos.addFila(Main.getSesionIniciada().getUser(), nombre);
+						System.out.println("\nUsuario añadido a amigos correctamente\nRegresando al menú...\n");
 					}
 				}
 				else
@@ -115,7 +116,7 @@ public class Busquedas {
 				{
 					Evento eve = new Evento();		
 					Evento evAux2 = eve.buscarEvento(evAux.get(numEleccion - 1).getId_());					
-					evAux2.mostrarFicha(user);			
+					evAux2.mostrarFicha(Main.getSesionIniciada().getUser());			
 				}				
 			}
 		}
@@ -126,7 +127,7 @@ public class Busquedas {
 		reader.close();
 	}
 
-	public void buscarCiudad(String user) throws IOException
+	public void buscarCiudad() throws IOException
 	{
 		System.out.println("Introduzca el nombre de la cuidad");				
 		String city = sc.nextLine();
@@ -154,13 +155,13 @@ public class Busquedas {
 		{
 			Evento eve = new Evento();		
 			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
-			evAux2.mostrarFicha(user);
+			evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
 			
 			System.out.println();
 		}		
 	}
 	
-	public void buscarGenero(String user) throws IOException
+	public void buscarGenero() throws IOException
 	{
 		int i;
 		System.out.println("\nElija uno de los siguientes géneros:"
@@ -269,7 +270,7 @@ public class Busquedas {
 				
 				//System.out.println("Se ha encontrado: " + user.getNombre());
 				
-				evAux2.mostrarFicha(user);
+				evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
 				
 				System.out.println();
 			}

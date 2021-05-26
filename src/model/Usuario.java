@@ -14,6 +14,8 @@ import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import application.Main;
+
 public class Usuario
 {
 	Scanner sc = new Scanner(System.in);
@@ -38,82 +40,93 @@ public class Usuario
 			+","+this.getSexo()+","+this.getEsAdmin());
 	}
 	
-	public Usuario Administrador() throws IOException
+	public Usuario Administrador() throws Exception
 	{
-		File tablaAmigos = new File("amistades.csv");
-		BufferedWriter bw;
-		PrintWriter pw;
-		int elec;
-
-		System.out.println("Se ha detectado que su usuario es administrador");
-		System.out.println("¿Que dato desea Hacer?");
-		System.out.println("Pulse (1) para a\u00f1adir Administrador "
-				+ "\nPulse (2) para a\u00f1adir evento"
-				+ "\nPulse (3) para eliminar evento"
-				);
-		elec = sc.nextInt();
-		switch(elec)
+		String ruta = "eventos.csv";
+		EditarCSV editarEventos = new EditarCSV(ruta);
+		boolean haCargado;
+		boolean puedeSalir = false;
+		String elec = "";
+		do
 		{
-		case 1:
-			File tablaUsuarios = new File("usuarios.csv");
-			Scanner reader = new Scanner(tablaUsuarios);
-			bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
-			pw = new PrintWriter(bw);
-
-			//sCadena.toLowerCase()
-			String linea = reader.nextLine();
-			String[] usuarioDividido = linea.split(",");
-
-			System.out.println("Introduzca el nombre del usuario: ");
-			String nombreAux = sc.next();
-			if(usuarioDividido[1].equals(nombreAux)) {
-				int columna = 9;
-				System.out.println("llega aquí 1");
-				EditarCSV CSV = new EditarCSV("usuarios.csv");
-				boolean edit = CSV.modificarValor(columna, nombreAux);
-			}
-			break;
-		case 2:
-			File tablaEventos = new File("eventos.csv");
-			Scanner read = new Scanner(tablaEventos);
-			bw = new BufferedWriter(new FileWriter(tablaEventos, true));
-			pw = new PrintWriter(bw);
-			System.out.println("Introduce nombre del Artista: ");
-			String ArtistaAux = sc.next();
-			setNombre(ArtistaAux);
-			System.out.println("Introduce ciudad: ");
-			String CiudadAux = sc.next();
-			setNombre(CiudadAux);
-			System.out.println("Introduce fecha: ");
-			String FechaAux = sc.next();
-			setNombre(FechaAux);
-			System.out.println("Introduce precio m\u00ednimo: ");
-			String MinimoAux = sc.next();
-			setNombre(MinimoAux);
-			System.out.println("Introduce precio m\u00e1ximo: ");
-			String MaximoAux = sc.next();
-			setNombre(MaximoAux);
-			System.out.println("Introduce ubicaci\u00f3n: ");
-			String UbicacionAux = sc.next();
-			setNombre(UbicacionAux);
-			System.out.println("Introduce genero: ");
-			String GeneroAux = sc.next();
-			setNombre(GeneroAux);
-			String lineas = "1," + ArtistaAux + "," + CiudadAux +"," +FechaAux+"," +MinimoAux+","+MaximoAux+","+UbicacionAux+","+GeneroAux;
-			pw.println(lineas);
-			pw.flush();
-			pw.close(); 
-			bw.close();
-			break;
-		case 3:
-			File tablaEvento = new File("eventos.csv");
-			Scanner rea = new Scanner(tablaEvento);
-			bw = new BufferedWriter(new FileWriter(tablaEvento, true));
-			pw = new PrintWriter(bw);
-
-			break;
-		}
-
+			System.out.println("Se ha detectado que su usuario es administrador");
+			System.out.println("¿Qué desea hacer?");
+			System.out.println("Pulse (0) para cerrar sesión"
+					+ "\nPulse (1) para a\u00f1adir un evento"
+					+ "\nPulse (2) para eliminar un evento"
+					+ "\nPulse (3) para continuar como usuario standard");
+			elec = sc.nextLine();
+			switch(elec)
+			{			
+				case "0":
+					System.out.println("\nCerrando sesión...\n");
+					puedeSalir = true;
+					break;
+				case "1":
+					File tablaEventos = new File(ruta);
+					Scanner reader = new Scanner(tablaEventos);
+					haCargado = editarEventos.cargarCSV();
+					if(haCargado == true)
+					{
+						Evento eventoAux = new Evento();
+						String id = String.valueOf(eventoAux.generarID());
+						System.out.println("Introduzca el artista que actúa en el evento: ");
+						String artista = sc.nextLine();
+						System.out.println("Introduzca la ciudad donde se da el evento: ");
+						String ciudad = sc.nextLine();
+						System.out.println("Introduzca el escenario donde se da el evento: ");
+						String lugar = sc.nextLine();
+						System.out.println("Introduzca la fecha del evento (DD/MM/YYYY): ");
+						String fecha = sc.nextLine();
+						System.out.println("Introduzca el precio más bajo del evento: ");
+						String precioMin = sc.nextLine();
+						System.out.println("Introduzca el precio más alto del evento: ");
+						String precioMax = sc.nextLine();
+						System.out.println("Introduzca el género musical al que pertenece el evento: ");
+						String genero = sc.nextLine();
+						
+						String[] evento = {id, artista, ciudad, fecha, precioMin, precioMax, lugar, genero};
+						editarEventos.addFila(evento);
+						System.out.println("Evento añadido correctamente\n");
+					}
+					else
+					{
+						System.out.println("Algo pasó con el fichero: " + ruta);
+					}
+					puedeSalir = false;
+					reader.close();
+					break;
+				case "2":
+					System.out.println("Introduzca el artista que actúa en el evento: ");
+					String artista = sc.nextLine();
+					System.out.println("Introduzca la fecha del evento (DD/MM/YYYY): ");
+					String fecha = sc.nextLine();
+					Evento eventoAux = new Evento();
+					int filaBorrar = eventoAux.buscarEvento(artista, fecha);
+					editarEventos = new EditarCSV("eventos.csv");
+					System.out.println(filaBorrar);
+					haCargado = editarEventos.cargarCSV();
+					if(haCargado == true)
+					{
+						editarEventos.delFila(filaBorrar);
+						System.out.println("Evento eliminado correctamente\n");
+					}
+					else
+					{
+						System.out.println("Algo pasó con el fichero: " + ruta);
+					}
+					puedeSalir = false;
+					break;
+				case "3":
+					Main.Menu(Main.getSesionIniciada());
+					elec = "0";
+					break;
+				default:
+					System.out.println("Valor introducido incorrecto. Intente de nuevo\n");
+					puedeSalir = false;
+			}			
+		} while(puedeSalir == true);
+		
 		return this;
 	}
 
@@ -136,13 +149,13 @@ public class Usuario
 				String linea = reader.nextLine();
 				String[] amistadDividida = linea.split(",");
 				
-				if(amistadDividida[0].equals(this.getUser()) && amistadDividida[1].equals(this.getUserMain().getUser()))
+				if(amistadDividida[0].equals(this.getUser()) && amistadDividida[1].equals(Main.getSesionIniciada().getUser()))
 				{
 					esAmigo = true;
 				}
 				else
 				{
-					if(amistadDividida[0].equals(this.getUserMain().getUser()) && amistadDividida[1].equals(this.getUser()))
+					if(amistadDividida[0].equals(Main.getSesionIniciada().getUser()) && amistadDividida[1].equals(this.getUser()))
 					{
 						esAmigo = true;
 					}					
@@ -212,7 +225,7 @@ public class Usuario
 		String eleccion;
 		do
 		{
-			System.out.println("ï¿½Que dato desea a\u00f1adir?");
+			System.out.println("ï¿½Qué dato desea a\u00f1adir?");
 			System.out.println("\nPulse (1) para terminar la configuración"
 							+ "\nPulse (2) para cambiar su contrase\u00f1a"
 							+ "\nPulse (3) para cambiar su nombre"

@@ -41,7 +41,29 @@ public class Evento
 	{
 		return (artista_ + " en " + ciudad_ + ", día " + fecha_);
 	}
-
+	
+	public int generarID()
+	{
+		int resultado = -665;
+		try
+		{
+			Scanner reader = new Scanner(new File("eventos.csv"));
+			while(reader.hasNextLine())
+			{
+				String linea = reader.nextLine();
+				String[] eventoDividido = linea.split(",");
+				
+				int idAux = Integer.parseInt(eventoDividido[0]);
+				if(idAux > resultado)
+				{
+					resultado = idAux;
+				}
+			}
+			reader.close();
+		}
+		catch(Exception e) { System.out.println("Problemas con el fichero"); }
+		return resultado+1;
+	}
 	public Evento buscarEvento(String id)
 	{
 		BufferedReader reader = null;
@@ -50,9 +72,6 @@ public class Evento
 		String csvFile = "eventos.csv";
 
 		Evento evAux = new Evento();
-
-		int encontrado = 0;
-
 		try
 		{
 			reader = new BufferedReader(new FileReader(csvFile));
@@ -75,9 +94,32 @@ public class Evento
 			reader.close();
 			return evAux;
 
-		}catch(Exception e) {}
+		}catch(Exception e) { System.out.println("Problemas con el fichero"); }
 
 		return evAux;
+	}
+	
+	public int buscarEvento(String artista, String fecha)
+	{
+		int filaBorrar = -70;
+		int contador = 0;
+		try
+		{
+			Scanner reader = new Scanner(new File("eventos.csv"));
+			while(reader.hasNextLine())
+			{
+				String linea = reader.nextLine();
+				String[] eventoDividido = linea.split(",");
+				
+				if(eventoDividido[1].equals(artista) && eventoDividido[3].equals(fecha))
+				{
+					filaBorrar = contador; 
+				}
+				contador++;
+			}
+		} catch(Exception e) { System.out.println("Problemas con el fichero"); }
+		
+		return filaBorrar;
 	}
 
 	public Vector<Evento> buscarEventosPorArtista(String Artista)
