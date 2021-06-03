@@ -11,8 +11,11 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.io.IOException;
 import java.security.InvalidParameterException;
+import java.text.SimpleDateFormat;
+
 import javax.mail.MessagingException;
 
+import java.util.Date;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.Multipart;
@@ -181,6 +184,54 @@ public class Evento
 				
 				if(precioEvento <= precioIntroducido)
 				{
+					Evento evAux = new Evento();
+					evAux.setId_(eventoDividido[0]);
+					evAux.setArtista_(eventoDividido[1]);
+					evAux.setCiudad_(eventoDividido[2]);
+					evAux.setFecha_(eventoDividido[3]);
+					evAux.setPrecioMin_(eventoDividido[4]);
+					evAux.setPrecioMax_(eventoDividido[5]);
+					evAux.setLugar_(eventoDividido[6]);
+					evAux.setGenero_(eventoDividido[7]);
+					eventos.add(evAux);
+				}
+			}
+			reader.close();
+			return eventos;
+
+		}catch(Exception e) {
+			System.out.println("ERROR");
+		}
+
+		return eventos;
+	}
+	
+	public Vector<Evento> buscarEventosPorFecha(String fecha1, String fecha2)
+	{
+		Vector<Evento> eventos = new Vector<Evento>();
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+
+		try
+		{
+			reader = new BufferedReader(new FileReader(csvFile));
+
+			while ((line = reader.readLine()) != null)
+			{      
+				String[] eventoDividido = line.split(cvsSplit);
+				
+				
+				Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(fecha1);  
+				Date date2=new SimpleDateFormat("dd/MM/yyyy").parse(fecha2); 
+				Date dateAct=new SimpleDateFormat("dd/MM/yyyy").parse(eventoDividido[3]);  
+				
+				//System.out.println(dateAct);
+				
+				if(date2.after(dateAct) && date1.before(dateAct))
+				{
+					//System.out.println("ENTRA");
 					Evento evAux = new Evento();
 					evAux.setId_(eventoDividido[0]);
 					evAux.setArtista_(eventoDividido[1]);

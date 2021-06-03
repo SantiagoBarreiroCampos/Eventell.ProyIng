@@ -138,7 +138,8 @@ public class Main
 							+ "\nPulse (2) si desea buscar eventos por cuidad"
 							+ "\nPulse (3) si desea buscar eventos por genero musical"
 							+ "\nPulse (4) si desea buscar eventos por precio maximo"
-							+ "\nPulse (5) si desea buscar otros usuarios");
+							+ "\nPulse (5) si desea buscar eventos por fecha"
+							+ "\nPulse (6) si desea buscar otros usuarios");
 					
 					eleccion = sc1.nextLine();
 				
@@ -157,6 +158,9 @@ public class Main
 							busqueda.buscarPrecio();
 							break;
 						case "5":
+							busqueda.buscarFecha();
+							break;	
+						case "6":
 							busqueda.buscarUsuario(sesionIniciada);
 							break;						
 						default:

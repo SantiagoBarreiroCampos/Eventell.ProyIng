@@ -196,6 +196,43 @@ public class Busquedas {
 		}		
 	}
 	
+	public void buscarFecha() throws IOException
+	{
+		System.out.println("Introduzca dos fechas entre las que buscar eventos:");	
+		System.out.println("Fecha 1:");
+		String fecha1 = sc.next();
+		System.out.println("Fecha 2:");
+		String fecha2 = sc.next();
+		
+		int i;
+		Evento ev = new Evento();
+		Vector <Evento> evAux = ev.buscarEventosPorFecha(fecha1, fecha2);
+		
+		System.out.println("------EVENTOS ENTRE "+fecha1+" Y "+fecha2+"------");
+		for(i =0; i<evAux.size(); i++)
+		{
+			System.out.println((i+1) +" "+ evAux.get(i).infoEvento());
+		}
+		
+		System.out.println();
+		
+		System.out.println("Introduzca el numero del evento que desea consultar");
+		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
+		int numEvento = sc.nextInt();
+		if(numEvento <= 0 || numEvento > evAux.size())
+		{
+			
+		}
+		else
+		{
+			Evento eve = new Evento();		
+			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
+			evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
+			
+			System.out.println();
+		}		
+	}
+	
 	public void buscarGenero() throws IOException
 	{
 		int i;
