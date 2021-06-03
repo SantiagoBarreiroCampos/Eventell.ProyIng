@@ -160,6 +160,49 @@ public class Evento
 		return eventos;
 	}
 	
+	public Vector<Evento> buscarEventosPorPrecio(String Precio)
+	{
+		Vector<Evento> eventos = new Vector<Evento>();
+		BufferedReader reader = null;
+		String line = "";
+		String cvsSplit = ",";
+		String csvFile = "eventos.csv";
+
+		try
+		{
+			reader = new BufferedReader(new FileReader(csvFile));
+
+			while ((line = reader.readLine()) != null)
+			{      
+				String[] eventoDividido = line.split(cvsSplit);
+				
+				float precioEvento = Float.parseFloat(eventoDividido[5]);
+				float precioIntroducido = Float.parseFloat(Precio);
+				
+				if(precioEvento <= precioIntroducido)
+				{
+					Evento evAux = new Evento();
+					evAux.setId_(eventoDividido[0]);
+					evAux.setArtista_(eventoDividido[1]);
+					evAux.setCiudad_(eventoDividido[2]);
+					evAux.setFecha_(eventoDividido[3]);
+					evAux.setPrecioMin_(eventoDividido[4]);
+					evAux.setPrecioMax_(eventoDividido[5]);
+					evAux.setLugar_(eventoDividido[6]);
+					evAux.setGenero_(eventoDividido[7]);
+					eventos.add(evAux);
+				}
+			}
+			reader.close();
+			return eventos;
+
+		}catch(Exception e) {
+			System.out.println("ERROR");
+		}
+
+		return eventos;
+	}
+	
 	public Vector<Evento> buscarEventosPorCiudad(String Ciudad)
 	{
 		Vector<Evento> eventos = new Vector<Evento>();

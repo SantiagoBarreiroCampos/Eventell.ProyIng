@@ -161,6 +161,41 @@ public class Busquedas {
 		}		
 	}
 	
+	
+	public void buscarPrecio() throws IOException
+	{
+		System.out.println("Introduzca el precio maximo");				
+		String precio = sc.nextLine();
+		
+		int i;
+		Evento ev = new Evento();
+		Vector <Evento> evAux = ev.buscarEventosPorPrecio(precio);
+		
+		System.out.println("------EVENTOS POR "+precio+"€------");
+		for(i =0; i<evAux.size(); i++)
+		{
+			System.out.println((i+1) +" "+ evAux.get(i).infoEvento());
+		}
+		
+		System.out.println();
+		
+		System.out.println("Introduzca el numero del evento que desea consultar");
+		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
+		int numEvento = sc.nextInt();
+		if(numEvento <= 0 || numEvento > evAux.size())
+		{
+			
+		}
+		else
+		{
+			Evento eve = new Evento();		
+			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
+			evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
+			
+			System.out.println();
+		}		
+	}
+	
 	public void buscarGenero() throws IOException
 	{
 		int i;
@@ -275,9 +310,5 @@ public class Busquedas {
 				System.out.println();
 			}
 		}
-	}
-	public void buscarPrecio()
-	{
-		
 	}
 }
