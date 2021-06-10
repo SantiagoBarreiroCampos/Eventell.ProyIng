@@ -3,10 +3,12 @@ package application;
 import model.Busquedas;
 import model.EditarCSV;
 import model.Evento;
+import model.GeneroFavorito;
 import model.ListaAmigos;
 import model.ListaArtistasFavoritos;
 import model.ListaEventosFavoritos;
 import model.ListaUsuarios;
+import model.Recomendaciones;
 import model.Usuario;
 
 import java.io.FileNotFoundException;
@@ -168,6 +170,12 @@ public class Main
 					}
 					break;
 				case "6":
+					 Usuario user = sesionIniciada.buscarUsuarioPorUser(sesionIniciada.getUser());
+					Recomendaciones recomendaciones = new Recomendaciones(user.getCiudad(),user);
+					GeneroFavorito generofavorito = new GeneroFavorito();
+					recomendaciones.ListarEventos();
+				
+					
 					break;
 				case "7":
 					sesionIniciada.DarseBaja();
