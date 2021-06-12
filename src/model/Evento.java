@@ -362,6 +362,7 @@ public class Evento
 	public void mostrarFicha(String user) throws IOException
 	{
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		Scanner sc2 = new Scanner(System.in);
 		File tablaEventos = new File("eventosFavoritos.csv");
 		Scanner reader = new Scanner(tablaEventos);
 		BufferedWriter bw;
@@ -405,8 +406,7 @@ public class Evento
 			System.out.println("Pulsa (2) para compartir el evento");			
 			System.out.println("Pulsa (0) para regresar al men\u00fa");
 
-			String eleccion = sc.nextLine();
-
+			String eleccion = sc2.next();
 			switch(eleccion)
 			{
 			case "0":
@@ -449,9 +449,9 @@ public class Evento
 				Usuario userAux = new Usuario();
 				userAux.buscarUsuarioPorUser(user);
 				amigos.buscarAmigos(userAux);
-				int i;
 				String correoAmigo = amigos.consultaCorreoDeAmigos();
 				correo.enviarCorreo(correoAmigo, user, this);
+				puedeSalir = true;
 				break;				
 			default:
 				System.out.println("Dato introducido incorrecto. Intente de nuevo");

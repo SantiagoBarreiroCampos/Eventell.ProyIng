@@ -81,48 +81,95 @@ public class ListaArtistasFavoritos
 		
 		System.out.println("Introduzca el numero del Artista que desea consultar");
 		System.out.println("Pulse cualquier otro numero para volver al menu principal");
-		int numArtista = sc.nextInt();
+		String numArtista = sc.next();
 		
-		if(numArtista <= 0 || numArtista > artistas_.size()) {
-			
-		}
-		else {
-			Evento ev = new Evento();
-			//System.out.println("Todo bien");
-			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
-			//System.out.println(artistas_.get(numArtista - 1));
-			Vector <Evento> evAux = ev.buscarEventosPorArtista(artistas_.get(numArtista - 1));
-			
-			//System.out.println("Se ha encontrado: " + user);
-			
-			System.out.println("------FICHA DE ARTISTA------");
-			System.out.println("Nombre :" + artistas_.get(numArtista - 1));
-			System.out.println("Eventos: ");
-			for(i =0; i<evAux.size(); i++) {
-				System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
-			}
-			
-			System.out.println();
-			
-			System.out.println("Introduzca el numero del evento que desea consultar");
-			System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
-			int numEvento = sc.nextInt();
-			if(numEvento <= 0 || numEvento > evAux.size()) {
-				
-			}
-			else {
+		for (i=0; i<artistas_.size()+1; i++) {
+			String num = String.valueOf(i);
+			if(num.equals(numArtista)) {
 				Evento eve = new Evento();
 				
 				//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
-				
-				Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());
-				
-				//System.out.println("Se ha encontrado: " + user.getNombre());
-				
-				evAux2.mostrarFicha(user);
-				
-				System.out.println();
+				if(i!=0) {
+					Evento ev = new Evento();
+					
+					Vector <Evento> evAux = ev.buscarEventosPorArtista(artistas_.get(i - 1));
+					
+					
+					System.out.println("------FICHA DE ARTISTA------");
+					System.out.println("Nombre :" + artistas_.get(i - 1));
+					System.out.println("Eventos: ");
+					for(i =0; i<evAux.size(); i++) {
+						System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
+					}
+					
+					System.out.println();
+					
+					System.out.println("Introduzca el numero del evento que desea consultar");
+					System.out.println("Introduzca cualquier otra tecla para volver al menu principal");
+					String numEvento = sc.next();
+					
+					for (i=0; i<evAux.size()+1; i++) {
+						String nume = String.valueOf(i);
+						if(nume.equals(numEvento)) {
+							Evento even = new Evento();
+							
+							//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+							if(i!=0) {
+								Evento evAux2 = even.buscarEvento(evAux.get(i-1).getId_());
+								
+								
+								//System.out.println("Se ha encontrado: " + user.getNombre());
+								
+								evAux2.mostrarFicha(user);
+								
+								System.out.println();
+							}
+						}
+					}
+				}
 			}
 		}
+		
+//		if(numArtista <= 0 || numArtista > artistas_.size()) {
+//			
+//		}
+//		else {
+//			Evento ev = new Evento();
+//		
+//			Vector <Evento> evAux = ev.buscarEventosPorArtista(artistas_.get(numArtista - 1));
+//			
+//			
+//			System.out.println("------FICHA DE ARTISTA------");
+//			System.out.println("Nombre :" + artistas_.get(numArtista - 1));
+//			System.out.println("Eventos: ");
+//			for(i =0; i<evAux.size(); i++) {
+//				System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
+//			}
+//			
+//			System.out.println();
+//			
+//			System.out.println("Introduzca el numero del evento que desea consultar");
+//			System.out.println("Introduzca cualquier otra tecla para volver al menu principal");
+//			String numEvento = sc.next();
+//			
+//			for (i=0; i<evAux.size()+1; i++) {
+//				String num = String.valueOf(i);
+//				if(num.equals(numEvento)) {
+//					Evento eve = new Evento();
+//					
+//					//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+//					if(i!=0) {
+//						Evento evAux2 = eve.buscarEvento(evAux.get(i-1).getId_());
+//						
+//						
+//						//System.out.println("Se ha encontrado: " + user.getNombre());
+//						
+//						evAux2.mostrarFicha(user);
+//						
+//						System.out.println();
+//					}
+//				}
+//			}
+//		}
 	}
 }

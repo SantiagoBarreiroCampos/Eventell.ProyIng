@@ -85,18 +85,35 @@ public class ListaEventosFavoritos {
 		
 		System.out.println("Introduzca el n\u00famero del evento que desea consultar");
 		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
-		int numEvento = sc.nextInt();
-		if(numEvento <= 0 || numEvento > eventos_.size()) {
-			
+		String numEvento = sc.next();
+		
+		for (i=0; i<eventos_.size()+1; i++) {
+			String num = String.valueOf(i);
+			if(num.equals(numEvento)) {
+				
+				//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+				if(i!=0) {
+					Evento ev = new Evento();
+					
+					Evento evAux = ev.buscarEvento(idEventos_.get(i - 1));
+					
+					evAux.mostrarFicha(user);
+					
+					System.out.println();
+				}
+			}
 		}
-		else {
-			Evento ev = new Evento();
-			
-			Evento evAux = ev.buscarEvento(idEventos_.get(numEvento - 1));
-			
-			evAux.mostrarFicha(user);
-			
-			System.out.println();
-		}
+//		if(numEvento <= 0 || numEvento > eventos_.size()) {
+//			
+//		}
+//		else {
+//			Evento ev = new Evento();
+//			
+//			Evento evAux = ev.buscarEvento(idEventos_.get(numEvento - 1));
+//			
+//			evAux.mostrarFicha(user);
+//			
+//			System.out.println();
+//		}
 	}
 }

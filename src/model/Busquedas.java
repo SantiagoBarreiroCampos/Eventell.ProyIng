@@ -146,19 +146,22 @@ public class Busquedas {
 		
 		System.out.println("Introduzca el numero del evento que desea consultar");
 		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
-		int numEvento = sc.nextInt();
-		if(numEvento <= 0 || numEvento > evAux.size())
-		{
-			
+		try {
+			int numEvento = sc.nextInt();
+			if(numEvento <= 0 || numEvento > evAux.size())
+			{
+				
+			}
+			else
+			{
+				Evento eve = new Evento();		
+				Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
+				evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
+				
+				System.out.println();
+			}		
+		}catch(Exception e) {
 		}
-		else
-		{
-			Evento eve = new Evento();		
-			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
-			evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
-			
-			System.out.println();
-		}		
 	}
 	
 	
@@ -181,19 +184,21 @@ public class Busquedas {
 		
 		System.out.println("Introduzca el numero del evento que desea consultar");
 		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
-		int numEvento = sc.nextInt();
-		if(numEvento <= 0 || numEvento > evAux.size())
-		{
-			
-		}
-		else
-		{
-			Evento eve = new Evento();		
-			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
-			evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
-			
-			System.out.println();
-		}		
+		try {
+			int numEvento = sc.nextInt();
+			if(numEvento <= 0 || numEvento > evAux.size())
+			{
+				
+			}
+			else
+			{
+				Evento eve = new Evento();		
+				Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
+				evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
+				
+				System.out.println();
+			}	
+		}catch(Exception e) {}
 	}
 	
 	public void buscarFecha() throws IOException
@@ -218,19 +223,21 @@ public class Busquedas {
 		
 		System.out.println("Introduzca el numero del evento que desea consultar");
 		System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
-		int numEvento = sc.nextInt();
-		if(numEvento <= 0 || numEvento > evAux.size())
-		{
-			
-		}
-		else
-		{
-			Evento eve = new Evento();		
-			Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
-			evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
-			
-			System.out.println();
-		}		
+		try {
+			int numEvento = sc.nextInt();
+			if(numEvento <= 0 || numEvento > evAux.size())
+			{
+				
+			}
+			else
+			{
+				Evento eve = new Evento();		
+				Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());			
+				evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
+				
+				System.out.println();
+			}	
+		}catch(Exception e) {}
 	}
 	
 	public void buscarGenero() throws IOException
@@ -299,53 +306,57 @@ public class Busquedas {
 		
 		System.out.println("Introduzca el numero del Artista que desea consultar");
 		System.out.println("Pulse cualquier otro numero para volver al menu principal");
-		int numArtista = sc.nextInt();
-		
-		if(numArtista <= 0 || numArtista > artistas.size())
-		{
+		try {
+			int numArtista = sc.nextInt();
 			
-		}
-		else
-		{
-			Evento ev = new Evento();
-			//System.out.println("Todo bien");
-			//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
-			//System.out.println(artistas_.get(numArtista - 1));
-			Vector <Evento> evAux = ev.buscarEventosPorArtista(artistas.get(numArtista - 1));
-			
-			//System.out.println("Se ha encontrado: " + user);
-			
-			System.out.println("------FICHA DE ARTISTA------");
-			System.out.println("Nombre :" + artistas.get(numArtista - 1));
-			System.out.println("Eventos: ");
-			for(i =0; i<evAux.size(); i++)
-			{
-				System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
-			}
-			
-			System.out.println();
-			
-			System.out.println("Introduzca el numero del evento que desea consultar");
-			System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
-			int numEvento = sc.nextInt();
-			if(numEvento <= 0 || numEvento > evAux.size())
+			if(numArtista <= 0 || numArtista > artistas.size())
 			{
 				
 			}
 			else
 			{
-				Evento eve = new Evento();
-				
+				Evento ev = new Evento();
+				//System.out.println("Todo bien");
 				//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+				//System.out.println(artistas_.get(numArtista - 1));
+				Vector <Evento> evAux = ev.buscarEventosPorArtista(artistas.get(numArtista - 1));
 				
-				Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());
+				//System.out.println("Se ha encontrado: " + user);
 				
-				//System.out.println("Se ha encontrado: " + user.getNombre());
-				
-				evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
+				System.out.println("------FICHA DE ARTISTA------");
+				System.out.println("Nombre :" + artistas.get(numArtista - 1));
+				System.out.println("Eventos: ");
+				for(i =0; i<evAux.size(); i++)
+				{
+					System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
+				}
 				
 				System.out.println();
+				
+				System.out.println("Introduzca el numero del evento que desea consultar");
+				System.out.println("Pulse cualquier otro n\u00famero para volver al menu principal");
+				try {
+					int numEvento = sc.nextInt();
+					if(numEvento <= 0 || numEvento > evAux.size())
+					{
+						
+					}
+					else
+					{
+						Evento eve = new Evento();
+						
+						//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
+						
+						Evento evAux2 = eve.buscarEvento(evAux.get(numEvento - 1).getId_());
+						
+						//System.out.println("Se ha encontrado: " + user.getNombre());
+						
+						evAux2.mostrarFicha(Main.getSesionIniciada().getUser());
+						
+						System.out.println();
+					}
+				}catch(Exception e) {}
 			}
-		}
+		}catch(Exception e) {}
 	}
 }

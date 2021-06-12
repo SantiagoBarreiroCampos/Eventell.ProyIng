@@ -80,7 +80,7 @@ public class Main
 	public static void Menu(Usuario sesionIniciada) throws Exception
 	{
 		Scanner sc = new Scanner(System.in);
-		String eleccion2;
+		String eleccion2 = "A";
 		String SesionIniciada = sesionIniciada.getUser();
 		ListaUsuarios listaUsuarios = new ListaUsuarios();
 		listaUsuarios.RellenarVector();
@@ -97,7 +97,7 @@ public class Main
 							+ "\nPulse (5) para iniciar una busqueda"
 							+ "\nPulse (6) para solicitar sugerencias de eventos"
 							+ "\nPulse (7) para darse de baja en el sistema");
-			eleccion2 = sc.nextLine();
+			eleccion2 = sc.next();
 				
 			switch(eleccion2)
 			{

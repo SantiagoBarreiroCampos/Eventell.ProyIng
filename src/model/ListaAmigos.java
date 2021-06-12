@@ -90,19 +90,20 @@ public class ListaAmigos {
 		}
 		System.out.println("\nIntroduzca el numero del amigo que desea consultar");
 		System.out.println("Pulse cualquier otro numero para volver al menu principal");
-		int numAmigo = sc.nextInt();
-		if(numAmigo <= 0 || numAmigo > amigos_.size())
-		{
-			
+		String numAmigo = sc.next();
+		
+		for (i=0; i<amigos_.size()+1; i++) {
+			String num = String.valueOf(i);
+			if(num.equals(numAmigo)) {
+				if(i!=0) {
+					Usuario user = new Usuario();			
+					user.buscarUsuarioPorUser(amigos_.get(i - 1));			
+					user.mostrarFicha();		
+					System.out.println();
+				}
+			}
 		}
-		else
-		{
-			Usuario user = new Usuario();			
-			user.buscarUsuarioPorUser(amigos_.get(numAmigo - 1));			
-			user.mostrarFicha();		
-			System.out.println();
-		}
-		sc.close();
+		//sc.close();
 	}
 	
 	public String consultaCorreoDeAmigos() throws IOException
@@ -110,29 +111,38 @@ public class ListaAmigos {
 		int i = 0;
 		String correo = null;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\n-----LISTA DE AMIGOS-----");
-		if(amigos_.size()<=0) {
-			System.out.println("No tiene amigos en su lista");
-		}
-		else {
-			for(i=0; i<amigos_.size(); i++) {
-				System.out.println((i+1)+" " +amigos_.get(i));
+		boolean correcto = false;
+		do {
+			System.out.println("\n-----LISTA DE AMIGOS-----");
+			if(amigos_.size()<=0) {
+				System.out.println("No tiene amigos en su lista");
 			}
-		}
-		System.out.println("\nIntroduzca el numero del amigo al que desea enviarle el evento");
-		System.out.println("Pulse cualquier otro numero para volver al menu principal");
-		int numAmigo = sc.nextInt();
-		if(numAmigo <= 0 || numAmigo > amigos_.size()) {
+			else {
+				for(i=0; i<amigos_.size(); i++) {
+					System.out.println((i+1)+" " +amigos_.get(i));
+				}
+			}
+			System.out.println("\nIntroduzca el numero del amigo al que desea enviarle el evento");
+			//System.out.println("Pulse cualquier otro numero para volver al menu principal");
+			String numAmigo = sc.next();
 			
-		}
-		else
-		{
-			Usuario user = new Usuario();		
-			user.buscarUsuarioPorUser(amigos_.get(numAmigo - 1));
-			correo = user.getCorreo();	
-			System.out.println();
-		}
-		sc.close();
+			for (i=0; i<amigos_.size()+1; i++) {
+				String num = String.valueOf(i);
+				if(num.equals(numAmigo)) {
+					if(i!=0) {
+						correcto = true;
+						Usuario user = new Usuario();		
+						user.buscarUsuarioPorUser(amigos_.get(i - 1));
+						correo = user.getCorreo();	
+						System.out.println();
+					}
+				}
+			}
+			if(correcto == false) {
+				System.out.println("El numero introducido no es correcto");
+			}
+		}while(correcto  == false);
+		
 		return correo;
 	}	
 }
