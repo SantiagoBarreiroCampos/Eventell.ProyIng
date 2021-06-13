@@ -42,6 +42,8 @@ public class Usuario
 			+","+this.getSexo()+","+this.getEsAdmin());
 	}
 	
+	//Este es el menú para los usuarios que son administradores
+	//se puede añadir un evento, eliminar un evento, y ver metricas
 	public Usuario Administrador() throws Exception
 	{
 		String ruta = "eventos.csv";
@@ -137,6 +139,7 @@ public class Usuario
 		return this;
 	}
 
+	//En este metodo se muestran las fichas de los usuarios
 	public void mostrarFicha() throws IOException
 	{
 		File tablaAmigos = new File("amistades.csv");
@@ -225,6 +228,8 @@ public class Usuario
 
 		reader.close();
 	}
+	
+	//En este metodo usamos el objeto Date para validar la fecha introducida por el usuario
 	public static boolean validarFecha(String fecha) throws java.text.ParseException {
         try {
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -236,6 +241,7 @@ public class Usuario
         return true;
     }
 
+	//En este metodo tenemos las configuraciones de perfil donde el usuario puede cambiar o añadir sus datos
 	public Usuario ConfigurarPerfil() throws IOException, java.text.ParseException
 	{
 		int numFila = 0;		
@@ -290,7 +296,7 @@ public class Usuario
 					break;
 				case "6":
 						boolean res=true;
-				        System.out.println("Dame la fecha");
+				        System.out.println("Dame la fecha (dd/mm/yyyy)");
 				        String fecha = sc.nextLine();
 				        res=validarFecha(fecha);
 				        if(res==true){
@@ -337,19 +343,18 @@ public class Usuario
 	}
 
 	
-
+//En este metodo el usuario se registra en la aplicacion 
 	public Usuario Registrarse() throws IOException
 	{
 		System.out.println("Le recordamos que no podrá asistir a ciertos eventos" +
 				"\nreservados con Eventell si es menor de edad\n");
-		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 		File tablaUsuarios = new File("usuarios.csv");
 		Scanner reader = new Scanner(tablaUsuarios);
 		BufferedWriter bw;
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
 		pw = new PrintWriter(bw);
-		// Hasta aqui las lineas que hay que copiar
+		
 
 		String correoAux;
 		boolean check = false;
@@ -357,7 +362,7 @@ public class Usuario
 		{
 			System.out.println("Introduce un correo electronico: ");
 			correoAux = sc.nextLine();
-			Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" //Aqui comprobamos que el correo introducido sea correcto 
 					+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 			Matcher matcher = pattern.matcher(correoAux);
 			if (matcher.find() == false) {
@@ -430,16 +435,17 @@ public class Usuario
 		return this;
 	}
 
+	//En este metodo el usuario se da de baja del sistema de tal forma que ya no será visible su cuenta pero no perdemos la informacion.
 	public void DarseBaja() throws IOException
 	{
-		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		
 		File tablaUsuarios = new File("usuarios.csv");
 		Scanner reader = new Scanner(tablaUsuarios);
 		BufferedWriter bw;
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
 		pw = new PrintWriter(bw);
-		// Hasta aqui las lineas que hay que copiar
+	
 
 		System.out.println("Está seguro que desea darse de baja?");
 		System.out.println("Pulse (0) para eliminar su cuenta");
@@ -469,7 +475,7 @@ public class Usuario
 					if(haCargado == true)
 					{
 						int numFila = editarUsuarios.buscarCoindicencias(0, "1", 1, this.getUser());
-						editarUsuarios.delFila(numFila-1); // Aun no va bien -> adaptar matriz
+						editarUsuarios.delFila(numFila-1); 
 						System.out.println("Regresando al men\u00fa de inicio de sesi\u00f3n...");
 					}
 					else
@@ -480,24 +486,25 @@ public class Usuario
 			}					
 		}
 
-		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
+		
 		pw.flush();
 		pw.close(); 
 		bw.close();
-		// Hasta aqui las lineas que hay que copiar
+		
 	}
 
+	//En este metodo el usuario inicia sesion 
 	public Usuario Login(String username, String contrasena) throws IOException
 	{ 
-		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		
 		File tablaUsuarios = new File("usuarios.csv");				
 		BufferedWriter bw;
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
 		pw = new PrintWriter(bw);
-		// Hasta aqui las lineas que hay que copiar
+		
 
-		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parï¿½metro el fichero que quiero leer
+		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parametro el fichero que quiero leer
 
 		//Leemos cada linea
 		int lineNumber = 0;
@@ -520,7 +527,7 @@ public class Usuario
 						setNombre(usuarioDividido[3]);
 						setApellidos(usuarioDividido[4]);
 						setCorreo(usuarioDividido[5]);
-						setNacimiento(usuarioDividido[6]); //-> No se usar tipo Date
+						setNacimiento(usuarioDividido[6]); 
 						setCiudad(usuarioDividido[7]);
 						setSexo(usuarioDividido[8]);
 						setEsAdmin(usuarioDividido[9]);
@@ -537,15 +544,16 @@ public class Usuario
 		}
 		else { System.out.println("Iniciando sesion...\n"); }
 
-		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
+		
 		pw.flush();
 		pw.close(); 
 		bw.close();
-		// Hasta aqui las lineas que hay que copiar
+		
 
 		return this;
 	}
 
+	//Este metodo lo usamos para comprobra loe eventos favoritos del usario 
 	public int ComprobarEventoFavorito(int id, String username) throws Exception
 	{
 		int respuesta = -1;
@@ -570,19 +578,20 @@ public class Usuario
 		return respuesta;
 	}
 
+	//Este metodo lo usamos para buscar en el usuario.csv un usuario
 	public  Usuario buscarUsuarioPorUser(String username) throws IOException
 	{ 
-		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		
 		File tablaUsuarios = new File("usuarios.csv");				
 		BufferedWriter bw;
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
 		pw = new PrintWriter(bw);
-		// Hasta aqui las lineas que hay que copiar
-
-		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parï¿½metro el fichero que quiero leer
 		
-		int lineNumber = 0; //Leemos cada lï¿½nea
+
+		Scanner reader = new Scanner(tablaUsuarios); //Le paso como parametro el fichero que quiero leer
+		
+		int lineNumber = 0; //Leemos cada linea
 		boolean encontrado = false;
 		while(reader.hasNextLine())
 		{
@@ -599,7 +608,7 @@ public class Usuario
 					setNombre(usuarioDividido[3]);
 					setApellidos(usuarioDividido[4]);
 					setCorreo(usuarioDividido[5]);
-					setNacimiento(usuarioDividido[6]); //-> No se usar tipo Date
+					setNacimiento(usuarioDividido[6]); 
 					setCiudad(usuarioDividido[7]);
 					setSexo(usuarioDividido[8]);
 					setEsAdmin(usuarioDividido[9]);
@@ -608,11 +617,11 @@ public class Usuario
 			lineNumber++;
 		}
 
-		// Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la BD
+		
 		pw.flush();
 		pw.close(); 
 		bw.close();
-		// Hasta aqui las lineas que hay que copiar
+		
 		return this;
 	}
 

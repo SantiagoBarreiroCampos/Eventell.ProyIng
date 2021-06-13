@@ -45,6 +45,7 @@ public class Evento
 		return (artista_ + " en " + ciudad_ + ", día " + fecha_);
 	}
 	
+	
 	public int generarID()
 	{
 		int resultado = -665;

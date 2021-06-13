@@ -58,8 +58,7 @@ public class Main
 					sesionIniciada = usuarioAux.Login(username, contrasena);
 					if(sesionIniciada.getUser() != null && sesionIniciada.getDisponible() == true && sesionIniciada.getEsAdmin().equals("1"))
 					{
-						Usuario AdminAux = new Usuario();
-						Usuario Admin = AdminAux.Administrador();
+						usuarioAux.Administrador();
 					}
 					
 					else if(sesionIniciada.getUser() != null && sesionIniciada.getDisponible() == true)

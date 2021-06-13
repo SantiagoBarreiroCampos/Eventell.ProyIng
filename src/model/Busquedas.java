@@ -10,7 +10,8 @@ import application.Main;
 public class Busquedas {
 	
 	private Scanner sc = new Scanner(System.in);
-
+	
+//En este metodo buscamos un usuario para añadirlo a amigos 
 	public void buscarUsuario(Usuario buscador)
 	{
 		System.out.println("Introduzca el username del amigo que busca: ");
@@ -37,6 +38,7 @@ public class Busquedas {
 		}
 	}
 	
+	//Hacemos una busqueda de eventos segun el nombre de algun artista
 	public void buscarArtista() throws IOException
 	{
 		Scanner reader = new Scanner(new File("artistasFavoritos.csv"));
@@ -98,7 +100,7 @@ public class Busquedas {
 					else
 					{
 						editarFavoritos.addFila(Main.getSesionIniciada().getUser(), nombre);
-						System.out.println("\nUsuario añadido a amigos correctamente\nRegresando al menú...\n");
+						System.out.println("\nUsuario añadido a favoritos correctamente\nRegresando al menú...\n");
 					}
 				}
 				else
@@ -127,6 +129,7 @@ public class Busquedas {
 		reader.close();
 	}
 
+	//Hacemos una busqueda de eventos segun la ciudad
 	public void buscarCiudad() throws IOException
 	{
 		System.out.println("Introduzca el nombre de la cuidad");				
@@ -164,7 +167,7 @@ public class Busquedas {
 		}
 	}
 	
-	
+	//hacemos una busqueda de eventos segun el precio
 	public void buscarPrecio() throws IOException
 	{
 		System.out.println("Introduzca el precio maximo");				
@@ -201,6 +204,7 @@ public class Busquedas {
 		}catch(Exception e) {}
 	}
 	
+	//Hacemos una busqueda de evnetos segun las fechas
 	public void buscarFecha() throws IOException
 	{
 		System.out.println("Introduzca dos fechas entre las que buscar eventos:");	
@@ -240,6 +244,7 @@ public class Busquedas {
 		}catch(Exception e) {}
 	}
 	
+	//Hacemos una busqueda de eventos segun el genero 
 	public void buscarGenero() throws IOException
 	{
 		int i;

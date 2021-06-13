@@ -25,18 +25,18 @@ public class ListaAmigos {
 	public void setAmigos(Vector<String> amigos){
 		this.amigos_ = amigos;
 	}
-		
+		//en esta funcion buscamos amigo por su usuario
 	public ListaAmigos buscarAmigos(Usuario user)
 	{
 		try
 		{
-			// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+			
 			File tablaAmistad = new File("amistades.csv");				
 			BufferedWriter bw;
 			PrintWriter pw;
 			bw = new BufferedWriter(new FileWriter(tablaAmistad, true));
 			pw = new PrintWriter(bw);
-			// Hasta aqui las lineas que hay que copiar
+			
 			
 			Scanner reader = new Scanner(tablaAmistad);  //Le paso como par?metro el fichero que quiero leer
 		
@@ -66,12 +66,11 @@ public class ListaAmigos {
 		   
 		}catch(Exception e) {}
 	    
-	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
- 		// Hasta aqui las lineas que hay que copiar
 		
 		return this;
 	}
 	
+	//mostramos la lista de amigos del usuario
 	public void mostrarAmigos() throws IOException
 	{
 		int i = 0;
@@ -105,6 +104,7 @@ public class ListaAmigos {
 		}
 		//sc.close();
 	}
+	
 	
 	public String consultaCorreoDeAmigos() throws IOException
 	{

@@ -22,17 +22,18 @@ public Vector<String> getGeneros()
 	return generos;
 }
 
+//hacemos una busqueda segun el genero favorito
 public GeneroFavorito buscarGenero(Usuario user)
 {
 	try
 	{
-		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		
 		File tablaGenero = new File("generosfavoritos.csv");				
 		BufferedWriter bw;
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaGenero, true));
 		pw = new PrintWriter(bw);
-		// Hasta aqui las lineas que hay que copiar
+		
 		
 		Scanner reader = new Scanner(tablaGenero);  //Le paso como parámetro el fichero que quiero leer
 	
@@ -58,9 +59,7 @@ public GeneroFavorito buscarGenero(Usuario user)
  		bw.close();
 	   
 	}catch(Exception e) {}
-    
-    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
-		// Hasta aqui las lineas que hay que copiar
+ 
 	
 	return this;
 }

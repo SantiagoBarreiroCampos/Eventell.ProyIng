@@ -14,14 +14,14 @@ public class ListaUsuarios
 	
 	public void RellenarVector() throws IOException
 	{
-		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+		
 		File tablaUsuarios = new File("usuarios.csv");
 		Scanner reader = new Scanner(tablaUsuarios);
 		BufferedWriter bw;
 		PrintWriter pw;
 		bw = new BufferedWriter(new FileWriter(tablaUsuarios, true));
 		pw = new PrintWriter(bw);
-		// Hasta aqui las lineas que hay que copiar
+		
 		
 		while(reader.hasNextLine())
 	    {

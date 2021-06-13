@@ -26,13 +26,13 @@ public class ListaArtistasFavoritos
 	{
 		try
 		{
-			// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+			
 			File tablaArtista = new File("artistasFavoritos.csv");				
 			BufferedWriter bw;
 			PrintWriter pw;
 			bw = new BufferedWriter(new FileWriter(tablaArtista, true));
 			pw = new PrintWriter(bw);
-			// Hasta aqui las lineas que hay que copiar
+			
 			
 			Scanner reader = new Scanner(tablaArtista);  //Le paso como parámetro el fichero que quiero leer
 		
@@ -59,8 +59,7 @@ public class ListaArtistasFavoritos
 		   
 		}catch(Exception e) {}
 	    
-	    // Poner estas lineas sin cambiar nada despues de cada vez que se quiera tocar algo de la B
- 		// Hasta aqui las lineas que hay que copiar
+	    
 		
 		return this;
 	}
@@ -130,46 +129,6 @@ public class ListaArtistasFavoritos
 			}
 		}
 		
-//		if(numArtista <= 0 || numArtista > artistas_.size()) {
-//			
-//		}
-//		else {
-//			Evento ev = new Evento();
-//		
-//			Vector <Evento> evAux = ev.buscarEventosPorArtista(artistas_.get(numArtista - 1));
-//			
-//			
-//			System.out.println("------FICHA DE ARTISTA------");
-//			System.out.println("Nombre :" + artistas_.get(numArtista - 1));
-//			System.out.println("Eventos: ");
-//			for(i =0; i<evAux.size(); i++) {
-//				System.out.println("	-" + (i+1) +" "+ evAux.get(i).infoEvento());
-//			}
-//			
-//			System.out.println();
-//			
-//			System.out.println("Introduzca el numero del evento que desea consultar");
-//			System.out.println("Introduzca cualquier otra tecla para volver al menu principal");
-//			String numEvento = sc.next();
-//			
-//			for (i=0; i<evAux.size()+1; i++) {
-//				String num = String.valueOf(i);
-//				if(num.equals(numEvento)) {
-//					Evento eve = new Evento();
-//					
-//					//System.out.println("Se va a consultar: " + amigos_.get(numAmigo - 1));
-//					if(i!=0) {
-//						Evento evAux2 = eve.buscarEvento(evAux.get(i-1).getId_());
-//						
-//						
-//						//System.out.println("Se ha encontrado: " + user.getNombre());
-//						
-//						evAux2.mostrarFicha(user);
-//						
-//						System.out.println();
-//					}
-//				}
-//			}
-//		}
+
 	}
 }

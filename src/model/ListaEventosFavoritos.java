@@ -16,13 +16,13 @@ public class ListaEventosFavoritos {
 	
 	public ListaEventosFavoritos buscarEventos(Usuario user) {
 		try {
-			// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
+			
 			File tablaEventoF = new File("eventosFavoritos.csv");				
 			BufferedWriter bw;
 			PrintWriter pw;
 			bw = new BufferedWriter(new FileWriter(tablaEventoF, true));
 			pw = new PrintWriter(bw);
-			// Hasta aqui las lineas que hay que copiar
+			
 			
 			Scanner reader = new Scanner(tablaEventoF);  //Le paso como parámetro el fichero que quiero leer
 						
@@ -103,17 +103,6 @@ public class ListaEventosFavoritos {
 				}
 			}
 		}
-//		if(numEvento <= 0 || numEvento > eventos_.size()) {
-//			
-//		}
-//		else {
-//			Evento ev = new Evento();
-//			
-//			Evento evAux = ev.buscarEvento(idEventos_.get(numEvento - 1));
-//			
-//			evAux.mostrarFicha(user);
-//			
-//			System.out.println();
-//		}
+
 	}
 }
