@@ -172,7 +172,6 @@ public class Main
 				case "6":
 					 Usuario user = sesionIniciada.buscarUsuarioPorUser(sesionIniciada.getUser());
 					Recomendaciones recomendaciones = new Recomendaciones(user.getCiudad(),user);
-					GeneroFavorito generofavorito = new GeneroFavorito();
 					recomendaciones.ListarEventos();
 				
 					

@@ -14,6 +14,8 @@ import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+
 import application.Main;
 
 public class Usuario
@@ -54,7 +56,8 @@ public class Usuario
 			System.out.println("Pulse (0) para cerrar sesión"
 					+ "\nPulse (1) para a\u00f1adir un evento"
 					+ "\nPulse (2) para eliminar un evento"
-					+ "\nPulse (3) para continuar como usuario standard");
+					+ "\nPulse (3) para ver las metricas"
+					+ "\nPulse (4) para continuar como usuario standard");
 			elec = sc.nextLine();
 			switch(elec)
 			{			
@@ -118,6 +121,10 @@ public class Usuario
 					puedeSalir = false;
 					break;
 				case "3":
+					Metricas metricas = new Metricas();
+					metricas.menuMetricas();
+					break;
+				case "4":
 					Main.Menu(Main.getSesionIniciada());
 					elec = "0";
 					break;
@@ -218,8 +225,18 @@ public class Usuario
 
 		reader.close();
 	}
+	public static boolean validarFecha(String fecha) throws java.text.ParseException {
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(fecha);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
 
-	public Usuario ConfigurarPerfil() throws IOException
+	public Usuario ConfigurarPerfil() throws IOException, java.text.ParseException
 	{
 		int numFila = 0;		
 		String eleccion;
@@ -272,12 +289,18 @@ public class Usuario
 					System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
 					break;
 				case "6":
-					System.out.println("Introduzca un año de nacimiento: ");
-					String year = sc.nextLine();
-					String mes = sc.nextLine();
-					String dia = sc.nextLine();
-					String fecha = dia +"/"+ mes +"/"+ year;
-					this.setNacimiento(fecha);
+						boolean res=true;
+				        System.out.println("Dame la fecha");
+				        String fecha = sc.nextLine();
+				        res=validarFecha(fecha);
+				        if(res==true){
+				        System.out.println("La fecha es valida");
+				            this.setNacimiento(fecha);
+				        }
+				        else {
+				                 System.out.println("La fecha no es valida");
+				        }
+					
 					System.out.println("OK. Sus datos se actualizarán cuando regrese al menú princial\n");
 					break;
 				case "7":
@@ -312,6 +335,8 @@ public class Usuario
 
 		return this;		
 	}
+
+	
 
 	public Usuario Registrarse() throws IOException
 	{
@@ -545,7 +570,7 @@ public class Usuario
 		return respuesta;
 	}
 
-	public Usuario buscarUsuarioPorUser(String username) throws IOException
+	public  Usuario buscarUsuarioPorUser(String username) throws IOException
 	{ 
 		// Poner estas lineas sin cambiar nada antes de cada vez que se quiera tocar algo de la BD
 		File tablaUsuarios = new File("usuarios.csv");				
