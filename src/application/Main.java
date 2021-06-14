@@ -95,7 +95,8 @@ public class Main
 							+ "\nPulse (4) para ver lista de eventos favoritos"
 							+ "\nPulse (5) para iniciar una busqueda"
 							+ "\nPulse (6) para solicitar sugerencias de eventos"
-							+ "\nPulse (7) para darse de baja en el sistema");
+							+ "\nPulse (7) para darse de baja en el sistema"
+							+ "\nPulse (8) para contactar a soporte al usuario");
 			eleccion2 = sc.next();
 				
 			switch(eleccion2)
@@ -178,6 +179,11 @@ public class Main
 				case "7":
 					sesionIniciada.DarseBaja();
 					volverAlMenu = sesionIniciada.getDisponible();
+					break;
+				case "8":
+					System.out.println("Si tiene algun problema con el fubcionamiento de la aplicacion"
+							+ "\nNo dude en ponerse en contacto con nosotros"
+							+ "\nEmail: uemeventell@gmail.com");
 					break;
 				default:				
 					System.out.println("El valor introducido no es correcto. Por favor, intentelo de nuevo\n");
